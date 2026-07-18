@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function OfficialTrailer() {
   return (
     <div className="official-trailer">
@@ -20,6 +22,9 @@ export default function OfficialTrailer() {
         <a href="https://www.youtube.com/watch?v=XRvd_HZesys" target="_blank" rel="noopener noreferrer">
           Watch on the official FLEXUS channel ↗
         </a>
+        <Link href="/dear-passengers-trailer">
+          Read the scene and feature breakdown →
+        </Link>
       </div>
     </div>
   );

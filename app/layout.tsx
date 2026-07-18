@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Barlow_Condensed, Manrope } from 'next/font/google';
-import GoogleServices from '@/components/GoogleServices';
+import GoogleServices, { GoogleConsentDefaults } from '@/components/GoogleServices';
 import './globals.css';
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -22,6 +22,7 @@ const body = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dearpassengers.net'),
+  referrer: 'strict-origin-when-cross-origin',
   title: {
     default: 'Dear Passengers Game: Release Date, Gameplay & Steam Guide',
     template: '%s | DearPassengers.net',
@@ -29,7 +30,14 @@ export const metadata: Metadata = {
   description:
     'Explore the Dear Passengers game, including its 2026 release window, co-op gameplay, player count, Steam platforms, system requirements, demo news, and FAQs.',
   applicationName: 'DearPassengers.net',
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    languages: {
+      en: '/',
+      'zh-CN': '/zh-cn/',
+      'x-default': '/',
+    },
+  },
   verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   other: googleAdsenseId ? { 'google-adsense-account': googleAdsenseId } : undefined,
   openGraph: {
@@ -72,6 +80,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <head>
+        <GoogleConsentDefaults />
+      </head>
       <body>
         {children}
         <GoogleServices />

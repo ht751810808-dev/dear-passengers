@@ -1,0 +1,378 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import EditorialNote from '@/components/EditorialNote';
+import FAQ, { type FaqItem } from '@/components/FAQ';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+
+const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+const COMMUNITY_URL = 'https://steamcommunity.com/app/4534960';
+const FLEXUS_URL = 'https://www.linkedin.com/company/flexusgames/';
+const INTERVIEW_URL = 'https://dev.ua/en/news/dear-passengers-1784100084';
+const AI_DISCUSSION_URL = 'https://steamcommunity.com/app/4534960/discussions/0/579425059539575636/';
+const TRAILER_DISCUSSION_URL = 'https://steamcommunity.com/app/4534960/discussions/0/579425059539564294/';
+const PAGE_URL = 'https://dearpassengers.net/dear-passengers-news/';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Dear Passengers News: Demo, Release & Wishlist Updates' },
+  description:
+    'Follow verified Dear Passengers news, including the 2026 reveal, 700,000-wishlist milestone, demo plans, developer AI response, trailer discussion, and updates.',
+  alternates: { canonical: '/dear-passengers-news/' },
+  openGraph: {
+    title: 'Dear Passengers News and Verified Update Timeline',
+    description: 'A dated, source-led log of Dear Passengers demo, release, wishlist, platform, and gameplay updates.',
+    url: PAGE_URL,
+    images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Dear Passengers news and update timeline' }],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dear Passengers News: Demo, Release & Wishlist Updates',
+    description: 'The latest confirmed Dear Passengers announcements in one dated source log.',
+    images: ['/images/og-image.png'],
+  },
+};
+
+const faqs: FaqItem[] = [
+  {
+    question: 'What is the latest Dear Passengers news?',
+    answer:
+      'The latest product updates remain FLEXUS reporting 700,000 Steam wishlists in 36 hours and founder Semen Kozyura confirming a Gamescom demo with a public demo planned later. On July 17, a developer also replied in Steam Community that no AI was used in the creation of Dear Passengers. Separate trailer-username criticism is a community and media discussion, not a gameplay or release change.',
+  },
+  {
+    question: 'Did Dear Passengers reach 700,000 wishlists?',
+    answer:
+      'Yes. FLEXUS reported on its official LinkedIn company page that Dear Passengers reached 700,000 wishlists in 36 hours. This is a developer-reported milestone, not an independently accessible Steam statistic.',
+  },
+  {
+    question: 'When is the next Dear Passengers update?',
+    answer:
+      'FLEXUS has not published a fixed update schedule. The known next playable milestone is a Gamescom demo, followed later by a public demo, but exact dates and access details remain unannounced.',
+  },
+  {
+    question: 'Has the Dear Passengers release date changed?',
+    answer:
+      'No exact date has been announced. Steam continues to list Dear Passengers for 2026 on Windows PC. Claims about a specific month, day, console launch, or Early Access date are unconfirmed.',
+  },
+  {
+    question: 'Where should I check official Dear Passengers news?',
+    answer:
+      'Check the Dear Passengers Steam page and Community Hub plus FLEXUS-controlled channels. This independent timeline links those sources and labels interviews, developer-reported milestones, current store facts, and unanswered questions separately.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: 'Dear Passengers News: Demo, Release and Wishlist Updates',
+  description: 'A dated source log for confirmed Dear Passengers announcements and store-page changes.',
+  mainEntityOfPage: PAGE_URL,
+  datePublished: '2026-07-17',
+  dateModified: '2026-07-18',
+  author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'DearPassengers.net',
+    url: 'https://dearpassengers.net/',
+    logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' },
+  },
+  image: 'https://dearpassengers.net/images/og-image.png',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Dear Passengers Game', item: 'https://dearpassengers.net/' },
+    { '@type': 'ListItem', position: 2, name: 'Dear Passengers News', item: PAGE_URL },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+export default function DearPassengersNewsPage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Header />
+
+      <main id="main-content">
+        <article>
+          <header className="article-hero">
+            <Image src="/images/release-date.webp" alt="Dear Passengers news desk and 2026 flight update board" fill sizes="100vw" priority />
+            <div className="hero-shade" />
+            <div className="container article-hero-content">
+              <nav className="breadcrumbs" aria-label="Breadcrumb">
+                <Link href="/">Dear Passengers Game</Link><span>/</span><span>News</span>
+              </nav>
+              <div className="eyebrow"><span>●</span> VERIFIED UPDATE LOG · JULY 18, 2026</div>
+              <h1>Dear Passengers News:<br /><em>Demo, Release & Wishlist Updates</em></h1>
+              <p>
+                This <strong>Dear Passengers news</strong> desk records dated announcements without turning community
+                questions into facts. The current headlines are a developer-reported 700,000 wishlists in 36 hours,
+                a Gamescom demo in preparation, a later public demo, and the unchanged 2026 Windows PC release window.
+              </p>
+              <div className="hero-actions">
+                <Link className="button" href="/dear-passengers-demo">Check demo status →</Link>
+                <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
+              </div>
+              <div className="article-meta">
+                <span>Last checked July 18, 2026</span><span>Release: 2026</span><span>Latest milestone: 700K wishlists</span>
+              </div>
+            </div>
+          </header>
+
+          <div className="container article-layout">
+            <aside className="article-toc">
+              <p>UPDATE BOARD</p>
+              <a href="#latest">Latest headlines</a>
+              <a href="#timeline">Update timeline</a>
+              <a href="#demo-news">Demo news</a>
+              <a href="#wishlists">Wishlist milestone</a>
+              <a href="#community-updates">Community updates</a>
+              <a href="#unchanged">Still unconfirmed</a>
+              <a href="#follow">Follow updates</a>
+              <a href="#news-faq">FAQ</a>
+              <a className="toc-cta" href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer">Steam hub ↗</a>
+            </aside>
+
+            <div className="article-prose prose">
+              <EditorialNote note="We prioritize the official Steam listing and FLEXUS-controlled channels. Interview statements are attributed, developer-reported metrics are labeled, and unresolved features remain unconfirmed." />
+
+              <section id="latest">
+                <span className="kicker">LATEST VERIFIED BRIEFING</span>
+                <h2>Latest Dear Passengers News</h2>
+                <p className="snippet-answer">
+                  The latest confirmed <strong>Dear Passengers news</strong> is that FLEXUS reported 700,000 Steam
+                  wishlists in the first 36 hours. Founder Semen Kozyura also said the studio is preparing a Dear Passengers
+                  demo for Gamescom and will publish a public demo later. Steam still lists the game for 2026 on Windows PC.
+                </p>
+                <p>
+                  These updates arrived immediately after the reveal and explain why Dear Passengers searches expanded
+                  beyond the trailer. Players now want a demo date, maximum crew size, solo details, controller support,
+                  console plans, localization, price, and an exact release date. Most of those questions still do not
+                  have official answers, so this page separates new facts from the growing request list.
+                </p>
+
+                <div className="fact-callout">
+                  <span>CURRENT HEADLINE</span>
+                  <strong>700,000 wishlists in 36 hours</strong>
+                  <p>Developer-reported by FLEXUS · public demo planned · exact release date remains unannounced.</p>
+                </div>
+
+                <h3>Why This Dear Passengers News Page Exists</h3>
+                <p>
+                  A rolling hub is more useful than many thin posts. It provides one current answer, preserves earlier
+                  milestones, and links every important claim to the page that explains it in depth. Demo searches go to
+                  the <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link>; launch searches go to the{' '}
+                  <Link href="/dear-passengers-release-date">Dear Passengers release date guide</Link>; co-op questions
+                  go to the <Link href="/dear-passengers-player-count">player count and multiplayer guide</Link>.
+                </p>
+                <p>
+                  Each update is also classified by evidence. A Steam field is a current first-party product fact. A
+                  FLEXUS post is a developer statement, with audience numbers labeled as developer-reported. A named
+                  founder comment is attributed to the interview where it appeared. Trailer scenes can illustrate the
+                  premise but cannot prove a lobby limit or final control scheme. Community discussions show demand,
+                  not implementation. This evidence ladder keeps Dear Passengers news useful when viral reposts strip
+                  away dates, qualifiers, and links to the original announcement.
+                </p>
+                <p>
+                  The same method keeps future Dear Passengers news comparable: every entry needs a date, a named
+                  source, a clear status change, and a link to the guide where readers can understand the practical impact.
+                </p>
+              </section>
+
+              <section id="timeline">
+                <span className="kicker">DATED SOURCE LOG</span>
+                <h2>Dear Passengers Announcement Timeline</h2>
+                <div className="timeline">
+                  <div><time>JUL 14<br />2026</time><p><strong>Dear Passengers is publicly revealed.</strong> The Steam page identifies FLEXUS as developer and publisher, sets a 2026 Windows release window, and lists single-player plus online co-op.</p></div>
+                  <div><time>JUL 15<br />2026</time><p><strong>The developer reports more than 500,000 wishlists.</strong> In a founder comment published by dev.ua, FLEXUS also confirms a Gamescom demo and says a public demo will come later.</p></div>
+                  <div><time>JUL 16<br />2026</time><p><strong>FLEXUS reports 700,000 wishlists in 36 hours.</strong> The official company post describes rapid sharing, memes, discussion, and wishlist growth after the reveal.</p></div>
+                  <div><time>JUL 17<br />2026</time><p><strong>A developer answers an AI-use question on Steam.</strong> The direct reply says no AI was used in the creation of Dear Passengers and distinguishes the game from a separate mobile-project job listing.</p></div>
+                  <div><time>JUL 17–18<br />2026</time><p><strong>Trailer user-name criticism spreads through community and media posts.</strong> This is tracked as discussion around promotional footage, not as a confirmed change to gameplay, release timing, or availability.</p></div>
+                  <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Dates and access details remain open.</strong> Watch for Gamescom booth information, public demo distribution, a precise launch date, price, lobby size, recommended specs, or expanded platform support.</p></div>
+                </div>
+                <p>
+                  The log uses the publication or announcement date available from each source. It does not manufacture
+                  daily entries when nothing changed. When new Dear Passengers news arrives, the next entry should say
+                  what changed, link the original evidence, and update the relevant evergreen guide.
+                </p>
+              </section>
+
+              <section id="demo-news">
+                <span className="kicker">TEST FLIGHT UPDATE</span>
+                <h2>Dear Passengers Demo News</h2>
+                <p>
+                  The strongest post-reveal product update is the direct statement about playable access. Semen Kozyura
+                  told dev.ua that FLEXUS was preparing a Dear Passengers demo for Gamescom and would release a public
+                  demo later. This moves the demo from “not announced” to “confirmed plan,” but it does not create a
+                  public download or date.
+                </p>
+                <p>
+                  Steam currently has no demo button or Playtest request panel. FLEXUS has not said whether the public
+                  build will use Steam, how long it will remain available, whether it will support online co-op, or what
+                  content it includes. Our <Link href="/dear-passengers-demo">complete Dear Passengers demo status</Link>
+                  explains safe download checks, beta terminology, Gamescom questions, hardware preparation, and the
+                  evidence required before any unofficial claim should be trusted.
+                </p>
+
+                <h3>Ukrainian Localization Was Also Confirmed</h3>
+                <p>
+                  The same founder comment says Ukrainian localization will be included. Steam already lists Ukrainian
+                  among six interface languages together with English, Arabic, Simplified Chinese, Turkish, and Japanese.
+                  The store table does not mark full audio or subtitles. Our{' '}
+                  <Link href="/dear-passengers-system-requirements">system requirements and language guide</Link> keeps
+                  those interface and compatibility details together.
+                </p>
+              </section>
+
+              <section id="wishlists">
+                <span className="kicker">AUDIENCE MILESTONE</span>
+                <h2>Dear Passengers Reaches 700,000 Wishlists</h2>
+                <p>
+                  FLEXUS says Dear Passengers reached 700,000 wishlists in 36 hours. The company published that number
+                  on its official LinkedIn page after earlier reporting passed 500,000. Because Steam wishlist totals are
+                  not publicly auditable in the same way as store features, this site describes the number as a
+                  developer-reported milestone rather than an independently verified platform statistic.
+                </p>
+                <p>
+                  The result signals unusually strong early interest, but it does not reveal sales, concurrent players,
+                  review sentiment, or final launch quality. Wishlists can help a developer measure attention and notify
+                  interested accounts at release. They do not guarantee a particular price, feature, platform, demo
+                  schedule, or 2026 launch day.
+                </p>
+
+                <h3>What the Wishlist Surge Does and Does Not Prove</h3>
+                <p>
+                  It proves that FLEXUS publicly reported rapid wishlist growth after the Dear Passengers reveal. It does
+                  not prove every viral claim about rankings, store traffic, or player demand unless those claims have
+                  their own evidence. The practical action for interested players remains simple: use the official Steam
+                  listing, add the game once, and wait for first-party updates instead of paying for access promises.
+                </p>
+              </section>
+
+              <section id="community-updates">
+                <span className="kicker">SOURCE-LABELED DISCUSSION</span>
+                <h2>Dear Passengers AI Response and Trailer Discussion</h2>
+                <p>
+                  A Steam Community thread questioned whether generative AI had been used in Dear Passengers after
+                  readers connected a FLEXUS job listing to the game. A developer account replied that the listing
+                  concerned a separate mobile project and stated, “No AI was used in the creation of Dear Passengers.”
+                  This page records that sentence as a direct developer response, not as an independent technical audit.
+                </p>
+                <p>
+                  A separate discussion developed around a controversial user name visible in the official Dear
+                  Passengers trailer. Community and media posts treated the reference as intentional or inappropriate.
+                  The reliable fact is that the text was visible in promotional footage and prompted criticism. The
+                  discussion does not establish a new game feature, rating, launch delay, content policy, or final-build
+                  asset, and it should not be expanded with motives that FLEXUS has not documented.
+                </p>
+                <p>
+                  Both items belong in the rolling news hub instead of separate SEO pages. They are time-sensitive,
+                  reputational topics with limited primary evidence. Keeping them here allows a neutral source link,
+                  update date, and correction path without turning short-lived controversy into several thin articles.
+                  If FLEXUS publishes a formal statement or updates the trailer, the timeline can record the change.
+                </p>
+
+                <div className="platform-table" role="table" aria-label="Dear Passengers community update evidence">
+                  <div className="platform-head" role="row"><span role="columnheader">Topic</span><span role="columnheader">Evidence status</span><span role="columnheader">Current conclusion</span></div>
+                  <div role="row"><strong role="cell">AI use question</strong><span className="status-confirmed" role="cell">Direct developer reply</span><span role="cell">Developer says no AI was used for Dear Passengers</span></div>
+                  <div role="row"><strong role="cell">Trailer user name</strong><span className="status-confirmed" role="cell">Visible footage + discussion</span><span role="cell">Promotional-material criticism; no product-status change</span></div>
+                  <div role="row"><strong role="cell">Release and Demo</strong><span className="status-open" role="cell">Unchanged</span><span role="cell">2026 Steam window; public Demo still planned without a date</span></div>
+                </div>
+
+                <p>
+                  Read the <a href={AI_DISCUSSION_URL} target="_blank" rel="noopener noreferrer">developer AI response
+                  on Steam ↗</a> and the <a href={TRAILER_DISCUSSION_URL} target="_blank" rel="noopener noreferrer">
+                  trailer-related Steam discussion ↗</a>. The{' '}
+                  <Link href="/dear-passengers-trailer">Dear Passengers trailer breakdown</Link> separately explains
+                  what promotional footage can and cannot confirm.
+                </p>
+              </section>
+
+              <section id="unchanged">
+                <span className="kicker">OPEN QUESTIONS</span>
+                <h2>What the Latest Dear Passengers News Has Not Confirmed</h2>
+                <p>
+                  The exact release date remains 2026 with no month or day. Windows PC via Steam remains the only confirmed
+                  platform. FLEXUS has not announced PlayStation, Xbox, Nintendo Switch, Mac, Linux, another PC storefront,
+                  price, preorder, Early Access, or preload. The public demo has no date, and the maximum Dear Passengers
+                  player count is still not published.
+                </p>
+                <p>
+                  Controller support, split screen, crossplay, Steam Deck status, VR, proximity voice chat, dedicated
+                  servers, server browser, cloud saves, achievements, and recommended PC specifications are also open.
+                  Steam lists in-game chat and online interactivity, but that does not by itself define a proximity voice
+                  system. Community requests are useful signals for future coverage, not evidence of implementation.
+                </p>
+
+                <div className="platform-table" role="table" aria-label="Current Dear Passengers status summary">
+                  <div className="platform-head" role="row"><span role="columnheader">Topic</span><span role="columnheader">Status</span><span role="columnheader">Verified answer</span></div>
+                  <div role="row"><strong role="cell">Release</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">2026, Windows PC on Steam</span></div>
+                  <div role="row"><strong role="cell">Play modes</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">Single-player and online co-op</span></div>
+                  <div role="row"><strong role="cell">Public demo</strong><span className="status-confirmed" role="cell">Planned</span><span role="cell">Coming later; no date or download</span></div>
+                  <div role="row"><strong role="cell">Maximum players</strong><span className="status-open" role="cell">Open</span><span role="cell">No official number</span></div>
+                  <div role="row"><strong role="cell">Console versions</strong><span className="status-open" role="cell">Open</span><span role="cell">No official listing</span></div>
+                </div>
+              </section>
+
+              <section id="follow">
+                <span className="kicker">SOURCE CHECKLIST</span>
+                <h2>How to Follow Reliable Dear Passengers Updates</h2>
+                <ol className="steps article-steps">
+                  <li><span>01</span><p>Use the official Steam listing for release, platform, feature, language, and hardware fields.</p></li>
+                  <li><span>02</span><p>Follow the Steam Community Hub for updates connected to the official Dear Passengers app.</p></li>
+                  <li><span>03</span><p>Check FLEXUS-controlled channels for studio statements and developer-reported milestones.</p></li>
+                  <li><span>04</span><p>For interviews, distinguish the speaker&apos;s direct statement from the publication&apos;s headline or interpretation.</p></li>
+                  <li><span>05</span><p>Ignore exact dates, downloads, or platform promises that do not lead back to a first-party source.</p></li>
+                </ol>
+                <p>
+                  This workflow protects readers from copied errors. It also makes corrections straightforward: when
+                  Steam or FLEXUS changes a fact, we update the timeline, the specialist page, the modification date,
+                  and the sitemap entry together.
+                </p>
+              </section>
+
+              <section id="news-faq">
+                <span className="kicker">NEWS QUESTIONS</span>
+                <h2>Dear Passengers News FAQ</h2>
+                <FAQ items={faqs} />
+              </section>
+
+              <section className="related-guide related-links-panel">
+                <span className="kicker">PRIMARY SOURCES</span>
+                <h2>Verify the Dear Passengers News</h2>
+                <p>
+                  Read the <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">official Steam listing ↗</a>,
+                  the <a href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer">Steam Community Hub ↗</a>, the{' '}
+                  <a href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">FLEXUS company updates ↗</a>, and the{' '}
+                  <a href={INTERVIEW_URL} target="_blank" rel="noopener noreferrer">dev.ua founder comment ↗</a>. Then
+                  return to the <Link href="/">Dear Passengers game guide</Link> for the complete sourced overview.
+                </p>
+                <div className="related-actions">
+                  <Link className="button" href="/dear-passengers-demo">Dear Passengers demo →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-release-date">Release date guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
+                </div>
+              </section>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <Footer />
+    </>
+  );
+}

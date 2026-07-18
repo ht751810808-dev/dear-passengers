@@ -13,7 +13,14 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Release Date: 2026 Steam Launch Guide' },
   description:
     'Find the latest Dear Passengers release date information, confirmed 2026 launch window, Steam availability, platform status, demo news, and official updates.',
-  alternates: { canonical: '/dear-passengers-release-date' },
+  alternates: {
+    canonical: '/dear-passengers-release-date/',
+    languages: {
+      en: '/dear-passengers-release-date/',
+      'zh-CN': '/zh-cn/dear-passengers-release-date/',
+      'x-default': '/dear-passengers-release-date/',
+    },
+  },
   openGraph: {
     title: 'Dear Passengers Release Date: Everything Confirmed for 2026',
     description:
@@ -61,7 +68,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is there a Dear Passengers demo, beta, or playtest?',
     answer:
-      'No public Dear Passengers demo, beta, or playtest is listed on Steam. Players can wishlist and follow Dear Passengers now. A future test may be announced, but there is no confirmed access window or registration process yet.',
+      'FLEXUS founder Semen Kozyura says the studio is preparing a Dear Passengers demo for Gamescom and will release a public demo later. The public build is not downloadable yet, and no date, beta registration, or Steam Playtest has been announced.',
   },
   {
     question: 'How much will Dear Passengers cost?',
@@ -71,7 +78,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Will the release include Chinese language support?',
     answer:
-      'The Dear Passengers Steam page currently shows English as the only interface language. Simplified Chinese, Traditional Chinese, and other languages have not been announced for launch. The language table may change during development.',
+      'Yes at the interface level. The Dear Passengers Steam page currently lists English, Arabic, Simplified Chinese, Turkish, Ukrainian, and Japanese interfaces. Full audio and subtitle support are not marked in the current table, and Traditional Chinese is not listed.',
   },
 ];
 
@@ -83,7 +90,7 @@ const articleSchema = {
     'An independent guide to the confirmed Dear Passengers release window, Steam status, platforms, and demo news.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-15',
+  dateModified: '2026-07-17',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -149,7 +156,7 @@ export default function ReleaseDatePage() {
                 <Link className="button button-ghost" href="/">Explore the game guide →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 15, 2026</span><span>Last checked July 15, 2026</span><span>Official window: 2026</span>
+                <span>Published July 15, 2026</span><span>Last checked July 17, 2026</span><span>Official window: 2026</span>
               </div>
             </div>
           </header>
@@ -200,7 +207,7 @@ export default function ReleaseDatePage() {
                 <p>
                   FLEXUS is named as developer and publisher, while Steam is the confirmed storefront. The official
                   listing identifies Dear Passengers as action, adventure, and indie, with single-player and online co-op
-                  features. It also provides the current Windows minimum requirements and an English interface listing.
+                  features. It also provides the current Windows minimum requirements and six interface languages.
                   These details establish the first launch target but do not guarantee that every feature is final.
                 </p>
 
@@ -209,7 +216,7 @@ export default function ReleaseDatePage() {
                   The missing details include the exact <strong>Dear Passengers release date</strong>, price, public
                   demo, beta or playtest schedule, preorder options, launch discount, recommended PC requirements,
                   controller support, Steam Deck rating, achievements, cloud saves, and a detailed maximum player count.
-                  Localization beyond English is also absent from the current language table. Missing does not mean
+                  Traditional Chinese, Korean, and many other localizations are absent from the current table. Missing does not mean
                   cancelled; it means there is no reliable public answer yet.
                 </p>
                 <p>
@@ -259,16 +266,17 @@ export default function ReleaseDatePage() {
                 <span className="kicker">TEST FLIGHT STATUS</span>
                 <h2>Will Dear Passengers Have a Demo, Beta or Playtest?</h2>
                 <p>
-                  No public Dear Passengers test is available from the Steam page at this update. There is no downloadable demo button,
-                  Steam Playtest enrollment panel, beta date, or public application form. Community requests for access
-                  show interest, but they do not constitute an announcement. The absence of a test today also does not
-                  rule out one later in the campaign.
+                  Yes, a Dear Passengers demo is now a confirmed plan. FLEXUS founder Semen Kozyura told dev.ua that the
+                  studio is preparing a demo for Gamescom and will release a public demo later. No public Dear Passengers
+                  test is available from Steam at this update, and there is still no demo date, Steam Playtest panel,
+                  beta registration, or official download.
                 </p>
                 <p>
-                  A Dear Passengers demo would be useful for answering questions that a short trailer cannot settle: solo balance,
-                  network performance, lobby size, controller mapping, accessibility, graphics settings, and typical
-                  mission length. Until one appears, avoid websites offering unofficial downloads or keys. A legitimate
-                  Steam demo or playtest will be attached to the official app ecosystem.
+                  The planned Dear Passengers demo may help answer questions that a short trailer cannot settle: solo
+                  balance, network performance, lobby size, controller mapping, accessibility, graphics settings, and
+                  mission length. Those details have not been published. Our dedicated{' '}
+                  <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> tracks the Gamescom build, later
+                  public release, access formats, and safe-download checks without inventing a date.
                 </p>
 
                 <h3>How to Follow Official Release Updates</h3>
@@ -277,7 +285,7 @@ export default function ReleaseDatePage() {
                   <li><span>02</span><p>Add Dear Passengers to your wishlist so Steam can send an availability notification.</p></li>
                   <li><span>03</span><p>Follow the Dear Passengers Steam hub for developer announcements and store-page changes.</p></li>
                   <li><span>04</span><p>Check whether a Dear Passengers demo or Playtest button appears before downloading anything elsewhere.</p></li>
-                  <li><span>05</span><p>Return to this guide for a sourced summary of any new <strong>Dear Passengers release date</strong> information.</p></li>
+                  <li><span>05</span><p>Use the <Link href="/dear-passengers-news">Dear Passengers news log</Link> for dated announcements and source changes.</p></li>
                 </ol>
               </section>
 
@@ -286,8 +294,9 @@ export default function ReleaseDatePage() {
                 <h2>Dear Passengers Announcement Timeline</h2>
                 <div className="timeline">
                   <div><time>JUL 14<br />2026</time><p><strong>Steam page and public reveal coverage appear.</strong> Dear Passengers is introduced as a physics-based airline crew experience planned for 2026.</p></div>
-                  <div><time>JUL 15<br />2026</time><p><strong>Early Dear Passengers questions concentrate around access.</strong> Community discussion asks about player count, local co-op, controller support, VR, beta access, and Discord.</p></div>
-                  <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Exact scheduling remains open.</strong> The next Dear Passengers milestone could be a date, demo, playtest, language update, price, or expanded platform announcement.</p></div>
+                  <div><time>JUL 15<br />2026</time><p><strong>FLEXUS confirms playable demo plans.</strong> Founder Semen Kozyura says a Gamescom build is in preparation and a public Dear Passengers demo will follow later.</p></div>
+                  <div><time>JUL 16<br />2026</time><p><strong>FLEXUS reports 700,000 wishlists in 36 hours.</strong> The milestone is developer-reported and does not change the broad 2026 release window.</p></div>
+                  <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Exact scheduling remains open.</strong> Watch for demo access details, a launch date, price, player limit, recommended specs, or expanded platform support.</p></div>
                 </div>
                 <p>
                   This is deliberately a short timeline because the game has only just entered public discovery. Adding
@@ -315,17 +324,17 @@ export default function ReleaseDatePage() {
 
                 <h3>Date, Price, Languages and Controller Details</h3>
                 <p>
-                  The most likely official store updates before launch are an exact date, price, expanded language
-                  table, recommended requirements, and input support. That statement is an editorial expectation based
+                  The most likely official store updates before launch are an exact date, price, possible language
+                  additions, recommended requirements, and input support. That statement is an editorial expectation based
                   on typical store completion, not a FLEXUS promise. When an exact <strong>Dear Passengers release date</strong>
                   appears, this page should also verify timezone, launch format, regional pricing, and whether a demo or
                   preload accompanies it.
                 </p>
                 <p>
-                  Dear Passengers currently lists English as its only language and Windows as its only operating system. Dear Passengers players who
-                  require Chinese localization, controller-only play, Steam Deck support, or a console version should
-                  wait for those items to be explicitly added. A wishlist records interest, but it does not turn an
-                  unannounced feature into a commitment.
+                  Dear Passengers currently lists English, Arabic, Simplified Chinese, Turkish, Ukrainian, and Japanese
+                  interfaces, while Windows remains its only operating system. Players who require Traditional Chinese,
+                  controller-only play, Steam Deck support, or a console version should wait for those items to be
+                  explicitly added. A wishlist records interest, but it does not turn an unannounced feature into a commitment.
                 </p>
               </section>
 
@@ -351,7 +360,11 @@ export default function ReleaseDatePage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Return to the full game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date" hrefLang="zh-CN">中文发售指南 →</Link>
                 </div>
               </section>
             </div>

@@ -5,6 +5,7 @@ import FAQ, { type FaqItem } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import OfficialTrailer from '@/components/OfficialTrailer';
+import SandboxedNativeAd from '@/components/SandboxedNativeAd';
 import SourceLedger from '@/components/SourceLedger';
 import VideoShowcase from '@/components/VideoShowcase';
 
@@ -44,7 +45,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is there a Dear Passengers demo or beta?',
     answer:
-      'No public Dear Passengers demo, beta, or playtest is listed on Steam at the time of this update. Wishlisting the game and following the official Steam page are the safest ways to see future test or demo announcements.',
+      'FLEXUS is preparing a Dear Passengers demo for Gamescom and says a public demo will follow later. The public build is not downloadable yet, and no demo date, beta signup, or Steam Playtest has been announced. Our dedicated demo guide tracks the verified access status.',
   },
   {
     question: 'What are the Dear Passengers system requirements?',
@@ -84,7 +85,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-15',
+  dateModified: '2026-07-18',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -138,7 +139,7 @@ export default function HomePage() {
           />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 15, 2026</div>
+            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 18, 2026</div>
             <h1>Dear Passengers Game:<br /><em>The Complete Co-op Airline Guide</em></h1>
             <p className="hero-lede">
               The <strong>Dear Passengers game</strong> turns a routine flight into a cooperative comedy of broken
@@ -199,8 +200,9 @@ export default function HomePage() {
               <h3>Is Dear Passengers an Official Steam Game?</h3>
               <p>
                 Yes. The <strong>Dear Passengers game</strong> has an official Steam store page and can be added to a
-                wishlist now. The listing names Windows as the operating system, English as the supported interface
-                language, and 2026 as the planned release year. It has no user reviews because it is unreleased.
+                wishlist now. The listing names Windows as the operating system and 2026 as the planned release year.
+                Its interface table currently includes English, Arabic, Simplified Chinese, Turkish, Ukrainian, and
+                Japanese. It has no user reviews because it is unreleased.
               </p>
             </div>
           </div>
@@ -296,6 +298,11 @@ export default function HomePage() {
                 official maximum, solo behavior, split screen, crossplay, voice chat, controllers, Steam Deck, VR, and
                 lobby questions in one dedicated briefing.
               </p>
+              <p>
+                To compare cockpit, cabin, cargo, and emergency duties before launch, use the{' '}
+                <Link href="/dear-passengers-roles">Dear Passengers roles guide</Link>. Its table separates confirmed
+                responsibilities from suggested team assignments and shows why solo suitability remains unresolved.
+              </p>
             </div>
 
             <div className="status-board">
@@ -306,7 +313,7 @@ export default function HomePage() {
               <div className="board-row open"><span>Local co-op / split screen</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Crossplay</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Controller / Steam Deck</span><b>NOT ANNOUNCED</b></div>
-              <p>Source: current Dear Passengers Steam store feature panel. Checked July 15, 2026.</p>
+              <p>Source: current Dear Passengers Steam store feature panel. Checked July 17, 2026.</p>
             </div>
           </div>
         </section>
@@ -326,6 +333,11 @@ export default function HomePage() {
                 Our <Link href="/dear-passengers-release-date">complete Dear Passengers release date guide</Link>
                 separates official facts from open questions, tracks platform status, and explains how to follow demo,
                 beta, playtest, language, and Dear Passengers launch updates without relying on rumor pages.
+              </p>
+              <p>
+                FLEXUS has now confirmed that it is preparing a Dear Passengers demo for Gamescom and plans to release
+                a public demo later. There is no public download or date yet. Read the{' '}
+                <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> for the complete source-backed status.
               </p>
               <Link className="text-link" href="/dear-passengers-release-date">Open the full release briefing →</Link>
             </div>
@@ -351,9 +363,14 @@ export default function HomePage() {
 
               <h3>Does Dear Passengers Support Chinese?</h3>
               <p>
-                English is the only interface language listed at the time of this update. Simplified Chinese,
-                Other localizations are not currently shown. The Dear Passengers Steam language table remains the
-                reliable reference until FLEXUS announces more.
+                Yes at the interface level. Steam currently lists English, Arabic, Simplified Chinese, Turkish,
+                Ukrainian, and Japanese interface support for Dear Passengers. The table does not currently mark full
+                audio or subtitles for these languages, so interface availability should not be expanded into a claim
+                about voice acting. The Steam language table remains the reliable reference while development continues.
+              </p>
+              <p>
+                For hardware explanations, laptop guidance, and every status that remains open, read the complete{' '}
+                <Link href="/dear-passengers-system-requirements">Dear Passengers system requirements guide</Link>.
               </p>
             </div>
 
@@ -364,7 +381,7 @@ export default function HomePage() {
               <div><span>Graphics</span><strong>GTX 1060 / RX 6600 XT</strong></div>
               <div><span>DirectX</span><strong>Version 12</strong></div>
               <div><span>Storage</span><strong>4 GB available space</strong></div>
-              <div><span>Interface language</span><strong>English</strong></div>
+              <div><span>Interface languages</span><strong>English + 5 more, including Simplified Chinese</strong></div>
             </div>
           </div>
         </section>
@@ -384,6 +401,33 @@ export default function HomePage() {
               <li><span>03</span><p>Select <strong>Add to your wishlist</strong> beneath the game media panel.</p></li>
               <li><span>04</span><p>Recheck the store page for demo, playtest, language, and release updates.</p></li>
             </ol>
+          </div>
+        </section>
+
+        <SandboxedNativeAd />
+
+        <section className="section release-preview">
+          <div className="container release-card">
+            <div className="release-stamp"><small>LATEST MILESTONE</small><strong>700K</strong><span>WISHLISTS · 36 HOURS</span></div>
+            <div className="prose">
+              <span className="kicker">VERIFIED UPDATE DESK</span>
+              <h2>Latest Dear Passengers News and Demo Updates</h2>
+              <p>
+                FLEXUS reports that <strong>Dear Passengers</strong> reached 700,000 Steam wishlists in 36 hours. The
+                studio is also preparing a Gamescom demo and has confirmed that a public Dear Passengers demo will come
+                later, although the date and download method remain unannounced.
+              </p>
+              <p>
+                Follow the <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> for dated sources, or
+                open the <Link href="/dear-passengers-demo">Dear Passengers demo status page</Link> for Gamescom,
+                Playtest, beta, safe-download, and access questions.
+              </p>
+              <div className="related-actions">
+                <Link className="button" href="/dear-passengers-news">Read verified news →</Link>
+                <Link className="button button-ghost" href="/dear-passengers-demo">Check demo status →</Link>
+                <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -434,7 +478,7 @@ export default function HomePage() {
             </p>
             <div className="hero-actions">
               <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Wishlist on Steam ↗</a>
-              <Link className="button button-ghost" href="/dear-passengers-player-count">Check player count →</Link>
+              <Link className="button button-ghost" href="/dear-passengers-trailer">Watch and inspect the trailer →</Link>
             </div>
           </div>
         </section>

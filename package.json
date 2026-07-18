@@ -5,7 +5,7 @@
   "description": "Independent Dear Passengers game, gameplay, and release-date guide for dearpassengers.net",
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "next build && node scripts/set-static-language.mjs",
     "start": "next start",
     "preview:cf": "wrangler pages dev out",
     "deploy:cf": "pnpm build && wrangler pages deploy out --project-name dear-passengers --branch main",
@@ -29,6 +29,6 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3",
-    "wrangler": "^4.111.0"
+    "wrangler": "^4.112.0"
   }
 }

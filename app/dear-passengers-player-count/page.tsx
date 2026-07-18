@@ -85,7 +85,7 @@ const articleSchema = {
     'A sourced guide to the confirmed Dear Passengers play modes and unannounced multiplayer features.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-15',
+  dateModified: '2026-07-17',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -280,6 +280,11 @@ export default function PlayerCountPage() {
                   <Link href="/#gameplay">Dear Passengers gameplay guide</Link>. For timing, pricing, and platform
                   availability, use the <Link href="/dear-passengers-release-date">Dear Passengers release-date guide</Link>.
                 </p>
+                <p>
+                  Our dedicated <Link href="/dear-passengers-roles">Dear Passengers roles comparison</Link> places the
+                  pilot, possible co-pilot, cabin service, cargo, and emergency duties in one table, including the
+                  current evidence for solo and online co-op suitability.
+                </p>
               </section>
 
               <section id="local">
@@ -383,11 +388,16 @@ export default function PlayerCountPage() {
                   Return to the <Link href="/">complete Dear Passengers game guide</Link> for gameplay clips, system
                   requirements, language status, and the verified feature overview. Use the{' '}
                   <Link href="/dear-passengers-release-date">Dear Passengers release-date guide</Link> for timing,
-                  demos, price, platforms, and the announcement timeline.
+                  price and platforms. The <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> tracks
+                  the confirmed Gamescom build and later public demo, which may provide the first direct crew-size evidence.
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Full game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-roles">Roles guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date">Release guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-demo">Demo guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
                 </div>
               </section>
             </div>
