@@ -82,7 +82,7 @@ const articleSchema = {
   headline: 'Dear Passengers 中文指南：发售时间、玩法与配置要求',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-16',
-  dateModified: '2026-07-18',
+  dateModified: '2026-07-19',
   inLanguage: 'zh-CN',
   author: { '@type': 'Organization', name: 'DearPassengers.net 编辑团队', url: 'https://dearpassengers.net/about/' },
   publisher: { '@type': 'Organization', name: 'DearPassengers.net', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
@@ -108,7 +108,7 @@ export default function ChineseHomePage() {
           <Image className="hero-image" src="/images/hero-bg.webp" alt="Dear Passengers 游戏中的混乱飞机客舱与机组成员" fill sizes="100vw" priority />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> 独立游戏资料 · 2026 年 7 月 18 日更新</div>
+            <div className="eyebrow"><span>●</span> 独立游戏资料 · 2026 年 7 月 19 日更新</div>
             <h1>Dear Passengers 中文指南：<br /><em>玩法、发售与电脑配置</em></h1>
             <p className="hero-lede">
               <strong>Dear Passengers 游戏</strong>把普通航班变成一场多人合作灾难：机长要驾驶故障频发的飞机，
@@ -129,7 +129,7 @@ export default function ChineseHomePage() {
         </section>
 
         <div className="container home-editorial-note">
-          <EditorialNote locale="zh-CN" checked="2026 年 7 月 18 日" note="游戏事实以 Steam 和 FLEXUS 第一方资料为准；预告片解读与玩家讨论不会被当作官方功能承诺。" />
+          <EditorialNote locale="zh-CN" checked="2026 年 7 月 19 日" note="游戏事实以 Steam 和 FLEXUS 第一方资料为准；预告片解读与玩家讨论不会被当作官方功能承诺。" />
         </div>
 
         <section className="section intro-section" id="overview">
@@ -152,6 +152,12 @@ export default function ChineseHomePage() {
               <p>
                 Steam 将 FLEXUS 同时列为开发商和发行商。DearPassengers.net 是独立非官方资料站，不代表 FLEXUS、
                 Valve 或 Steam。本站会优先使用商店页面、官方预告片和开发商渠道，并在资料发生变化时更新核验日期。
+              </p>
+              <p>
+                FLEXUS 官方资料显示，这是一家 2020 年成立于乌克兰基辅的工作室，团队超过 70 人，旗下游戏累计下载量
+                超过 3 亿次并覆盖 150 多个国家。英文
+                <Link href="/dear-passengers-developer-flexus" hrefLang="en"> Dear Passengers 开发商专题</Link>
+                整理了工作室背景、100 万愿望单里程碑与创始人采访。
               </p>
             </div>
           </div>
@@ -207,6 +213,10 @@ export default function ChineseHomePage() {
               <p>
                 Dear Passengers 计划在 2026 年登陆 Windows PC 的 Steam，但没有具体月份或日期，也没有价格、预购、
                 公开 Demo 或 Playtest 入口。PlayStation、Xbox、Nintendo Switch、Mac 和 Linux 版本都未公布。
+              </p>
+              <p>
+                FLEXUS 已宣布游戏在两天内达到 100 万 Steam 愿望单并进入愿望单 Top 25。创始人在 7 月 17 日采访时
+                表示数字约为 120 万，同时仍以 2026 年为目标，但不会为了赶时间发布未打磨完成的版本。
               </p>
               <p>
                 中文用户可以查看

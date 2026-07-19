@@ -85,7 +85,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-18',
+  dateModified: '2026-07-19',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -139,7 +139,7 @@ export default function HomePage() {
           />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 18, 2026</div>
+            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 19, 2026</div>
             <h1>Dear Passengers Game:<br /><em>The Complete Co-op Airline Guide</em></h1>
             <p className="hero-lede">
               The <strong>Dear Passengers game</strong> turns a routine flight into a cooperative comedy of broken
@@ -195,6 +195,13 @@ export default function HomePage() {
                 FLEXUS is listed as both developer and publisher. The official Dear Passengers Steam page is the primary source for the
                 current feature list, language, release window, and PC specifications. DearPassengers.net is independent
                 and never treats trailer interpretation or community discussion as an official promise.
+              </p>
+              <p>
+                FLEXUS describes itself as a Kyiv-based studio founded in 2020 with more than 70 team members and more
+                than 300 million downloads across 150 countries. Our{' '}
+                <Link href="/dear-passengers-developer-flexus">Dear Passengers developer profile</Link> explains who
+                made the game, the studio&apos;s mobile catalogue, its move into PC co-op, and what founder Semen
+                Kozyura has said about the demo and release.
               </p>
 
               <h3>Is Dear Passengers an Official Steam Game?</h3>
@@ -313,7 +320,7 @@ export default function HomePage() {
               <div className="board-row open"><span>Local co-op / split screen</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Crossplay</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Controller / Steam Deck</span><b>NOT ANNOUNCED</b></div>
-              <p>Source: current Dear Passengers Steam store feature panel. Checked July 17, 2026.</p>
+              <p>Source: current Dear Passengers Steam store feature panel. Checked July 19, 2026.</p>
             </div>
           </div>
         </section>
@@ -328,6 +335,11 @@ export default function HomePage() {
                 The <strong>Dear Passengers game</strong> is scheduled for 2026, but FLEXUS has not announced a month
                 or day. The Dear Passengers Windows PC edition through Steam is the only confirmed platform. There is no announced PlayStation 5,
                 Xbox Series, Nintendo Switch, Mac, or Linux version, and no public price or preorder option is listed.
+              </p>
+              <p>
+                In a July 17 interview, Kozyura said the team still intends to release Dear Passengers in 2026 but will
+                not rush an unpolished build. That statement supports the year shown on Steam without creating a more
+                precise launch date.
               </p>
               <p>
                 Our <Link href="/dear-passengers-release-date">complete Dear Passengers release date guide</Link>
@@ -408,14 +420,15 @@ export default function HomePage() {
 
         <section className="section release-preview">
           <div className="container release-card">
-            <div className="release-stamp"><small>LATEST MILESTONE</small><strong>700K</strong><span>WISHLISTS · 36 HOURS</span></div>
+            <div className="release-stamp"><small>LATEST MILESTONE</small><strong>1M</strong><span>WISHLISTS · 2 DAYS</span></div>
             <div className="prose">
               <span className="kicker">VERIFIED UPDATE DESK</span>
               <h2>Latest Dear Passengers News and Demo Updates</h2>
               <p>
-                FLEXUS reports that <strong>Dear Passengers</strong> reached 700,000 Steam wishlists in 36 hours. The
-                studio is also preparing a Gamescom demo and has confirmed that a public Dear Passengers demo will come
-                later, although the date and download method remain unannounced.
+                FLEXUS reports that <strong>Dear Passengers</strong> reached one million Steam wishlists in two days and
+                entered Steam&apos;s Top 25 most-wishlisted games. Founder Semen Kozyura told GameDev DOU that the total
+                had reached roughly 1.2 million by the time of their July 17 interview. The official one-million
+                milestone and attributed interview figure are kept separate because they were recorded at different times.
               </p>
               <p>
                 Follow the <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> for dated sources, or
@@ -426,6 +439,7 @@ export default function HomePage() {
                 <Link className="button" href="/dear-passengers-news">Read verified news →</Link>
                 <Link className="button button-ghost" href="/dear-passengers-demo">Check demo status →</Link>
                 <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
+                <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
               </div>
             </div>
           </div>

@@ -44,7 +44,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>资料核验于 2026 年 7 月 18 日 · 时效信息请以 Steam 官方页面为准。</span>
+          <span>资料核验于 2026 年 7 月 19 日 · 时效信息请以 Steam 官方页面为准。</span>
         </div>
       </footer>
     );
@@ -80,6 +80,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
           <Link href="/dear-passengers-release-date">Dear Passengers Release Date</Link>
           <Link href="/dear-passengers-demo">Dear Passengers Demo</Link>
           <Link href="/dear-passengers-news">Dear Passengers News</Link>
+          <Link href="/dear-passengers-developer-flexus">Dear Passengers Developer</Link>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
           <Link href="/dear-passengers-release-date#platforms">Platform status</Link>
         </div>
@@ -95,7 +96,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
       </div>
       <div className="container footer-bottom">
         <span>© 2026 DearPassengers.net</span>
-        <span>Information checked July 18, 2026 · Verify time-sensitive details on Steam.</span>
+        <span>Information checked July 19, 2026 · Verify time-sensitive details on Steam.</span>
       </div>
     </footer>
   );

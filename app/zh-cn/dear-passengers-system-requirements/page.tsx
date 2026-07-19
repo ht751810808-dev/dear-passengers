@@ -55,7 +55,7 @@ const articleSchema = {
   description: '根据 Steam 第一方资料整理的 Dear Passengers 最低配置和平台兼容性中文指南。',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-16',
-  dateModified: '2026-07-16',
+  dateModified: '2026-07-19',
   inLanguage: 'zh-CN',
   author: { '@type': 'Organization', name: 'DearPassengers.net 编辑团队', url: 'https://dearpassengers.net/about/' },
   publisher: { '@type': 'Organization', name: 'DearPassengers.net', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
@@ -102,7 +102,7 @@ export default function ChineseSystemRequirementsPage() {
                 <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">查看 Steam 官方配置 ↗</a>
                 <Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">English version →</Link>
               </div>
-              <div className="article-meta"><span>发布于 2026 年 7 月 16 日</span><span>核验于 2026 年 7 月 16 日</span><span>已公布最低配置</span></div>
+              <div className="article-meta"><span>发布于 2026 年 7 月 16 日</span><span>核验于 2026 年 7 月 19 日</span><span>已公布最低配置</span></div>
             </div>
           </header>
 
@@ -116,7 +116,7 @@ export default function ChineseSystemRequirementsPage() {
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote locale="zh-CN" checked="2026 年 7 月 16 日" note="以下正式配置来自 Steam 商店页面；硬件解释与 FLEXUS 尚未公布的内容会被明确分开。" />
+              <EditorialNote locale="zh-CN" checked="2026 年 7 月 19 日" note="以下正式配置与六种界面语言已重新核对 Steam 商店页面；硬件解释与 FLEXUS 尚未公布的内容会被明确分开。" />
 
               <section id="official">
                 <span className="kicker">官方配置表</span>

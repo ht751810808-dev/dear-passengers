@@ -13,6 +13,7 @@ const englishLinks = [
   { href: '/dear-passengers-release-date', label: 'Release date' },
   { href: '/dear-passengers-demo', label: 'Demo' },
   { href: '/dear-passengers-news', label: 'News' },
+  { href: '/dear-passengers-developer-flexus', label: 'Developer' },
   { href: '/dear-passengers-system-requirements', label: 'PC specs' },
 ];
 

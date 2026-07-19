@@ -48,6 +48,7 @@ export default function SourceLedger({ locale = 'en' }: { locale?: 'en' | 'zh-CN
             <div><time dateTime="2026-07-14">2026 · 07 · 14</time><p><strong>游戏公开。</strong> Steam 商店页面与官方预告片上线。</p></div>
             <div><time dateTime="2026-07-16">2026 · 07 · 16</time><p><strong>语言更新。</strong> Steam 列出英语、阿拉伯语、简体中文、土耳其语、乌克兰语和日语界面。</p></div>
             <div><time dateTime="2026-07-18">2026 · 07 · 18</time><p><strong>内容核查。</strong> 新增预告片、功能核查与中文发售状态。</p></div>
+            <div><time dateTime="2026-07-19">2026 · 07 · 19</time><p><strong>开发商与里程碑更新。</strong> 补充 FLEXUS 资料、100 万官方里程碑与开发者采访。</p></div>
             <div><span>下次核验</span><p><strong>资料发生变化时。</strong> 包括日期、试玩、玩家上限、输入方式或平台。</p></div>
           </div>
         </div>
@@ -82,6 +83,7 @@ export default function SourceLedger({ locale = 'en' }: { locale?: 'en' | 'zh-CN
           <div><time dateTime="2026-07-15">JUL 15 · 2026</time><p><strong>First verification.</strong> Core facts checked against Steam.</p></div>
           <div><time dateTime="2026-07-16">JUL 16 · 2026</time><p><strong>Language update.</strong> Six interface languages now appear on Steam.</p></div>
           <div><time dateTime="2026-07-18">JUL 18 · 2026</time><p><strong>Evidence expansion.</strong> Trailer, fact-check, and Chinese release pages added.</p></div>
+          <div><time dateTime="2026-07-19">JUL 19 · 2026</time><p><strong>Developer and milestone update.</strong> FLEXUS background, the official one-million milestone, and founder interview added.</p></div>
           <div><span>NEXT CHECK</span><p><strong>Material change.</strong> Date, demo, player limit, input, or platform.</p></div>
         </div>
         <p className="source-policy-link">

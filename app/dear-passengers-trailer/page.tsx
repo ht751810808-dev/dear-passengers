@@ -11,6 +11,7 @@ import VideoShowcase from '@/components/VideoShowcase';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const TRAILER_URL = 'https://www.youtube.com/watch?v=XRvd_HZesys';
+const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-trailer/';
 
 export const metadata: Metadata = {
@@ -82,7 +83,7 @@ const articleSchema = {
     'A source-labeled analysis of the official Dear Passengers trailer, visible gameplay situations, confirmed features, and open questions.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-07-18',
+  dateModified: '2026-07-19',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -190,7 +191,7 @@ export default function DearPassengersTrailerPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 18, 2026"
+                checked="July 19, 2026"
                 note="This page treats the official video as evidence of visible situations, not a guarantee of final controls, balance, progression, player limits, or every object shown. Steam fields establish the current confirmed product facts."
               />
 
@@ -209,6 +210,13 @@ export default function DearPassengersTrailerPage() {
                   escalating disasters. That editing communicates the intended comedy: a normal duty becomes difficult,
                   a second problem arrives before the first is solved, and the crew must decide whether safety, service,
                   cargo, or simply reaching the destination deserves attention.
+                </p>
+                <p>
+                  Founder Semen Kozyura told GameDev DOU that the team made every small trailer detail by hand and that
+                  the video had reached roughly 45 million views on X by the July 17 interview. That is a
+                  developer-reported social-view figure, not the YouTube view count. Read the{' '}
+                  <a href={DOU_INTERVIEW_URL} target="_blank" rel="noopener noreferrer">founder interview ↗</a> or our{' '}
+                  <Link href="/dear-passengers-developer-flexus">Dear Passengers developer profile</Link> for context.
                 </p>
                 <OfficialTrailer />
               </section>
@@ -406,6 +414,7 @@ export default function DearPassengersTrailerPage() {
                   <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-roles">Crew roles →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
                 </div>
               </section>
             </div>

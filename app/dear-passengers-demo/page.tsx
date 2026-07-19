@@ -8,6 +8,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const INTERVIEW_URL = 'https://dev.ua/en/news/dear-passengers-1784100084';
+const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
+const GAMESCOM_URL = 'https://www.gamescom.global/en/info/press-and-creator/content-creator-streamer';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-demo/';
 
 export const metadata: Metadata = {
@@ -75,7 +77,7 @@ const articleSchema = {
   description: 'A sourced guide to the confirmed Dear Passengers Gamescom demo, planned public demo, and access questions.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-17',
-  dateModified: '2026-07-17',
+  dateModified: '2026-07-19',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -122,7 +124,7 @@ export default function DearPassengersDemoPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Demo</span>
               </nav>
-              <div className="eyebrow"><span>●</span> TEST FLIGHT DESK · CHECKED JULY 17, 2026</div>
+              <div className="eyebrow"><span>●</span> TEST FLIGHT DESK · CHECKED JULY 19, 2026</div>
               <h1>Dear Passengers Demo:<br /><em>Public Demo & Playtest Status</em></h1>
               <p>
                 A <strong>Dear Passengers demo</strong> is officially in development for Gamescom, and FLEXUS says a
@@ -135,7 +137,7 @@ export default function DearPassengersDemoPage() {
                 <Link className="button button-ghost" href="/dear-passengers-news">Read verified news →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 17, 2026</span><span>Public download: not live</span><span>Gamescom demo: confirmed</span>
+                <span>Updated July 19, 2026</span><span>Public download: not live</span><span>Gamescom: Aug 26–30</span>
               </div>
             </div>
           </header>
@@ -211,12 +213,24 @@ export default function DearPassengersDemoPage() {
                   of an event demonstration, but they do not yet identify a hall, booth number, appointment system, age
                   restriction, queue policy, or exact show-day availability.
                 </p>
+                <p>
+                  Gamescom&apos;s official schedule places Opening Night Live on August 25 and the Cologne show on
+                  August 26–30, 2026. Those dates define the event window, not the Dear Passengers booth schedule.
+                  FLEXUS has not published a hall, stand number, playable-day timetable, or reservation link. Check the{' '}
+                  <a href={GAMESCOM_URL} target="_blank" rel="noopener noreferrer">official Gamescom information ↗</a>
+                  before planning a visit.
+                </p>
                 <h3>Will the Gamescom Demo Be the Public Demo?</h3>
                 <p>
                   FLEXUS has not said. The phrase “public demo a little later” suggests a separate public availability
                   step after the event build, but it does not prove that both builds will contain the same mission or
                   systems. The studio may use Gamescom observations to adjust onboarding, stability, balance, controller
                   prompts, matchmaking, or performance before making the Dear Passengers demo widely accessible.
+                </p>
+                <p>
+                  In a July 17 GameDev DOU interview, Kozyura described the planned sequence as a demo release, streamer
+                  play, and then the full release. That confirms the demo&apos;s role in the pre-launch campaign but
+                  still does not publish a public date or guarantee that the Gamescom and home builds will be identical.
                 </p>
 
                 <h3>What the Event Build Could Clarify</h3>
@@ -335,6 +349,12 @@ export default function DearPassengersDemoPage() {
                   <Link href="/dear-passengers-release-date">Dear Passengers release date page</Link> keeps only a concise
                   access summary, while the <Link href="/dear-passengers-news">Dear Passengers news page</Link> logs each
                   dated announcement. That structure prevents conflicting answers and gives every status change one clear home.
+                </p>
+                <p>
+                  The <Link href="/dear-passengers-developer-flexus">Dear Passengers developer profile</Link> explains
+                  who FLEXUS is and connects the demo sequence to the studio&apos;s release comments. The{' '}
+                  <a href={DOU_INTERVIEW_URL} target="_blank" rel="noopener noreferrer">GameDev DOU interview ↗</a>
+                  remains the source for the demo-to-streamer-to-release sequence.
                 </p>
               </section>
 

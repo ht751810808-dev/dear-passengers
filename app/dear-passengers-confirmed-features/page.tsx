@@ -85,7 +85,7 @@ const articleSchema = {
     'A comprehensive status board for official Dear Passengers features, announced plans, trailer observations, and unconfirmed claims.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-07-18',
+  dateModified: '2026-07-19',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -179,7 +179,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 18, 2026"
+                checked="July 19, 2026"
                 note="Confirmed means a current first-party store field or direct FLEXUS statement. Planned means a named developer intention without public access. Observed means visible in official footage but not fully specified. Unannounced means no reliable first-party answer."
               />
 
@@ -444,6 +444,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
                   <Link className="button" href="/">Complete game guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-trailer">Trailer breakdown →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Verified news →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Developer profile →</Link>
                   <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam ↗</a>
                 </div>
               </section>

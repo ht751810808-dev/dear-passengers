@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-release-date/';
 
 export const metadata: Metadata = {
@@ -48,7 +49,7 @@ const faqs: FaqItem[] = [
   {
     question: 'What is the Dear Passengers release date?',
     answer:
-      'The Dear Passengers release date is currently listed only as 2026. FLEXUS and the official Steam page have not announced an exact month or day. Any more precise date shown elsewhere should be treated as unconfirmed unless it links back to a new official statement.',
+      'The Dear Passengers release date is currently listed only as 2026. In a July 17 interview, FLEXUS founder Semen Kozyura said the studio still plans to release the game this year but will not rush an unfinished build. No exact month or day has been announced.',
   },
   {
     question: 'When does Dear Passengers come out on Steam?',
@@ -90,7 +91,7 @@ const articleSchema = {
     'An independent guide to the confirmed Dear Passengers release window, Steam status, platforms, and demo news.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-17',
+  dateModified: '2026-07-19',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -189,6 +190,12 @@ export default function ReleaseDatePage() {
                   wishlists and show the concept without publishing a date that may later need to move. The correct way
                   to report the <strong>Dear Passengers release date</strong> is therefore “2026, exact date not
                   announced,” not a guessed quarter or countdown.
+                </p>
+                <p>
+                  A July 17 GameDev DOU interview provides the clearest recent context. Founder Semen Kozyura said
+                  FLEXUS still aims to release Dear Passengers in 2026, but the team will not hurry and ship a poor or
+                  insufficiently polished build. That supports the current year while leaving the exact{' '}
+                  <strong>Dear Passengers release date</strong> open.
                 </p>
                 <p>
                   The Dear Passengers Steam page uses the planned release label and does not offer a purchase button. There is no public
@@ -296,6 +303,7 @@ export default function ReleaseDatePage() {
                   <div><time>JUL 14<br />2026</time><p><strong>Steam page and public reveal coverage appear.</strong> Dear Passengers is introduced as a physics-based airline crew experience planned for 2026.</p></div>
                   <div><time>JUL 15<br />2026</time><p><strong>FLEXUS confirms playable demo plans.</strong> Founder Semen Kozyura says a Gamescom build is in preparation and a public Dear Passengers demo will follow later.</p></div>
                   <div><time>JUL 16<br />2026</time><p><strong>FLEXUS reports 700,000 wishlists in 36 hours.</strong> The milestone is developer-reported and does not change the broad 2026 release window.</p></div>
+                  <div><time>JUL 17<br />2026</time><p><strong>Dear Passengers reaches one million wishlists in two days.</strong> A founder interview later records about 1.2 million and confirms that FLEXUS still targets 2026 without rushing an unpolished release.</p></div>
                   <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Exact scheduling remains open.</strong> Watch for demo access details, a launch date, price, player limit, recommended specs, or expanded platform support.</p></div>
                 </div>
                 <p>
@@ -303,6 +311,11 @@ export default function ReleaseDatePage() {
                   invented milestones would create false history. Future entries should include a date, a direct source,
                   and a concise explanation of how the update changes the <strong>Dear Passengers release date</strong>
                   or launch expectations.
+                </p>
+                <p>
+                  Read the <a href={DOU_INTERVIEW_URL} target="_blank" rel="noopener noreferrer">founder interview on
+                  GameDev DOU ↗</a> or our <Link href="/dear-passengers-developer-flexus">Dear Passengers developer
+                  profile</Link> for the studio context behind that decision.
                 </p>
               </section>
 
@@ -362,6 +375,7 @@ export default function ReleaseDatePage() {
                   <Link className="button" href="/">Return to the full game guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date" hrefLang="zh-CN">中文发售指南 →</Link>

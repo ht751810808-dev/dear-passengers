@@ -9,6 +9,7 @@ import SourceLedger from '@/components/SourceLedger';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const INTERVIEW_URL = 'https://dev.ua/en/news/dear-passengers-1784100084';
+const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const PAGE_URL = 'https://dearpassengers.net/zh-cn/dear-passengers-release-date/';
 
 export const metadata: Metadata = {
@@ -52,7 +53,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Dear Passengers 什么时候发售？',
     answer:
-      'Steam 官方页面目前只公布 Dear Passengers 将在 2026 年发售，没有具体月份、日期或上线时间。任何更精确的倒计时都需要新的 Steam 更新或 FLEXUS 官方公告才能确认。',
+      'Steam 官方页面目前只公布 Dear Passengers 将在 2026 年发售。FLEXUS 创始人在 7 月 17 日采访中表示仍计划今年发布，但不会为了赶时间推出未完成打磨的版本。具体月份、日期或上线时间仍未公布。',
   },
   {
     question: 'Dear Passengers 现在可以玩吗？',
@@ -93,7 +94,7 @@ const articleSchema = {
   description: 'Dear Passengers 发售窗口、Demo 计划、平台、价格、下载与中文支持的第一方资料核验。',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-07-18',
+  dateModified: '2026-07-19',
   inLanguage: 'zh-CN',
   author: {
     '@type': 'Organization',
@@ -188,7 +189,7 @@ export default function ChineseReleaseDatePage() {
             <div className="article-prose prose">
               <EditorialNote
                 locale="zh-CN"
-                checked="2026 年 7 月 18 日"
+                checked="2026 年 7 月 19 日"
                 note="2026 年发售窗口、Windows 平台、游戏模式、语言和最低配置以 Steam 为准；Gamescom 与公开 Demo 计划来自具名开发者采访。没有第一方资料的问题统一标为未公布。"
               />
 
@@ -199,6 +200,10 @@ export default function ChineseReleaseDatePage() {
                   <strong>Dear Passengers 发售时间</strong>目前是 2026 年，确定登陆 Windows PC 的 Steam。
                   FLEXUS 和 Steam 都没有公布具体月份、日期或时区。商店页面可以加入愿望单，但暂时没有购买、
                   预购、预载、公开 Demo 或 Steam Playtest 入口。
+                </p>
+                <p>
+                  7 月 17 日的 GameDev DOU 采访提供了最新开发背景：创始人 Semen Kozyura 表示团队仍计划在 2026 年
+                  发布，但不会为了赶进度推出质量不足或没有完成打磨的版本。这确认了年份目标，却没有产生更精确日期。
                 </p>
                 <p>
                   现阶段最准确的写法就是“2026 年，具体日期未公布”。搜索结果中的季度预测、倒计时、某一天上线、
@@ -312,6 +317,7 @@ export default function ChineseReleaseDatePage() {
                   <div><time>7 月 14 日<br />2026</time><p><strong>Dear Passengers 公开亮相。</strong> Steam 页面上线，确认 FLEXUS、Windows PC、2026 年、单人和在线合作。</p></div>
                   <div><time>7 月 15 日<br />2026</time><p><strong>开发者说明试玩计划。</strong> 具名采访提到 Gamescom Demo，并表示之后会推出公开 Demo。</p></div>
                   <div><time>7 月 16 日<br />2026</time><p><strong>FLEXUS 报告愿望单里程碑。</strong> 官方公司渠道称 36 小时达到 70 万愿望单；该数字属于开发者报告，不代表销量。</p></div>
+                  <div><time>7 月 17 日<br />2026</time><p><strong>两天达到 100 万愿望单。</strong> FLEXUS 表示游戏进入 Steam 愿望单 Top 25；创始人采访时称约为 120 万，并重申 2026 年目标但不会赶工。</p></div>
                   <div className="future"><time>下一次<br />更新</time><p><strong>等待可验证变化。</strong> 包括 Demo 日期、公开下载、准确发售日、价格、玩家上限、推荐配置或新平台。</p></div>
                 </div>
                 <p>
@@ -365,10 +371,14 @@ export default function ChineseReleaseDatePage() {
                 <span className="kicker">常见问题</span>
                 <h2>Dear Passengers 发售时间 FAQ</h2>
                 <p>
-                  以下答案根据 2026 年 7 月 18 日可以核验的第一方资料整理。没有公布的内容不会用竞品推测、预告片
+                  以下答案根据 2026 年 7 月 19 日可以核验的第一方资料整理。没有公布的内容不会用竞品推测、预告片
                   截图或玩家愿望补齐。发生正式变化后，本页会更新答案、修改日期和相关内链。
                 </p>
                 <FAQ items={faqs} />
+                <p>
+                  查看<a href={DOU_INTERVIEW_URL} target="_blank" rel="noopener noreferrer">GameDev DOU 创始人采访 ↗</a>
+                  或英文<Link href="/dear-passengers-developer-flexus" hrefLang="en">开发商专题</Link>了解完整背景。
+                </p>
               </section>
 
               <section className="related-guide related-links-panel">

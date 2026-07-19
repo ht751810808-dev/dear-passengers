@@ -7,7 +7,7 @@ type EditorialNoteProps = {
 };
 
 export default function EditorialNote({
-  checked = 'July 18, 2026',
+  checked = 'July 19, 2026',
   note = 'Facts are checked against first-party sources and clearly separated from trailer interpretation.',
   locale = 'en',
 }: EditorialNoteProps) {
