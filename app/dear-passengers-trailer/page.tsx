@@ -411,10 +411,12 @@ export default function DearPassengersTrailerPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Complete game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-gameplay">Gameplay guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-roles">Crew roles →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
+                  <Link className="button button-ghost" href="/games-like-dear-passengers">Similar games →</Link>
                 </div>
               </section>
             </div>

@@ -390,6 +390,7 @@ export default function ChineseReleaseDatePage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/zh-cn/">Dear Passengers 中文首页 →</Link>
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-system-requirements">中文配置要求 →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news" hrefLang="en">英文新闻 →</Link>
                   <a className="button button-ghost" href={INTERVIEW_URL} target="_blank" rel="noopener noreferrer">开发者采访 ↗</a>

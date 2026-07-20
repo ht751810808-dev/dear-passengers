@@ -278,9 +278,9 @@ export default function ChineseSystemRequirementsPage() {
                 <p>
                   返回<Link href="/zh-cn/">Dear Passengers 中文指南</Link>了解玩法、发售与中文支持，或查看
                   <Link href="/dear-passengers-release-date" hrefLang="en">英文发售时间指南</Link>和
-                  <Link href="/dear-passengers-player-count" hrefLang="en">英文玩家人数指南</Link>。
+                  <Link href="/zh-cn/dear-passengers-player-count">中文玩家人数指南</Link>。
                 </p>
-                <div className="related-actions"><Link className="button" href="/zh-cn/">返回中文首页 →</Link><Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">English version →</Link></div>
+                <div className="related-actions"><Link className="button" href="/zh-cn/">返回中文首页 →</Link><Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link><Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">English version →</Link></div>
               </section>
             </div>
           </div>

@@ -6,7 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-07-20'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-gameplay/`,
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/dear-passengers-trailer/`,
@@ -22,11 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-player-count/`,
-      lastModified: new Date('2026-07-17'),
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/dear-passengers-roles/`,
-      lastModified: new Date('2026-07-17'),
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/dear-passengers-system-requirements/`,
@@ -45,16 +49,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-07-19'),
     },
     {
+      url: `${baseUrl}/games-like-dear-passengers/`,
+      lastModified: new Date('2026-07-20'),
+    },
+    {
       url: `${baseUrl}/zh-cn/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-07-20'),
+    },
+    {
+      url: `${baseUrl}/zh-cn/dear-passengers-player-count/`,
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-07-20'),
     },
     {
       url: `${baseUrl}/about/`,

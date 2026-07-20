@@ -678,6 +678,9 @@ h1, h2, h3, h4 {
 .contact-card p { margin: 0; color: var(--ink); font-size: .83rem; }
 .multiplayer-hero > img { object-position: center 46%; }
 .roles-hero > img { object-position: center 43%; }
+.gameplay-hero > img { object-position: center 45%; }
+.similar-games-hero > img { object-position: center 52%; }
+.zh-multiplayer-hero > img { object-position: center 46%; }
 
 .role-table-wrap { margin: 36px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: 0 14px 40px rgba(20,35,58,.07); }
 .role-comparison-table { width: 100%; min-width: 940px; border-collapse: collapse; text-align: left; }

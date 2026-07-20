@@ -442,6 +442,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Complete game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-gameplay">Gameplay guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-trailer">Trailer breakdown →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Verified news →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Developer profile →</Link>

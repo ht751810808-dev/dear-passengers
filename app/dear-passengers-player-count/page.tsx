@@ -393,6 +393,7 @@ export default function PlayerCountPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Full game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-gameplay">Gameplay guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-roles">Roles guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date">Release guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo guide →</Link>

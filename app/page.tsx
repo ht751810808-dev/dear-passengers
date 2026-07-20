@@ -85,7 +85,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-19',
+  dateModified: '2026-07-20',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -231,6 +231,10 @@ export default function HomePage() {
             </div>
             <VideoShowcase />
             <OfficialTrailer />
+            <div className="related-actions">
+              <Link className="button" href="/dear-passengers-gameplay">Read the complete gameplay guide →</Link>
+              <Link className="button button-ghost" href="/dear-passengers-roles">Compare crew roles →</Link>
+            </div>
           </div>
         </section>
 
@@ -461,6 +465,10 @@ export default function HomePage() {
               <article><span>PHYSICS CHAOS</span><h3>PEAK</h3><p>Movement and mistakes create memorable group moments.</p></article>
               <article><span>CREW MANAGEMENT</span><h3>Spacelines from the Far Out</h3><p>A comedic airline built around needy passengers.</p></article>
               <article><span>VIRAL CO-OP</span><h3>R.E.P.O.</h3><p>Communication and unstable objects drive shared chaos.</p></article>
+            </div>
+            <div className="related-actions">
+              <Link className="button" href="/games-like-dear-passengers">Compare all eight similar games →</Link>
+              <Link className="button button-ghost" href="/dear-passengers-gameplay">Review Dear Passengers gameplay →</Link>
             </div>
           </div>
         </section>

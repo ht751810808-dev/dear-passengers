@@ -188,9 +188,11 @@ export default function ChineseHomePage() {
               </p>
               <p>
                 本地合作、分屏、跨平台联机、公开房间、服务器浏览器和加入中途游戏目前都没有正式说明。
-                控制器、Steam Deck 和 VR 状态也仍然未知。需要完整英文分析时，可查看
-                <Link href="/dear-passengers-player-count" hrefLang="en"> Dear Passengers 玩家人数与联机指南</Link>。
+                控制器、Steam Deck 和 VR 状态也仍然未知。中文读者可以查看
+                <Link href="/zh-cn/dear-passengers-player-count"> Dear Passengers 玩家人数与联机指南</Link>，
+                需要英文来源分析时再切换到对应英文页面。
               </p>
+              <Link className="text-link" href="/zh-cn/dear-passengers-player-count">打开完整中文联机指南 →</Link>
             </div>
             <div className="status-board">
               <div className="board-header"><span>状态看板</span><b>已确认与未公布</b></div>

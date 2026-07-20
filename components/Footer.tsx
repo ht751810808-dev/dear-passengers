@@ -21,7 +21,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
           <div>
             <h2>中文指南</h2>
             <Link href="/zh-cn/#gameplay">Dear Passengers 游戏玩法</Link>
-            <Link href="/zh-cn/#multiplayer">玩家人数与联机</Link>
+            <Link href="/zh-cn/dear-passengers-player-count">玩家人数与联机</Link>
             <Link href="/zh-cn/dear-passengers-system-requirements">电脑配置要求</Link>
             <Link href="/zh-cn/#faq">常见问题</Link>
           </div>
@@ -44,7 +44,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>资料核验于 2026 年 7 月 19 日 · 时效信息请以 Steam 官方页面为准。</span>
+          <span>资料核验于 2026 年 7 月 20 日 · 时效信息请以 Steam 官方页面为准。</span>
         </div>
       </footer>
     );
@@ -65,13 +65,14 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
         </div>
 
         <div>
-          <h2>Flight guide</h2>
-          <Link href="/#gameplay">Dear Passengers gameplay</Link>
+            <h2>Flight guide</h2>
+          <Link href="/dear-passengers-gameplay">Dear Passengers gameplay</Link>
           <Link href="/dear-passengers-trailer">Official trailer breakdown</Link>
           <Link href="/dear-passengers-confirmed-features">Confirmed features</Link>
           <Link href="/dear-passengers-roles">Pilot and cabin crew roles</Link>
           <Link href="/dear-passengers-player-count">Player count and multiplayer</Link>
           <Link href="/dear-passengers-system-requirements">System requirements</Link>
+          <Link href="/games-like-dear-passengers">Games like Dear Passengers</Link>
           <Link href="/#faq">Game FAQ</Link>
         </div>
 
@@ -96,7 +97,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
       </div>
       <div className="container footer-bottom">
         <span>© 2026 DearPassengers.net</span>
-        <span>Information checked July 19, 2026 · Verify time-sensitive details on Steam.</span>
+        <span>Information checked July 20, 2026 · Verify time-sensitive details on Steam.</span>
       </div>
     </footer>
   );

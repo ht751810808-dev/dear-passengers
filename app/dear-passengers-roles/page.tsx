@@ -418,7 +418,7 @@ export default function RolesPage() {
                 </p>
                 <p>
                   For the full gameplay loop, return to the{' '}
-                  <Link href="/#gameplay">Dear Passengers gameplay overview</Link>. You can also watch the{' '}
+                  <Link href="/dear-passengers-gameplay">complete Dear Passengers gameplay guide</Link>. You can also watch the{' '}
                   <a href={TRAILER_URL} target="_blank" rel="noopener noreferrer">official FLEXUS trailer ↗</a> and
                   compare what is shown with the wording on Steam.
                 </p>
@@ -444,6 +444,7 @@ export default function RolesPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Complete game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-gameplay">Gameplay guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
 const englishLinks = [
-  { href: '/#gameplay', label: 'Gameplay' },
+  { href: '/dear-passengers-gameplay', label: 'Gameplay' },
   { href: '/dear-passengers-roles', label: 'Roles' },
   { href: '/dear-passengers-player-count', label: 'Player count' },
   { href: '/dear-passengers-release-date', label: 'Release date' },
@@ -19,7 +19,7 @@ const englishLinks = [
 
 const chineseLinks = [
   { href: '/zh-cn/#gameplay', label: '玩法' },
-  { href: '/zh-cn/#multiplayer', label: '联机' },
+  { href: '/zh-cn/dear-passengers-player-count', label: '联机' },
   { href: '/zh-cn/dear-passengers-release-date', label: '发售' },
   { href: '/zh-cn/dear-passengers-system-requirements', label: '电脑配置' },
   { href: '/zh-cn/#sources', label: '资料来源' },
