@@ -179,6 +179,21 @@ export default function DearPassengersNewsPage() {
                   <p>Official FLEXUS Steam update · developer-reported metric · not sales or concurrent players.</p>
                 </div>
 
+                <figure className="article-source-figure">
+                  <Image
+                    src="/images/dear-passengers-1-5-million-wishlists.webp"
+                    alt="Official Dear Passengers artwork celebrating 1.5 million Steam wishlists with the game characters holding a sign"
+                    width={800}
+                    height={450}
+                    sizes="(max-width: 900px) calc(100vw - 32px), 790px"
+                  />
+                  <figcaption>
+                    Official milestone artwork published by FLEXUS via{' '}
+                    <a href={LATEST_STEAM_UPDATE_URL} target="_blank" rel="noopener noreferrer">Steam ↗</a>.
+                    {' '}© FLEXUS. Shown as source material, not an independent player-count audit.
+                  </figcaption>
+                </figure>
+
                 <h3>Why This Dear Passengers News Page Exists</h3>
                 <p>
                   A rolling hub is more useful than many thin posts. It provides one current answer, preserves earlier
