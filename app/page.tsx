@@ -437,11 +437,14 @@ export default function HomePage() {
               <p>
                 Follow the <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> for dated sources, or
                 open the <Link href="/dear-passengers-demo">Dear Passengers demo status page</Link> for Gamescom,
-                Playtest, beta, safe-download, and access questions.
+                Playtest, beta, and event access questions. The dedicated{' '}
+                <Link href="/dear-passengers-download">Dear Passengers download safety guide</Link> verifies the official
+                Steam app and explains why similarly named APK listings are not proof of a FLEXUS Android release.
               </p>
               <div className="related-actions">
                 <Link className="button" href="/dear-passengers-news">Read verified news →</Link>
                 <Link className="button button-ghost" href="/dear-passengers-demo">Check demo status →</Link>
+                <Link className="button button-ghost" href="/dear-passengers-download">Verify download access →</Link>
                 <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
                 <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
               </div>

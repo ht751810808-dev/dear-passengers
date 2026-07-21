@@ -268,6 +268,11 @@ export default function DearPassengersDemoPage() {
                   console editions, guaranteed beta keys, or an unrelated installer. A credible page should link its
                   source, show an update date, and admit when no Dear Passengers demo download exists.
                 </p>
+                <p>
+                  For full-game installers, similarly named Android listings, platform identity, and APK checks, use the{' '}
+                  <Link href="/dear-passengers-download">Dear Passengers download safety guide</Link>. This demo page
+                  remains focused on the Gamescom build, public demo, beta, and Playtest formats.
+                </p>
               </section>
 
               <section id="formats">
@@ -381,6 +386,7 @@ export default function DearPassengersDemoPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/dear-passengers-news">Latest verified news →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-download">Download safety →</Link>
                   <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
                 </div>
               </section>

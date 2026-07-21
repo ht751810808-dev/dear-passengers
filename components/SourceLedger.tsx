@@ -86,6 +86,7 @@ export default function SourceLedger({ locale = 'en' }: { locale?: 'en' | 'zh-CN
           <div><time dateTime="2026-07-18">JUL 18 · 2026</time><p><strong>Evidence expansion.</strong> Trailer, fact-check, and Chinese release pages added.</p></div>
           <div><time dateTime="2026-07-19">JUL 19 · 2026</time><p><strong>Developer and milestone update.</strong> FLEXUS background, the official one-million milestone, and founder interview added.</p></div>
           <div><time dateTime="2026-07-20">JUL 20 · 2026</time><p><strong>Content cluster expansion.</strong> Gameplay, Chinese multiplayer, and similar-games guides added.</p></div>
+          <div><time dateTime="2026-07-21">JUL 21 · 2026</time><p><strong>Access and visual update.</strong> The 1.5-million milestone artwork and official download-versus-APK safety guide added.</p></div>
           <div><span>NEXT CHECK</span><p><strong>Material change.</strong> Date, demo, player limit, input, or platform.</p></div>
         </div>
         <p className="source-policy-link">

@@ -283,7 +283,9 @@ export default function ReleaseDatePage() {
                   balance, network performance, lobby size, controller mapping, accessibility, graphics settings, and
                   mission length. Those details have not been published. Our dedicated{' '}
                   <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> tracks the Gamescom build, later
-                  public release, access formats, and safe-download checks without inventing a date.
+                  public release, and testing formats without inventing a date. The{' '}
+                  <Link href="/dear-passengers-download">Dear Passengers download guide</Link> separately verifies the
+                  official Steam app, full-game access status, APK confusion, and installer warning signs.
                 </p>
 
                 <h3>How to Follow Official Release Updates</h3>
@@ -374,6 +376,7 @@ export default function ReleaseDatePage() {
                 <div className="related-actions">
                   <Link className="button" href="/">Return to the full game guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-download">Download status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count guide →</Link>
