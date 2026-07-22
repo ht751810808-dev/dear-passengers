@@ -7,6 +7,8 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+const TOP_WISHLISTS_URL =
+  'https://store.steampowered.com/search/?filter=popularwishlist&ignore_preferences=1';
 const COMMUNITY_URL = 'https://steamcommunity.com/app/4534960';
 const FLEXUS_URL = 'https://www.linkedin.com/company/flexusgames/';
 const INTERVIEW_URL = 'https://dev.ua/en/news/dear-passengers-1784100084';
@@ -20,7 +22,7 @@ const PAGE_URL = 'https://dearpassengers.net/dear-passengers-news/';
 export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers News: Demo, Release & Wishlist Updates' },
   description:
-    'Follow verified Dear Passengers news, including the 1.5-million-wishlist milestone, development comments, demo plans, release status, and Steam updates.',
+    'Follow verified Dear Passengers news, including its current No. 12 Steam wishlist rank, 1.5-million milestone, demo plans, release status, and updates.',
   alternates: { canonical: '/dear-passengers-news/' },
   openGraph: {
     title: 'Dear Passengers News and Verified Update Timeline',
@@ -41,12 +43,17 @@ const faqs: FaqItem[] = [
   {
     question: 'What is the latest Dear Passengers news?',
     answer:
-      'The latest official Dear Passengers update reports 1.5 million Steam wishlists. FLEXUS also says it is working on more mechanics, unexpected events, suspicious luggage, and passengers, but the post does not name or confirm any specific new feature. Steam still lists a broad 2026 Windows release window.',
+      'Dear Passengers is currently No. 12 on Steam’s public Top Wishlists list when preference filtering is disabled. The latest FLEXUS update separately reports 1.5 million wishlists. The rank is a changing public store position; the total is a developer-reported figure. Steam still lists a broad 2026 Windows release window.',
   },
   {
     question: 'Did Dear Passengers reach 1.5 million wishlists?',
     answer:
       'FLEXUS announced 1.5 million wishlists in its latest official Steam update after earlier reporting 700,000 and one million milestones. These are developer-reported figures rather than publicly auditable Steam statistics, and they do not represent sales or active players.',
+  },
+  {
+    question: 'Is Dear Passengers one of Steam’s most-wishlisted games?',
+    answer:
+      'Yes. Dear Passengers appeared at No. 12 on Steam’s public Top Wishlists page during the July 22 check with preference filtering disabled. This is a dated ranking snapshot, not a permanent position, sales count, review score, or active-player statistic.',
   },
   {
     question: 'When is the next Dear Passengers update?',
@@ -72,7 +79,7 @@ const articleSchema = {
   description: 'A dated source log for confirmed Dear Passengers announcements and store-page changes.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-17',
-  dateModified: '2026-07-21',
+  dateModified: '2026-07-22',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -119,12 +126,12 @@ export default function DearPassengersNewsPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>News</span>
               </nav>
-              <div className="eyebrow"><span>●</span> VERIFIED UPDATE LOG · JULY 21, 2026</div>
+              <div className="eyebrow"><span>●</span> VERIFIED UPDATE LOG · JULY 22, 2026</div>
               <h1>Dear Passengers News:<br /><em>Demo, Release & Wishlist Updates</em></h1>
               <p>
                 This <strong>Dear Passengers news</strong> desk records dated announcements without turning community
-                questions into facts. The current headline is FLEXUS&apos;s official 1.5-million-wishlist update. Earlier
-                milestones, an attributed 1.2-million interview snapshot, Gamescom demo plans, and the broad 2026
+                questions into facts. Dear Passengers now appears at No. 12 on Steam&apos;s public Top Wishlists page,
+                while FLEXUS&apos;s latest official update reports 1.5 million wishlists. Demo plans and the broad 2026
                 release goal remain in the dated record below.
               </p>
               <div className="hero-actions">
@@ -132,7 +139,7 @@ export default function DearPassengersNewsPage() {
                 <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
               </div>
               <div className="article-meta">
-                <span>Last checked July 21, 2026</span><span>Release: 2026</span><span>Official milestone: 1.5M wishlists</span>
+                <span>Last checked July 22, 2026</span><span>Steam rank: No. 12</span><span>Official milestone: 1.5M wishlists</span>
               </div>
             </div>
           </header>
@@ -153,18 +160,18 @@ export default function DearPassengersNewsPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 21, 2026"
-                note="We prioritize the official Steam listing and FLEXUS-controlled channels. Interview statements are attributed, developer-reported metrics are labeled, and unresolved features remain unconfirmed."
+                checked="July 22, 2026"
+                note="We prioritize the official Steam listing and FLEXUS-controlled channels. The wishlist rank is a dated public-store snapshot; totals are labeled as developer-reported, and unresolved features remain unconfirmed."
               />
 
               <section id="latest">
                 <span className="kicker">LATEST VERIFIED BRIEFING</span>
                 <h2>Latest Dear Passengers News</h2>
                 <p className="snippet-answer">
-                  The latest confirmed <strong>Dear Passengers news</strong> is FLEXUS&apos;s official report of 1.5 million
-                  Steam wishlists. The same short update says the team is working on more game mechanics, unexpected
-                  events, suspicious luggage, and additional passengers. It does not identify those additions, promise
-                  that each will ship, or change the 2026 Windows release window currently shown on Steam.
+                  The latest verified <strong>Dear Passengers news</strong> is its No. 12 position on Steam&apos;s public
+                  Top Wishlists page during the July 22 check with preference filtering disabled. FLEXUS&apos;s latest
+                  official post separately reports 1.5 million wishlists. Neither update changes the 2026 Windows
+                  release window currently shown on Steam.
                 </p>
                 <p>
                   These updates arrived immediately after the reveal and explain why Dear Passengers searches expanded
@@ -175,8 +182,8 @@ export default function DearPassengersNewsPage() {
 
                 <div className="fact-callout">
                   <span>CURRENT HEADLINE</span>
-                  <strong>1,500,000 wishlists reported</strong>
-                  <p>Official FLEXUS Steam update · developer-reported metric · not sales or concurrent players.</p>
+                  <strong>No. 12 on Steam Top Wishlists</strong>
+                  <p>Public Steam rank checked July 22 · 1.5M total reported by FLEXUS · neither is a sales or player count.</p>
                 </div>
 
                 <figure className="article-source-figure">
@@ -228,6 +235,7 @@ export default function DearPassengersNewsPage() {
                   <div><time>JUL 17<br />2026</time><p><strong>A developer answers an AI-use question on Steam.</strong> The direct reply says no AI was used in the creation of Dear Passengers and distinguishes the game from a separate mobile-project job listing.</p></div>
                   <div><time>JUL 17–18<br />2026</time><p><strong>Trailer user-name criticism spreads through community and media posts.</strong> This is tracked as discussion around promotional footage, not as a confirmed change to gameplay, release timing, or availability.</p></div>
                   <div><time>JUL 19<br />2026</time><p><strong>FLEXUS reports 1.5 million wishlists.</strong> The official Steam update also describes ongoing work on more mechanics, events, suspicious luggage, and passengers without naming a finished feature, date, or release-scope change.</p></div>
+                  <div><time>JUL 22<br />2026</time><p><strong>Dear Passengers appears at No. 12 on Steam&apos;s public Top Wishlists page.</strong> This first-party store rank was checked with preference filtering disabled. It can change as wishlists and other unreleased games change.</p></div>
                   <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Dates and access details remain open.</strong> Watch for Gamescom booth information, public demo distribution, a precise launch date, price, lobby size, recommended specs, or expanded platform support.</p></div>
                 </div>
                 <p>
@@ -269,10 +277,10 @@ export default function DearPassengersNewsPage() {
                 <h2>Dear Passengers Reaches 1.5 Million Wishlists</h2>
                 <p>
                   FLEXUS now says Dear Passengers reached 1.5 million wishlists after earlier reporting 500,000, 700,000,
-                  and one million milestones. The one-million announcement also said the game entered Steam&apos;s Top 25
-                  most-wishlisted list. Because Steam wishlist totals are not publicly auditable in the same way as store
-                  features, this site describes every number as a developer-reported milestone rather than an independent
-                  platform statistic.
+                  and one million milestones. On July 22, the game appeared at No. 12 on Steam&apos;s public{' '}
+                  <a href={TOP_WISHLISTS_URL} target="_blank" rel="noopener noreferrer">Top Wishlists list ↗</a> with
+                  preference filtering disabled. That rank is independently visible but dynamic. Steam does not expose
+                  the underlying total publicly, so 1.5 million remains a developer-reported figure.
                 </p>
                 <p>
                   In the July 17 GameDev DOU interview, Kozyura said the count was about 1.2 million. That attributed
@@ -288,11 +296,10 @@ export default function DearPassengersNewsPage() {
 
                 <h3>What the Wishlist Surge Does and Does Not Prove</h3>
                 <p>
-                  It proves that FLEXUS publicly reported rapid wishlist growth after the Dear Passengers reveal. The
-                  latest post also proves that the studio publicly described ongoing work on broader content categories;
-                  it does not confirm a particular mechanic, passenger type, event, or luggage item. Nor does it prove
-                  every viral claim about rankings, store traffic, or player demand. Interested players should use the
-                  official Steam listing and wait for first-party specifications instead of paying for access promises.
+                  The evidence supports two different claims: FLEXUS publicly reported rapid wishlist growth, and Steam&apos;s
+                  public ordering placed the game at No. 12 during this check. It does not expose store traffic, conversion,
+                  sales, or active players, and it does not confirm a particular mechanic, passenger type, event, or luggage
+                  item. Interested players should use the official listing instead of paying for access promises.
                 </p>
               </section>
 
@@ -389,6 +396,7 @@ export default function DearPassengersNewsPage() {
                 <h2>Verify the Dear Passengers News</h2>
                 <p>
                   Read the <a href={LATEST_STEAM_UPDATE_URL} target="_blank" rel="noopener noreferrer">official 1.5-million update ↗</a>,
+                  the <a href={TOP_WISHLISTS_URL} target="_blank" rel="noopener noreferrer">Steam Top Wishlists list ↗</a>,
                   the <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">official Steam listing ↗</a>,
                   the <a href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer">Steam Community Hub ↗</a>, the{' '}
                   <a href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">FLEXUS company updates ↗</a>, and the{' '}
