@@ -85,7 +85,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-20',
+  dateModified: '2026-07-22',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -139,7 +139,7 @@ export default function HomePage() {
           />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 19, 2026</div>
+            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 22, 2026</div>
             <h1>Dear Passengers Game:<br /><em>The Complete Co-op Airline Guide</em></h1>
             <p className="hero-lede">
               The <strong>Dear Passengers game</strong> turns a routine flight into a cooperative comedy of broken
@@ -165,7 +165,7 @@ export default function HomePage() {
         </section>
 
         <div className="container home-editorial-note">
-          <EditorialNote />
+          <EditorialNote checked="July 22, 2026" />
         </div>
 
         <section className="section intro-section" id="overview">
@@ -324,7 +324,7 @@ export default function HomePage() {
               <div className="board-row open"><span>Local co-op / split screen</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Crossplay</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Controller / Steam Deck</span><b>NOT ANNOUNCED</b></div>
-              <p>Source: current Dear Passengers Steam store feature panel. Checked July 19, 2026.</p>
+              <p>Source: current Dear Passengers Steam store feature panel. Checked July 22, 2026.</p>
             </div>
           </div>
         </section>
@@ -424,15 +424,15 @@ export default function HomePage() {
 
         <section className="section release-preview">
           <div className="container release-card">
-            <div className="release-stamp"><small>LATEST MILESTONE</small><strong>1M</strong><span>WISHLISTS · 2 DAYS</span></div>
+            <div className="release-stamp"><small>STEAM TOP WISHLISTS</small><strong>NO. 12</strong><span>CHECKED JUL 22</span></div>
             <div className="prose">
               <span className="kicker">VERIFIED UPDATE DESK</span>
               <h2>Latest Dear Passengers News and Demo Updates</h2>
               <p>
-                FLEXUS reports that <strong>Dear Passengers</strong> reached one million Steam wishlists in two days and
-                entered Steam&apos;s Top 25 most-wishlisted games. Founder Semen Kozyura told GameDev DOU that the total
-                had reached roughly 1.2 million by the time of their July 17 interview. The official one-million
-                milestone and attributed interview figure are kept separate because they were recorded at different times.
+                <strong>Dear Passengers</strong> appeared at No. 12 on Steam&apos;s public Top Wishlists page when checked
+                on July 22 with preference filtering disabled. FLEXUS separately reported 1.5 million wishlists in its
+                July 19 Steam update. The live Steam rank can change, while the total is a developer-reported milestone;
+                neither figure represents sales, downloads, reviews, or active players.
               </p>
               <p>
                 Follow the <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> for dated sources, or
