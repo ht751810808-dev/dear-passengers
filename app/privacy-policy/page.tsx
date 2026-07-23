@@ -52,15 +52,6 @@ export default function PrivacyPolicyPage() {
               advertising technology provider information
             </a>. Each provider processes data under its own privacy terms.
           </p>
-          <p>
-            The homepage may also display one sandboxed native advertising unit supplied through Adsterra&apos;s
-            effectivecpmnetwork.com delivery domain. The unit runs inside a separate iframe that does not receive
-            permission to open pop-up windows, navigate the main page, submit forms, or start downloads. The advertising
-            provider can still receive ordinary request information such as an IP address, browser and device details,
-            the referring origin, and interactions inside the advertising frame for delivery, measurement, security,
-            and fraud prevention.
-          </p>
-
           <h2>European regulations and consent</h2>
           <p>
             For visitors in the European Economic Area, the United Kingdom, and Switzerland, the site uses

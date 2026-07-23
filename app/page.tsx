@@ -5,7 +5,6 @@ import FAQ, { type FaqItem } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import OfficialTrailer from '@/components/OfficialTrailer';
-import SandboxedNativeAd from '@/components/SandboxedNativeAd';
 import SourceLedger from '@/components/SourceLedger';
 import VideoShowcase from '@/components/VideoShowcase';
 
@@ -419,8 +418,6 @@ export default function HomePage() {
             </ol>
           </div>
         </section>
-
-        <SandboxedNativeAd />
 
         <section className="section release-preview">
           <div className="container release-card">
