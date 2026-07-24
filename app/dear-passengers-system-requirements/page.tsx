@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: '/dear-passengers-system-requirements/',
     languages: {
       en: '/dear-passengers-system-requirements/',
+      de: '/de/dear-passengers-systemanforderungen/',
       'zh-CN': '/zh-cn/dear-passengers-system-requirements/',
       'x-default': '/dear-passengers-system-requirements/',
     },

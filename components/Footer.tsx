@@ -56,8 +56,8 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
       <footer className="site-footer" lang="de">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <Link className="brand" href="/de/dear-passengers-release/">
-              <Image src="/images/logo.png" alt="Dear Passengers Release Guide" width={36} height={36} />
+            <Link className="brand" href="/de/">
+              <Image src="/images/logo.png" alt="Dear Passengers deutscher Spiele-Guide" width={36} height={36} />
               <span><b>DEAR PASSENGERS</b><small>UNABHÄNGIGER SPIELE-GUIDE</small></span>
             </Link>
             <p>
@@ -66,26 +66,31 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             </p>
           </div>
           <div>
-            <h2>Release-Guide</h2>
-            <Link href="/de/dear-passengers-release/#release">Wann erscheint Dear Passengers?</Link>
-            <Link href="/de/dear-passengers-release/#plattformen">PC-, PS5- und Xbox-Status</Link>
-            <Link href="/de/dear-passengers-release/#demo">Demo und Gamescom</Link>
-            <Link href="/de/dear-passengers-release/#deutsch">Deutsche Sprache</Link>
+            <h2>Spiele-Guide</h2>
+            <Link href="/de/dear-passengers-gameplay/">Dear Passengers Gameplay</Link>
+            <Link href="/de/dear-passengers-trailer/">Traileranalyse</Link>
+            <Link href="/de/dear-passengers-bestaetigte-features/">Bestätigte Features</Link>
+            <Link href="/de/dear-passengers-rollen/">Pilot und Kabinencrew</Link>
+            <Link href="/de/dear-passengers-spielerzahl/">Spielerzahl und Koop</Link>
+            <Link href="/de/spiele-wie-dear-passengers/">Ähnliche Koop-Spiele</Link>
           </div>
           <div>
-            <h2>Weitere Fakten</h2>
-            <Link href="/dear-passengers-news" hrefLang="en">Aktuelle Meldungen</Link>
-            <Link href="/dear-passengers-player-count" hrefLang="en">Spielerzahl und Koop</Link>
-            <Link href="/dear-passengers-system-requirements" hrefLang="en">PC-Systemanforderungen</Link>
+            <h2>Release-Desk</h2>
+            <Link href="/de/dear-passengers-release/">Release 2026</Link>
+            <Link href="/de/dear-passengers-demo/">Demo und Gamescom</Link>
+            <Link href="/de/dear-passengers-download/">Download sicher prüfen</Link>
+            <Link href="/de/dear-passengers-news/">Aktuelle Meldungen</Link>
+            <Link href="/de/dear-passengers-entwickler-flexus/">Entwickler FLEXUS</Link>
+            <Link href="/de/dear-passengers-systemanforderungen/">PC-Systemanforderungen</Link>
             <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Offizielle Steam-Seite ↗</a>
           </div>
           <div>
             <h2>Website</h2>
-            <Link href="/dear-passengers-release-date" hrefLang="en">English release guide</Link>
-            <Link href="/about" hrefLang="en">Über DearPassengers.net</Link>
-            <Link href="/editorial-policy" hrefLang="en">Redaktions- und Korrekturregeln</Link>
-            <Link href="/contact" hrefLang="en">Kontakt und Korrekturen</Link>
-            <Link href="/privacy-policy" hrefLang="en">Datenschutzerklärung</Link>
+            <Link href="/" hrefLang="en">English site</Link>
+            <Link href="/de/ueber-uns/">Über DearPassengers.net</Link>
+            <Link href="/de/redaktionsrichtlinien/">Redaktionsrichtlinien</Link>
+            <Link href="/de/kontakt/">Kontakt und Korrekturen</Link>
+            <Link href="/de/datenschutz/">Datenschutzerklärung</Link>
             <PrivacySettingsButton locale="de" className="footer-privacy-button" />
           </div>
         </div>

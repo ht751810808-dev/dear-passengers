@@ -116,7 +116,7 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Dear Passengers Guide', item: 'https://dearpassengers.net/' },
+    { '@type': 'ListItem', position: 1, name: 'Dear Passengers auf Deutsch', item: 'https://dearpassengers.net/de/' },
     { '@type': 'ListItem', position: 2, name: 'Dear Passengers Release auf Deutsch', item: PAGE_URL },
   ],
 };
@@ -152,7 +152,7 @@ export default function GermanReleasePage() {
             <div className="hero-shade" />
             <div className="container article-hero-content">
               <nav className="breadcrumbs" aria-label="Brotkrümelnavigation">
-                <Link href="/" hrefLang="en">Dear Passengers Guide</Link><span>/</span><span>Release auf Deutsch</span>
+                <Link href="/de/">Deutscher Dear Passengers Guide</Link><span>/</span><span>Release</span>
               </nav>
               <div className="eyebrow"><span>●</span> UNABHÄNGIGER RELEASE-CHECK · STAND 24.07.2026</div>
               <h1>Dear Passengers Release:<br /><em>Wann kommt das Koop-Spiel raus?</em></h1>
@@ -305,7 +305,7 @@ export default function GermanReleasePage() {
                   Derzeit zeigt Steam weder einen Demo-Button noch „Zugriff anfragen“ für einen Playtest. Es gibt keine
                   öffentliche Anmeldung, keine Startzeit, keine Laufzeit und keine bestätigte Plattform für die spätere
                   Testversion. Der <strong>Dear Passengers Release</strong> der Vollversion und die Demo sind daher zwei
-                  getrennte Termine. Unser <Link href="/dear-passengers-demo" hrefLang="en">ausführlicher Demo-Status</Link>
+                  getrennte Termine. Unser <Link href="/de/dear-passengers-demo/">ausführlicher Demo-Status</Link>
                   erklärt, welche Hinweise einen echten FLEXUS-Download von inoffiziellen Angeboten unterscheiden.
                 </p>
                 <p>
@@ -333,7 +333,7 @@ export default function GermanReleasePage() {
                 </p>
                 <p>
                   Diese Fragen erhalten einen eigenen Faktencheck im englischen Guide zur
-                  <Link href="/dear-passengers-player-count" hrefLang="en"> Dear Passengers Spielerzahl</Link>. Der
+                  <Link href="/de/dear-passengers-spielerzahl/"> Dear Passengers Spielerzahl</Link>. Der
                   <strong> Dear Passengers Release</strong> sollte erst dann mit einer festen Zahl beworben werden, wenn
                   die Steam-Funktionen, eine Entwicklerantwort oder die spielbare Version diese Grenze klar nennt.
                 </p>
@@ -362,7 +362,7 @@ export default function GermanReleasePage() {
                   DirectX 12 und 4 GB freien Speicher. Empfohlene Anforderungen, Steam-Deck-Einstufung und konkrete
                   Leistungsziele fehlen noch. Die Werte können sich bis zum <strong>Dear Passengers Release</strong>
                   ändern; Details stehen im englischen
-                  <Link href="/dear-passengers-system-requirements" hrefLang="en"> PC-Anforderungscheck</Link>.
+                  <Link href="/de/dear-passengers-systemanforderungen/"> PC-Anforderungscheck</Link>.
                 </p>
               </section>
 
@@ -447,7 +447,7 @@ export default function GermanReleasePage() {
                 <p>
                   DearPassengers.net ist unabhängig und nicht mit FLEXUS, Valve oder Steam verbunden. Korrekturen und
                   Statusänderungen werden nach den englisch dokumentierten
-                  <Link href="/editorial-policy" hrefLang="en"> Redaktionsregeln</Link> vorgenommen. Die verwendete
+                  <Link href="/de/redaktionsrichtlinien/"> Redaktionsregeln</Link> vorgenommen. Die verwendete
                   Titelgrafik ist eine redaktionelle Illustration und kein Screenshot des Spiels.
                 </p>
               </section>
@@ -461,12 +461,12 @@ export default function GermanReleasePage() {
                   davon verweist auf die maßgeblichen Quellen und trennt bestätigte Angaben von offenen Fragen.
                 </p>
                 <div className="related-actions">
-                  <Link className="button" href="/" hrefLang="en">Zum vollständigen Spiele-Guide →</Link>
+                  <Link className="button" href="/de/">Zum vollständigen Spiele-Guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date/" hrefLang="en">English release guide →</Link>
-                  <Link className="button button-ghost" href="/dear-passengers-news" hrefLang="en">Aktuelle Meldungen →</Link>
-                  <Link className="button button-ghost" href="/dear-passengers-demo" hrefLang="en">Demo-Status →</Link>
-                  <Link className="button button-ghost" href="/dear-passengers-player-count" hrefLang="en">Spielerzahl →</Link>
-                  <Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">PC-Anforderungen →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-news/">Aktuelle Meldungen →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-demo/">Demo-Status →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-spielerzahl/">Spielerzahl →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-systemanforderungen/">PC-Anforderungen →</Link>
                 </div>
               </section>
             </div>

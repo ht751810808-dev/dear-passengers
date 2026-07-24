@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     canonical: '/zh-cn/dear-passengers-player-count/',
     languages: {
       en: '/dear-passengers-player-count/',
+      de: '/de/dear-passengers-spielerzahl/',
       'zh-CN': '/zh-cn/dear-passengers-player-count/',
       'x-default': '/dear-passengers-player-count/',
     },

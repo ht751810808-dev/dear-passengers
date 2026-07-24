@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Download: Official Steam & APK Safety' },
   description:
     'Check the official Dear Passengers download status, Steam app, demo access, APK and Android confusion, platform availability, and safe install checks.',
-  alternates: { canonical: '/dear-passengers-download/' },
+  alternates: { canonical: '/dear-passengers-download/', languages: { en: '/dear-passengers-download/', de: '/de/dear-passengers-download/', 'x-default': '/dear-passengers-download/' } },
   openGraph: {
     title: 'Dear Passengers Download: Official Access and APK Safety',
     description:

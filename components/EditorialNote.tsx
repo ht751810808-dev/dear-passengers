@@ -22,7 +22,7 @@ export default function EditorialNote({
       <p>{note}</p>
       <div className="editorial-note-links">
         <small>{isChinese ? `最后核验：${checked}` : isGerman ? `Zuletzt geprüft: ${checked}` : `Last verified ${checked}`}</small>
-        <Link href="/editorial-policy" hrefLang="en">
+        <Link href={isGerman ? '/de/redaktionsrichtlinien/' : '/editorial-policy'} hrefLang={isGerman ? 'de' : 'en'}>
           {isChinese ? '查看资料核验方法' : isGerman ? 'So prüfen wir Quellen' : 'How we verify information'} →
         </Link>
       </div>

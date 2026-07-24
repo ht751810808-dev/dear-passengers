@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Trailer: Official Gameplay Breakdown' },
   description:
     'Watch the official Dear Passengers trailer and explore a source-labeled breakdown of cockpit work, cabin service, cargo, passengers, weather, and open questions.',
-  alternates: { canonical: '/dear-passengers-trailer/' },
+  alternates: { canonical: '/dear-passengers-trailer/', languages: { en: '/dear-passengers-trailer/', de: '/de/dear-passengers-trailer/', 'x-default': '/dear-passengers-trailer/' } },
   openGraph: {
     title: 'Dear Passengers Trailer: Scene and Gameplay Breakdown',
     description:

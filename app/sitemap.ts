@@ -1,6 +1,25 @@
 import type { MetadataRoute } from 'next';
 
 const baseUrl = 'https://dearpassengers.net';
+const germanPaths = [
+  '/de/',
+  '/de/dear-passengers-gameplay/',
+  '/de/dear-passengers-trailer/',
+  '/de/dear-passengers-bestaetigte-features/',
+  '/de/dear-passengers-rollen/',
+  '/de/dear-passengers-spielerzahl/',
+  '/de/dear-passengers-release/',
+  '/de/dear-passengers-demo/',
+  '/de/dear-passengers-download/',
+  '/de/dear-passengers-news/',
+  '/de/dear-passengers-entwickler-flexus/',
+  '/de/dear-passengers-systemanforderungen/',
+  '/de/spiele-wie-dear-passengers/',
+  '/de/ueber-uns/',
+  '/de/redaktionsrichtlinien/',
+  '/de/kontakt/',
+  '/de/datenschutz/',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -68,10 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
       lastModified: new Date('2026-07-24'),
     },
-    {
-      url: `${baseUrl}/de/dear-passengers-release/`,
-      lastModified: new Date('2026-07-24'),
-    },
+    ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-24') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

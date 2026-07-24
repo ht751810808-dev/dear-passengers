@@ -26,11 +26,13 @@ const chineseLinks = [
 ];
 
 const germanLinks = [
-  { href: '/de/dear-passengers-release/#release', label: 'Release' },
-  { href: '/de/dear-passengers-release/#plattformen', label: 'Plattformen' },
-  { href: '/de/dear-passengers-release/#demo', label: 'Demo' },
-  { href: '/de/dear-passengers-release/#deutsch', label: 'Deutsch' },
-  { href: '/de/dear-passengers-release/#faq', label: 'FAQ' },
+  { href: '/de/dear-passengers-gameplay/', label: 'Gameplay' },
+  { href: '/de/dear-passengers-rollen/', label: 'Rollen' },
+  { href: '/de/dear-passengers-spielerzahl/', label: 'Spielerzahl' },
+  { href: '/de/dear-passengers-release/', label: 'Release' },
+  { href: '/de/dear-passengers-demo/', label: 'Demo' },
+  { href: '/de/dear-passengers-news/', label: 'News' },
+  { href: '/de/dear-passengers-systemanforderungen/', label: 'PC-Specs' },
 ];
 
 export default function Header({ locale = 'en', languageHref }: { locale?: 'en' | 'zh-CN' | 'de'; languageHref?: string }) {
@@ -42,11 +44,11 @@ export default function Header({ locale = 'en', languageHref }: { locale?: 'en' 
   const alternateHref = languageHref || (isChinese ? '/' : isGerman ? '/dear-passengers-release-date/' : '/zh-cn');
   const alternateLang = isChinese || isGerman ? 'en' : 'zh-CN';
   const alternateLabel = isChinese || isGerman ? 'EN' : '中文';
-  const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/dear-passengers-release/' : '/';
+  const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/' : '/';
   const homeLabel = isChinese
     ? 'Dear Passengers 中文指南首页'
     : isGerman
-      ? 'Dear Passengers Release auf Deutsch'
+      ? 'Dear Passengers deutscher Spiele-Guide'
       : 'Dear Passengers game guide home';
   const siteLabel = isChinese ? '独立游戏资料站' : isGerman ? 'UNABHÄNGIGER SPIELE-GUIDE' : 'INDEPENDENT FLIGHT GUIDE';
 
@@ -106,7 +108,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: 'en' 
             <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
           <Link href={alternateHref} hrefLang={alternateLang} onClick={() => setOpen(false)}>
-            {isChinese ? 'English site' : isGerman ? 'English release guide' : '简体中文'}
+            {isChinese ? 'English site' : isGerman ? 'Englische Version dieser Seite' : '简体中文'}
           </Link>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
             {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : 'Open the official Steam page'} ↗

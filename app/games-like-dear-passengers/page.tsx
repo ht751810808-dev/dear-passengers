@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Games Like Dear Passengers: 8 Co-op Games Compared' },
   description:
     'Compare eight games like Dear Passengers across teamwork, physics, service pressure, horror, flying, and social chaos while waiting for the 2026 release.',
-  alternates: { canonical: '/games-like-dear-passengers/' },
+  alternates: { canonical: '/games-like-dear-passengers/', languages: { en: '/games-like-dear-passengers/', de: '/de/spiele-wie-dear-passengers/', 'x-default': '/games-like-dear-passengers/' } },
   openGraph: {
     title: 'Games Like Dear Passengers: Co-op Physics and Crew Games',
     description:
