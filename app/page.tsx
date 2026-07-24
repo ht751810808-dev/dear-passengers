@@ -101,7 +101,7 @@ const videoSchema = {
   name: 'Dear Passengers Official Announcement Trailer',
   description: 'The official FLEXUS announcement trailer for the Dear Passengers co-op airline game.',
   thumbnailUrl: 'https://i.ytimg.com/vi/XRvd_HZesys/maxresdefault.jpg',
-  uploadDate: '2026-07-14',
+  uploadDate: '2026-07-14T00:00:00Z',
   contentUrl: 'https://www.youtube.com/watch?v=XRvd_HZesys',
   embedUrl: 'https://www.youtube-nocookie.com/embed/XRvd_HZesys',
 };
