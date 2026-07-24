@@ -407,6 +407,7 @@ export default function DearPassengersNewsPage() {
                 <div className="related-actions">
                   <Link className="button" href="/dear-passengers-demo">Dear Passengers demo →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date">Dear Passengers release date guide →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">Deutscher Release-Guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Dear Passengers confirmed features →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet the developer →</Link>
                 </div>

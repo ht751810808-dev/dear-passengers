@@ -4,8 +4,9 @@ import PrivacySettingsButton from '@/components/PrivacySettingsButton';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' }) {
   const isChinese = locale === 'zh-CN';
+  const isGerman = locale === 'de';
 
   if (isChinese) {
     return (
@@ -45,6 +46,52 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' }) {
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
           <span>资料核验于 2026 年 7 月 20 日 · 时效信息请以 Steam 官方页面为准。</span>
+        </div>
+      </footer>
+    );
+  }
+
+  if (isGerman) {
+    return (
+      <footer className="site-footer" lang="de">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/de/dear-passengers-release/">
+              <Image src="/images/logo.png" alt="Dear Passengers Release Guide" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>UNABHÄNGIGER SPIELE-GUIDE</small></span>
+            </Link>
+            <p>
+              DearPassengers.net ist ein unabhängiger, inoffizieller Guide. Die Website gehört weder zu FLEXUS noch
+              zu Valve oder Steam. Zeitkritische Angaben werden mit Primärquellen abgeglichen.
+            </p>
+          </div>
+          <div>
+            <h2>Release-Guide</h2>
+            <Link href="/de/dear-passengers-release/#release">Wann erscheint Dear Passengers?</Link>
+            <Link href="/de/dear-passengers-release/#plattformen">PC-, PS5- und Xbox-Status</Link>
+            <Link href="/de/dear-passengers-release/#demo">Demo und Gamescom</Link>
+            <Link href="/de/dear-passengers-release/#deutsch">Deutsche Sprache</Link>
+          </div>
+          <div>
+            <h2>Weitere Fakten</h2>
+            <Link href="/dear-passengers-news" hrefLang="en">Aktuelle Meldungen</Link>
+            <Link href="/dear-passengers-player-count" hrefLang="en">Spielerzahl und Koop</Link>
+            <Link href="/dear-passengers-system-requirements" hrefLang="en">PC-Systemanforderungen</Link>
+            <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Offizielle Steam-Seite ↗</a>
+          </div>
+          <div>
+            <h2>Website</h2>
+            <Link href="/dear-passengers-release-date" hrefLang="en">English release guide</Link>
+            <Link href="/about" hrefLang="en">Über DearPassengers.net</Link>
+            <Link href="/editorial-policy" hrefLang="en">Redaktions- und Korrekturregeln</Link>
+            <Link href="/contact" hrefLang="en">Kontakt und Korrekturen</Link>
+            <Link href="/privacy-policy" hrefLang="en">Datenschutzerklärung</Link>
+            <PrivacySettingsButton locale="de" className="footer-privacy-button" />
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <span>© 2026 DearPassengers.net</span>
+          <span>Stand: 24.07.2026 · Zeitkritische Angaben bitte zusätzlich auf Steam prüfen.</span>
         </div>
       </footer>
     );

@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
-      lastModified: new Date('2026-07-21'),
+      lastModified: new Date('2026-07-24'),
     },
     {
       url: `${baseUrl}/dear-passengers-player-count/`,
@@ -66,7 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
-      lastModified: new Date('2026-07-20'),
+      lastModified: new Date('2026-07-24'),
+    },
+    {
+      url: `${baseUrl}/de/dear-passengers-release/`,
+      lastModified: new Date('2026-07-24'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,

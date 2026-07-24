@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: '/zh-cn/dear-passengers-release-date/',
     languages: {
       en: '/dear-passengers-release-date/',
+      de: '/de/dear-passengers-release/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',
     },
@@ -393,6 +394,7 @@ export default function ChineseReleaseDatePage() {
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-system-requirements">中文配置要求 →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news" hrefLang="en">英文新闻 →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">德语发售指南 →</Link>
                   <a className="button button-ghost" href={INTERVIEW_URL} target="_blank" rel="noopener noreferrer">开发者采访 ↗</a>
                 </div>
               </section>

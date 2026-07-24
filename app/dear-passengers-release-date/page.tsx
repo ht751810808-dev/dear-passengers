@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     canonical: '/dear-passengers-release-date/',
     languages: {
       en: '/dear-passengers-release-date/',
+      de: '/de/dear-passengers-release/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',
     },
@@ -91,7 +92,7 @@ const articleSchema = {
     'An independent guide to the confirmed Dear Passengers release window, Steam status, platforms, and demo news.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-19',
+  dateModified: '2026-07-24',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -127,7 +128,7 @@ export default function ReleaseDatePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Header />
+      <Header languageHref="/de/dear-passengers-release/" />
 
       <main id="main-content">
         <article>
@@ -157,7 +158,7 @@ export default function ReleaseDatePage() {
                 <Link className="button button-ghost" href="/">Explore the game guide →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 15, 2026</span><span>Last checked July 17, 2026</span><span>Official window: 2026</span>
+                <span>Published July 15, 2026</span><span>Last checked July 24, 2026</span><span>Official window: 2026</span>
               </div>
             </div>
           </header>
@@ -381,6 +382,7 @@ export default function ReleaseDatePage() {
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">Deutscher Release-Guide →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date" hrefLang="zh-CN">中文发售指南 →</Link>
                 </div>
               </section>

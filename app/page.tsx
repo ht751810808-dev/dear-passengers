@@ -347,7 +347,10 @@ export default function HomePage() {
               <p>
                 Our <Link href="/dear-passengers-release-date">complete Dear Passengers release date guide</Link>
                 separates official facts from open questions, tracks platform status, and explains how to follow demo,
-                beta, playtest, language, and Dear Passengers launch updates without relying on rumor pages.
+                beta, playtest, language, and Dear Passengers launch updates without relying on rumor pages. German
+                readers can use the locally researched{' '}
+                <Link href="/de/dear-passengers-release/" hrefLang="de">Dear Passengers Release guide</Link>, built
+                around the way German gaming audiences ask when a game comes out.
               </p>
               <p>
                 FLEXUS has now confirmed that it is preparing a Dear Passengers demo for Gamescom and plans to release

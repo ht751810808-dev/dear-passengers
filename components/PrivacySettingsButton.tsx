@@ -26,7 +26,7 @@ export default function PrivacySettingsButton({
   locale = 'en',
   className = '',
 }: {
-  locale?: 'en' | 'zh-CN';
+  locale?: 'en' | 'zh-CN' | 'de';
   className?: string;
 }) {
   const [available, setAvailable] = useState(false);
@@ -57,7 +57,7 @@ export default function PrivacySettingsButton({
       type="button"
       onClick={() => window.googlefc?.showRevocationMessage?.()}
     >
-      {locale === 'zh-CN' ? '隐私与 Cookie 设置' : 'Privacy and cookie settings'}
+      {locale === 'zh-CN' ? '隐私与 Cookie 设置' : locale === 'de' ? 'Datenschutz- und Cookie-Einstellungen' : 'Privacy and cookie settings'}
     </button>
   );
 }
