@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date('2026-07-22'),
+      lastModified: new Date('2026-07-24'),
     },
     {
       url: `${baseUrl}/dear-passengers-gameplay/`,
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-news/`,
-      lastModified: new Date('2026-07-22'),
+      lastModified: new Date('2026-07-24'),
     },
     {
       url: `${baseUrl}/dear-passengers-developer-flexus/`,

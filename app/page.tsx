@@ -84,7 +84,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-22',
+  dateModified: '2026-07-24',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -421,13 +421,13 @@ export default function HomePage() {
 
         <section className="section release-preview">
           <div className="container release-card">
-            <div className="release-stamp"><small>STEAM TOP WISHLISTS</small><strong>NO. 12</strong><span>CHECKED JUL 22</span></div>
+            <div className="release-stamp"><small>STEAM TOP WISHLISTS</small><strong>NO. 9</strong><span>CHECKED JUL 24</span></div>
             <div className="prose">
               <span className="kicker">VERIFIED UPDATE DESK</span>
               <h2>Latest Dear Passengers News and Demo Updates</h2>
               <p>
-                <strong>Dear Passengers</strong> appeared at No. 12 on Steam&apos;s public Top Wishlists page when checked
-                on July 22 with preference filtering disabled. FLEXUS separately reported 1.5 million wishlists in its
+                <strong>Dear Passengers</strong> appeared at No. 9 on Steam&apos;s public Top Wishlists page when checked
+                on July 24 with preference filtering disabled. FLEXUS separately reported 1.5 million wishlists in its
                 July 19 Steam update. The live Steam rank can change, while the total is a developer-reported milestone;
                 neither figure represents sales, downloads, reviews, or active players.
               </p>
