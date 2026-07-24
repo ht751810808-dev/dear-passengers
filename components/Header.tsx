@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
@@ -35,15 +36,56 @@ const germanLinks = [
   { href: '/de/dear-passengers-systemanforderungen/', label: 'PC-Specs' },
 ];
 
+type Locale = 'en' | 'zh-CN' | 'de';
+
+const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }> = [
+  { locale: 'en', shortLabel: 'EN', label: 'English' },
+  { locale: 'zh-CN', shortLabel: '中文', label: '简体中文' },
+  { locale: 'de', shortLabel: 'DE', label: 'Deutsch' },
+];
+
+const localizedRoutes: Array<Record<Locale, string>> = [
+  { en: '/', 'zh-CN': '/zh-cn/', de: '/de/' },
+  { en: '/dear-passengers-gameplay/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-gameplay/' },
+  { en: '/dear-passengers-roles/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-rollen/' },
+  { en: '/dear-passengers-player-count/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/' },
+  { en: '/dear-passengers-release-date/', 'zh-CN': '/zh-cn/dear-passengers-release-date/', de: '/de/dear-passengers-release/' },
+  { en: '/dear-passengers-demo/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-demo/' },
+  { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-download/' },
+  { en: '/dear-passengers-system-requirements/', 'zh-CN': '/zh-cn/dear-passengers-system-requirements/', de: '/de/dear-passengers-systemanforderungen/' },
+  { en: '/dear-passengers-trailer/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-trailer/' },
+  { en: '/dear-passengers-news/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-news/' },
+  { en: '/dear-passengers-confirmed-features/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-bestaetigte-features/' },
+  { en: '/dear-passengers-developer-flexus/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-entwickler-flexus/' },
+  { en: '/games-like-dear-passengers/', 'zh-CN': '/zh-cn/', de: '/de/spiele-wie-dear-passengers/' },
+  { en: '/about/', 'zh-CN': '/zh-cn/', de: '/de/ueber-uns/' },
+  { en: '/editorial-policy/', 'zh-CN': '/zh-cn/', de: '/de/redaktionsrichtlinien/' },
+  { en: '/contact/', 'zh-CN': '/zh-cn/', de: '/de/kontakt/' },
+  { en: '/privacy-policy/', 'zh-CN': '/zh-cn/', de: '/de/datenschutz/' },
+];
+
+const localeHomes: Record<Locale, string> = { en: '/', 'zh-CN': '/zh-cn/', de: '/de/' };
+
+function normalizePath(pathname: string) {
+  if (pathname === '/') return pathname;
+  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+}
+
 export default function Header({ locale = 'en', languageHref }: { locale?: 'en' | 'zh-CN' | 'de'; languageHref?: string }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = normalizePath(usePathname());
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const links = isChinese ? chineseLinks : isGerman ? germanLinks : englishLinks;
-  const alternateHref = languageHref || (isChinese ? '/' : isGerman ? '/dear-passengers-release-date/' : '/zh-cn');
-  const alternateLang = isChinese || isGerman ? 'en' : 'zh-CN';
-  const alternateLabel = isChinese || isGerman ? 'EN' : '中文';
+  const localizedRoute = localizedRoutes.find((route) => Object.values(route).includes(pathname));
+  const localeHref = (targetLocale: Locale) => {
+    if (targetLocale === locale) return pathname;
+    if (localizedRoute) return localizedRoute[targetLocale];
+    if (targetLocale === 'en' && languageHref) return normalizePath(languageHref);
+    return localeHomes[targetLocale];
+  };
+  const currentLocale = localeOptions.find((option) => option.locale === locale) || localeOptions[0];
   const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/' : '/';
   const homeLabel = isChinese
     ? 'Dear Passengers 中文指南首页'
@@ -83,9 +125,26 @@ export default function Header({ locale = 'en', languageHref }: { locale?: 'en' 
         </nav>
 
         <div className="header-actions">
-          <Link className="language-link" href={alternateHref} hrefLang={alternateLang}>
-            {alternateLabel}
-          </Link>
+          <details className="language-switcher">
+            <summary aria-label={isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : 'Choose site language'}>
+              <span aria-hidden="true">◎</span>
+              {currentLocale.shortLabel}
+              <span className="language-chevron" aria-hidden="true">⌄</span>
+            </summary>
+            <div className="language-menu">
+              {localeOptions.map((option) => (
+                <a
+                  href={localeHref(option.locale)}
+                  hrefLang={option.locale}
+                  lang={option.locale}
+                  aria-current={option.locale === locale ? 'page' : undefined}
+                  key={option.locale}
+                >
+                  <span>{option.shortLabel}</span>{option.label}
+                </a>
+              ))}
+            </div>
+          </details>
           <a className="button button-small" href={STEAM_URL} target="_blank" rel="noopener noreferrer">
             {isChinese ? 'Steam 愿望单' : isGerman ? 'Auf Steam vormerken' : 'Wishlist on Steam'} <span aria-hidden="true">↗</span>
           </a>
@@ -107,9 +166,20 @@ export default function Header({ locale = 'en', languageHref }: { locale?: 'en' 
           {links.map((link) => (
             <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
-          <Link href={alternateHref} hrefLang={alternateLang} onClick={() => setOpen(false)}>
-            {isChinese ? 'English site' : isGerman ? 'Englische Version dieser Seite' : '简体中文'}
-          </Link>
+          <div className="mobile-language-options" aria-label={isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : 'Choose site language'}>
+            {localeOptions.map((option) => (
+              <a
+                href={localeHref(option.locale)}
+                hrefLang={option.locale}
+                lang={option.locale}
+                aria-current={option.locale === locale ? 'page' : undefined}
+                key={option.locale}
+                onClick={() => setOpen(false)}
+              >
+                {option.label}
+              </a>
+            ))}
+          </div>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
             {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : 'Open the official Steam page'} ↗
           </a>
