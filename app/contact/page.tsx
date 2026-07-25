@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Contact DearPassengers.net and Report Corrections' },
   description:
     'Contact the DearPassengers.net editorial team to report a factual error, submit a first-party source, raise a privacy question, or request attribution review.',
-  alternates: { canonical: '/contact', languages: { en: '/contact/', de: '/de/kontakt/', 'x-default': '/contact/' } },
+  alternates: { canonical: '/contact', languages: { en: '/contact/', ar: '/ar/contact/', de: '/de/kontakt/', 'x-default': '/contact/' } },
   openGraph: {
     title: 'Contact DearPassengers.net',
     description: 'Report corrections, sources, privacy questions, or attribution issues to the editorial team.',

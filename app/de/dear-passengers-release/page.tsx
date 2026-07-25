@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: '/de/dear-passengers-release/',
     languages: {
       en: '/dear-passengers-release-date/',
+      ar: '/ar/dear-passengers-release/',
       de: '/de/dear-passengers-release/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',

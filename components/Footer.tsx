@@ -4,9 +4,10 @@ import PrivacySettingsButton from '@/components/PrivacySettingsButton';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
+  const isArabic = locale === 'ar';
 
   if (isChinese) {
     return (
@@ -97,6 +98,54 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
           <span>Stand: 24.07.2026 · Zeitkritische Angaben bitte zusätzlich auf Steam prüfen.</span>
+        </div>
+      </footer>
+    );
+  }
+
+  if (isArabic) {
+    return (
+      <footer className="site-footer" lang="ar" dir="rtl">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/ar/">
+              <Image src="/images/logo.png" alt="دليل Dear Passengers بالعربية" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>دليل ألعاب مستقل</small></span>
+            </Link>
+            <p>DearPassengers.net دليل مستقل وغير رسمي للاعبين المهتمين بلعبة Dear Passengers. لا يتبع الموقع FLEXUS أو Valve أو Steam، وتُراجع المعلومات المتغيرة من مصادرها الأولى.</p>
+          </div>
+          <div>
+            <h2>دليل اللعبة</h2>
+            <Link href="/ar/dear-passengers-gameplay/">طريقة لعب Dear Passengers</Link>
+            <Link href="/ar/dear-passengers-trailer/">تحليل العرض الرسمي</Link>
+            <Link href="/ar/dear-passengers-confirmed-features/">الميزات المؤكدة</Link>
+            <Link href="/ar/dear-passengers-roles/">الطيار وطاقم المقصورة</Link>
+            <Link href="/ar/dear-passengers-player-count/">عدد اللاعبين والتعاون</Link>
+            <Link href="/ar/games-like-dear-passengers/">ألعاب مشابهة</Link>
+          </div>
+          <div>
+            <h2>الإصدار والتحميل</h2>
+            <Link href="/ar/dear-passengers-release/">موعد الإصدار 2026</Link>
+            <Link href="/ar/dear-passengers-demo/">النسخة التجريبية</Link>
+            <Link href="/ar/dear-passengers-download/">التحميل الآمن وتحذير APK</Link>
+            <Link href="/ar/dear-passengers-news/">آخر الأخبار</Link>
+            <Link href="/ar/dear-passengers-developer/">المطور FLEXUS</Link>
+            <Link href="/ar/dear-passengers-system-requirements/">متطلبات التشغيل</Link>
+            <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">صفحة Steam الرسمية ↗</a>
+          </div>
+          <div>
+            <h2>عن الموقع</h2>
+            <Link href="/" hrefLang="en">English site</Link>
+            <Link href="/ar/about/">عن DearPassengers.net</Link>
+            <Link href="/ar/editorial-policy/">السياسة التحريرية</Link>
+            <Link href="/ar/contact/">التواصل والتصحيحات</Link>
+            <Link href="/ar/privacy-policy/">سياسة الخصوصية</Link>
+            <PrivacySettingsButton locale="ar" className="footer-privacy-button" />
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <span>© 2026 DearPassengers.net</span>
+          <span>آخر تحقق: 25 يوليو 2026 · راجع Steam للمعلومات الزمنية.</span>
         </div>
       </footer>
     );

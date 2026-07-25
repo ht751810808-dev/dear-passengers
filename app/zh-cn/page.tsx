@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'Dear Passengers 中文资料指南，整理游戏玩法、发售时间、联机人数、最低电脑配置、简体中文支持和 Steam 官方信息。',
   alternates: {
     canonical: '/zh-cn/',
-    languages: { en: '/', de: '/de/', 'zh-CN': '/zh-cn/', 'x-default': '/' },
+    languages: { en: '/', ar: '/ar/', de: '/de/', 'zh-CN': '/zh-cn/', 'x-default': '/' },
   },
   openGraph: {
     title: 'Dear Passengers 中文指南：玩法、发售与电脑配置',

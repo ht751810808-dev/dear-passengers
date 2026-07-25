@@ -21,6 +21,26 @@ const germanPaths = [
   '/de/datenschutz/',
 ];
 
+const arabicPaths = [
+  '/ar/',
+  '/ar/dear-passengers-gameplay/',
+  '/ar/dear-passengers-trailer/',
+  '/ar/dear-passengers-confirmed-features/',
+  '/ar/dear-passengers-roles/',
+  '/ar/dear-passengers-player-count/',
+  '/ar/dear-passengers-release/',
+  '/ar/dear-passengers-demo/',
+  '/ar/dear-passengers-download/',
+  '/ar/dear-passengers-news/',
+  '/ar/dear-passengers-developer/',
+  '/ar/dear-passengers-system-requirements/',
+  '/ar/games-like-dear-passengers/',
+  '/ar/about/',
+  '/ar/editorial-policy/',
+  '/ar/contact/',
+  '/ar/privacy-policy/',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -88,6 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-07-24'),
     },
     ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-24') })),
+    ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-25') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

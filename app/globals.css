@@ -633,6 +633,11 @@ h1, h2, h3, h4 {
 .fact-callout span { display: block; font-size: .65rem; font-weight: 900; letter-spacing: .15em; }
 .fact-callout strong { display: block; margin: 5px 0; font-family: var(--font-display); font-size: 2.2rem; text-transform: uppercase; }
 .fact-callout p { margin: 0; color: var(--ink); font-size: .85rem; }
+.status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.status-grid .fact-callout { margin-bottom: 0; }
+.status-grid .fact-callout ul { margin: 14px 1.1rem 0 0; }
+.status-grid .fact-callout li { margin: 6px 0; font-size: .82rem; }
+.status-grid .unknown-callout { background: var(--white); border-color: var(--red-dark); }
 .article-source-figure { margin: 37px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: 0 14px 40px rgba(20,35,58,.08); }
 .article-source-figure img { display: block; width: 100%; height: auto; }
 .article-source-figure figcaption { padding: 12px 16px 14px; color: var(--ink-soft); font-size: .72rem; line-height: 1.55; }
@@ -690,6 +695,40 @@ h1, h2, h3, h4 {
 .zh-multiplayer-hero > img { object-position: center 46%; }
 .download-hero > img { object-position: center 50%; }
 
+/* Arabic locale: keep the document RTL while preserving Latin brand and technical tokens. */
+.localized-site-ar,
+.localized-site-ar button,
+.localized-site-ar input,
+.localized-site-ar textarea { font-family: var(--font-arabic), var(--font-body), sans-serif; }
+.localized-site-ar .brand b,
+.localized-site-ar .language-menu a span { font-family: var(--font-display), sans-serif; direction: ltr; unicode-bidi: isolate; }
+.localized-site-ar .brand { direction: ltr; }
+.localized-site-ar .brand small { font-family: var(--font-arabic), sans-serif; letter-spacing: 0; }
+.localized-site-ar .desktop-nav a,
+.localized-site-ar .article-meta span,
+.localized-site-ar .breadcrumbs,
+.localized-site-ar .eyebrow,
+.localized-site-ar .kicker,
+.localized-site-ar .article-toc p,
+.localized-site-ar .fact-callout span,
+.localized-site-ar .site-footer h2 { letter-spacing: 0; text-transform: none; }
+.localized-site-ar .article-hero h1,
+.localized-site-ar .article-prose h2,
+.localized-site-ar .legal-card h1,
+.localized-site-ar .legal-card h2,
+.localized-site-ar .fact-callout strong,
+.localized-site-ar .button { font-family: var(--font-arabic), var(--font-body), sans-serif; letter-spacing: 0; text-transform: none; }
+.localized-site-ar h1 bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+.localized-site-ar .article-layout { grid-template-columns: 230px minmax(0, 790px); }
+.localized-site-ar .article-toc { grid-column: 1; grid-row: 1; text-align: right; }
+.localized-site-ar .article-prose { grid-column: 2; grid-row: 1; }
+.localized-site-ar .snippet-answer { border-left: 0; border-right: 5px solid var(--red); }
+.localized-site-ar .article-prose > .editorial-note { justify-items: start; text-align: right; }
+.localized-site-ar .article-prose > .editorial-note .editorial-note-links { justify-items: start; text-align: right; }
+.localized-site-ar .site-footer .footer-grid > div:not(:first-child) { align-items: flex-start; }
+.localized-site-ar .footer-privacy-button { text-align: right; }
+.localized-site-ar :where(p, li, h1, h2, h3, a, span) { overflow-wrap: break-word; }
+
 .role-table-wrap { margin: 36px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: 0 14px 40px rgba(20,35,58,.07); }
 .role-comparison-table { width: 100%; min-width: 940px; border-collapse: collapse; text-align: left; }
 .role-comparison-table caption { padding: 13px 18px; color: var(--ink-soft); background: var(--paper-deep); font-size: .72rem; text-align: left; }
@@ -716,6 +755,9 @@ h1, h2, h3, h4 {
   .clip-selector button { min-height: 98px; }
   .clip-selector button:hover, .clip-selector button.is-active { transform: translateY(-3px); }
   .article-layout { grid-template-columns: 1fr; }
+  .localized-site-ar .article-layout { grid-template-columns: 1fr; }
+  .localized-site-ar .article-toc,
+  .localized-site-ar .article-prose { grid-column: 1; grid-row: auto; }
   .article-toc { position: static; display: flex; flex-wrap: wrap; gap: 7px 15px; }
   .article-toc p { width: 100%; }
   .article-toc a { padding: 4px 0; }
@@ -816,6 +858,11 @@ h1, h2, h3, h4 {
   .timeline > div { padding-left: 76px; }
   .timeline time { left: 18px; }
   .related-guide { padding: 30px !important; }
+  .status-grid { grid-template-columns: 1fr; }
+  .localized-site-ar .article-hero h1 { font-size: clamp(2.45rem, 11vw, 3.15rem); line-height: 1.25; }
+  .localized-site-ar .article-hero h1 bdi { font-size: .84em; }
+  .localized-site-ar .article-prose h2 { font-size: 2.35rem; line-height: 1.35; }
+  .localized-site-ar .legal-card h1 { font-size: 2.2rem; line-height: 1.35; }
   .source-grid { grid-template-columns: 1fr; }
   .source-grid > a { min-height: 220px; }
   .official-trailer { margin-top: 50px; }

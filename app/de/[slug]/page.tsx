@@ -3,6 +3,20 @@ import { notFound } from 'next/navigation';
 import GermanGuidePage from '@/components/GermanGuidePage';
 import { germanGuideBySlug, germanGuides } from '@/app/de/german-content';
 
+const arabicPaths: Record<string, string> = {
+  '/dear-passengers-gameplay/': '/ar/dear-passengers-gameplay/',
+  '/dear-passengers-player-count/': '/ar/dear-passengers-player-count/',
+  '/dear-passengers-demo/': '/ar/dear-passengers-demo/',
+  '/dear-passengers-download/': '/ar/dear-passengers-download/',
+  '/dear-passengers-system-requirements/': '/ar/dear-passengers-system-requirements/',
+  '/dear-passengers-trailer/': '/ar/dear-passengers-trailer/',
+  '/dear-passengers-news/': '/ar/dear-passengers-news/',
+  '/dear-passengers-confirmed-features/': '/ar/dear-passengers-confirmed-features/',
+  '/dear-passengers-roles/': '/ar/dear-passengers-roles/',
+  '/dear-passengers-developer-flexus/': '/ar/dear-passengers-developer/',
+  '/games-like-dear-passengers/': '/ar/games-like-dear-passengers/',
+};
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -14,6 +28,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!guide) return {};
   const canonical = `/de/${guide.slug}/`;
   const languages: Record<string, string> = { en: guide.englishPath, de: canonical, 'x-default': guide.englishPath };
+  languages.ar = arabicPaths[guide.englishPath];
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   return {
     title: { absolute: guide.title },
@@ -38,4 +53,3 @@ export default function GermanDynamicGuide({ params }: { params: { slug: string 
   if (!guide) notFound();
   return <GermanGuidePage guide={guide} canonicalPath={`/de/${guide.slug}/`} />;
 }
-

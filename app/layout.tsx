@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Barlow_Condensed, Manrope } from 'next/font/google';
+import { Barlow_Condensed, Manrope, Noto_Sans_Arabic } from 'next/font/google';
 import GoogleServices, { GoogleConsentDefaults } from '@/components/GoogleServices';
 import './globals.css';
 
@@ -20,6 +20,13 @@ const body = Manrope({
   display: 'swap',
 });
 
+const arabic = Noto_Sans_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-arabic',
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://dearpassengers.net'),
   referrer: 'strict-origin-when-cross-origin',
@@ -35,6 +42,7 @@ export const metadata: Metadata = {
     languages: {
       en: '/',
       de: '/de/',
+      ar: '/ar/',
       'zh-CN': '/zh-cn/',
       'x-default': '/',
     },
@@ -80,7 +88,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${arabic.variable}`}>
       <head>
         <GoogleConsentDefaults />
       </head>

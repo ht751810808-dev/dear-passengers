@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: 'About DearPassengers.net: Independent Game Guide' },
   description:
     'Learn who maintains DearPassengers.net, how this independent Dear Passengers game guide verifies facts, labels unknowns, and corrects published information.',
-  alternates: { canonical: '/about', languages: { en: '/about/', de: '/de/ueber-uns/', 'x-default': '/about/' } },
+  alternates: { canonical: '/about', languages: { en: '/about/', ar: '/ar/about/', de: '/de/ueber-uns/', 'x-default': '/about/' } },
   openGraph: {
     title: 'About DearPassengers.net',
     description: 'The purpose, independence, sourcing standards, and update process behind this game guide.',
