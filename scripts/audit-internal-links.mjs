@@ -41,11 +41,13 @@ if (broken.length) {
   process.exitCode = 1;
 } else {
   const germanRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/de/'));
-  const orphaned = germanRoutes.filter((route) => (incoming.get(route)?.size || 0) < 2);
+  const turkishRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/tr/'));
+  const localizedRoutes = [...germanRoutes, ...turkishRoutes];
+  const orphaned = localizedRoutes.filter((route) => (incoming.get(route)?.size || 0) < 2);
   if (orphaned.length) {
-    console.error(`German pages with fewer than two incoming pages:\n${orphaned.join('\n')}`);
+    console.error(`Localized pages with fewer than two incoming pages:\n${orphaned.join('\n')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, ${germanRoutes.length} German pages with at least two incoming pages.`);
+    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, ${germanRoutes.length} German and ${turkishRoutes.length} Turkish pages with at least two incoming pages.`);
   }
 }

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
       en: '/dear-passengers-release-date/',
       ar: '/ar/dear-passengers-release/',
       de: '/de/dear-passengers-release/',
+      tr: '/tr/dear-passengers-cikis-tarihi/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',
     },

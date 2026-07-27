@@ -4,7 +4,7 @@ import GermanTrustPage from '@/components/GermanTrustPage';
 export const metadata: Metadata = {
   title: { absolute: 'Redaktionsrichtlinien: Quellen, Updates und Korrekturen' },
   description: 'Deutsche Redaktionsrichtlinien von DearPassengers.net zu Quellenpriorität, Faktenstatus, Aktualisierungen, KI-Unterstützung und Korrekturen.',
-  alternates: { canonical: '/de/redaktionsrichtlinien/', languages: { en: '/editorial-policy/', ar: '/ar/editorial-policy/', de: '/de/redaktionsrichtlinien/', 'x-default': '/editorial-policy/' } },
+  alternates: { canonical: '/de/redaktionsrichtlinien/', languages: { en: '/editorial-policy/', ar: '/ar/editorial-policy/', de: '/de/redaktionsrichtlinien/', tr: '/tr/editorial-policy/', 'x-default': '/editorial-policy/' } },
 };
 
 export default function GermanEditorialPage() {

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ArabicGuidePage from '@/components/ArabicGuidePage';
 import { arabicGuideBySlug, arabicGuides } from '@/app/ar/arabic-content';
+import { turkishGuideByEnglishPath } from '@/app/tr/turkish-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return arabicGuides.map((guide) => ({ slug: guide.slug })); }
@@ -10,7 +11,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const guide = arabicGuideBySlug.get(params.slug);
   if (!guide) return {};
   const canonical = `/ar/${guide.slug}/`;
-  const languages: Record<string, string> = { en: guide.englishPath, ar: canonical, de: guide.germanPath, 'x-default': guide.englishPath };
+  const languages: Record<string, string> = { en: guide.englishPath, ar: canonical, de: guide.germanPath, tr: `/tr/${turkishGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'x-default': guide.englishPath };
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   return {
     title: { absolute: guide.title }, description: guide.description, alternates: { canonical, languages },

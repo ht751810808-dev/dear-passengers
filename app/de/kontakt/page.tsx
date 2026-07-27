@@ -4,7 +4,7 @@ import GermanTrustPage from '@/components/GermanTrustPage';
 export const metadata: Metadata = {
   title: { absolute: 'Kontakt und Korrekturen | DearPassengers.net' },
   description: 'DearPassengers.net auf Deutsch kontaktieren, Quellen und Korrekturen melden oder Datenschutz- und Bildnachweisfragen stellen.',
-  alternates: { canonical: '/de/kontakt/', languages: { en: '/contact/', ar: '/ar/contact/', de: '/de/kontakt/', 'x-default': '/contact/' } },
+  alternates: { canonical: '/de/kontakt/', languages: { en: '/contact/', ar: '/ar/contact/', de: '/de/kontakt/', tr: '/tr/iletisim/', 'x-default': '/contact/' } },
 };
 
 export default function GermanContactPage() {

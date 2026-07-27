@@ -1,0 +1,10 @@
+import type { Metadata } from 'next';
+import TurkishTrustPage from '@/components/TurkishTrustPage';
+
+export const metadata: Metadata = { title: { absolute: 'DearPassengers.net İletişim ve Düzeltmeler' }, description: 'Dear Passengers Türkçe rehberi için kaynak, düzeltme, telif veya gizlilik bildirimi gönderme yolları.', alternates: { canonical: '/tr/iletisim/', languages: { en: '/contact/', ar: '/ar/contact/', de: '/de/kontakt/', tr: '/tr/iletisim/', 'x-default': '/contact/' } } };
+export default function TurkishContactPage() { return <TurkishTrustPage title="İletişim ve düzeltmeler" englishPath="/contact/" lede="Dear Passengers hakkında doğrulanabilir bir düzeltme, yeni birincil kaynak veya hak bildirimi paylaşabilirsiniz. Mesajın hangi URL ve iddiayla ilgili olduğunu belirtin." sections={[
+  { heading: 'Düzeltme gönderirken', paragraphs: ['İlgili sayfa adresini, yanlış olduğunu düşündüğünüz cümleyi ve mümkünse Steam, FLEXUS veya doğrudan röportaj bağlantısını ekleyin. Kaynaksız kesin tarih, fiyat veya oyuncu sayısı talepleri yayımlanmaz.', 'Ortak ürün gerçeği değişirse İngilizce, Almanca, Arapça, Çince ve Türkçe karşılıklar birlikte kontrol edilir.'] },
+  { heading: 'İletişim adresi', paragraphs: ['E-posta: hello@dearpassengers.net. Konu satırında “Türkçe düzeltme”, “kaynak”, “görsel hakkı” veya “gizlilik” belirtmeniz incelemeyi kolaylaştırır.', 'DearPassengers.net, oyun desteği veya satın alma iadesi sunmaz. Hesap ve mağaza işlemleri için resmî Steam desteği kullanılmalıdır.'] },
+  { heading: 'Telif ve görseller', paragraphs: ['Hak sahibiyseniz görsel URL’sini ve talebinizin kapsamını iletin. Resmî materyal editoryal bağlamda gösterilir ve mülkiyet iddiasında bulunulmaz.', 'Üretilmiş veya editoryal görsel hiçbir zaman resmî ekran görüntüsü diye etiketlenmez.'] },
+  { heading: 'Yanıt ve kayıt', paragraphs: ['Her mesaj yanıt garantisi taşımaz; doğrulanabilir düzeltmeler önceliklidir. Kişisel bilgileri yalnız talebi değerlendirmek ve gerekiyorsa yanıtlamak için kullanırız.', 'Yeni özellik önerileri ürün gerçeği değildir; ancak arama niyeti ve yeterli kanıt oluşursa içerik planında değerlendirilebilir.'] },
+]} />; }

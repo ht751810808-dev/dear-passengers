@@ -41,6 +41,26 @@ const arabicPaths = [
   '/ar/privacy-policy/',
 ];
 
+const turkishPaths = [
+  '/tr/',
+  '/tr/dear-passengers-oynanis/',
+  '/tr/dear-passengers-fragman/',
+  '/tr/dear-passengers-ozellikleri/',
+  '/tr/dear-passengers-rolleri/',
+  '/tr/dear-passengers-kac-kisilik/',
+  '/tr/dear-passengers-cikis-tarihi/',
+  '/tr/dear-passengers-demo/',
+  '/tr/dear-passengers-indir/',
+  '/tr/dear-passengers-haberleri/',
+  '/tr/dear-passengers-gelistiricisi/',
+  '/tr/dear-passengers-sistem-gereksinimleri/',
+  '/tr/dear-passengers-benzeri-oyunlar/',
+  '/tr/hakkimizda/',
+  '/tr/editorial-policy/',
+  '/tr/iletisim/',
+  '/tr/gizlilik/',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -109,6 +129,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-24') })),
     ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-25') })),
+    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-27') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

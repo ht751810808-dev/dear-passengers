@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Roles: Pilot and Cabin Crew Guide' },
   description:
     'Compare Dear Passengers roles, including pilot, cabin crew, cargo and support duties, with clear solo and online co-op suitability notes before release.',
-  alternates: { canonical: '/dear-passengers-roles/', languages: { en: '/dear-passengers-roles/', ar: '/ar/dear-passengers-roles/', de: '/de/dear-passengers-rollen/', 'x-default': '/dear-passengers-roles/' } },
+  alternates: { canonical: '/dear-passengers-roles/', languages: { en: '/dear-passengers-roles/', ar: '/ar/dear-passengers-roles/', de: '/de/dear-passengers-rollen/', tr: '/tr/dear-passengers-rolleri/', 'x-default': '/dear-passengers-roles/' } },
   openGraph: {
     title: 'Dear Passengers Roles: Pilot and Cabin Crew Compared',
     description:

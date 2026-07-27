@@ -20,6 +20,7 @@ export const metadata: Metadata = {
       en: '/dear-passengers-player-count/',
       ar: '/ar/dear-passengers-player-count/',
       de: '/de/dear-passengers-spielerzahl/',
+      tr: '/tr/dear-passengers-kac-kisilik/',
       'zh-CN': '/zh-cn/dear-passengers-player-count/',
       'x-default': '/dear-passengers-player-count/',
     },

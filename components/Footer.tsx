@@ -4,10 +4,11 @@ import PrivacySettingsButton from '@/components/PrivacySettingsButton';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
+  const isTurkish = locale === 'tr';
 
   if (isChinese) {
     return (
@@ -146,6 +147,54 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
           <span>آخر تحقق: 25 يوليو 2026 · راجع Steam للمعلومات الزمنية.</span>
+        </div>
+      </footer>
+    );
+  }
+
+  if (isTurkish) {
+    return (
+      <footer className="site-footer" lang="tr">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/tr/">
+              <Image src="/images/logo.png" alt="Dear Passengers Türkçe oyun rehberi" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>BAĞIMSIZ OYUN REHBERİ</small></span>
+            </Link>
+            <p>DearPassengers.net, Dear Passengers oyunu için bağımsız ve resmî olmayan bir rehberdir. FLEXUS, Valve veya Steam ile bağlantılı değildir; değişken bilgiler birincil kaynaklardan kontrol edilir.</p>
+          </div>
+          <div>
+            <h2>Oyun rehberi</h2>
+            <Link href="/tr/dear-passengers-oynanis/">Dear Passengers oynanış</Link>
+            <Link href="/tr/dear-passengers-fragman/">Resmî fragman analizi</Link>
+            <Link href="/tr/dear-passengers-ozellikleri/">Onaylanan özellikler</Link>
+            <Link href="/tr/dear-passengers-rolleri/">Pilot ve kabin rolleri</Link>
+            <Link href="/tr/dear-passengers-kac-kisilik/">Oyuncu sayısı ve co-op</Link>
+            <Link href="/tr/dear-passengers-benzeri-oyunlar/">Benzer co-op oyunlar</Link>
+          </div>
+          <div>
+            <h2>Çıkış masası</h2>
+            <Link href="/tr/dear-passengers-cikis-tarihi/">Çıkış tarihi 2026</Link>
+            <Link href="/tr/dear-passengers-demo/">Demo ve Playtest durumu</Link>
+            <Link href="/tr/dear-passengers-indir/">Güvenli indirme</Link>
+            <Link href="/tr/dear-passengers-haberleri/">Son haberler</Link>
+            <Link href="/tr/dear-passengers-gelistiricisi/">Geliştirici FLEXUS</Link>
+            <Link href="/tr/dear-passengers-sistem-gereksinimleri/">Sistem gereksinimleri</Link>
+            <a href={`${STEAM_URL}?l=turkish`} target="_blank" rel="noopener noreferrer">Resmî Steam sayfası ↗</a>
+          </div>
+          <div>
+            <h2>Site bilgileri</h2>
+            <Link href="/" hrefLang="en">English site</Link>
+            <Link href="/tr/hakkimizda/">Hakkımızda</Link>
+            <Link href="/tr/editorial-policy/">Editoryal politika</Link>
+            <Link href="/tr/iletisim/">İletişim ve düzeltmeler</Link>
+            <Link href="/tr/gizlilik/">Gizlilik politikası</Link>
+            <PrivacySettingsButton locale="tr" className="footer-privacy-button" />
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <span>© 2026 DearPassengers.net</span>
+          <span>Son kontrol: 27.07.2026 · Zamana duyarlı bilgiler için Steam’i kontrol edin.</span>
         </div>
       </footer>
     );
