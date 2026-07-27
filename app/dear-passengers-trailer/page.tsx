@@ -11,18 +11,19 @@ import VideoShowcase from '@/components/VideoShowcase';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const TRAILER_URL = 'https://www.youtube.com/watch?v=XRvd_HZesys';
+const TEASER_URL = 'https://www.youtube.com/watch?v=1NpifWKVh3w';
 const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-trailer/';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dear Passengers Trailer: Official Gameplay Breakdown' },
+  title: { absolute: 'Dear Passengers Trailer: Official Videos & Breakdown' },
   description:
-    'Watch the official Dear Passengers trailer and explore a source-labeled breakdown of cockpit work, cabin service, cargo, passengers, weather, and open questions.',
+    'Watch both official Dear Passengers videos and explore a source-labeled breakdown of cockpit work, cabin service, cargo, weather, and open questions.',
   alternates: { canonical: '/dear-passengers-trailer/', languages: { en: '/dear-passengers-trailer/', ar: '/ar/dear-passengers-trailer/', de: '/de/dear-passengers-trailer/', 'x-default': '/dear-passengers-trailer/' } },
   openGraph: {
-    title: 'Dear Passengers Trailer: Scene and Gameplay Breakdown',
+    title: 'Dear Passengers Trailer: Official Videos and Breakdown',
     description:
-      'A careful breakdown of what the official trailer shows, what Steam confirms, and what remains unannounced.',
+      'Watch the July 22 teaser and original reveal, then separate visible scenes from confirmed Dear Passengers facts.',
     url: PAGE_URL,
     images: [
       {
@@ -36,17 +37,22 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dear Passengers Trailer: Official Gameplay Breakdown',
-    description: 'Watch the official reveal and separate visible scenes from confirmed game features.',
+    title: 'Dear Passengers Trailer: Official Videos & Breakdown',
+    description: 'Watch both official FLEXUS videos and separate visible scenes from confirmed game features.',
     images: ['/images/og-image.png'],
   },
 };
 
 const faqs: FaqItem[] = [
   {
-    question: 'Is the Dear Passengers trailer official?',
+    question: 'Are the Dear Passengers trailers official?',
     answer:
-      'Yes. The Dear Passengers trailer embedded on this page was published by FLEXUS, the developer and publisher named on Steam. This page is an independent analysis and is not operated by FLEXUS, Valve, or Steam.',
+      'Yes. Both Dear Passengers videos embedded on this page were published by the official FLEXUS YouTube channel. FLEXUS is the developer and publisher named on Steam. This page is an independent analysis and is not operated by FLEXUS, Valve, or Steam.',
+  },
+  {
+    question: 'What does the July 22 Dear Passengers teaser confirm?',
+    answer:
+      'The official description said Dear Passengers was close to two million Steam wishlists when FLEXUS published the 37-second teaser. It did not say the game had reached that milestone, and the video did not announce an exact release date, price, player limit, console version, or new playable build.',
   },
   {
     question: 'Does the Dear Passengers trailer show real gameplay?',
@@ -69,9 +75,9 @@ const faqs: FaqItem[] = [
       'Not necessarily. A reveal trailer communicates tone and systems, but individual scenes, objects, user names, interfaces, and balancing can change during development. Steam is the safer source for the current confirmed feature set.',
   },
   {
-    question: 'Where can I watch the Dear Passengers trailer safely?',
+    question: 'Where can I watch the Dear Passengers trailers safely?',
     answer:
-      'Use the official FLEXUS YouTube upload or the media panel on the Dear Passengers Steam store page. The privacy-enhanced embed on this page points to that official YouTube video.',
+      'Use the official FLEXUS YouTube channel or the media panel on the Dear Passengers Steam store page. Both privacy-enhanced embeds on this page point to official FLEXUS YouTube uploads.',
   },
 ];
 
@@ -80,10 +86,10 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Dear Passengers Trailer: Official Gameplay and Scene Breakdown',
   description:
-    'A source-labeled analysis of the official Dear Passengers trailer, visible gameplay situations, confirmed features, and open questions.',
+    'A source-labeled analysis of the official Dear Passengers videos, visible gameplay situations, confirmed features, and open questions.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-07-19',
+  dateModified: '2026-07-27',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -111,6 +117,19 @@ const videoSchema = {
   publisher: { '@type': 'Organization', name: 'FLEXUS' },
 };
 
+const teaserVideoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Dear Passengers — Another Friendslop Game',
+  description:
+    'The official 37-second FLEXUS follow-up teaser for Dear Passengers, published while the game was close to two million Steam wishlists.',
+  thumbnailUrl: 'https://i.ytimg.com/vi/1NpifWKVh3w/hqdefault.jpg',
+  uploadDate: '2026-07-22T23:15:34Z',
+  contentUrl: TEASER_URL,
+  embedUrl: 'https://www.youtube-nocookie.com/embed/1NpifWKVh3w',
+  publisher: { '@type': 'Organization', name: 'FLEXUS' },
+};
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -135,6 +154,7 @@ export default function DearPassengersTrailerPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(teaserVideoSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
@@ -154,21 +174,21 @@ export default function DearPassengersTrailerPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Official Trailer</span>
               </nav>
-              <div className="eyebrow"><span>●</span> OFFICIAL FOOTAGE · CONFIRMED FEATURES VS OBSERVATIONS</div>
+              <div className="eyebrow"><span>●</span> TWO OFFICIAL VIDEOS · CONFIRMED FACTS VS OBSERVATIONS</div>
               <h1>Dear Passengers Trailer:<br /><em>Official Gameplay Breakdown</em></h1>
               <p>
-                The <strong>Dear Passengers trailer</strong> introduces a failing airline, divided crew duties, difficult
-                passengers, risky cargo, unstable weather, and physics-driven emergencies. This independent breakdown
-                explains what the official footage visibly demonstrates, what the Steam listing separately confirms,
-                and which popular conclusions remain unannounced.
+                The original <strong>Dear Passengers trailer</strong> introduces a failing airline, divided crew duties,
+                difficult passengers, risky cargo, unstable weather, and physics-driven emergencies. FLEXUS followed it
+                with a 37-second teaser on July 22. This independent breakdown explains what both official videos visibly
+                demonstrate, what the Steam listing separately confirms, and which popular conclusions remain unannounced.
               </p>
               <div className="hero-actions">
-                <a className="button" href={TRAILER_URL} target="_blank" rel="noopener noreferrer">Watch Dear Passengers trailer ↗</a>
+                <a className="button" href={TEASER_URL} target="_blank" rel="noopener noreferrer">Watch latest official teaser ↗</a>
                 <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Check confirmed features →</Link>
               </div>
               <div className="status-strip" aria-label="Dear Passengers trailer evidence summary">
-                <div><small>OFFICIAL VIDEO</small><strong>FLEXUS</strong></div>
-                <div><small>REVEALED</small><strong>JUL 14 · 2026</strong></div>
+                <div><small>OFFICIAL VIDEOS</small><strong>2 · FLEXUS</strong></div>
+                <div><small>PUBLISHED</small><strong>JUL 14 + JUL 22</strong></div>
                 <div><small>CONFIRMED MODES</small><strong>SOLO · ONLINE CO-OP</strong></div>
                 <div><small>EXACT LAUNCH</small><strong>NOT ANNOUNCED</strong></div>
               </div>
@@ -178,6 +198,7 @@ export default function DearPassengersTrailerPage() {
           <div className="container article-layout">
             <aside className="article-toc">
               <p>TRAILER BRIEFING</p>
+              <a href="#latest-teaser">July 22 teaser</a>
               <a href="#watch">Watch Dear Passengers</a>
               <a href="#scene-map">Scene map</a>
               <a href="#flight-loop">Flight loop</a>
@@ -191,13 +212,62 @@ export default function DearPassengersTrailerPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 19, 2026"
-                note="This page treats the official video as evidence of visible situations, not a guarantee of final controls, balance, progression, player limits, or every object shown. Steam fields establish the current confirmed product facts."
+                checked="July 27, 2026"
+                note="This page treats both official videos as evidence of visible situations, not a guarantee of final controls, balance, progression, player limits, or every object shown. Steam fields establish the current confirmed product facts."
               />
+
+              <section id="latest-teaser">
+                <span className="kicker">LATEST FIRST-PARTY VIDEO · JULY 22</span>
+                <h2>Dear Passengers “Another Friendslop Game” Teaser</h2>
+                <p className="snippet-answer">
+                  FLEXUS published a second official <strong>Dear Passengers trailer</strong> on July 22, 2026. The
+                  37-second “Another Friendslop Game” teaser is a short follow-up to the reveal. Its official description
+                  said Dear Passengers was <strong>close to two million Steam wishlists</strong>; it did not say the
+                  milestone had been reached.
+                </p>
+                <p>
+                  The teaser frames Dear Passengers alongside the kind of cooperative games FLEXUS says inspired the
+                  team&apos;s nights with friends. That is useful developer context, but it is not a feature comparison
+                  or proof that Dear Passengers shares another game&apos;s player count, progression, controls, or
+                  business model. The footage reinforces the game&apos;s group-chaos positioning without publishing a
+                  new release date, price, platform, demo, maximum crew size, or technical requirement.
+                </p>
+
+                <div className="official-trailer">
+                  <div className="trailer-frame">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/1NpifWKVh3w"
+                      title="Dear Passengers Another Friendslop Game official teaser by FLEXUS"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="trailer-copy">
+                    <span className="kicker">OFFICIAL FLEXUS TEASER</span>
+                    <h3>What Changed on July 22</h3>
+                    <p>
+                      A second first-party video became available. The description supplied a dated “close to two
+                      million” wishlist statement, not confirmation that Dear Passengers reached two million.
+                    </p>
+                    <a href={TEASER_URL} target="_blank" rel="noopener noreferrer">
+                      Watch on the official FLEXUS channel ↗
+                    </a>
+                  </div>
+                </div>
+
+                <div className="platform-table" role="table" aria-label="July 22 Dear Passengers teaser fact status">
+                  <div className="platform-head" role="row"><span role="columnheader">Evidence layer</span><span role="columnheader">Finding</span><span role="columnheader">Editorial status</span></div>
+                  <div role="row"><strong role="cell">Official upload</strong><span role="cell">Second 37-second FLEXUS teaser</span><span className="status-confirmed" role="cell">Confirmed</span></div>
+                  <div role="row"><strong role="cell">Wishlist wording</strong><span role="cell">“Close to 2,000,000” in the description</span><span className="status-confirmed" role="cell">Confirmed dated claim</span></div>
+                  <div role="row"><strong role="cell">Genre comparison</strong><span role="cell">Signals the team&apos;s co-op inspirations</span><span className="status-open" role="cell">Context, not mechanic proof</span></div>
+                  <div role="row"><strong role="cell">Launch details</strong><span role="cell">Date, price, player cap, console plans</span><span className="status-open" role="cell">Still unknown</span></div>
+                </div>
+              </section>
 
               <section id="watch">
                 <span className="kicker">PRIMARY RECORDING</span>
-                <h2>Watch the Official Dear Passengers Trailer</h2>
+                <h2>Watch the Original Dear Passengers Announcement Trailer</h2>
                 <p className="snippet-answer">
                   The official <strong>Dear Passengers trailer</strong> presents a first-person co-op airline game in
                   which one crew member pilots while others work inside the cabin. The Dear Passengers trailer shows passenger service,
@@ -205,7 +275,7 @@ export default function DearPassengersTrailerPage() {
                   Steam separately confirms a 2026 Windows release, single-player, and online co-op.
                 </p>
                 <p>
-                  FLEXUS published the reveal to establish the Dear Passengers premise rather than document every rule. The
+                  FLEXUS published the original reveal to establish the Dear Passengers premise rather than document every rule. The
                   Dear Passengers trailer moves quickly between pre-flight choices, cockpit work, cabin routines, and
                   escalating disasters. That editing communicates the intended comedy: a normal duty becomes difficult,
                   a second problem arrives before the first is solved, and the crew must decide whether safety, service,
@@ -394,9 +464,9 @@ export default function DearPassengersTrailerPage() {
                 <span className="kicker">TRAILER QUESTIONS</span>
                 <h2>Dear Passengers Trailer FAQ</h2>
                 <p>
-                  These answers distinguish official Dear Passengers footage from final product specifications. The Dear Passengers page will retain the
-                  reveal context while linking to newer evidence when FLEXUS publishes a demo, extended gameplay, or an
-                  updated trailer.
+                  These answers distinguish official Dear Passengers footage from final product specifications. The
+                  Dear Passengers page retains the original reveal context and now records the July 22 teaser. A demo or
+                  extended gameplay session would still provide stronger evidence for controls and repeatable mechanics.
                 </p>
                 <FAQ items={faqs} />
               </section>
