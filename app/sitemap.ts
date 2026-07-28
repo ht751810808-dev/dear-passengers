@@ -105,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-news/`,
-      lastModified: new Date('2026-07-24'),
+      lastModified: new Date('2026-07-28'),
     },
     {
       url: `${baseUrl}/dear-passengers-developer-flexus/`,
