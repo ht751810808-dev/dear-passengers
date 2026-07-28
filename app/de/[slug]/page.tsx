@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import GermanGuidePage from '@/components/GermanGuidePage';
 import { germanGuideBySlug, germanGuides } from '@/app/de/german-content';
 import { turkishGuideByEnglishPath } from '@/app/tr/turkish-content';
+import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
 
 const arabicPaths: Record<string, string> = {
   '/dear-passengers-gameplay/': '/ar/dear-passengers-gameplay/',
@@ -31,6 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const languages: Record<string, string> = { en: guide.englishPath, de: canonical, 'x-default': guide.englishPath };
   languages.ar = arabicPaths[guide.englishPath];
   languages.tr = `/tr/${turkishGuideByEnglishPath.get(guide.englishPath)?.slug}/`;
+  languages['pt-BR'] = `/pt-br/${portugueseGuideByEnglishPath.get(guide.englishPath)?.slug}/`;
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   return {
     title: { absolute: guide.title },

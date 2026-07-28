@@ -42,12 +42,13 @@ if (broken.length) {
 } else {
   const germanRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/de/'));
   const turkishRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/tr/'));
-  const localizedRoutes = [...germanRoutes, ...turkishRoutes];
+  const portugueseRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/pt-br/'));
+  const localizedRoutes = [...germanRoutes, ...turkishRoutes, ...portugueseRoutes];
   const orphaned = localizedRoutes.filter((route) => (incoming.get(route)?.size || 0) < 2);
   if (orphaned.length) {
     console.error(`Localized pages with fewer than two incoming pages:\n${orphaned.join('\n')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, ${germanRoutes.length} German and ${turkishRoutes.length} Turkish pages with at least two incoming pages.`);
+    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, ${germanRoutes.length} German, ${turkishRoutes.length} Turkish and ${portugueseRoutes.length} Brazilian Portuguese pages with at least two incoming pages.`);
   }
 }

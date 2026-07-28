@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'Read the DearPassengers.net privacy policy covering analytics, advertising, cookies, external links, data controls, and contact information.',
-  alternates: { canonical: '/privacy-policy', languages: { en: '/privacy-policy/', ar: '/ar/privacy-policy/', de: '/de/datenschutz/', tr: '/tr/gizlilik/', 'x-default': '/privacy-policy/' } },
+  alternates: { canonical: '/privacy-policy', languages: { en: '/privacy-policy/', ar: '/ar/privacy-policy/', de: '/de/datenschutz/', tr: '/tr/gizlilik/', 'pt-BR': '/pt-br/privacidade/', 'x-default': '/privacy-policy/' } },
   robots: { index: true, follow: true },
 };
 

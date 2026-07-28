@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Demo: Public Demo & Playtest Status' },
   description:
     'Check the Dear Passengers demo status, confirmed Gamescom build, future public demo, Steam Playtest and beta details, safe download guidance, and updates.',
-  alternates: { canonical: '/dear-passengers-demo', languages: { en: '/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', de: '/de/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'x-default': '/dear-passengers-demo/' } },
+  alternates: { canonical: '/dear-passengers-demo', languages: { en: '/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', de: '/de/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'pt-BR': '/pt-br/dear-passengers-demo/', 'x-default': '/dear-passengers-demo/' } },
   openGraph: {
     title: 'Dear Passengers Demo: What FLEXUS Has Confirmed',
     description: 'A sourced guide to the Gamescom build, planned public demo, access status, and safe download checks.',

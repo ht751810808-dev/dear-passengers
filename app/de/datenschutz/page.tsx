@@ -4,7 +4,7 @@ import GermanTrustPage from '@/components/GermanTrustPage';
 export const metadata: Metadata = {
   title: { absolute: 'Datenschutzerklärung | DearPassengers.net' },
   description: 'Deutsche Datenschutzerklärung zu Google Analytics, AdSense, Einwilligung, externen Diensten, Aufbewahrung und Datenschutzoptionen.',
-  alternates: { canonical: '/de/datenschutz/', languages: { en: '/privacy-policy/', ar: '/ar/privacy-policy/', de: '/de/datenschutz/', tr: '/tr/gizlilik/', 'x-default': '/privacy-policy/' } },
+  alternates: { canonical: '/de/datenschutz/', languages: { en: '/privacy-policy/', ar: '/ar/privacy-policy/', de: '/de/datenschutz/', tr: '/tr/gizlilik/', 'pt-BR': '/pt-br/privacidade/', 'x-default': '/privacy-policy/' } },
 };
 
 export default function GermanPrivacyPage() {

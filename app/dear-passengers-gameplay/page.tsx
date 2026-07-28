@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Gameplay: How Flying and Cabin Work' },
   description:
     'Explore confirmed Dear Passengers gameplay, including piloting, cabin service, passengers, cargo, weather, physics, solo play, and online co-op.',
-  alternates: { canonical: '/dear-passengers-gameplay/', languages: { en: '/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', de: '/de/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'x-default': '/dear-passengers-gameplay/' } },
+  alternates: { canonical: '/dear-passengers-gameplay/', languages: { en: '/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', de: '/de/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', 'x-default': '/dear-passengers-gameplay/' } },
   openGraph: {
     title: 'Dear Passengers Gameplay: Pilot, Cabin, Cargo and Chaos',
     description:
