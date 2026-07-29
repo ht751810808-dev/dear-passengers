@@ -4,6 +4,16 @@ import PrivacySettingsButton from '@/components/PrivacySettingsButton';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
+function FriendLinks({ title }: { title: string }) {
+  return (
+    <>
+      <h2 style={{ marginTop: '18px' }}>{title}</h2>
+      <a href="https://linktovideo.org/" target="_blank" rel="noopener">Link to Video ↗</a>
+      <a href="https://www.impostergame.pro/" target="_blank" rel="noopener">Imposter Game ↗</a>
+    </>
+  );
+}
+
 export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
@@ -44,6 +54,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/contact">联系我们</Link>
             <Link href="/privacy-policy">隐私政策</Link>
             <PrivacySettingsButton locale="zh-CN" className="footer-privacy-button" />
+            <FriendLinks title="友情链接" />
           </div>
         </div>
         <div className="container footer-bottom">
@@ -95,6 +106,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/de/kontakt/">Kontakt und Korrekturen</Link>
             <Link href="/de/datenschutz/">Datenschutzerklärung</Link>
             <PrivacySettingsButton locale="de" className="footer-privacy-button" />
+            <FriendLinks title="Partnerseiten" />
           </div>
         </div>
         <div className="container footer-bottom">
@@ -143,6 +155,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/ar/contact/">التواصل والتصحيحات</Link>
             <Link href="/ar/privacy-policy/">سياسة الخصوصية</Link>
             <PrivacySettingsButton locale="ar" className="footer-privacy-button" />
+            <FriendLinks title="مواقع صديقة" />
           </div>
         </div>
         <div className="container footer-bottom">
@@ -191,6 +204,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/tr/iletisim/">İletişim ve düzeltmeler</Link>
             <Link href="/tr/gizlilik/">Gizlilik politikası</Link>
             <PrivacySettingsButton locale="tr" className="footer-privacy-button" />
+            <FriendLinks title="Dost siteler" />
           </div>
         </div>
         <div className="container footer-bottom">
@@ -239,6 +253,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/pt-br/contato/">Contato e correções</Link>
             <Link href="/pt-br/privacidade/">Política de privacidade</Link>
             <PrivacySettingsButton locale="pt-BR" className="footer-privacy-button" />
+            <FriendLinks title="Sites parceiros" />
           </div>
         </div>
         <div className="container footer-bottom">
@@ -293,6 +308,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           <Link href="/contact">Contact and corrections</Link>
           <PrivacySettingsButton className="footer-privacy-button" />
           <Link href="/#sources">Sources and verification</Link>
+          <FriendLinks title="Friends" />
         </div>
       </div>
       <div className="container footer-bottom">
