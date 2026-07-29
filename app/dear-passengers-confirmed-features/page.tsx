@@ -375,6 +375,11 @@ export default function DearPassengersConfirmedFeaturesPage() {
                   controller support, remapping, vibration, flight-stick support, and accessibility inputs are
                   unannounced.
                 </p>
+                <p>
+                  The <Link href="/dear-passengers-platforms">Dear Passengers platforms guide</Link> keeps the full PC,
+                  PS5, Xbox, Nintendo, Mac, Linux, mobile, VR, controller, and Steam Deck status in one place so these
+                  searches do not compete across several partial answers.
+                </p>
               </section>
 
               <section id="release-access">
@@ -445,6 +450,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
                   <Link className="button button-ghost" href="/dear-passengers-gameplay">Gameplay guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-trailer">Trailer breakdown →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Verified news →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-platforms">Platform status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Developer profile →</Link>
                   <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam ↗</a>
                 </div>

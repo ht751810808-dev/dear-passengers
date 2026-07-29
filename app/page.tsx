@@ -346,8 +346,9 @@ export default function HomePage() {
               </p>
               <p>
                 Our <Link href="/dear-passengers-release-date">complete Dear Passengers release date guide</Link>
-                separates official facts from open questions, tracks platform status, and explains how to follow demo,
-                beta, playtest, language, and Dear Passengers launch updates without relying on rumor pages. German
+                separates official timing from open launch questions. The dedicated{' '}
+                <Link href="/dear-passengers-platforms">Dear Passengers platforms guide</Link> tracks PC, PS5, Xbox,
+                Nintendo, VR, mobile, controllers, and Steam Deck without treating search demand as a port announcement. German
                 readers can use the locally researched{' '}
                 <Link href="/de/dear-passengers-release/" hrefLang="de">Dear Passengers Release guide</Link>, built
                 around the way German gaming audiences ask when a game comes out.

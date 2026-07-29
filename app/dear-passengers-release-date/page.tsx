@@ -246,6 +246,11 @@ export default function ReleaseDatePage() {
                   announcement, or holder-issued news post has been published for PlayStation, Xbox, or Nintendo.
                   Because platform plans can change, this table distinguishes confirmed availability from possibility.
                 </p>
+                <p>
+                  For a platform-first answer covering PC, PS5, Xbox, Nintendo, VR, mobile, controllers, and Steam Deck,
+                  use the <Link href="/dear-passengers-platforms">Dear Passengers platforms status board</Link>. This
+                  release guide remains focused on timing, demo access, price, and launch milestones.
+                </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">
                   <div className="platform-head" role="row"><span role="columnheader">Platform</span><span role="columnheader">Status</span><span role="columnheader">Current source</span></div>
@@ -384,6 +389,7 @@ export default function ReleaseDatePage() {
                   <Link className="button button-ghost" href="/dear-passengers-news">Latest news →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-platforms">Platform status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
                   <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">Deutscher Release-Guide →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date" hrefLang="zh-CN">中文发售指南 →</Link>

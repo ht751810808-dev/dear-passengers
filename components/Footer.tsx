@@ -283,7 +283,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           <Link href="/dear-passengers-news">Dear Passengers News</Link>
           <Link href="/dear-passengers-developer-flexus">Dear Passengers Developer</Link>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
-          <Link href="/dear-passengers-release-date#platforms">Platform status</Link>
+          <Link href="/dear-passengers-platforms">Dear Passengers Platforms</Link>
         </div>
 
         <div>

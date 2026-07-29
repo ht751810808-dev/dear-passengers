@@ -104,6 +104,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-07-24'),
     },
     {
+      url: `${baseUrl}/dear-passengers-platforms/`,
+      lastModified: new Date('2026-07-29'),
+    },
+    {
       url: `${baseUrl}/dear-passengers-player-count/`,
       lastModified: new Date('2026-07-20'),
     },
