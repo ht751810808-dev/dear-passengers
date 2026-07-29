@@ -489,7 +489,7 @@ export const portugueseHomeGuide: PortugueseGuide = {
   slug: '', englishPath: '/', germanPath: '/de/', arabicPath: '/ar/', turkishPath: '/tr/', chinesePath: '/zh-cn/',
   keyword: 'jogo Dear Passengers', title: 'Jogo Dear Passengers: Guia em Português do Brasil',
   description: 'Guia brasileiro do jogo Dear Passengers: como jogar, data de lançamento, demo, requisitos, jogadores, download, trailer e notícias verificadas.',
-  eyebrow: 'GUIA BRASILEIRO · PESQUISA LOCAL', h1: 'Jogo Dear Passengers: informações verificadas para o Brasil',
+  eyebrow: 'GUIA BRASILEIRO · VERIFICADO EM 29/07/2026', h1: 'Jogo Dear Passengers: informações verificadas para o Brasil',
   intro: 'O jogo Dear Passengers coloca uma tripulação na pior companhia aérea do mundo: alguém pilota enquanto outros cuidam de cabine, passageiros e cargas. Esta versão não é tradução automática do inglês. A arquitetura responde às buscas brasileiras por “data de lançamento”, “requisitos”, “preço”, “baixar”, “como jogar” e “quantos jogadores”.',
   answer: 'O jogo Dear Passengers está previsto para 2026 no Windows PC pela Steam. Um jogador, coop on-line, pilotagem, trabalho de cabine, passageiros e objetos físicos e clima dinâmico estão confirmados. Português (Brasil) está indisponível no produto. Data exata, preço, máximo de jogadores, consoles e acesso à demo pública ainda são desconhecidos.',
   note: 'Este guia brasileiro prioriza Steam, vídeos oficiais da FLEXUS e entrevistas diretas. Matéria local ajuda a identificar vocabulário e dúvidas, mas não pode criar data, duração, número de jogadores ou suporte de idioma.',

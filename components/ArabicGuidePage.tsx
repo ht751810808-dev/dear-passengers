@@ -36,12 +36,22 @@ function RichText({ text }: { text: string }) {
   })}</>;
 }
 
-export default function ArabicGuidePage({ guide, canonicalPath }: { guide: ArabicGuide; canonicalPath: string }) {
+export default function ArabicGuidePage({
+  guide,
+  canonicalPath,
+  modifiedDate = '2026-07-25',
+  verifiedDate = '25 يوليو 2026',
+}: {
+  guide: ArabicGuide;
+  canonicalPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
+}) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-25', dateModified: '2026-07-25', inLanguage: 'ar',
+    datePublished: '2026-07-25', dateModified: modifiedDate, inLanguage: 'ar',
     author: { '@type': 'Organization', name: 'فريق تحرير DearPassengers.net', url: 'https://dearpassengers.net/ar/about/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -86,7 +96,7 @@ export default function ArabicGuidePage({ guide, canonicalPath }: { guide: Arabi
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">أضفها إلى قائمة الأمنيات ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked="25 يوليو 2026" locale="ar" note={guide.note} />
+            <EditorialNote checked={verifiedDate} locale="ar" note={guide.note} />
             <section id="answer">
               <span className="kicker">الإجابة المختصرة</span>
               <h2><RichText text={guide.keyword} />: الخلاصة</h2>

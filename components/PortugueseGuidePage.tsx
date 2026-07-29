@@ -32,12 +32,22 @@ function RichText({ text }: { text: string }) {
   })}</>;
 }
 
-export default function PortugueseGuidePage({ guide, canonicalPath }: { guide: PortugueseGuide; canonicalPath: string }) {
+export default function PortugueseGuidePage({
+  guide,
+  canonicalPath,
+  modifiedDate = '2026-07-28',
+  verifiedDate = '28 de julho de 2026',
+}: {
+  guide: PortugueseGuide;
+  canonicalPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
+}) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-28', dateModified: '2026-07-28', inLanguage: 'pt-BR',
+    datePublished: '2026-07-28', dateModified: modifiedDate, inLanguage: 'pt-BR',
     author: { '@type': 'Organization', name: 'Equipe editorial brasileira do DearPassengers.net', url: 'https://dearpassengers.net/pt-br/sobre/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -70,7 +80,7 @@ export default function PortugueseGuidePage({ guide, canonicalPath }: { guide: P
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>Verificado em 28 de julho de 2026</span><span>Fontes primárias: Steam e FLEXUS</span><span>Idioma: Português (Brasil)</span></div>
+            <div className="article-meta"><span>Verificado em {verifiedDate}</span><span>Fontes primárias: Steam e FLEXUS</span><span>Idioma: Português (Brasil)</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -83,7 +93,7 @@ export default function PortugueseGuidePage({ guide, canonicalPath }: { guide: P
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Adicionar à lista de desejos ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked="28 de julho de 2026" locale="pt-BR" note={guide.note} />
+            <EditorialNote checked={verifiedDate} locale="pt-BR" note={guide.note} />
             <section id="resposta">
               <span className="kicker">RESPOSTA RÁPIDA</span>
               <h2>{guide.keyword}: situação atual</h2>

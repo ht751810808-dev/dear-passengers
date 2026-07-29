@@ -82,7 +82,7 @@ const articleSchema = {
   headline: 'Dear Passengers 中文指南：发售时间、玩法与配置要求',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-16',
-  dateModified: '2026-07-19',
+  dateModified: '2026-07-29',
   inLanguage: 'zh-CN',
   author: { '@type': 'Organization', name: 'DearPassengers.net 编辑团队', url: 'https://dearpassengers.net/about/' },
   publisher: { '@type': 'Organization', name: 'DearPassengers.net', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
@@ -108,7 +108,7 @@ export default function ChineseHomePage() {
           <Image className="hero-image" src="/images/hero-bg.webp" alt="Dear Passengers 游戏中的混乱飞机客舱与机组成员" fill sizes="100vw" priority />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> 独立游戏资料 · 2026 年 7 月 19 日更新</div>
+            <div className="eyebrow"><span>●</span> 独立游戏资料 · 2026 年 7 月 29 日更新</div>
             <h1>Dear Passengers 中文指南：<br /><em>玩法、发售与电脑配置</em></h1>
             <p className="hero-lede">
               <strong>Dear Passengers 游戏</strong>把普通航班变成一场多人合作灾难：机长要驾驶故障频发的飞机，
@@ -129,7 +129,7 @@ export default function ChineseHomePage() {
         </section>
 
         <div className="container home-editorial-note">
-          <EditorialNote locale="zh-CN" checked="2026 年 7 月 19 日" note="游戏事实以 Steam 和 FLEXUS 第一方资料为准；预告片解读与玩家讨论不会被当作官方功能承诺。" />
+          <EditorialNote locale="zh-CN" checked="2026 年 7 月 29 日" note="游戏事实以 Steam 和 FLEXUS 第一方资料为准；预告片解读与玩家讨论不会被当作官方功能承诺。" />
         </div>
 
         <section className="section intro-section" id="overview">
@@ -201,7 +201,7 @@ export default function ChineseHomePage() {
               <div className="board-row open"><span>最大玩家人数</span><b>未说明</b></div>
               <div className="board-row open"><span>本地合作与分屏</span><b>未公布</b></div>
               <div className="board-row open"><span>跨平台联机</span><b>未公布</b></div>
-              <p>来源：Steam 商店功能栏，核验于 2026 年 7 月 16 日。</p>
+              <p>来源：Steam 商店功能栏，核验于 2026 年 7 月 29 日。</p>
             </div>
           </div>
         </section>

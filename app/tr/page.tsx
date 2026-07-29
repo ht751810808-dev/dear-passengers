@@ -9,4 +9,4 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: turkishHomeGuide.title, description: turkishHomeGuide.description, images: ['/images/og-image.png'] },
 };
 
-export default function TurkishHomePage() { return <TurkishGuidePage guide={turkishHomeGuide} canonicalPath="/tr/" />; }
+export default function TurkishHomePage() { return <TurkishGuidePage guide={turkishHomeGuide} canonicalPath="/tr/" modifiedDate="2026-07-29" verifiedDate="29 Temmuz 2026" />; }

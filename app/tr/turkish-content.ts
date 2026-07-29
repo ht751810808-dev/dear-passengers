@@ -519,7 +519,7 @@ export const turkishHomeGuide: TurkishGuide = {
   slug: '', englishPath: '/', germanPath: '/de/', arabicPath: '/ar/', chinesePath: '/zh-cn/',
   keyword: 'Dear Passengers oyunu', title: 'Dear Passengers Oyunu Türkçe Rehber: Çıkış, Oynanış ve Demo',
   description: 'Dear Passengers oyunu için araştırılmış Türkçe rehber: oynanış, çıkış tarihi, kaç kişilik olduğu, demo, indirme, sistem gereksinimleri ve resmî haberler.',
-  eyebrow: 'TÜRKÇE DEAR PASSENGERS REHBERİ', h1: 'Dear Passengers oyunu: doğrulanmış Türkçe bilgi merkezi',
+  eyebrow: 'TÜRKÇE DEAR PASSENGERS REHBERİ · 29 TEMMUZ 2026', h1: 'Dear Passengers oyunu: doğrulanmış Türkçe bilgi merkezi',
   intro: 'Dear Passengers oyunu, dünyanın en kötü havayolunun ekibi olarak uçağı ve kabini birlikte yönetmeye dayanan birinci şahıs co-op yapımıdır. Türkçe bölüm İngilizce sayfaların düz çevirisi değildir; Türkiye’de görülen “indir”, “sistem gereksinimleri”, “ne zaman çıkacak” ve “kaç kişilik” aramalarına göre ayrı bilgi mimarisi kullanır.',
   answer: 'Dear Passengers oyunu 2026’da Windows PC için Steam’e planlanıyor. Tek oyunculu ve çevrimiçi eşli oyun, pilotluk, kabin görevleri, riskli yolcu/kargo seçimi, fizik ve dinamik hava onaylandı. Türkçe arayüz destekleniyor; kesin tarih, fiyat, maksimum oyuncu sayısı, konsol sürümü ve açık demo tarihi bilinmiyor.',
   note: 'Bu Türkçe merkez Steam, FLEXUS’un resmî videoları ve doğrudan geliştirici açıklamalarını önceliklendirir. Arama sonucundaki tekrar veya fan sayfasındaki tablo birincil kaynak yerine geçmez.',

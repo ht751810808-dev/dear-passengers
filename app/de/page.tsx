@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function GermanHomePage() {
-  return <GermanGuidePage guide={germanHomeGuide} canonicalPath="/de/" />;
+  return <GermanGuidePage guide={germanHomeGuide} canonicalPath="/de/" modifiedDate="2026-07-29" verifiedDate="29.07.2026" />;
 }

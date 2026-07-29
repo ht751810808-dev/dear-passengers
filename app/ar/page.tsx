@@ -9,4 +9,4 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: arabicHomeGuide.title, description: arabicHomeGuide.description, images: ['/images/og-image.png'] },
 };
 
-export default function ArabicHomePage() { return <ArabicGuidePage guide={arabicHomeGuide} canonicalPath="/ar/" />; }
+export default function ArabicHomePage() { return <ArabicGuidePage guide={arabicHomeGuide} canonicalPath="/ar/" modifiedDate="2026-07-29" verifiedDate="29 يوليو 2026" />; }

@@ -172,7 +172,17 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-export default function GermanGuidePage({ guide, canonicalPath }: { guide: GermanGuide; canonicalPath: string }) {
+export default function GermanGuidePage({
+  guide,
+  canonicalPath,
+  modifiedDate = '2026-07-24',
+  verifiedDate = '24.07.2026',
+}: {
+  guide: GermanGuide;
+  canonicalPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
+}) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -181,7 +191,7 @@ export default function GermanGuidePage({ guide, canonicalPath }: { guide: Germa
     description: guide.description,
     mainEntityOfPage: pageUrl,
     datePublished: '2026-07-24',
-    dateModified: '2026-07-24',
+    dateModified: modifiedDate,
     inLanguage: 'de',
     author: { '@type': 'Organization', name: 'DearPassengers.net Redaktion', url: 'https://dearpassengers.net/de/ueber-uns/' },
     publisher: {
@@ -231,7 +241,7 @@ export default function GermanGuidePage({ guide, canonicalPath }: { guide: Germa
               <h1>{guide.h1}<br /><em>{guide.h1Accent}</em></h1>
               <p><RichText text={guide.intro} /></p>
               <div className="article-meta">
-                <span>Geprüft: 24.07.2026</span><span>Primärquellen: Steam + FLEXUS</span><span>Sprache: Deutsch</span>
+                <span>Geprüft: {verifiedDate}</span><span>Primärquellen: Steam + FLEXUS</span><span>Sprache: Deutsch</span>
               </div>
             </div>
           </header>
@@ -245,7 +255,7 @@ export default function GermanGuidePage({ guide, canonicalPath }: { guide: Germa
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote checked="24.07.2026" locale="de" note={guide.note} />
+              <EditorialNote checked={verifiedDate} locale="de" note={guide.note} />
               <section id="kurzantwort">
                 <span className="kicker">KURZANTWORT</span>
                 <h2>{guide.keyword}: Das Wichtigste</h2>

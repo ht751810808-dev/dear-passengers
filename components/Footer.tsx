@@ -59,7 +59,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>资料核验于 2026 年 7 月 20 日 · 时效信息请以 Steam 官方页面为准。</span>
+          <span>资料核验于 2026 年 7 月 29 日 · 时效信息请以 Steam 官方页面为准。</span>
         </div>
       </footer>
     );
@@ -111,7 +111,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>Stand: 24.07.2026 · Zeitkritische Angaben bitte zusätzlich auf Steam prüfen.</span>
+          <span>Stand: 29.07.2026 · Zeitkritische Angaben bitte zusätzlich auf Steam prüfen.</span>
         </div>
       </footer>
     );
@@ -160,7 +160,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>آخر تحقق: 25 يوليو 2026 · راجع Steam للمعلومات الزمنية.</span>
+          <span>آخر تحقق: 29 يوليو 2026 · راجع Steam للمعلومات الزمنية.</span>
         </div>
       </footer>
     );
@@ -209,7 +209,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>Son kontrol: 27.07.2026 · Zamana duyarlı bilgiler için Steam’i kontrol edin.</span>
+          <span>Son kontrol: 29.07.2026 · Zamana duyarlı bilgiler için Steam’i kontrol edin.</span>
         </div>
       </footer>
     );
@@ -258,7 +258,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
         </div>
         <div className="container footer-bottom">
           <span>© 2026 DearPassengers.net</span>
-          <span>Última verificação: 28/07/2026 · Confira informações sensíveis ao tempo na Steam.</span>
+          <span>Última verificação: 29/07/2026 · Confira informações sensíveis ao tempo na Steam.</span>
         </div>
       </footer>
     );
@@ -313,7 +313,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
       </div>
       <div className="container footer-bottom">
         <span>© 2026 DearPassengers.net</span>
-        <span>Information checked July 21, 2026 · Verify time-sensitive details on Steam.</span>
+        <span>Information checked July 29, 2026 · Verify time-sensitive details on Steam.</span>
       </div>
     </footer>
   );

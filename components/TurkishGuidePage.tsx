@@ -32,12 +32,22 @@ function RichText({ text }: { text: string }) {
   })}</>;
 }
 
-export default function TurkishGuidePage({ guide, canonicalPath }: { guide: TurkishGuide; canonicalPath: string }) {
+export default function TurkishGuidePage({
+  guide,
+  canonicalPath,
+  modifiedDate = '2026-07-27',
+  verifiedDate = '27 Temmuz 2026',
+}: {
+  guide: TurkishGuide;
+  canonicalPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
+}) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-27', dateModified: '2026-07-27', inLanguage: 'tr',
+    datePublished: '2026-07-27', dateModified: modifiedDate, inLanguage: 'tr',
     author: { '@type': 'Organization', name: 'DearPassengers.net Türkçe Editör Ekibi', url: 'https://dearpassengers.net/tr/hakkimizda/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -70,7 +80,7 @@ export default function TurkishGuidePage({ guide, canonicalPath }: { guide: Turk
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>27 Temmuz 2026 tarihinde doğrulandı</span><span>Birincil kaynaklar: Steam ve FLEXUS</span><span>Dil: Türkçe</span></div>
+            <div className="article-meta"><span>{verifiedDate} tarihinde doğrulandı</span><span>Birincil kaynaklar: Steam ve FLEXUS</span><span>Dil: Türkçe</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -83,7 +93,7 @@ export default function TurkishGuidePage({ guide, canonicalPath }: { guide: Turk
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam istek listesine ekle ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked="27 Temmuz 2026" locale="tr" note={guide.note} />
+            <EditorialNote checked={verifiedDate} locale="tr" note={guide.note} />
             <section id="kisa-cevap">
               <span className="kicker">KISA CEVAP</span>
               <h2>{guide.keyword}: güncel durum</h2>

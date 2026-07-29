@@ -84,7 +84,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-24',
+  dateModified: '2026-07-29',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -138,7 +138,7 @@ export default function HomePage() {
           />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 22, 2026</div>
+            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 29, 2026</div>
             <h1>Dear Passengers Game:<br /><em>The Complete Co-op Airline Guide</em></h1>
             <p className="hero-lede">
               The <strong>Dear Passengers game</strong> turns a routine flight into a cooperative comedy of broken
@@ -164,7 +164,7 @@ export default function HomePage() {
         </section>
 
         <div className="container home-editorial-note">
-          <EditorialNote checked="July 22, 2026" />
+          <EditorialNote checked="July 29, 2026" />
         </div>
 
         <section className="section intro-section" id="overview">
@@ -323,7 +323,7 @@ export default function HomePage() {
               <div className="board-row open"><span>Local co-op / split screen</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Crossplay</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Controller / Steam Deck</span><b>NOT ANNOUNCED</b></div>
-              <p>Source: current Dear Passengers Steam store feature panel. Checked July 22, 2026.</p>
+              <p>Source: current Dear Passengers Steam store feature panel. Checked July 29, 2026.</p>
             </div>
           </div>
         </section>

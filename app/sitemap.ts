@@ -85,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date('2026-07-24'),
+      lastModified: new Date('2026-07-29'),
     },
     {
       url: `${baseUrl}/dear-passengers-gameplay/`,
@@ -141,7 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/zh-cn/`,
-      lastModified: new Date('2026-07-20'),
+      lastModified: new Date('2026-07-29'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-player-count/`,
@@ -151,10 +151,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
       lastModified: new Date('2026-07-24'),
     },
-    ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-24') })),
-    ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-25') })),
-    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-27') })),
-    ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-28') })),
+    ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/de/' ? '2026-07-29' : '2026-07-24') })),
+    ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
+    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/' ? '2026-07-29' : '2026-07-27') })),
+    ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

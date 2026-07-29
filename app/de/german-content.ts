@@ -781,7 +781,7 @@ export const germanHomeGuide: GermanGuide = {
   keyword: 'Dear Passengers Spiel',
   title: 'Dear Passengers Spiel: Gameplay, Release und Koop-Guide',
   description: 'Das Dear Passengers Spiel auf Deutsch: bestätigtes Gameplay, Koop, Spielerzahl, Release 2026, Demo, Systemanforderungen, Trailer und FLEXUS-News.',
-  eyebrow: 'UNABHÄNGIGER DEUTSCHER SPIELE-GUIDE · STAND 24.07.2026',
+  eyebrow: 'UNABHÄNGIGER DEUTSCHER SPIELE-GUIDE · STAND 29.07.2026',
   h1: 'Dear Passengers Spiel:',
   h1Accent: 'Der komplette deutsche Koop-Guide',
   intro: 'Das Dear Passengers Spiel macht eine chaotische Fluggesellschaft zum Koop-Abenteuer: Eine Person steuert, die Kabinencrew versorgt Passagiere, riskante Fracht verspricht mehr Geld und Wetter verwandelt Routine in physikalisches Chaos. Dieser deutsche Hub bündelt bestätigte Fakten, offene Fragen und alle lokal recherchierten Guides.',

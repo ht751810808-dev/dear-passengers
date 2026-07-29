@@ -50,6 +50,7 @@ export default function SourceLedger({ locale = 'en' }: { locale?: 'en' | 'zh-CN
             <div><time dateTime="2026-07-18">2026 · 07 · 18</time><p><strong>内容核查。</strong> 新增预告片、功能核查与中文发售状态。</p></div>
             <div><time dateTime="2026-07-19">2026 · 07 · 19</time><p><strong>开发商与里程碑更新。</strong> 补充 FLEXUS 资料、100 万官方里程碑与开发者采访。</p></div>
             <div><time dateTime="2026-07-20">2026 · 07 · 20</time><p><strong>内容集群扩展。</strong> 新增玩法、中文联机人数和同类游戏对比页面。</p></div>
+            <div><time dateTime="2026-07-29">2026 · 07 · 29</time><p><strong>每日资料复核。</strong> 重新检查 Steam 商店、开发商资料入口与平台状态；没有加入未经宣布的发售或平台信息。</p></div>
             <div><span>下次核验</span><p><strong>资料发生变化时。</strong> 包括日期、试玩、玩家上限、输入方式或平台。</p></div>
           </div>
         </div>
@@ -87,6 +88,7 @@ export default function SourceLedger({ locale = 'en' }: { locale?: 'en' | 'zh-CN
           <div><time dateTime="2026-07-19">JUL 19 · 2026</time><p><strong>Developer and milestone update.</strong> FLEXUS background, the official one-million milestone, and founder interview added.</p></div>
           <div><time dateTime="2026-07-20">JUL 20 · 2026</time><p><strong>Content cluster expansion.</strong> Gameplay, Chinese multiplayer, and similar-games guides added.</p></div>
           <div><time dateTime="2026-07-21">JUL 21 · 2026</time><p><strong>Access and visual update.</strong> The 1.5-million milestone artwork and official download-versus-APK safety guide added.</p></div>
+          <div><time dateTime="2026-07-29">JUL 29 · 2026</time><p><strong>Daily source verification.</strong> The Steam listing, developer source links, and platform status were rechecked; no unannounced release or platform claims were added.</p></div>
           <div><span>NEXT CHECK</span><p><strong>Material change.</strong> Date, demo, player limit, input, or platform.</p></div>
         </div>
         <p className="source-policy-link">
