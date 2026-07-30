@@ -49,7 +49,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers uçuş simülasyonu mu?', answer: 'Pilotluk ve hava koşulları var; fakat gerçekçilik seviyesi veya ayrıntılı simülasyon sistemleri açıklanmadı.' },
       { question: 'Oyunda Türkçe var mı?', answer: 'Steam Türkçe arayüz desteğini gösteriyor; Türkçe seslendirme ve altyazı onaylanmış değil.' },
       { question: 'Dear Passengers ne zaman oynanabilir?', answer: 'Steam 2026 penceresini gösteriyor. Kesin tarih ve açık demo erişimi henüz açıklanmadı.' },
-    ], related: ['dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-demo'],
+    ], related: ['dear-passengers-oyunu', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri'],
   },
   {
     slug: 'dear-passengers-kac-kisilik', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', arabicPath: '/ar/dear-passengers-player-count/', chinesePath: '/zh-cn/dear-passengers-player-count/',
@@ -385,7 +385,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers crossplay var mı?', answer: 'Crossplay duyurulmadı.' },
       { question: 'Dear Passengers konsolda var mı?', answer: 'Hayır; şu anda yalnız Windows PC duyuruldu.' },
       { question: 'Dear Passengers fizik tabanlı mı?', answer: 'Evet. Yolcu, kargo ve kabin nesnelerinin fizik tabanlı davranışı resmî özellik.' },
-    ], related: ['dear-passengers-oynanis', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-fragman'],
+    ], related: ['dear-passengers-oyunu', 'dear-passengers-oynanis', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik'],
   },
   {
     slug: 'dear-passengers-rolleri', englishPath: '/dear-passengers-roles/', germanPath: '/de/dear-passengers-rollen/', arabicPath: '/ar/dear-passengers-roles/',
@@ -555,7 +555,7 @@ export const turkishHomeGuide: TurkishGuide = {
     { question: 'Dear Passengers indirilebilir mi?', answer: 'Henüz hayır. Şu anda yalnız Steam istek listesine eklenebilir.' },
     { question: 'Dear Passengers demo var mı?', answer: 'Halka açık demo henüz yok; FLEXUS demo planından söz etti.' },
     { question: 'Dear Passengers sistem gereksinimleri neler?', answer: 'Minimum Windows 10 64-bit, i5 2.5 GHz, 8 GB RAM, GTX 1060 veya RX 6600 XT, DirectX 12 ve 4 GB alan.' },
-  ], related: ['dear-passengers-oynanis', 'dear-passengers-cikis-tarihi', 'dear-passengers-kac-kisilik', 'dear-passengers-sistem-gereksinimleri'],
+  ], related: ['dear-passengers-oyunu', 'dear-passengers-oynanis', 'dear-passengers-cikis-tarihi', 'dear-passengers-kac-kisilik'],
 };
 
 export const turkishGuideBySlug = new Map(turkishGuides.map((guide) => [guide.slug, guide]));

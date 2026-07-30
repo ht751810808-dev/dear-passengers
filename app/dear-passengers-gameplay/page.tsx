@@ -420,6 +420,7 @@ export default function GameplayPage() {
                   count, or find other cooperative games built around communication and physical failure.
                 </p>
                 <div className="related-actions">
+                  <Link className="button button-ghost" href="/game-dear-passengers">What is the game? →</Link>
                   <Link className="button" href="/">Complete game guide →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-roles">Crew roles →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count →</Link>

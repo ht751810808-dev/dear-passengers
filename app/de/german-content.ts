@@ -116,7 +116,7 @@ export const germanGuides: GermanGuide[] = [
       { question: 'Ist Dear Passengers ein realistischer Flugsimulator?', answer: 'Nicht bestätigt. Die offizielle Einordnung betont Action, Adventure, Online-Koop und physikalisches Chaos. Ein vollständiger realistischer Simulator wurde nicht angekündigt.' },
       { question: 'Wann kann man das Dear Passengers Gameplay testen?', answer: 'FLEXUS plant eine Demo, aber aktuell gibt es auf Steam keinen öffentlichen Download und keinen Termin. Drittanbieterdateien sind kein verifizierter Testzugang.' }
     ],
-    related: sharedRelated,
+    related: ['dear-passengers-spiel', ...sharedRelated.slice(0, 3)],
   },
   {
     slug: 'dear-passengers-spielerzahl',
@@ -587,7 +587,7 @@ export const germanGuides: GermanGuide[] = [
       { question: 'Ist eine Demo ein bestätigtes Feature?', answer: 'Die Demo ist als Plan bestätigt, aber noch nicht öffentlich verfügbar und ohne Termin.' },
       { question: 'Wird Dear Passengers deutsch unterstützt?', answer: 'Derzeit nein. Steam markiert Deutsch als nicht unterstützt.' }
     ],
-    related: ['dear-passengers-gameplay', 'dear-passengers-rollen', 'dear-passengers-spielerzahl', 'dear-passengers-trailer'],
+    related: ['dear-passengers-spiel', 'dear-passengers-gameplay', 'dear-passengers-rollen', 'dear-passengers-spielerzahl'],
   },
   {
     slug: 'dear-passengers-rollen',
@@ -834,7 +834,7 @@ export const germanHomeGuide: GermanGuide = {
     { question: 'Kommt Dear Passengers für PS5 oder Xbox?', answer: 'Nicht bestätigt. Windows-PC über Steam ist bislang die einzige Plattform.' },
     { question: 'Ist das Dear Passengers Spiel auf Deutsch?', answer: 'Steam markiert Deutsch derzeit als nicht unterstützt. Dieser deutsche Guide ist unabhängig und keine Spiellokalisierung.' }
   ],
-  related: ['dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-spielerzahl', 'dear-passengers-news'],
+  related: ['dear-passengers-spiel', 'dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-spielerzahl'],
 };
 
 export const germanGuideBySlug = new Map(germanGuides.map((guide) => [guide.slug, guide]));

@@ -40,15 +40,16 @@ if (broken.length) {
   console.error(`Broken internal links (${broken.length}):\n${[...new Set(broken)].join('\n')}`);
   process.exitCode = 1;
 } else {
-  const germanRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/de/'));
-  const turkishRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/tr/'));
-  const portugueseRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/')).filter((route) => route.startsWith('/pt-br/'));
-  const localizedRoutes = [...germanRoutes, ...turkishRoutes, ...portugueseRoutes];
+  const renderedRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/'));
+  const localePrefixes = ['/de/', '/ar/', '/tr/', '/pt-br/', '/es/', '/zh-cn/'];
+  const localeCounts = new Map(localePrefixes.map((prefix) => [prefix, renderedRoutes.filter((route) => route.startsWith(prefix)).length]));
+  const localizedRoutes = renderedRoutes.filter((route) => localePrefixes.some((prefix) => route.startsWith(prefix)));
   const orphaned = localizedRoutes.filter((route) => (incoming.get(route)?.size || 0) < 2);
   if (orphaned.length) {
     console.error(`Localized pages with fewer than two incoming pages:\n${orphaned.join('\n')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, ${germanRoutes.length} German, ${turkishRoutes.length} Turkish and ${portugueseRoutes.length} Brazilian Portuguese pages with at least two incoming pages.`);
+    const localeSummary = [...localeCounts].map(([prefix, count]) => `${count} ${prefix.slice(1, -1)}`).join(', ');
+    console.log(`Internal-link audit passed: ${files.length} rendered pages, 0 broken links, and every localized page has at least two incoming pages (${localeSummary}).`);
   }
 }

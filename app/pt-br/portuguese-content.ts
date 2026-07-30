@@ -63,7 +63,7 @@ export const portugueseGuides: PortugueseGuide[] = [
       { question: 'Dear Passengers é simulador de voo?', answer: 'Há pilotagem e clima, mas o nível de simulação e os controles ainda não foram publicados.' },
       { question: 'Dear Passengers está em português?', answer: 'Não no momento. A Steam marca Português (Brasil) como indisponível para a interface do jogo.' },
       { question: 'Quando será possível jogar Dear Passengers?', answer: 'A janela oficial é 2026; não há data exata nem demo pública disponível agora.' },
-    ], related: ['dear-passengers-funcoes', 'dear-passengers-quantos-jogadores', 'dear-passengers-recursos-confirmados', 'dear-passengers-demo'],
+    ], related: ['jogo-dear-passengers', 'dear-passengers-funcoes', 'dear-passengers-quantos-jogadores', 'dear-passengers-recursos-confirmados'],
   },
   {
     slug: 'dear-passengers-quantos-jogadores', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', arabicPath: '/ar/dear-passengers-player-count/', turkishPath: '/tr/dear-passengers-kac-kisilik/', chinesePath: '/zh-cn/dear-passengers-player-count/',
@@ -367,7 +367,7 @@ export const portugueseGuides: PortugueseGuide[] = [
       { question: 'Dear Passengers tem clima dinâmico?', answer: 'Sim, clima, turbulência e bolsas de ar estão na descrição oficial.' },
       { question: 'Dear Passengers tem chat de voz?', answer: 'Chat integrado não foi confirmado.' },
       { question: 'Dear Passengers terá progressão?', answer: 'Nenhum sistema de progressão foi detalhado.' },
-    ], related: ['dear-passengers-como-jogar', 'dear-passengers-funcoes', 'dear-passengers-quantos-jogadores', 'dear-passengers-trailer'],
+    ], related: ['jogo-dear-passengers', 'dear-passengers-como-jogar', 'dear-passengers-funcoes', 'dear-passengers-quantos-jogadores'],
   },
   {
     slug: 'dear-passengers-funcoes', englishPath: '/dear-passengers-roles/', germanPath: '/de/dear-passengers-rollen/', arabicPath: '/ar/dear-passengers-roles/', turkishPath: '/tr/dear-passengers-rolleri/',
@@ -526,7 +526,7 @@ export const portugueseHomeGuide: PortugueseGuide = {
     { question: 'Dá para baixar Dear Passengers?', answer: 'Ainda não. Hoje só é possível adicionar o jogo à lista de desejos.' },
     { question: 'Dear Passengers tem demo?', answer: 'Uma demo pública é planejada, mas não existe download ou data agora.' },
     { question: 'Quais são os requisitos mínimos?', answer: 'Windows 10 64 bits, i5 2,5 GHz, 8 GB RAM, GTX 1060 ou RX 6600 XT, DirectX 12 e 4 GB.' },
-  ], related: ['dear-passengers-como-jogar', 'dear-passengers-data-de-lancamento', 'dear-passengers-quantos-jogadores', 'dear-passengers-requisitos'],
+  ], related: ['jogo-dear-passengers', 'dear-passengers-como-jogar', 'dear-passengers-data-de-lancamento', 'dear-passengers-quantos-jogadores'],
 };
 
 export const portugueseGuideBySlug = new Map(portugueseGuides.map((guide) => [guide.slug, guide]));

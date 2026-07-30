@@ -10,6 +10,7 @@ const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
 
 const labels: Record<string, string> = {
+  'jogo-dear-passengers': 'O que é o jogo?',
   'dear-passengers-como-jogar': 'Como jogar',
   'dear-passengers-quantos-jogadores': 'Quantos jogadores?',
   'dear-passengers-data-de-lancamento': 'Data de lançamento',

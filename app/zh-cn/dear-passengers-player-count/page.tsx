@@ -372,6 +372,7 @@ export default function ChinesePlayerCountPage() {
                   返回中文首页了解完整玩法，查看发售时间和平台状态，或核对电脑最低配置与简体中文支持。
                 </p>
                 <div className="related-actions">
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-game">这是什么游戏？ →</Link>
                   <Link className="button" href="/zh-cn/">Dear Passengers 中文首页 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date">中文发售时间 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-system-requirements">中文配置要求 →</Link>

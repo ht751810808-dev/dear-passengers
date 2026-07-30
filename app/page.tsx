@@ -231,6 +231,7 @@ export default function HomePage() {
             <VideoShowcase />
             <OfficialTrailer />
             <div className="related-actions">
+              <Link className="button button-ghost" href="/game-dear-passengers">What is the game? →</Link>
               <Link className="button" href="/dear-passengers-gameplay">Read the complete gameplay guide →</Link>
               <Link className="button button-ghost" href="/dear-passengers-roles">Compare crew roles →</Link>
             </div>

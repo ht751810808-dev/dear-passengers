@@ -94,6 +94,7 @@ const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }
 
 const localizedRoutes: Array<Record<Locale, string>> = [
   { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/' },
+  { en: '/game-dear-passengers/', 'zh-CN': '/zh-cn/dear-passengers-game/', de: '/de/dear-passengers-spiel/', ar: '/ar/dear-passengers-game/', tr: '/tr/dear-passengers-oyunu/', 'pt-BR': '/pt-br/jogo-dear-passengers/', es: '/es/juego-dear-passengers/' },
   { en: '/dear-passengers-gameplay/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', es: '/es/dear-passengers-como-jugar/' },
   { en: '/dear-passengers-roles/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-rollen/', ar: '/ar/dear-passengers-roles/', tr: '/tr/dear-passengers-rolleri/', 'pt-BR': '/pt-br/dear-passengers-funcoes/', es: '/es/dear-passengers-roles/' },
   { en: '/dear-passengers-player-count/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', ar: '/ar/dear-passengers-player-count/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/' },

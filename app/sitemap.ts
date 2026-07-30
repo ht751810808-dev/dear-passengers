@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 const baseUrl = 'https://dearpassengers.net';
 const germanPaths = [
   '/de/',
+  '/de/dear-passengers-spiel/',
   '/de/dear-passengers-gameplay/',
   '/de/dear-passengers-trailer/',
   '/de/dear-passengers-bestaetigte-features/',
@@ -23,6 +24,7 @@ const germanPaths = [
 
 const arabicPaths = [
   '/ar/',
+  '/ar/dear-passengers-game/',
   '/ar/dear-passengers-gameplay/',
   '/ar/dear-passengers-trailer/',
   '/ar/dear-passengers-confirmed-features/',
@@ -43,6 +45,7 @@ const arabicPaths = [
 
 const turkishPaths = [
   '/tr/',
+  '/tr/dear-passengers-oyunu/',
   '/tr/dear-passengers-oynanis/',
   '/tr/dear-passengers-fragman/',
   '/tr/dear-passengers-ozellikleri/',
@@ -63,6 +66,7 @@ const turkishPaths = [
 
 const portuguesePaths = [
   '/pt-br/',
+  '/pt-br/jogo-dear-passengers/',
   '/pt-br/dear-passengers-como-jogar/',
   '/pt-br/dear-passengers-trailer/',
   '/pt-br/dear-passengers-recursos-confirmados/',
@@ -83,6 +87,7 @@ const portuguesePaths = [
 
 const spanishPaths = [
   '/es/',
+  '/es/juego-dear-passengers/',
   '/es/dear-passengers-como-jugar/',
   '/es/dear-passengers-trailer/',
   '/es/dear-passengers-caracteristicas-confirmadas/',
@@ -106,6 +111,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/`,
       lastModified: new Date('2026-07-29'),
+    },
+    {
+      url: `${baseUrl}/game-dear-passengers/`,
+      lastModified: new Date('2026-07-30'),
     },
     {
       url: `${baseUrl}/dear-passengers-gameplay/`,
@@ -162,6 +171,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/zh-cn/`,
       lastModified: new Date('2026-07-29'),
+    },
+    {
+      url: `${baseUrl}/zh-cn/dear-passengers-game/`,
+      lastModified: new Date('2026-07-30'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-player-count/`,

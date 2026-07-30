@@ -117,6 +117,7 @@ export default function ChineseHomePage() {
             </p>
             <div className="hero-actions">
               <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">加入 Steam 愿望单 ↗</a>
+              <Link className="button button-ghost" href="/zh-cn/dear-passengers-game">这是什么游戏？ →</Link>
               <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date">查看发售与试玩状态 →</Link>
             </div>
             <div className="status-strip" aria-label="Dear Passengers 已确认信息">

@@ -59,7 +59,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Es un simulador de vuelo?', answer: 'Incluye pilotaje y clima, pero el nivel de simulación no se ha publicado.' },
       { question: '¿Está disponible en español?', answer: 'No por ahora. Steam marca la interfaz, las voces y los subtítulos en español como no disponibles.' },
       { question: '¿Cuándo se podrá jugar?', answer: 'La ventana oficial es 2026; no hay fecha exacta ni demo pública.' },
-    ], related: ['dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas', 'dear-passengers-demo'],
+    ], related: ['juego-dear-passengers', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas'],
   },
   {
     slug: 'dear-passengers-cuantos-jugadores', englishPath: '/dear-passengers-player-count/',
@@ -363,7 +363,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Hay clases?', answer: 'No se ha anunciado un sistema de clases.' },
       { question: '¿Tiene crossplay?', answer: 'No está confirmado.' },
       { question: '¿Tiene campaña?', answer: 'La estructura de campaña e historia no se ha publicado.' },
-    ], related: ['dear-passengers-como-jugar', 'dear-passengers-trailer', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores'],
+    ], related: ['juego-dear-passengers', 'dear-passengers-como-jugar', 'dear-passengers-trailer', 'dear-passengers-roles'],
   },
   {
     slug: 'dear-passengers-roles', englishPath: '/dear-passengers-roles/',
@@ -522,7 +522,7 @@ export const spanishHomeGuide: SpanishGuide = {
     { question: '¿Se puede descargar?', answer: 'Todavía no; solo se puede añadir a la lista de deseados.' },
     { question: '¿Tiene demo?', answer: 'Hay una demo pública planeada, pero no existe acceso o fecha ahora.' },
     { question: '¿Cuáles son los requisitos mínimos?', answer: 'Windows 10 64 bits, i5 2,5 GHz, 8 GB RAM, GTX 1060 o RX 6600 XT, DirectX 12 y 4 GB.' },
-  ], related: ['dear-passengers-como-jugar', 'dear-passengers-fecha-de-lanzamiento', 'dear-passengers-cuantos-jugadores', 'dear-passengers-requisitos'],
+  ], related: ['juego-dear-passengers', 'dear-passengers-como-jugar', 'dear-passengers-fecha-de-lanzamiento', 'dear-passengers-cuantos-jugadores'],
 };
 
 export const spanishGuideBySlug = new Map(spanishGuides.map((guide) => [guide.slug, guide]));

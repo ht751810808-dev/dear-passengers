@@ -67,7 +67,7 @@ export const arabicGuides: ArabicGuide[] = [
       { question: 'هل تدعم اللعبة اللعب التعاوني؟', answer: 'نعم، التعاون عبر الإنترنت مؤكّد. العدد الأقصى واللعب المحلي والـCrossplay غير معلنة.' },
       { question: 'هل توجد ترقيات أو طائرات متعددة؟', answer: 'لا توجد معلومات رسمية كافية بعد عن شجرة ترقيات أو عدد الطائرات.' },
       { question: 'هل ما في العرض النهائي موجود كله في اللعبة؟', answer: 'العرض دليل بصري على المشاهد المعروضة، لكنه لا يحدد تكرارها أو نطاقها في النسخة النهائية.' },
-    ], related: commonRelated,
+    ], related: ['dear-passengers-game', ...commonRelated.slice(0, 3)],
   },
   {
     slug: 'dear-passengers-player-count', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', chinesePath: '/zh-cn/dear-passengers-player-count/',
@@ -275,7 +275,7 @@ export const arabicGuides: ArabicGuide[] = [
       { question: 'هل يوجد تقدم وترقيات؟', answer: 'وجود عائد للمخاطرة مذكور، لكن نظام تقدم أو ترقيات كامل غير موضح.' },
       { question: 'هل العربية مدعومة؟', answer: 'Steam يسجل العربية كلغة واجهة، وليس صوتاً عربياً.' },
       { question: 'هل الديمو ميزة مؤكدة؟', answer: 'الخطة مؤكدة بتصريح، لكن الديمو نفسه غير متاح ولا يملك موعداً.' },
-    ], related: ['dear-passengers-gameplay', 'dear-passengers-roles', 'dear-passengers-player-count', 'dear-passengers-trailer'],
+    ], related: ['dear-passengers-game', 'dear-passengers-gameplay', 'dear-passengers-roles', 'dear-passengers-player-count'],
   },
   {
     slug: 'dear-passengers-roles', englishPath: '/dear-passengers-roles/', germanPath: '/de/dear-passengers-rollen/',
@@ -384,7 +384,7 @@ export const arabicHomeGuide: ArabicGuide = {
     { question: 'هل يوجد ديمو؟', answer: 'الديمو مخطط له لكنه غير متاح ولا يملك موعداً عاماً.' },
     { question: 'هل يمكن تحميل APK؟', answer: 'لا توجد نسخة Android رسمية، وأي APK حالي غير موثّق.' },
     { question: 'هل تصدر على PS5 أو Xbox؟', answer: 'غير معلن. Windows عبر Steam هو المنصة المؤكدة.' },
-  ], related: ['dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-download', 'dear-passengers-system-requirements'],
+  ], related: ['dear-passengers-game', 'dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-download'],
 };
 
 export const arabicGuideBySlug = new Map(arabicGuides.map((guide) => [guide.slug, guide]));
