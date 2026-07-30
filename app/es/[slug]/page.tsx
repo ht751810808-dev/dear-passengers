@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import SpanishGuidePage from '@/components/SpanishGuidePage';
 import { spanishGuideBySlug, spanishGuides } from '@/app/es/spanish-content';
 import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
+import { myanmarGuideByEnglishPath } from '@/app/my/myanmar-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return spanishGuides.map((guide) => ({ slug: guide.slug })); }
@@ -13,6 +14,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const canonical = `/es/${guide.slug}/`;
   const counterpart = portugueseGuideByEnglishPath.get(guide.englishPath);
   const languages: Record<string, string> = { en: guide.englishPath, es: canonical, 'x-default': guide.englishPath };
+  languages['my-MM'] = `/my/${myanmarGuideByEnglishPath.get(guide.englishPath)?.slug}/`;
   if (counterpart) {
     languages.ar = counterpart.arabicPath;
     languages.de = counterpart.germanPath;

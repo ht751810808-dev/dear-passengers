@@ -106,6 +106,26 @@ const spanishPaths = [
   '/es/privacidad/',
 ];
 
+const myanmarPaths = [
+  '/my/',
+  '/my/dear-passengers-gameplay/',
+  '/my/dear-passengers-trailer/',
+  '/my/dear-passengers-confirmed-features/',
+  '/my/dear-passengers-roles/',
+  '/my/dear-passengers-player-count/',
+  '/my/dear-passengers-release-date/',
+  '/my/dear-passengers-demo/',
+  '/my/dear-passengers-download/',
+  '/my/dear-passengers-news/',
+  '/my/dear-passengers-developer-flexus/',
+  '/my/dear-passengers-system-requirements/',
+  '/my/games-like-dear-passengers/',
+  '/my/about/',
+  '/my/editorial-policy/',
+  '/my/contact/',
+  '/my/privacy-policy/',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -189,6 +209,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/' ? '2026-07-29' : '2026-07-27') })),
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
+    ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

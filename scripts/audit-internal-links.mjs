@@ -41,7 +41,7 @@ if (broken.length) {
   process.exitCode = 1;
 } else {
   const renderedRoutes = files.map((file) => `/${relative(out, file).replace(/index\.html$/, '').replaceAll('\\', '/')}`.replace(/\/+/g, '/'));
-  const localePrefixes = ['/de/', '/ar/', '/tr/', '/pt-br/', '/es/', '/zh-cn/'];
+  const localePrefixes = ['/de/', '/ar/', '/tr/', '/pt-br/', '/es/', '/my/', '/zh-cn/'];
   const localeCounts = new Map(localePrefixes.map((prefix) => [prefix, renderedRoutes.filter((route) => route.startsWith(prefix)).length]));
   const localizedRoutes = renderedRoutes.filter((route) => localePrefixes.some((prefix) => route.startsWith(prefix)));
   const orphaned = localizedRoutes.filter((route) => (incoming.get(route)?.size || 0) < 2);

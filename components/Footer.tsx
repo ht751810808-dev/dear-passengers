@@ -14,13 +14,14 @@ function FriendLinks({ title }: { title: string }) {
   );
 }
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
   const isTurkish = locale === 'tr';
   const isPortuguese = locale === 'pt-BR';
   const isSpanish = locale === 'es';
+  const isMyanmar = locale === 'my-MM';
 
   if (isChinese) {
     return (
@@ -307,6 +308,55 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           </div>
         </div>
         <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Última verificación: 30/07/2026 · Comprueba los datos sensibles al tiempo en Steam.</span></div>
+      </footer>
+    );
+  }
+
+  if (isMyanmar) {
+    return (
+      <footer className="site-footer" lang="my-MM">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/my/">
+              <Image src="/images/logo.png" alt="Dear Passengers မြန်မာဂိမ်းလမ်းညွှန်" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>လွတ်လပ်သော မြန်မာဂိမ်းလမ်းညွှန်</small></span>
+            </Link>
+            <p>DearPassengers.net သည် Dear Passengers game အကြောင်း လွတ်လပ်စွာရေးသားသော တရားဝင်မဟုတ်သည့် မြန်မာလမ်းညွှန်ဖြစ်သည်။ FLEXUS၊ Valve သို့မဟုတ် Steam နှင့် သက်ဆိုင်မှုမရှိဘဲ ပြောင်းလဲနိုင်သော အချက်အလက်များကို ပထမရင်းမြစ်များဖြင့် စစ်ဆေးထားသည်။</p>
+          </div>
+          <div>
+            <h2>ဂိမ်းလမ်းညွှန်</h2>
+            <Link href="/my/dear-passengers-gameplay/">Dear Passengers ကစားနည်း</Link>
+            <Link href="/my/dear-passengers-trailer/">တရားဝင် Trailer အဓိပ္ပာယ်ဖော်ပြချက်</Link>
+            <Link href="/my/dear-passengers-confirmed-features/">အတည်ပြုပြီး Feature များ</Link>
+            <Link href="/my/dear-passengers-roles/">Pilot နှင့် Cabin Crew တာဝန်များ</Link>
+            <Link href="/my/dear-passengers-player-count/">ကစားသမားဦးရေနှင့် Co-op</Link>
+            <Link href="/my/games-like-dear-passengers/">ဆင်တူဂိမ်းများ</Link>
+          </div>
+          <div>
+            <h2>ထွက်ရှိမှုနှင့် ဒေါင်းလုဒ်</h2>
+            <Link href="/my/dear-passengers-release-date/">2026 ထွက်ရှိမည့်အချိန်</Link>
+            <Link href="/my/dear-passengers-demo/">Demo အခြေအနေ</Link>
+            <Link href="/my/dear-passengers-download/">လုံခြုံစွာ ဒေါင်းလုဒ်လုပ်နည်း</Link>
+            <Link href="/my/dear-passengers-news/">နောက်ဆုံးသတင်း</Link>
+            <Link href="/my/dear-passengers-developer-flexus/">Developer FLEXUS</Link>
+            <Link href="/my/dear-passengers-system-requirements/">PC System Requirements</Link>
+            <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam တရားဝင်စာမျက်နှာ ↗</a>
+          </div>
+          <div>
+            <h2>ဝဘ်ဆိုက်အကြောင်း</h2>
+            <Link href="/" hrefLang="en">English site</Link>
+            <Link href="/my/about/">DearPassengers.net အကြောင်း</Link>
+            <Link href="/my/editorial-policy/">အယ်ဒီတာမူဝါဒ</Link>
+            <Link href="/my/contact/">ဆက်သွယ်ရန်နှင့် ပြင်ဆင်ချက်များ</Link>
+            <Link href="/my/privacy-policy/">ကိုယ်ရေးလုံခြုံမှုမူဝါဒ</Link>
+            <PrivacySettingsButton locale="my-MM" className="footer-privacy-button" />
+            <FriendLinks title="မိတ်ဖက်ဝဘ်ဆိုက်များ" />
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <span>© 2026 DearPassengers.net</span>
+          <span>နောက်ဆုံးစစ်ဆေးသည့်ရက် — ၂၀၂၆ ဇူလိုင် ၃၀ · အချိန်နှင့်အမျှ ပြောင်းလဲနိုင်သောအချက်များကို Steam တွင် ထပ်မံစစ်ဆေးပါ။</span>
+        </div>
       </footer>
     );
   }

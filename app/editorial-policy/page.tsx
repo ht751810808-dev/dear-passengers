@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Editorial Policy: Sources, Updates and Corrections' },
   description:
     'Read the DearPassengers.net editorial policy covering primary sources, confirmed and unconfirmed claims, update dates, corrections, independence, and AI use.',
-  alternates: { canonical: '/editorial-policy', languages: { en: '/editorial-policy/', ar: '/ar/editorial-policy/', de: '/de/redaktionsrichtlinien/', tr: '/tr/editorial-policy/', 'pt-BR': '/pt-br/politica-editorial/', es: '/es/politica-editorial/', 'x-default': '/editorial-policy/' } },
+  alternates: { canonical: '/editorial-policy', languages: { en: '/editorial-policy/', ar: '/ar/editorial-policy/', de: '/de/redaktionsrichtlinien/', tr: '/tr/editorial-policy/', 'pt-BR': '/pt-br/politica-editorial/', es: '/es/politica-editorial/', 'my-MM': '/my/editorial-policy/', 'x-default': '/editorial-policy/' } },
   openGraph: {
     title: 'DearPassengers.net Editorial Policy',
     description: 'How this independent game guide sources, labels, updates, and corrects information.',
