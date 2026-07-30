@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Trailer: Official Videos & Breakdown' },
   description:
     'Watch both official Dear Passengers videos and explore a source-labeled breakdown of cockpit work, cabin service, cargo, weather, and open questions.',
-  alternates: { canonical: '/dear-passengers-trailer/', languages: { en: '/dear-passengers-trailer/', ar: '/ar/dear-passengers-trailer/', de: '/de/dear-passengers-trailer/', tr: '/tr/dear-passengers-fragman/', 'pt-BR': '/pt-br/dear-passengers-trailer/', 'x-default': '/dear-passengers-trailer/' } },
+  alternates: { canonical: '/dear-passengers-trailer/', languages: { en: '/dear-passengers-trailer/', ar: '/ar/dear-passengers-trailer/', de: '/de/dear-passengers-trailer/', tr: '/tr/dear-passengers-fragman/', 'pt-BR': '/pt-br/dear-passengers-trailer/', es: '/es/dear-passengers-trailer/', 'x-default': '/dear-passengers-trailer/' } },
   openGraph: {
     title: 'Dear Passengers Trailer: Official Videos and Breakdown',
     description:

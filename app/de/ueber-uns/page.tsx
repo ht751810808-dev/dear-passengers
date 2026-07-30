@@ -4,7 +4,7 @@ import GermanTrustPage from '@/components/GermanTrustPage';
 export const metadata: Metadata = {
   title: { absolute: 'Über DearPassengers.net: Unabhängiger deutscher Spiele-Guide' },
   description: 'Zweck, Unabhängigkeit, Quellenstandard und Aktualisierungsprozess der deutschen Dear Passengers Guides.',
-  alternates: { canonical: '/de/ueber-uns/', languages: { en: '/about/', ar: '/ar/about/', de: '/de/ueber-uns/', tr: '/tr/hakkimizda/', 'pt-BR': '/pt-br/sobre/', 'x-default': '/about/' } },
+  alternates: { canonical: '/de/ueber-uns/', languages: { en: '/about/', ar: '/ar/about/', de: '/de/ueber-uns/', tr: '/tr/hakkimizda/', 'pt-BR': '/pt-br/sobre/', es: '/es/sobre/', 'x-default': '/about/' } },
 };
 
 export default function GermanAboutPage() {

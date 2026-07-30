@@ -14,12 +14,13 @@ function FriendLinks({ title }: { title: string }) {
   );
 }
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
   const isTurkish = locale === 'tr';
   const isPortuguese = locale === 'pt-BR';
+  const isSpanish = locale === 'es';
 
   if (isChinese) {
     return (
@@ -260,6 +261,52 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           <span>© 2026 DearPassengers.net</span>
           <span>Última verificação: 29/07/2026 · Confira informações sensíveis ao tempo na Steam.</span>
         </div>
+      </footer>
+    );
+  }
+
+  if (isSpanish) {
+    return (
+      <footer className="site-footer" lang="es">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/es/">
+              <Image src="/images/logo.png" alt="Guía en español del juego Dear Passengers" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>GUÍA INDEPENDIENTE EN ESPAÑOL</small></span>
+            </Link>
+            <p>DearPassengers.net es una guía independiente y no oficial. No pertenece a FLEXUS, Valve o Steam; la información cambiante se comprueba en fuentes primarias.</p>
+          </div>
+          <div>
+            <h2>Guía del juego</h2>
+            <Link href="/es/dear-passengers-como-jugar/">Cómo jugar a Dear Passengers</Link>
+            <Link href="/es/dear-passengers-trailer/">Análisis del tráiler oficial</Link>
+            <Link href="/es/dear-passengers-caracteristicas-confirmadas/">Características confirmadas</Link>
+            <Link href="/es/dear-passengers-roles/">Roles de la tripulación</Link>
+            <Link href="/es/dear-passengers-cuantos-jugadores/">Número de jugadores</Link>
+            <Link href="/es/juegos-parecidos-a-dear-passengers/">Juegos parecidos</Link>
+          </div>
+          <div>
+            <h2>Lanzamiento</h2>
+            <Link href="/es/dear-passengers-fecha-de-lanzamiento/">Fecha de lanzamiento 2026</Link>
+            <Link href="/es/dear-passengers-demo/">Estado de la demo</Link>
+            <Link href="/es/dear-passengers-descargar/">Descarga segura</Link>
+            <Link href="/es/dear-passengers-noticias/">Últimas noticias</Link>
+            <Link href="/es/dear-passengers-desarrollador-flexus/">Desarrollador FLEXUS</Link>
+            <Link href="/es/dear-passengers-requisitos/">Requisitos del sistema</Link>
+            <a href={`${STEAM_URL}?l=spanish`} target="_blank" rel="noopener noreferrer">Página oficial en Steam ↗</a>
+          </div>
+          <div>
+            <h2>Sobre el sitio</h2>
+            <Link href="/" hrefLang="en">English site</Link>
+            <Link href="/es/sobre/">Sobre DearPassengers.net</Link>
+            <Link href="/es/politica-editorial/">Política editorial</Link>
+            <Link href="/es/contacto/">Contacto y correcciones</Link>
+            <Link href="/es/privacidad/">Política de privacidad</Link>
+            <PrivacySettingsButton locale="es" className="footer-privacy-button" />
+            <FriendLinks title="Sitios asociados" />
+          </div>
+        </div>
+        <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Última verificación: 30/07/2026 · Comprueba los datos sensibles al tiempo en Steam.</span></div>
       </footer>
     );
   }

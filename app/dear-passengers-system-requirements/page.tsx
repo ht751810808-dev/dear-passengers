@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       de: '/de/dear-passengers-systemanforderungen/',
       tr: '/tr/dear-passengers-sistem-gereksinimleri/',
       'pt-BR': '/pt-br/dear-passengers-requisitos/',
+      es: '/es/dear-passengers-requisitos/',
       'zh-CN': '/zh-cn/dear-passengers-system-requirements/',
       'x-default': '/dear-passengers-system-requirements/',
     },

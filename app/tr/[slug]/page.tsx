@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import TurkishGuidePage from '@/components/TurkishGuidePage';
 import { turkishGuideBySlug, turkishGuides } from '@/app/tr/turkish-content';
 import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
+import { spanishGuideByEnglishPath } from '@/app/es/spanish-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return turkishGuides.map((guide) => ({ slug: guide.slug })); }
@@ -11,7 +12,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const guide = turkishGuideBySlug.get(params.slug);
   if (!guide) return {};
   const canonical = `/tr/${guide.slug}/`;
-  const languages: Record<string, string> = { en: guide.englishPath, ar: guide.arabicPath, de: guide.germanPath, tr: canonical, 'pt-BR': `/pt-br/${portugueseGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'x-default': guide.englishPath };
+  const languages: Record<string, string> = { en: guide.englishPath, ar: guide.arabicPath, de: guide.germanPath, tr: canonical, 'pt-BR': `/pt-br/${portugueseGuideByEnglishPath.get(guide.englishPath)?.slug}/`, es: `/es/${spanishGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'x-default': guide.englishPath };
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   return {
     title: { absolute: guide.title }, description: guide.description, alternates: { canonical, languages },

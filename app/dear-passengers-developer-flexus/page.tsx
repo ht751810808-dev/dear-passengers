@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Dear Passengers studio',
     'Dear Passengers publisher',
   ],
-  alternates: { canonical: '/dear-passengers-developer-flexus/', languages: { en: '/dear-passengers-developer-flexus/', ar: '/ar/dear-passengers-developer/', de: '/de/dear-passengers-entwickler-flexus/', tr: '/tr/dear-passengers-gelistiricisi/', 'pt-BR': '/pt-br/dear-passengers-desenvolvedora-flexus/', 'x-default': '/dear-passengers-developer-flexus/' } },
+  alternates: { canonical: '/dear-passengers-developer-flexus/', languages: { en: '/dear-passengers-developer-flexus/', ar: '/ar/dear-passengers-developer/', de: '/de/dear-passengers-entwickler-flexus/', tr: '/tr/dear-passengers-gelistiricisi/', 'pt-BR': '/pt-br/dear-passengers-desenvolvedora-flexus/', es: '/es/dear-passengers-desarrollador-flexus/', 'x-default': '/dear-passengers-developer-flexus/' } },
   openGraph: {
     title: 'Dear Passengers Developer: FLEXUS Games Profile',
     description:

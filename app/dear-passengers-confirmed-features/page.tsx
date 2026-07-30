@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Confirmed Features: Fact & Rumor Check' },
   description:
     'Check every confirmed Dear Passengers feature and open question, including co-op, solo, player count, voice chat, controllers, Steam Deck, consoles, languages, and demo.',
-  alternates: { canonical: '/dear-passengers-confirmed-features/', languages: { en: '/dear-passengers-confirmed-features/', ar: '/ar/dear-passengers-confirmed-features/', de: '/de/dear-passengers-bestaetigte-features/', tr: '/tr/dear-passengers-ozellikleri/', 'pt-BR': '/pt-br/dear-passengers-recursos-confirmados/', 'x-default': '/dear-passengers-confirmed-features/' } },
+  alternates: { canonical: '/dear-passengers-confirmed-features/', languages: { en: '/dear-passengers-confirmed-features/', ar: '/ar/dear-passengers-confirmed-features/', de: '/de/dear-passengers-bestaetigte-features/', tr: '/tr/dear-passengers-ozellikleri/', 'pt-BR': '/pt-br/dear-passengers-recursos-confirmados/', es: '/es/dear-passengers-caracteristicas-confirmadas/', 'x-default': '/dear-passengers-confirmed-features/' } },
   openGraph: {
     title: 'Dear Passengers Confirmed Features and Rumor Check',
     description:

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: germanHomeGuide.description,
   alternates: {
     canonical: '/de/',
-    languages: { en: '/', ar: '/ar/', de: '/de/', tr: '/tr/', 'pt-BR': '/pt-br/', 'zh-CN': '/zh-cn/', 'x-default': '/' },
+    languages: { en: '/', ar: '/ar/', de: '/de/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'zh-CN': '/zh-cn/', 'x-default': '/' },
   },
   openGraph: {
     title: germanHomeGuide.title,

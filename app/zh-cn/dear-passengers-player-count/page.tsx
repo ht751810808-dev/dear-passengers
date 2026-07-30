@@ -22,6 +22,7 @@ export const metadata: Metadata = {
       de: '/de/dear-passengers-spielerzahl/',
       tr: '/tr/dear-passengers-kac-kisilik/',
       'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/',
+      es: '/es/dear-passengers-cuantos-jugadores/',
       'zh-CN': '/zh-cn/dear-passengers-player-count/',
       'x-default': '/dear-passengers-player-count/',
     },

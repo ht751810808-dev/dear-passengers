@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers News: Demo, Release & Wishlist Updates' },
   description:
     'Follow verified Dear Passengers news, including its current No. 8 Steam wishlist rank, 1.5-million milestone, demo plans, release status, and updates.',
-  alternates: { canonical: '/dear-passengers-news/', languages: { en: '/dear-passengers-news/', ar: '/ar/dear-passengers-news/', de: '/de/dear-passengers-news/', tr: '/tr/dear-passengers-haberleri/', 'pt-BR': '/pt-br/dear-passengers-noticias/', 'x-default': '/dear-passengers-news/' } },
+  alternates: { canonical: '/dear-passengers-news/', languages: { en: '/dear-passengers-news/', ar: '/ar/dear-passengers-news/', de: '/de/dear-passengers-news/', tr: '/tr/dear-passengers-haberleri/', 'pt-BR': '/pt-br/dear-passengers-noticias/', es: '/es/dear-passengers-noticias/', 'x-default': '/dear-passengers-news/' } },
   openGraph: {
     title: 'Dear Passengers News and Verified Update Timeline',
     description: 'A dated, source-led log of Dear Passengers demo, release, wishlist, platform, and gameplay updates.',
