@@ -9,12 +9,13 @@ import SourceLedger from '@/components/SourceLedger';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const TRAILER_URL = 'https://www.youtube.com/watch?v=XRvd_HZesys';
+const GAMEPLAY_UPDATE_URL = 'https://steamcommunity.com/app/4534960/allnews/';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-gameplay/';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Gameplay: How Flying and Cabin Work' },
   description:
-    'Explore confirmed Dear Passengers gameplay, including piloting, cabin service, passengers, cargo, weather, physics, solo play, and online co-op.',
+    'Explore confirmed Dear Passengers gameplay, including full plane control, cabin service, cargo, weather, physics, solo play, and online co-op.',
   alternates: { canonical: '/dear-passengers-gameplay/', languages: { en: '/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', de: '/de/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', es: '/es/dear-passengers-como-jugar/', 'my-MM': '/my/dear-passengers-gameplay/', 'x-default': '/dear-passengers-gameplay/' } },
   openGraph: {
     title: 'Dear Passengers Gameplay: Pilot, Cabin, Cargo and Chaos',
@@ -48,7 +49,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Can you fly the plane in Dear Passengers?',
     answer:
-      'Yes. Piloting is a confirmed part of Dear Passengers gameplay. The current Steam description says one crew member pilots while the others work inside the cabin, but it does not document instruments, takeoff steps, landing controls, autopilot, or flight-model realism.',
+      'Yes. Piloting is a confirmed part of Dear Passengers gameplay, and FLEXUS stated on July 31 that players fully control the plane. The developer has not yet documented instruments, takeoff steps, landing inputs, autopilot, or flight-model realism.',
   },
   {
     question: 'What does the cabin crew do?',
@@ -68,7 +69,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Are Dear Passengers controls confirmed?',
     answer:
-      'No complete control list is public. Pages that assign specific keyboard, controller, throttle, landing-gear, or emergency inputs are speculating unless they cite a playable build or a new FLEXUS control guide.',
+      'FLEXUS confirms that players fully control the plane, but no complete input list is public. Pages that assign specific keyboard, controller, throttle, landing-gear, or emergency inputs are speculating unless they cite a playable build or a new FLEXUS control guide.',
   },
 ];
 
@@ -79,7 +80,7 @@ const articleSchema = {
   description: 'A source-backed explanation of the confirmed Dear Passengers gameplay loop.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-20',
-  dateModified: '2026-07-20',
+  dateModified: '2026-08-04',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -91,7 +92,7 @@ const articleSchema = {
     url: 'https://dearpassengers.net/',
     logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' },
   },
-  image: 'https://dearpassengers.net/images/og-image.png',
+  image: 'https://dearpassengers.net/images/dear-passengers-unity-flight.webp',
 };
 
 const breadcrumbSchema = {
@@ -140,8 +141,8 @@ export default function GameplayPage() {
               <h1>Dear Passengers Gameplay:<br /><em>Fly, Serve and Survive</em></h1>
               <p>
                 <strong>Dear Passengers gameplay</strong> connects cockpit decisions with cabin consequences. This
-                independent guide explains the confirmed flight loop, passenger service, risky cargo, weather, physics,
-                solo mode, and online co-op without inventing controls or progression systems before release.
+                independent guide explains the confirmed flight loop, full plane control, passenger service, risky
+                cargo, weather, physics, solo mode, and online co-op without inventing inputs or progression systems.
               </p>
               <div className="hero-actions">
                 <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Check official gameplay ↗</a>
@@ -149,9 +150,9 @@ export default function GameplayPage() {
               </div>
               <div className="status-strip" aria-label="Dear Passengers gameplay status">
                 <div><small>PILOTING</small><strong>CONFIRMED</strong></div>
-                <div><small>CABIN WORK</small><strong>CONFIRMED</strong></div>
+                <div><small>FULL PLANE CONTROL</small><strong>CONFIRMED</strong></div>
                 <div><small>SOLO + ONLINE</small><strong>CONFIRMED</strong></div>
-                <div><small>FULL CONTROLS</small><strong>NOT PUBLISHED</strong></div>
+                <div><small>INPUT MAP</small><strong>NOT PUBLISHED</strong></div>
               </div>
             </div>
           </header>
@@ -172,7 +173,7 @@ export default function GameplayPage() {
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote note="This guide treats Steam and direct FLEXUS publications as confirmation. Trailer scenes support visual observations, but they do not prove a control scheme, final user interface, progression system, mission count, or launch feature unless the developer states it." />
+              <EditorialNote note="This guide treats Steam and direct FLEXUS publications as confirmation. FLEXUS now confirms full plane control, while trailer scenes and a raw Unity editor image remain visual evidence rather than proof of a finished input map, user interface, progression system, mission count, or launch feature." />
 
               <section id="answer">
                 <span className="kicker">THE SHORT VERSION</span>
@@ -193,8 +194,10 @@ export default function GameplayPage() {
                 <p>
                   Steam currently confirms Windows PC, single-player, and online co-op. It also names dynamic weather,
                   turbulence, air pockets, physics-based passengers and cargo, passenger service, and risk-versus-reward
-                  manifest choices. Dear Passengers has not launched, so exact controls, route structure, aircraft
-                  selection, scoring, upgrades, matchmaking, and maximum crew size remain outside the confirmed record.
+                  manifest choices. In a July 31 official update, FLEXUS added that players fully control the plane and
+                  said a video showing an actual flight is being assembled. Dear Passengers has not launched, so exact
+                  inputs, route structure, aircraft selection, scoring, upgrades, matchmaking, and maximum crew size
+                  remain outside the confirmed record.
                 </p>
                 <div className="fact-callout">
                   <span>FLIGHT PLAN</span>
@@ -238,8 +241,9 @@ export default function GameplayPage() {
                 <p>
                   Piloting is one of the clearest confirmed parts of <strong>Dear Passengers gameplay</strong>. Steam
                   says one member of the group flies while the others work inside the cabin. Official footage shows a
-                  first-person cockpit perspective and external hazards, but it does not provide a finished control
-                  manual or an uninterrupted flight from takeoff to landing.
+                  first-person cockpit perspective and external hazards. FLEXUS then stated directly on July 31 that
+                  players fully control the plane. That confirms player authority over the aircraft, but the studio has
+                  not yet published a finished control manual or an uninterrupted flight from takeoff to landing.
                 </p>
                 <p>
                   The pilot matters because aircraft movement affects the rest of the crew. Turbulence and air pockets
@@ -247,6 +251,21 @@ export default function GameplayPage() {
                   larger hazard, a sharp reaction may create immediate cleanup behind the door. Dear Passengers gameplay
                   turns movement into a team decision rather than a private steering task.
                 </p>
+                <figure className="article-source-figure">
+                  <Image
+                    src="/images/dear-passengers-unity-flight.webp"
+                    alt="Raw Dear Passengers Unity editor view of an aircraft cabin with passenger interaction markers"
+                    width={1920}
+                    height={897}
+                    sizes="(max-width: 900px) 100vw, 790px"
+                  />
+                  <figcaption>
+                    Raw Unity editor image published by FLEXUS in its{' '}
+                    <a href={GAMEPLAY_UPDATE_URL} target="_blank" rel="noopener noreferrer">July 31 Steam update ↗</a>.
+                    Development markers indicate work in progress, not a finished HUD or proof that every labeled
+                    interaction ships. © FLEXUS, used editorially.
+                  </figcaption>
+                </figure>
                 <h3>Is Dear Passengers a Flight Simulator?</h3>
                 <p>
                   Calling Dear Passengers a realistic flight simulator would overstate the evidence. Steam categorizes
@@ -257,10 +276,17 @@ export default function GameplayPage() {
                 </p>
                 <h3>What Pilot Controls Are Confirmed?</h3>
                 <p>
-                  No complete keyboard, mouse, controller, or flight-stick layout is public. FLEXUS has not explained
-                  throttle behavior, pitch and roll inputs, landing gear, autopilot, instrumentation, or accessibility
-                  assists. A responsible Dear Passengers gameplay page can confirm that the plane is flyable while
-                  leaving individual buttons open until a demo or official manual supplies evidence.
+                  Full aircraft control is now confirmed, but no complete keyboard, mouse, controller, or flight-stick
+                  layout is public. FLEXUS has not explained throttle behavior, pitch and roll inputs, landing gear,
+                  autopilot, instrumentation, or accessibility assists. A responsible Dear Passengers gameplay page can
+                  confirm player control while leaving individual buttons and simulation depth open until a demo,
+                  extended gameplay video, or official manual supplies evidence.
+                </p>
+                <p>
+                  FLEXUS says a longer <strong>Dear Passengers gameplay</strong> video is in production to show an actual
+                  flight, but gives no date. The statement confirms player control—not specific inputs, flight handling,
+                  landing, failure states, or the final interface. The{' '}
+                  <Link href="/dear-passengers-news">Dear Passengers news log</Link> tracks its release.
                 </p>
               </section>
 
@@ -372,7 +398,8 @@ export default function GameplayPage() {
                   <div role="row"><strong role="cell">Dear Passengers service and cargo protection</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">Steam features</span></div>
                   <div role="row"><strong role="cell">Dear Passengers weather and turbulence</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">Steam features</span></div>
                   <div role="row"><strong role="cell">Dear Passengers solo and online co-op</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">Steam feature panel</span></div>
-                  <div role="row"><strong role="cell">Dear Passengers controls and flight depth</strong><span className="status-open" role="cell">Not published</span><span role="cell">Needs demo or manual</span></div>
+                  <div role="row"><strong role="cell">Dear Passengers full plane control</strong><span className="status-confirmed" role="cell">Confirmed</span><span role="cell">July 31 FLEXUS update</span></div>
+                  <div role="row"><strong role="cell">Dear Passengers inputs and flight depth</strong><span className="status-open" role="cell">Not published</span><span role="cell">Needs video, demo, or manual</span></div>
                   <div role="row"><strong role="cell">Dear Passengers routes, aircraft and economy</strong><span className="status-open" role="cell">Not published</span><span role="cell">Needs product details</span></div>
                   <div role="row"><strong role="cell">Dear Passengers lobby, voice and crossplay</strong><span className="status-open" role="cell">Not announced</span><span role="cell">Needs FLEXUS confirmation</span></div>
                 </div>
@@ -406,8 +433,9 @@ export default function GameplayPage() {
                 <span className="kicker">PASSENGER QUESTIONS</span>
                 <h2>Dear Passengers Gameplay FAQ</h2>
                 <p>
-                  These answers reflect official material available on July 20, 2026. Dear Passengers gameplay may
-                  become more specific when FLEXUS publishes a public demo, longer uncut footage, or a launch manual.
+                  These answers reflect official material checked on August 4, 2026. Dear Passengers gameplay may
+                  become more specific when FLEXUS publishes the promised actual-flight video, a public demo, longer
+                  uncut footage, or a launch manual.
                 </p>
                 <FAQ items={faqs} />
               </section>
@@ -426,6 +454,7 @@ export default function GameplayPage() {
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count →</Link>
                   <Link className="button button-ghost" href="/games-like-dear-passengers">Similar games →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-news">Latest verified news →</Link>
                 </div>
               </section>
             </div>

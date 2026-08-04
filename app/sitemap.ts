@@ -138,7 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-gameplay/`,
-      lastModified: new Date('2026-07-20'),
+      lastModified: new Date('2026-08-04'),
     },
     {
       url: `${baseUrl}/dear-passengers-trailer/`,
