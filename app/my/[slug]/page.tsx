@@ -4,6 +4,7 @@ import MyanmarGuidePage from '@/components/MyanmarGuidePage';
 import { myanmarGuideBySlug, myanmarGuides } from '@/app/my/myanmar-content';
 import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
 import { spanishGuideByEnglishPath } from '@/app/es/spanish-content';
+import { russianGuideByEnglishPath } from '@/app/ru/russian-content';
 
 export const dynamicParams = false;
 
@@ -30,6 +31,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     if (counterpart.chinesePath) languages['zh-CN'] = counterpart.chinesePath;
   }
   if (spanish) languages.es = `/es/${spanish.slug}/`;
+  const russian = russianGuideByEnglishPath.get(guide.englishPath);
+  if (russian) languages.ru = `/ru/${russian.slug}/`;
   return {
     title: { absolute: guide.title },
     description: guide.description,

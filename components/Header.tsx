@@ -91,7 +91,18 @@ const myanmarLinks = [
   { href: '/my/dear-passengers-system-requirements/', label: 'PC လိုအပ်ချက်' },
 ];
 
-type Locale = 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM';
+const russianLinks = [
+  { href: '/ru/igra-dear-passengers/', label: 'Об игре' },
+  { href: '/ru/dear-passengers-kak-igrat/', label: 'Как играть' },
+  { href: '/ru/dear-passengers-skolko-igrokov/', label: 'Игроки' },
+  { href: '/ru/dear-passengers-data-vyhoda/', label: 'Дата выхода' },
+  { href: '/ru/dear-passengers-demo/', label: 'Демо' },
+  { href: '/ru/dear-passengers-skachat/', label: 'Скачать' },
+  { href: '/ru/dear-passengers-sistemnye-trebovaniya/', label: 'Требования' },
+  { href: '/ru/dear-passengers-russkiy-yazyk/', label: 'Русский язык' },
+];
+
+type Locale = 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru';
 
 const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }> = [
   { locale: 'en', shortLabel: 'EN', label: 'English' },
@@ -102,30 +113,31 @@ const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }
   { locale: 'pt-BR', shortLabel: 'PT-BR', label: 'Português (Brasil)' },
   { locale: 'es', shortLabel: 'ES', label: 'Español' },
   { locale: 'my-MM', shortLabel: 'MY', label: 'မြန်မာ' },
+  { locale: 'ru', shortLabel: 'RU', label: 'Русский' },
 ];
 
 const localizedRoutes: Array<Record<Locale, string>> = [
-  { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/' },
-  { en: '/game-dear-passengers/', 'zh-CN': '/zh-cn/dear-passengers-game/', de: '/de/dear-passengers-spiel/', ar: '/ar/dear-passengers-game/', tr: '/tr/dear-passengers-oyunu/', 'pt-BR': '/pt-br/jogo-dear-passengers/', es: '/es/juego-dear-passengers/', 'my-MM': '/my/' },
-  { en: '/dear-passengers-gameplay/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', es: '/es/dear-passengers-como-jugar/', 'my-MM': '/my/dear-passengers-gameplay/' },
-  { en: '/dear-passengers-roles/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-rollen/', ar: '/ar/dear-passengers-roles/', tr: '/tr/dear-passengers-rolleri/', 'pt-BR': '/pt-br/dear-passengers-funcoes/', es: '/es/dear-passengers-roles/', 'my-MM': '/my/dear-passengers-roles/' },
-  { en: '/dear-passengers-player-count/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', ar: '/ar/dear-passengers-player-count/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/', 'my-MM': '/my/dear-passengers-player-count/' },
-  { en: '/dear-passengers-release-date/', 'zh-CN': '/zh-cn/dear-passengers-release-date/', de: '/de/dear-passengers-release/', ar: '/ar/dear-passengers-release/', tr: '/tr/dear-passengers-cikis-tarihi/', 'pt-BR': '/pt-br/dear-passengers-data-de-lancamento/', es: '/es/dear-passengers-fecha-de-lanzamiento/', 'my-MM': '/my/dear-passengers-release-date/' },
-  { en: '/dear-passengers-demo/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'pt-BR': '/pt-br/dear-passengers-demo/', es: '/es/dear-passengers-demo/', 'my-MM': '/my/dear-passengers-demo/' },
-  { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-download/', ar: '/ar/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/' },
-  { en: '/dear-passengers-system-requirements/', 'zh-CN': '/zh-cn/dear-passengers-system-requirements/', de: '/de/dear-passengers-systemanforderungen/', ar: '/ar/dear-passengers-system-requirements/', tr: '/tr/dear-passengers-sistem-gereksinimleri/', 'pt-BR': '/pt-br/dear-passengers-requisitos/', es: '/es/dear-passengers-requisitos/', 'my-MM': '/my/dear-passengers-system-requirements/' },
-  { en: '/dear-passengers-trailer/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-trailer/', ar: '/ar/dear-passengers-trailer/', tr: '/tr/dear-passengers-fragman/', 'pt-BR': '/pt-br/dear-passengers-trailer/', es: '/es/dear-passengers-trailer/', 'my-MM': '/my/dear-passengers-trailer/' },
-  { en: '/dear-passengers-news/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-news/', ar: '/ar/dear-passengers-news/', tr: '/tr/dear-passengers-haberleri/', 'pt-BR': '/pt-br/dear-passengers-noticias/', es: '/es/dear-passengers-noticias/', 'my-MM': '/my/dear-passengers-news/' },
-  { en: '/dear-passengers-confirmed-features/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-bestaetigte-features/', ar: '/ar/dear-passengers-confirmed-features/', tr: '/tr/dear-passengers-ozellikleri/', 'pt-BR': '/pt-br/dear-passengers-recursos-confirmados/', es: '/es/dear-passengers-caracteristicas-confirmadas/', 'my-MM': '/my/dear-passengers-confirmed-features/' },
-  { en: '/dear-passengers-developer-flexus/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-entwickler-flexus/', ar: '/ar/dear-passengers-developer/', tr: '/tr/dear-passengers-gelistiricisi/', 'pt-BR': '/pt-br/dear-passengers-desenvolvedora-flexus/', es: '/es/dear-passengers-desarrollador-flexus/', 'my-MM': '/my/dear-passengers-developer-flexus/' },
-  { en: '/games-like-dear-passengers/', 'zh-CN': '/zh-cn/', de: '/de/spiele-wie-dear-passengers/', ar: '/ar/games-like-dear-passengers/', tr: '/tr/dear-passengers-benzeri-oyunlar/', 'pt-BR': '/pt-br/jogos-parecidos-com-dear-passengers/', es: '/es/juegos-parecidos-a-dear-passengers/', 'my-MM': '/my/games-like-dear-passengers/' },
-  { en: '/about/', 'zh-CN': '/zh-cn/', de: '/de/ueber-uns/', ar: '/ar/about/', tr: '/tr/hakkimizda/', 'pt-BR': '/pt-br/sobre/', es: '/es/sobre/', 'my-MM': '/my/about/' },
-  { en: '/editorial-policy/', 'zh-CN': '/zh-cn/', de: '/de/redaktionsrichtlinien/', ar: '/ar/editorial-policy/', tr: '/tr/editorial-policy/', 'pt-BR': '/pt-br/politica-editorial/', es: '/es/politica-editorial/', 'my-MM': '/my/editorial-policy/' },
-  { en: '/contact/', 'zh-CN': '/zh-cn/', de: '/de/kontakt/', ar: '/ar/contact/', tr: '/tr/iletisim/', 'pt-BR': '/pt-br/contato/', es: '/es/contacto/', 'my-MM': '/my/contact/' },
-  { en: '/privacy-policy/', 'zh-CN': '/zh-cn/', de: '/de/datenschutz/', ar: '/ar/privacy-policy/', tr: '/tr/gizlilik/', 'pt-BR': '/pt-br/privacidade/', es: '/es/privacidad/', 'my-MM': '/my/privacy-policy/' },
+  { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/' },
+  { en: '/game-dear-passengers/', 'zh-CN': '/zh-cn/dear-passengers-game/', de: '/de/dear-passengers-spiel/', ar: '/ar/dear-passengers-game/', tr: '/tr/dear-passengers-oyunu/', 'pt-BR': '/pt-br/jogo-dear-passengers/', es: '/es/juego-dear-passengers/', 'my-MM': '/my/', ru: '/ru/igra-dear-passengers/' },
+  { en: '/dear-passengers-gameplay/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', es: '/es/dear-passengers-como-jugar/', 'my-MM': '/my/dear-passengers-gameplay/', ru: '/ru/dear-passengers-kak-igrat/' },
+  { en: '/dear-passengers-roles/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-rollen/', ar: '/ar/dear-passengers-roles/', tr: '/tr/dear-passengers-rolleri/', 'pt-BR': '/pt-br/dear-passengers-funcoes/', es: '/es/dear-passengers-roles/', 'my-MM': '/my/dear-passengers-roles/', ru: '/ru/' },
+  { en: '/dear-passengers-player-count/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', ar: '/ar/dear-passengers-player-count/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/', 'my-MM': '/my/dear-passengers-player-count/', ru: '/ru/dear-passengers-skolko-igrokov/' },
+  { en: '/dear-passengers-release-date/', 'zh-CN': '/zh-cn/dear-passengers-release-date/', de: '/de/dear-passengers-release/', ar: '/ar/dear-passengers-release/', tr: '/tr/dear-passengers-cikis-tarihi/', 'pt-BR': '/pt-br/dear-passengers-data-de-lancamento/', es: '/es/dear-passengers-fecha-de-lanzamiento/', 'my-MM': '/my/dear-passengers-release-date/', ru: '/ru/dear-passengers-data-vyhoda/' },
+  { en: '/dear-passengers-demo/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'pt-BR': '/pt-br/dear-passengers-demo/', es: '/es/dear-passengers-demo/', 'my-MM': '/my/dear-passengers-demo/', ru: '/ru/dear-passengers-demo/' },
+  { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-download/', ar: '/ar/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/' },
+  { en: '/dear-passengers-system-requirements/', 'zh-CN': '/zh-cn/dear-passengers-system-requirements/', de: '/de/dear-passengers-systemanforderungen/', ar: '/ar/dear-passengers-system-requirements/', tr: '/tr/dear-passengers-sistem-gereksinimleri/', 'pt-BR': '/pt-br/dear-passengers-requisitos/', es: '/es/dear-passengers-requisitos/', 'my-MM': '/my/dear-passengers-system-requirements/', ru: '/ru/dear-passengers-sistemnye-trebovaniya/' },
+  { en: '/dear-passengers-trailer/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-trailer/', ar: '/ar/dear-passengers-trailer/', tr: '/tr/dear-passengers-fragman/', 'pt-BR': '/pt-br/dear-passengers-trailer/', es: '/es/dear-passengers-trailer/', 'my-MM': '/my/dear-passengers-trailer/', ru: '/ru/' },
+  { en: '/dear-passengers-news/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-news/', ar: '/ar/dear-passengers-news/', tr: '/tr/dear-passengers-haberleri/', 'pt-BR': '/pt-br/dear-passengers-noticias/', es: '/es/dear-passengers-noticias/', 'my-MM': '/my/dear-passengers-news/', ru: '/ru/' },
+  { en: '/dear-passengers-confirmed-features/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-bestaetigte-features/', ar: '/ar/dear-passengers-confirmed-features/', tr: '/tr/dear-passengers-ozellikleri/', 'pt-BR': '/pt-br/dear-passengers-recursos-confirmados/', es: '/es/dear-passengers-caracteristicas-confirmadas/', 'my-MM': '/my/dear-passengers-confirmed-features/', ru: '/ru/' },
+  { en: '/dear-passengers-developer-flexus/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-entwickler-flexus/', ar: '/ar/dear-passengers-developer/', tr: '/tr/dear-passengers-gelistiricisi/', 'pt-BR': '/pt-br/dear-passengers-desenvolvedora-flexus/', es: '/es/dear-passengers-desarrollador-flexus/', 'my-MM': '/my/dear-passengers-developer-flexus/', ru: '/ru/' },
+  { en: '/games-like-dear-passengers/', 'zh-CN': '/zh-cn/', de: '/de/spiele-wie-dear-passengers/', ar: '/ar/games-like-dear-passengers/', tr: '/tr/dear-passengers-benzeri-oyunlar/', 'pt-BR': '/pt-br/jogos-parecidos-com-dear-passengers/', es: '/es/juegos-parecidos-a-dear-passengers/', 'my-MM': '/my/games-like-dear-passengers/', ru: '/ru/' },
+  { en: '/about/', 'zh-CN': '/zh-cn/', de: '/de/ueber-uns/', ar: '/ar/about/', tr: '/tr/hakkimizda/', 'pt-BR': '/pt-br/sobre/', es: '/es/sobre/', 'my-MM': '/my/about/', ru: '/ru/' },
+  { en: '/editorial-policy/', 'zh-CN': '/zh-cn/', de: '/de/redaktionsrichtlinien/', ar: '/ar/editorial-policy/', tr: '/tr/editorial-policy/', 'pt-BR': '/pt-br/politica-editorial/', es: '/es/politica-editorial/', 'my-MM': '/my/editorial-policy/', ru: '/ru/' },
+  { en: '/contact/', 'zh-CN': '/zh-cn/', de: '/de/kontakt/', ar: '/ar/contact/', tr: '/tr/iletisim/', 'pt-BR': '/pt-br/contato/', es: '/es/contacto/', 'my-MM': '/my/contact/', ru: '/ru/' },
+  { en: '/privacy-policy/', 'zh-CN': '/zh-cn/', de: '/de/datenschutz/', ar: '/ar/privacy-policy/', tr: '/tr/gizlilik/', 'pt-BR': '/pt-br/privacidade/', es: '/es/privacidad/', 'my-MM': '/my/privacy-policy/', ru: '/ru/' },
 ];
 
-const localeHomes: Record<Locale, string> = { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/' };
+const localeHomes: Record<Locale, string> = { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/' };
 
 function normalizePath(pathname: string) {
   if (pathname === '/') return pathname;
@@ -143,7 +155,8 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
   const isPortuguese = locale === 'pt-BR';
   const isSpanish = locale === 'es';
   const isMyanmar = locale === 'my-MM';
-  const links = isChinese ? chineseLinks : isGerman ? germanLinks : isArabic ? arabicLinks : isTurkish ? turkishLinks : isPortuguese ? portugueseLinks : isSpanish ? spanishLinks : isMyanmar ? myanmarLinks : englishLinks;
+  const isRussian = locale === 'ru';
+  const links = isChinese ? chineseLinks : isGerman ? germanLinks : isArabic ? arabicLinks : isTurkish ? turkishLinks : isPortuguese ? portugueseLinks : isSpanish ? spanishLinks : isMyanmar ? myanmarLinks : isRussian ? russianLinks : englishLinks;
   const localizedRoute = localizedRoutes.find((route) => Object.values(route).includes(pathname));
   const localeHref = (targetLocale: Locale) => {
     if (targetLocale === locale) return pathname;
@@ -152,7 +165,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
     return localeHomes[targetLocale];
   };
   const currentLocale = localeOptions.find((option) => option.locale === locale) || localeOptions[0];
-  const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/' : isArabic ? '/ar/' : isTurkish ? '/tr/' : isPortuguese ? '/pt-br/' : isSpanish ? '/es/' : isMyanmar ? '/my/' : '/';
+  const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/' : isArabic ? '/ar/' : isTurkish ? '/tr/' : isPortuguese ? '/pt-br/' : isSpanish ? '/es/' : isMyanmar ? '/my/' : isRussian ? '/ru/' : '/';
   const homeLabel = isChinese
     ? 'Dear Passengers 中文指南首页'
     : isGerman
@@ -167,9 +180,11 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
               ? 'Guía en español del juego Dear Passengers'
               : isMyanmar
                 ? 'Dear Passengers မြန်မာဂိမ်းလမ်းညွှန်'
+                : isRussian
+                  ? 'Русский гид по игре Dear Passengers'
       : 'Dear Passengers game guide home';
-  const siteLabel = isChinese ? '独立游戏资料站' : isGerman ? 'UNABHÄNGIGER SPIELE-GUIDE' : isArabic ? 'دليل ألعاب مستقل' : isTurkish ? 'BAĞIMSIZ OYUN REHBERİ' : isPortuguese ? 'GUIA BRASILEIRO INDEPENDENTE' : isSpanish ? 'GUÍA INDEPENDIENTE EN ESPAÑOL' : isMyanmar ? 'လွတ်လပ်သော မြန်မာဂိမ်းလမ်းညွှန်' : 'INDEPENDENT FLIGHT GUIDE';
-  const languageAria = isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : isArabic ? 'اختر لغة الموقع' : isTurkish ? 'Site dilini seçin' : isPortuguese ? 'Escolher idioma do site' : isSpanish ? 'Elegir idioma del sitio' : isMyanmar ? 'ဝဘ်ဆိုက်ဘာသာစကား ရွေးချယ်ရန်' : 'Choose site language';
+  const siteLabel = isChinese ? '独立游戏资料站' : isGerman ? 'UNABHÄNGIGER SPIELE-GUIDE' : isArabic ? 'دليل ألعاب مستقل' : isTurkish ? 'BAĞIMSIZ OYUN REHBERİ' : isPortuguese ? 'GUIA BRASILEIRO INDEPENDENTE' : isSpanish ? 'GUÍA INDEPENDIENTE EN ESPAÑOL' : isMyanmar ? 'လွတ်လပ်သော မြန်မာဂိမ်းလမ်းညွှန်' : isRussian ? 'НЕЗАВИСИМЫЙ ГИД ПО ИГРЕ' : 'INDEPENDENT FLIGHT GUIDE';
+  const languageAria = isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : isArabic ? 'اختر لغة الموقع' : isTurkish ? 'Site dilini seçin' : isPortuguese ? 'Escolher idioma do site' : isSpanish ? 'Elegir idioma del sitio' : isMyanmar ? 'ဝဘ်ဆိုက်ဘာသာစကား ရွေးချယ်ရန်' : isRussian ? 'Выбрать язык сайта' : 'Choose site language';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -223,7 +238,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
             </div>
           </details>
           <a className="button button-small" href={STEAM_URL} target="_blank" rel="noopener noreferrer">
-            {isChinese ? 'Steam 愿望单' : isGerman ? 'Auf Steam vormerken' : isArabic ? 'أضفها إلى قائمة الأمنيات' : isTurkish ? 'Steam istek listesi' : isPortuguese ? 'Adicionar à lista de desejos' : isSpanish ? 'Añadir a deseados' : isMyanmar ? 'Steam ဆန္ဒစာရင်း' : 'Wishlist on Steam'} <span aria-hidden="true">↗</span>
+            {isChinese ? 'Steam 愿望单' : isGerman ? 'Auf Steam vormerken' : isArabic ? 'أضفها إلى قائمة الأمنيات' : isTurkish ? 'Steam istek listesi' : isPortuguese ? 'Adicionar à lista de desejos' : isSpanish ? 'Añadir a deseados' : isMyanmar ? 'Steam ဆန္ဒစာရင်း' : isRussian ? 'В желаемое Steam' : 'Wishlist on Steam'} <span aria-hidden="true">↗</span>
           </a>
           <button
             className="menu-button"
@@ -258,7 +273,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
             ))}
           </div>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
-            {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : isArabic ? 'افتح صفحة Steam الرسمية' : isTurkish ? 'Resmî Steam sayfasını aç' : isPortuguese ? 'Abrir a página oficial na Steam' : isSpanish ? 'Abrir la página oficial de Steam' : isMyanmar ? 'Steam တရားဝင်စာမျက်နှာ ဖွင့်ရန်' : 'Open the official Steam page'} ↗
+            {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : isArabic ? 'افتح صفحة Steam الرسمية' : isTurkish ? 'Resmî Steam sayfasını aç' : isPortuguese ? 'Abrir a página oficial na Steam' : isSpanish ? 'Abrir la página oficial de Steam' : isMyanmar ? 'Steam တရားဝင်စာမျက်နှာ ဖွင့်ရန်' : isRussian ? 'Открыть официальную страницу Steam' : 'Open the official Steam page'} ↗
           </a>
         </nav>
       )}

@@ -126,6 +126,18 @@ const myanmarPaths = [
   '/my/privacy-policy/',
 ];
 
+const russianPaths = [
+  '/ru/',
+  '/ru/igra-dear-passengers/',
+  '/ru/dear-passengers-kak-igrat/',
+  '/ru/dear-passengers-skolko-igrokov/',
+  '/ru/dear-passengers-data-vyhoda/',
+  '/ru/dear-passengers-demo/',
+  '/ru/dear-passengers-skachat/',
+  '/ru/dear-passengers-sistemnye-trebovaniya/',
+  '/ru/dear-passengers-russkiy-yazyk/',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -210,6 +222,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
+    ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-05') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

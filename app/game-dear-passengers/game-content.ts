@@ -252,7 +252,7 @@ const chinese: GamePageContent = {
 export const gamePageContents: Record<GamePageLocale, GamePageContent> = { en: english, 'zh-CN': chinese, de: german, ar: arabic, tr: turkish, 'pt-BR': portuguese, es: spanish };
 
 export function createGamePageMetadata(content: GamePageContent): Metadata {
-  const languages: Record<string, string> = { en: gamePagePaths.en, 'zh-CN': gamePagePaths['zh-CN'], de: gamePagePaths.de, ar: gamePagePaths.ar, tr: gamePagePaths.tr, 'pt-BR': gamePagePaths['pt-BR'], es: gamePagePaths.es, 'x-default': gamePagePaths.en };
+  const languages: Record<string, string> = { en: gamePagePaths.en, 'zh-CN': gamePagePaths['zh-CN'], de: gamePagePaths.de, ar: gamePagePaths.ar, tr: gamePagePaths.tr, 'pt-BR': gamePagePaths['pt-BR'], es: gamePagePaths.es, ru: '/ru/igra-dear-passengers/', 'x-default': gamePagePaths.en };
   return {
     title: { absolute: content.title }, description: content.description,
     alternates: { canonical: content.canonicalPath, languages },

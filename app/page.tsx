@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import EditorialNote from '@/components/EditorialNote';
@@ -9,6 +10,10 @@ import SourceLedger from '@/components/SourceLedger';
 import VideoShowcase from '@/components/VideoShowcase';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/', languages: { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', 'x-default': '/' } },
+};
 
 const faqs: FaqItem[] = [
   {

@@ -14,7 +14,7 @@ function FriendLinks({ title }: { title: string }) {
   );
 }
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
@@ -22,6 +22,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
   const isPortuguese = locale === 'pt-BR';
   const isSpanish = locale === 'es';
   const isMyanmar = locale === 'my-MM';
+  const isRussian = locale === 'ru';
 
   if (isChinese) {
     return (
@@ -308,6 +309,47 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           </div>
         </div>
         <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Última verificación: 30/07/2026 · Comprueba los datos sensibles al tiempo en Steam.</span></div>
+      </footer>
+    );
+  }
+
+  if (isRussian) {
+    return (
+      <footer className="site-footer" lang="ru">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/ru/">
+              <Image src="/images/logo.png" alt="Русский гид по Dear Passengers" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>НЕЗАВИСИМЫЙ ГИД ПО ИГРЕ</small></span>
+            </Link>
+            <p>DearPassengers.net — независимый неофициальный русскоязычный гид. Сайт не связан с FLEXUS, Valve или Steam; изменяемые сведения проверяются по первоисточникам.</p>
+          </div>
+          <div>
+            <h2>Игра и кооператив</h2>
+            <Link href="/ru/igra-dear-passengers/">Что за игра Dear Passengers</Link>
+            <Link href="/ru/dear-passengers-kak-igrat/">Как играть</Link>
+            <Link href="/ru/dear-passengers-skolko-igrokov/">Сколько игроков</Link>
+            <Link href="/ru/dear-passengers-russkiy-yazyk/">Русский язык</Link>
+          </div>
+          <div>
+            <h2>Релиз и загрузка</h2>
+            <Link href="/ru/dear-passengers-data-vyhoda/">Дата выхода в 2026 году</Link>
+            <Link href="/ru/dear-passengers-demo/">Статус демо</Link>
+            <Link href="/ru/dear-passengers-skachat/">Безопасная загрузка</Link>
+            <Link href="/ru/dear-passengers-sistemnye-trebovaniya/">Системные требования</Link>
+            <a href={`${STEAM_URL}?l=russian`} target="_blank" rel="noopener noreferrer">Официальная страница Steam ↗</a>
+          </div>
+          <div>
+            <h2>О сайте</h2>
+            <Link href="/about" hrefLang="en">О DearPassengers.net</Link>
+            <Link href="/editorial-policy" hrefLang="en">Редакционная политика</Link>
+            <Link href="/contact" hrefLang="en">Контакты и исправления</Link>
+            <Link href="/privacy-policy" hrefLang="en">Политика конфиденциальности</Link>
+            <PrivacySettingsButton locale="ru" className="footer-privacy-button" />
+            <FriendLinks title="Партнёрские сайты" />
+          </div>
+        </div>
+        <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Проверено 05.08.2026 · Сверяйте меняющиеся данные со Steam.</span></div>
       </footer>
     );
   }

@@ -24,6 +24,7 @@ export const metadata: Metadata = {
       'pt-BR': '/pt-br/dear-passengers-data-de-lancamento/',
       es: '/es/dear-passengers-fecha-de-lanzamiento/',
       'my-MM': '/my/dear-passengers-release-date/',
+      ru: '/ru/dear-passengers-data-vyhoda/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',
     },

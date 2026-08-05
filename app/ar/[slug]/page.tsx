@@ -6,6 +6,7 @@ import { turkishGuideByEnglishPath } from '@/app/tr/turkish-content';
 import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
 import { spanishGuideByEnglishPath } from '@/app/es/spanish-content';
 import { myanmarGuideByEnglishPath } from '@/app/my/myanmar-content';
+import { russianGuideByEnglishPath } from '@/app/ru/russian-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return arabicGuides.map((guide) => ({ slug: guide.slug })); }
@@ -16,6 +17,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const canonical = `/ar/${guide.slug}/`;
   const languages: Record<string, string> = { en: guide.englishPath, ar: canonical, de: guide.germanPath, tr: `/tr/${turkishGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'pt-BR': `/pt-br/${portugueseGuideByEnglishPath.get(guide.englishPath)?.slug}/`, es: `/es/${spanishGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'my-MM': `/my/${myanmarGuideByEnglishPath.get(guide.englishPath)?.slug}/`, 'x-default': guide.englishPath };
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
+  const russian = russianGuideByEnglishPath.get(guide.englishPath);
+  if (russian) languages.ru = `/ru/${russian.slug}/`;
   return {
     title: { absolute: guide.title }, description: guide.description, alternates: { canonical, languages },
     openGraph: { title: guide.title, description: guide.description, url: `https://dearpassengers.net${canonical}`, siteName: 'DearPassengers.net', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: guide.heroAlt }], locale: 'ar', alternateLocale: ['en_US', 'de_DE'], type: 'article' },
