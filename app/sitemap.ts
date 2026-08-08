@@ -154,7 +154,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date('2026-07-29'),
+      lastModified: new Date('2026-08-08'),
     },
     {
       url: `${baseUrl}/game-dear-passengers/`,

@@ -6,6 +6,7 @@ import FAQ, { type FaqItem } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import OfficialTrailer from '@/components/OfficialTrailer';
+import PreFlightControlCenter from '@/components/PreFlightControlCenter';
 import SourceLedger from '@/components/SourceLedger';
 import VideoShowcase from '@/components/VideoShowcase';
 
@@ -89,7 +90,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-07-29',
+  dateModified: '2026-08-08',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -143,7 +144,7 @@ export default function HomePage() {
           />
           <div className="hero-shade" />
           <div className="container hero-content">
-            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED JULY 29, 2026</div>
+            <div className="eyebrow"><span>●</span> INDEPENDENT PASSENGER BRIEFING · UPDATED AUGUST 8, 2026</div>
             <h1>Dear Passengers Game:<br /><em>The Complete Co-op Airline Guide</em></h1>
             <p className="hero-lede">
               The <strong>Dear Passengers game</strong> turns a routine flight into a cooperative comedy of broken
@@ -169,7 +170,7 @@ export default function HomePage() {
         </section>
 
         <div className="container home-editorial-note">
-          <EditorialNote checked="July 29, 2026" />
+          <EditorialNote checked="August 8, 2026" />
         </div>
 
         <section className="section intro-section" id="overview">
@@ -218,6 +219,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <PreFlightControlCenter />
 
         <section className="section video-section" id="gameplay">
           <div className="container">
@@ -426,36 +429,6 @@ export default function HomePage() {
               <li><span>03</span><p>Select <strong>Add to your wishlist</strong> beneath the game media panel.</p></li>
               <li><span>04</span><p>Recheck the store page for demo, playtest, language, and release updates.</p></li>
             </ol>
-          </div>
-        </section>
-
-        <section className="section release-preview">
-          <div className="container release-card">
-            <div className="release-stamp"><small>STEAM TOP WISHLISTS</small><strong>NO. 9</strong><span>CHECKED JUL 24</span></div>
-            <div className="prose">
-              <span className="kicker">VERIFIED UPDATE DESK</span>
-              <h2>Latest Dear Passengers News and Demo Updates</h2>
-              <p>
-                <strong>Dear Passengers</strong> appeared at No. 9 on Steam&apos;s public Top Wishlists page when checked
-                on July 24 with preference filtering disabled. FLEXUS separately reported 1.5 million wishlists in its
-                July 19 Steam update. The live Steam rank can change, while the total is a developer-reported milestone;
-                neither figure represents sales, downloads, reviews, or active players.
-              </p>
-              <p>
-                Follow the <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> for dated sources, or
-                open the <Link href="/dear-passengers-demo">Dear Passengers demo status page</Link> for Gamescom,
-                Playtest, beta, and event access questions. The dedicated{' '}
-                <Link href="/dear-passengers-download">Dear Passengers download safety guide</Link> verifies the official
-                Steam app and explains why similarly named APK listings are not proof of a FLEXUS Android release.
-              </p>
-              <div className="related-actions">
-                <Link className="button" href="/dear-passengers-news">Read verified news →</Link>
-                <Link className="button button-ghost" href="/dear-passengers-demo">Check demo status →</Link>
-                <Link className="button button-ghost" href="/dear-passengers-download">Verify download access →</Link>
-                <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
-                <Link className="button button-ghost" href="/dear-passengers-developer-flexus">Meet FLEXUS →</Link>
-              </div>
-            </div>
           </div>
         </section>
 
