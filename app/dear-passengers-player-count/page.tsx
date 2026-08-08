@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Player Count: Multiplayer & Solo Guide' },
   description:
     'Check the Dear Passengers player count, online co-op and solo support, plus split screen, crossplay, controllers, voice chat, VR, and lobby status today.',
-  alternates: { canonical: '/dear-passengers-player-count', languages: { en: '/dear-passengers-player-count/', ar: '/ar/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/', 'my-MM': '/my/dear-passengers-player-count/', ru: '/ru/dear-passengers-skolko-igrokov/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', 'x-default': '/dear-passengers-player-count/' } },
+  alternates: { canonical: '/dear-passengers-player-count', languages: { en: '/dear-passengers-player-count/', ar: '/ar/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/', 'my-MM': '/my/dear-passengers-player-count/', ru: '/ru/dear-passengers-skolko-igrokov/', cs: '/cs/dear-passengers-pocet-hracu/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', 'x-default': '/dear-passengers-player-count/' } },
   openGraph: {
     title: 'Dear Passengers Player Count and Multiplayer Status',
     description:

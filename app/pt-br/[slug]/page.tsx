@@ -5,6 +5,7 @@ import { portugueseGuideBySlug, portugueseGuides } from '@/app/pt-br/portuguese-
 import { spanishGuideByEnglishPath } from '@/app/es/spanish-content';
 import { myanmarGuideByEnglishPath } from '@/app/my/myanmar-content';
 import { russianGuideByEnglishPath } from '@/app/ru/russian-content';
+import { czechGuideByEnglishPath } from '@/app/cs/czech-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return portugueseGuides.map((guide) => ({ slug: guide.slug })); }
@@ -17,6 +18,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   const russian = russianGuideByEnglishPath.get(guide.englishPath);
   if (russian) languages.ru = `/ru/${russian.slug}/`;
+  const czech = czechGuideByEnglishPath.get(guide.englishPath);
+  if (czech) languages.cs = `/cs/${czech.slug}/`;
   return {
     title: { absolute: guide.title }, description: guide.description, alternates: { canonical, languages },
     openGraph: { title: guide.title, description: guide.description, url: `https://dearpassengers.net${canonical}`, siteName: 'DearPassengers.net', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: guide.heroAlt }], locale: 'pt_BR', alternateLocale: ['en_US', 'de_DE', 'ar', 'tr_TR'], type: 'article' },

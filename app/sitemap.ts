@@ -138,6 +138,18 @@ const russianPaths = [
   '/ru/dear-passengers-russkiy-yazyk/',
 ];
 
+const czechPaths = [
+  '/cs/',
+  '/cs/hra-dear-passengers/',
+  '/cs/dear-passengers-jak-hrat/',
+  '/cs/dear-passengers-pocet-hracu/',
+  '/cs/dear-passengers-datum-vydani/',
+  '/cs/dear-passengers-demo/',
+  '/cs/dear-passengers-stahnout/',
+  '/cs/dear-passengers-systemove-pozadavky/',
+  '/cs/dear-passengers-cestina/',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -223,6 +235,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...spanishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-05') })),
+    ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-08') })),
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),

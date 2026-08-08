@@ -12,7 +12,7 @@ import VideoShowcase from '@/components/VideoShowcase';
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/', languages: { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', 'x-default': '/' } },
+  alternates: { canonical: '/', languages: { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', cs: '/cs/', 'x-default': '/' } },
 };
 
 const faqs: FaqItem[] = [

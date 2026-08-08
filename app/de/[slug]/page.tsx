@@ -7,6 +7,7 @@ import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
 import { spanishGuideByEnglishPath } from '@/app/es/spanish-content';
 import { myanmarGuideByEnglishPath } from '@/app/my/myanmar-content';
 import { russianGuideByEnglishPath } from '@/app/ru/russian-content';
+import { czechGuideByEnglishPath } from '@/app/cs/czech-content';
 
 const arabicPaths: Record<string, string> = {
   '/dear-passengers-gameplay/': '/ar/dear-passengers-gameplay/',
@@ -40,6 +41,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   languages['my-MM'] = `/my/${myanmarGuideByEnglishPath.get(guide.englishPath)?.slug}/`;
   const russian = russianGuideByEnglishPath.get(guide.englishPath);
   if (russian) languages.ru = `/ru/${russian.slug}/`;
+  const czech = czechGuideByEnglishPath.get(guide.englishPath);
+  if (czech) languages.cs = `/cs/${czech.slug}/`;
   if (guide.chinesePath) languages['zh-CN'] = guide.chinesePath;
   return {
     title: { absolute: guide.title },

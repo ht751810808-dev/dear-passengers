@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       es: '/es/',
       'my-MM': '/my/',
       ru: '/ru/',
+      cs: '/cs/',
       'x-default': '/',
     },
   },

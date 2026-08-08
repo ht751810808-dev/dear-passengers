@@ -5,6 +5,7 @@ import { spanishGuideBySlug, spanishGuides } from '@/app/es/spanish-content';
 import { portugueseGuideByEnglishPath } from '@/app/pt-br/portuguese-content';
 import { myanmarGuideByEnglishPath } from '@/app/my/myanmar-content';
 import { russianGuideByEnglishPath } from '@/app/ru/russian-content';
+import { czechGuideByEnglishPath } from '@/app/cs/czech-content';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return spanishGuides.map((guide) => ({ slug: guide.slug })); }
@@ -25,6 +26,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
   const russian = russianGuideByEnglishPath.get(guide.englishPath);
   if (russian) languages.ru = `/ru/${russian.slug}/`;
+  const czech = czechGuideByEnglishPath.get(guide.englishPath);
+  if (czech) languages.cs = `/cs/${czech.slug}/`;
   return {
     title: { absolute: guide.title }, description: guide.description,
     alternates: { canonical, languages },

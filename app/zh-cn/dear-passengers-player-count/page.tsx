@@ -25,6 +25,7 @@ export const metadata: Metadata = {
       es: '/es/dear-passengers-cuantos-jugadores/',
       'my-MM': '/my/dear-passengers-player-count/',
       ru: '/ru/dear-passengers-skolko-igrokov/',
+      cs: '/cs/dear-passengers-pocet-hracu/',
       'zh-CN': '/zh-cn/dear-passengers-player-count/',
       'x-default': '/dear-passengers-player-count/',
     },

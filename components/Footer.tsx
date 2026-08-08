@@ -14,7 +14,7 @@ function FriendLinks({ title }: { title: string }) {
   );
 }
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
@@ -23,6 +23,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
   const isSpanish = locale === 'es';
   const isMyanmar = locale === 'my-MM';
   const isRussian = locale === 'ru';
+  const isCzech = locale === 'cs';
 
   if (isChinese) {
     return (
@@ -350,6 +351,47 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           </div>
         </div>
         <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Проверено 05.08.2026 · Сверяйте меняющиеся данные со Steam.</span></div>
+      </footer>
+    );
+  }
+
+  if (isCzech) {
+    return (
+      <footer className="site-footer" lang="cs">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/cs/">
+              <Image src="/images/logo.png" alt="Český průvodce hrou Dear Passengers" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>NEZÁVISLÝ HERNÍ PRŮVODCE</small></span>
+            </Link>
+            <p>DearPassengers.net je nezávislý neoficiální český průvodce. Web není spojen se studiem FLEXUS, Valve ani Steamem; proměnlivé údaje ověřujeme v primárních zdrojích.</p>
+          </div>
+          <div>
+            <h2>Hra a kooperace</h2>
+            <Link href="/cs/hra-dear-passengers/">Co je Dear Passengers za hru</Link>
+            <Link href="/cs/dear-passengers-jak-hrat/">Jak hrát</Link>
+            <Link href="/cs/dear-passengers-pocet-hracu/">Počet hráčů</Link>
+            <Link href="/cs/dear-passengers-cestina/">Podpora češtiny</Link>
+          </div>
+          <div>
+            <h2>Vydání a stažení</h2>
+            <Link href="/cs/dear-passengers-datum-vydani/">Datum vydání v roce 2026</Link>
+            <Link href="/cs/dear-passengers-demo/">Stav dema</Link>
+            <Link href="/cs/dear-passengers-stahnout/">Bezpečné stažení</Link>
+            <Link href="/cs/dear-passengers-systemove-pozadavky/">Systémové požadavky</Link>
+            <a href={`${STEAM_URL}?l=czech`} target="_blank" rel="noopener noreferrer">Oficiální stránka Steam ↗</a>
+          </div>
+          <div>
+            <h2>O webu</h2>
+            <Link href="/about" hrefLang="en">O DearPassengers.net</Link>
+            <Link href="/editorial-policy" hrefLang="en">Redakční pravidla</Link>
+            <Link href="/contact" hrefLang="en">Kontakt a opravy</Link>
+            <Link href="/privacy-policy" hrefLang="en">Zásady ochrany soukromí</Link>
+            <PrivacySettingsButton locale="cs" className="footer-privacy-button" />
+            <FriendLinks title="Partnerské weby" />
+          </div>
+        </div>
+        <div className="container footer-bottom"><span>© 2026 DearPassengers.net</span><span>Ověřeno 8. 8. 2026 · Proměnlivé údaje kontrolujte ve službě Steam.</span></div>
       </footer>
     );
   }
