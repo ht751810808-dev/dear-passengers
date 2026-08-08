@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Barlow_Condensed, Manrope, Noto_Sans_Arabic } from 'next/font/google';
 import GoogleServices, { GoogleConsentDefaults } from '@/components/GoogleServices';
+import SocialShare from '@/components/SocialShare';
 import './globals.css';
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         {children}
+        <SocialShare />
         <GoogleServices />
       </body>
     </html>
