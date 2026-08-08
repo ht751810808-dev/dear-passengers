@@ -174,7 +174,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
-      lastModified: new Date('2026-07-24'),
+      lastModified: new Date('2026-08-08'),
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,

@@ -7,13 +7,14 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
 const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-release-date/';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dear Passengers Release Date: 2026 Steam Launch Guide' },
+  title: { absolute: 'Dear Passengers Release Date: 2026, Price & Demo Status' },
   description:
-    'Find the latest Dear Passengers release date information, confirmed 2026 launch window, Steam availability, platform status, demo news, and official updates.',
+    'Dear Passengers is planned for Steam in 2026. Check the exact-date status, price, free-to-play claim, demo, platforms, and official updates.',
   alternates: {
     canonical: '/dear-passengers-release-date/',
     languages: {
@@ -31,9 +32,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Dear Passengers Release Date: Everything Confirmed for 2026',
+    title: 'Dear Passengers Release Date, Price & Demo Status',
     description:
-      'The confirmed Steam release window, platform status, demo news, and open launch questions in one independent briefing.',
+      'Steam confirms 2026; the exact date, price, and free-to-play status remain unannounced. Check the demo plan and launch evidence.',
     url: PAGE_URL,
     images: [
       {
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dear Passengers Release Date: 2026 Steam Launch Guide',
-    description: 'Track the confirmed 2026 window, Steam status, platforms, demo, and official updates.',
+    title: 'Dear Passengers Release Date, Price & Demo Status',
+    description: 'Track the confirmed 2026 window, exact-date status, price, demo, and official updates.',
     images: ['/images/og-image.png'],
   },
 };
@@ -85,6 +86,11 @@ const faqs: FaqItem[] = [
       'FLEXUS has not announced a Dear Passengers price. Steam does not show a preorder price or purchase option. Currency conversions, launch discounts, bundles, and regional pricing therefore remain unknown.',
   },
   {
+    question: 'Is Dear Passengers free to play?',
+    answer:
+      'FLEXUS has not confirmed Dear Passengers as free to play or announced a paid price. Steam may display Free to Play among popular user-defined tags, but community tags are not official pricing or business-model fields. Wait for a price, purchase button, or developer announcement before treating either model as confirmed.',
+  },
+  {
     question: 'Will the release include Chinese language support?',
     answer:
       'Yes at the interface level. The Dear Passengers Steam page currently lists English, Arabic, Simplified Chinese, Turkish, Ukrainian, and Japanese interfaces. Full audio and subtitle support are not marked in the current table, and Traditional Chinese is not listed.',
@@ -94,12 +100,12 @@ const faqs: FaqItem[] = [
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Dear Passengers Release Date: Everything Confirmed for 2026',
+  headline: 'Dear Passengers Release Date: 2026, Price and Demo Status',
   description:
-    'An independent guide to the confirmed Dear Passengers release window, Steam status, platforms, and demo news.',
+    'An independent, source-backed guide to the Dear Passengers release window, price status, free-to-play claim, platforms, and demo plan.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-24',
+  dateModified: '2026-08-08',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -153,19 +159,19 @@ export default function ReleaseDatePage() {
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Release Date</span>
               </nav>
               <div className="eyebrow"><span>●</span> RELEASE DESK · VERIFIED AGAINST STEAM</div>
-              <h1>Dear Passengers Release Date:<br /><em>Everything Confirmed for 2026</em></h1>
+              <h1>Dear Passengers Release Date:<br /><em>2026, Price &amp; Demo Status</em></h1>
               <p>
                 The <strong>Dear Passengers release date</strong> is currently scheduled for 2026 on Windows PC through
-                Steam. FLEXUS has not announced an exact month or day. This briefing explains what is official, what is
-                still unknown, which platforms are confirmed, and how to follow demo, beta, playtest, price, language,
-                and launch updates without confusing speculation for a release announcement.
+                Steam. FLEXUS has not announced an exact month or day, a price, or whether the game will be free to
+                play. This briefing separates official release, demo, platform, and access facts from community tags
+                and speculation.
               </p>
               <div className="hero-actions">
                 <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Wishlist on Steam ↗</a>
                 <Link className="button button-ghost" href="/">Explore the game guide →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 15, 2026</span><span>Last checked July 24, 2026</span><span>Official window: 2026</span>
+                <span>Published July 15, 2026</span><span>Last checked August 8, 2026</span><span>Official window: 2026</span>
               </div>
             </div>
           </header>
@@ -174,6 +180,7 @@ export default function ReleaseDatePage() {
             <aside className="article-toc">
               <p>IN THIS BRIEFING</p>
               <a href="#confirmed">Confirmed date</a>
+              <a href="#price">Price &amp; free-to-play</a>
               <a href="#platforms">Platforms</a>
               <a href="#demo">Demo & beta</a>
               <a href="#timeline">Timeline</a>
@@ -183,7 +190,10 @@ export default function ReleaseDatePage() {
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote note="Dear Passengers release claims are checked against Steam; community questions and editorial expectations are labeled separately." />
+              <EditorialNote
+                checked="August 8, 2026"
+                note="Dear Passengers release claims are checked against Steam; community tags, questions, and editorial expectations are labeled separately."
+              />
               <section id="confirmed">
                 <span className="kicker">CURRENT ANSWER</span>
                 <h2>What Is the Dear Passengers Release Date?</h2>
@@ -238,6 +248,41 @@ export default function ReleaseDatePage() {
                   Multiplayer-specific changes are tracked separately in the{' '}
                   <Link href="/dear-passengers-player-count">Dear Passengers player count and co-op guide</Link>, which
                   distinguishes Steam feature fields from trailer interpretation and community requests.
+                </p>
+              </section>
+
+              <section id="price">
+                <span className="kicker">PRICE &amp; ACCESS STATUS</span>
+                <h2>Is Dear Passengers Free to Play?</h2>
+                <p className="snippet-answer">
+                  <strong>FLEXUS has not confirmed Dear Passengers as free to play and has not announced a paid
+                  price.</strong> The official Steam page has no purchase, preorder, or price field. Both the business
+                  model and regional pricing therefore remain unknown.
+                </p>
+                <p>
+                  Steam may show “Free to Play” among the popular user-defined tags attached to Dear Passengers. That is
+                  community classification, not an official store price or a developer statement. Tags can describe
+                  what users expect or associate with a game; they do not replace the purchase panel, product package,
+                  or a FLEXUS announcement. Calling Dear Passengers free based only on that tag would turn an inference
+                  into a fact.
+                </p>
+                <div className="platform-table" role="table" aria-label="Dear Passengers release, price, demo, and access status on August 8, 2026">
+                  <div className="platform-head" role="row"><span role="columnheader">Item</span><span role="columnheader">Status</span><span role="columnheader">Evidence</span></div>
+                  <div role="row"><strong role="cell">Release window</strong><span className="status-confirmed" role="cell">2026 confirmed</span><span role="cell">Official Steam page</span></div>
+                  <div role="row"><strong role="cell">Exact date</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No month or day listed</span></div>
+                  <div role="row"><strong role="cell">Price</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No purchase or preorder field</span></div>
+                  <div role="row"><strong role="cell">Free-to-play model</strong><span className="status-open" role="cell">Unconfirmed</span><span role="cell">User tag is not official pricing</span></div>
+                  <div role="row"><strong role="cell">Public demo</strong><span className="status-open" role="cell">Planned, not live</span><span role="cell">Founder interview; no Steam download</span></div>
+                  <div role="row"><strong role="cell">Early Access</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No Early Access label</span></div>
+                </div>
+                <h3>How to Verify the Real Dear Passengers Price</h3>
+                <p>
+                  Treat the price as confirmed only when the official{' '}
+                  <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Dear Passengers Steam page ↗</a>{' '}
+                  shows a purchase option or FLEXUS publishes a matching announcement. The same rule applies to launch
+                  discounts and editions. Until then, avoid unofficial “free download” pages; the{' '}
+                  <Link href="/dear-passengers-download">Dear Passengers download status guide</Link> explains how to
+                  identify the official app and misleading installers.
                 </p>
               </section>
 
@@ -319,6 +364,7 @@ export default function ReleaseDatePage() {
                   <div><time>JUL 15<br />2026</time><p><strong>FLEXUS confirms playable demo plans.</strong> Founder Semen Kozyura says a Gamescom build is in preparation and a public Dear Passengers demo will follow later.</p></div>
                   <div><time>JUL 16<br />2026</time><p><strong>FLEXUS reports 700,000 wishlists in 36 hours.</strong> The milestone is developer-reported and does not change the broad 2026 release window.</p></div>
                   <div><time>JUL 17<br />2026</time><p><strong>Dear Passengers reaches one million wishlists in two days.</strong> A founder interview later records about 1.2 million and confirms that FLEXUS still targets 2026 without rushing an unpolished release.</p></div>
+                  <div><time>JUL 31<br />2026</time><p><strong>FLEXUS reports two million wishlists and full plane control.</strong> Its <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">official Steam update ↗</a> also says an actual-flight video is in production, but does not add an exact release date or price. The wishlist figure is developer-reported, not sales or active-player data.</p></div>
                   <div className="future"><time>NEXT<br />UPDATE</time><p><strong>Exact scheduling remains open.</strong> Watch for demo access details, a launch date, price, player limit, recommended specs, or expanded platform support.</p></div>
                 </div>
                 <p>
