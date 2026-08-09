@@ -7,7 +7,9 @@ const STATUS_REVISION = '2026-08-08';
 const STORAGE_KEY = 'dear-passengers-preflight-revision';
 
 type VisitState = 'first' | 'current' | 'changed';
-type AnalyticsWindow = Window & { dataLayer?: Array<Record<string, unknown>> };
+type AnalyticsWindow = Window & {
+  gtag?: (command: 'event', eventName: string, parameters?: Record<string, string>) => void;
+};
 
 const statusCards = [
   {
@@ -55,8 +57,7 @@ const statusCards = [
 function track(event: string, details: Record<string, string> = {}) {
   if (typeof window === 'undefined') return;
   const analyticsWindow = window as AnalyticsWindow;
-  analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
-  analyticsWindow.dataLayer.push({ event, ...details });
+  analyticsWindow.gtag?.('event', event, details);
 }
 
 function VisitSignal({ state }: { state: VisitState }) {
