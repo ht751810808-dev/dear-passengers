@@ -9,12 +9,13 @@ import SourceLedger from '@/components/SourceLedger';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const HAPPY_PASSENGERS_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.devtemple.escape.arrows.game';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-download/';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Download: Official Steam & APK Safety' },
   description:
-    'Check the official Dear Passengers download status, Steam app, demo access, APK and Android confusion, platform availability, and safe install checks.',
+    'Check the official Dear Passengers download status, Steam app, demo access, APK safety, and how an unrelated Google Play airline game differs from the FLEXUS title.',
   alternates: { canonical: '/dear-passengers-download/', languages: { en: '/dear-passengers-download/', ar: '/ar/dear-passengers-download/', de: '/de/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/', cs: '/cs/dear-passengers-stahnout/', 'x-default': '/dear-passengers-download/' } },
   openGraph: {
     title: 'Dear Passengers Download: Official Access and APK Safety',
@@ -56,6 +57,11 @@ const faqs: FaqItem[] = [
       'No official Dear Passengers Android edition or APK has been announced by FLEXUS. Search results can contain similarly named Android listings, but the confirmed Dear Passengers game identifies FLEXUS as developer and publisher and currently lists Windows through Steam.',
   },
   {
+    question: 'Is Happy Passengers Sim the Dear Passengers mobile game?',
+    answer:
+      'No official source connects Happy Passengers Sim to the Dear Passengers game by FLEXUS. Google Play lists Happy Passengers Sim under DEV TEMPLE (SMC-PRIVATE) LIMITED, while Steam app 4534960 lists FLEXUS as both developer and publisher. This identity difference does not label the Android app malicious; it means it should not be presented as an official Dear Passengers mobile port.',
+  },
+  {
     question: 'Can I download the Dear Passengers demo?',
     answer:
       'Not yet. FLEXUS founder Semen Kozyura has said that a Gamescom demo is being prepared and that a public Dear Passengers demo will follow later. The public build has no announced date or official download method, and Steam does not currently show a Download Demo button.',
@@ -84,7 +90,7 @@ const articleSchema = {
   description: 'A source-backed guide to the official Dear Passengers download status and safe access checks.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-21',
-  dateModified: '2026-07-21',
+  dateModified: '2026-08-10',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -141,7 +147,7 @@ export default function DearPassengersDownloadPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Download</span>
               </nav>
-              <div className="eyebrow"><span>●</span> ACCESS CONTROL · CHECKED JULY 21, 2026</div>
+              <div className="eyebrow"><span>●</span> ACCESS CONTROL · CHECKED AUGUST 10, 2026</div>
               <h1>Dear Passengers Download:<br /><em>Official Steam & APK Safety</em></h1>
               <p>
                 The official <strong>Dear Passengers download</strong> is not live yet. This independent checkpoint shows
@@ -177,7 +183,7 @@ export default function DearPassengersDownloadPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 21, 2026"
+                checked="August 10, 2026"
                 note="The hero is an original editorial illustration, not an official screenshot. Access claims are checked against the Steam app that names FLEXUS as developer and publisher. We do not download, execute, or endorse third-party installers."
               />
 
@@ -278,10 +284,23 @@ export default function DearPassengersDownloadPage() {
                   unique identifiers; developer, publisher, platform, store app, and official links provide the identity.
                 </p>
                 <p>
-                  This distinction does not require declaring every similarly named app malicious. A different mobile
-                  developer can publish a different product with a similar name. The narrow factual conclusion is that
-                  an Android package is not the confirmed Dear Passengers download described by the FLEXUS Steam page.
-                  People looking for the airline co-op game should not substitute an unrelated APK for the Windows title.
+                  A current example is <a href={HAPPY_PASSENGERS_PLAY_URL} target="_blank" rel="noopener noreferrer">
+                  Happy Passengers Sim on Google Play ↗</a>. Google Play identifies its developer as
+                  DEV TEMPLE (SMC-PRIVATE) LIMITED and says the listing was updated August 6, 2026. The official
+                  <a href={STEAM_URL} target="_blank" rel="noopener noreferrer"> Dear Passengers Steam page ↗</a>
+                  instead identifies FLEXUS as developer and publisher under app 4534960. No source controlled by FLEXUS
+                  connects the Android listing to the Dear Passengers game.
+                </p>
+                <div className="platform-table" role="table" aria-label="Dear Passengers and Happy Passengers Sim identity comparison">
+                  <div className="platform-head" role="row"><span role="columnheader">Listing</span><span role="columnheader">Developer shown</span><span role="columnheader">Identity conclusion</span></div>
+                  <div role="row"><strong role="cell">Dear Passengers · Steam 4534960</strong><span className="status-confirmed" role="cell">FLEXUS</span><span role="cell">Confirmed official PC game</span></div>
+                  <div role="row"><strong role="cell">Happy Passengers Sim · Google Play</strong><span className="status-open" role="cell">DEV TEMPLE</span><span role="cell">Different listing; no FLEXUS link found</span></div>
+                </div>
+                <p>
+                  This comparison does not call Happy Passengers Sim malicious or evaluate its software quality. It
+                  answers the narrower player question: the developer, store record, and confirmed platform do not match
+                  the FLEXUS Dear Passengers product. Players searching for the airline co-op game should not treat that
+                  Google Play install button as an official Dear Passengers APK or mobile release.
                 </p>
                 <h3>What Would Confirm a Dear Passengers Mobile Version?</h3>
                 <p>
@@ -367,7 +386,7 @@ export default function DearPassengersDownloadPage() {
                 <span className="kicker">PASSENGER QUESTIONS</span>
                 <h2>Dear Passengers Download FAQ</h2>
                 <p>
-                  These answers cover the FLEXUS game and reflect the official record checked July 21, 2026. The Dear
+                  These answers cover the FLEXUS game and reflect the official record checked August 10, 2026. The Dear
                   Passengers download status will be updated when Steam adds an access button or FLEXUS publishes a new
                   platform, demo, Playtest, price, preorder, or launch announcement.
                 </p>
