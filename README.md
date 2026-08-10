@@ -31,10 +31,17 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm typecheck
+pnpm audit:facts
 pnpm build
 ```
 
 `pnpm build` creates a static Cloudflare Pages export in `out/`.
+
+## Game Fact Registry
+
+Time-sensitive product facts live in [`data/game-facts.json`](./data/game-facts.json). Each record carries an evidence status, source IDs, verification date, intent-owner routes, and affected routes. The typed helpers in [`lib/game-facts.ts`](./lib/game-facts.ts) feed the homepage and Pre-Flight Control Center, while `pnpm audit:facts` rejects missing sources, invalid dates, unknown facts with asserted values, broken fact references, and invalid route ownership.
+
+Update the registry before changing a connected fact in public copy. A new verification date alone must not change the control-center revision unless a displayed fact actually changed.
 
 ## Google services
 

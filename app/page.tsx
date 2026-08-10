@@ -9,8 +9,12 @@ import OfficialTrailer from '@/components/OfficialTrailer';
 import PreFlightControlCenter from '@/components/PreFlightControlCenter';
 import SourceLedger from '@/components/SourceLedger';
 import VideoShowcase from '@/components/VideoShowcase';
+import { gameFactRegistry, getGameFact, officialUrls } from '@/lib/game-facts';
 
-const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
+const STEAM_URL = officialUrls.steamStore;
+const releaseWindow = getGameFact('release.window');
+const confirmedPlatform = getGameFact('platform.windows');
+const { game } = gameFactRegistry;
 
 export const metadata: Metadata = {
   alternates: { canonical: '/', languages: { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', cs: '/cs/', 'x-default': '/' } },
@@ -70,14 +74,14 @@ const websiteSchema = {
 const gameSchema = {
   '@context': 'https://schema.org',
   '@type': 'VideoGame',
-  name: 'Dear Passengers',
+  name: game.name,
   url: 'https://dearpassengers.net/',
-  sameAs: [STEAM_URL, 'https://www.youtube.com/watch?v=XRvd_HZesys'],
-  gamePlatform: 'Windows PC',
+  sameAs: [STEAM_URL, officialUrls.officialTrailer],
+  gamePlatform: confirmedPlatform.value,
   applicationCategory: 'Game',
   genre: ['Action', 'Adventure', 'Indie', 'Online Co-op'],
-  author: { '@type': 'Organization', name: 'FLEXUS' },
-  publisher: { '@type': 'Organization', name: 'FLEXUS' },
+  author: { '@type': 'Organization', name: game.developer },
+  publisher: { '@type': 'Organization', name: game.publisher },
   inLanguage: 'en',
   description:
     'A physics-based co-op airline game in which players pilot an aircraft, manage a chaotic cabin, and transport passengers and risky cargo.',
@@ -108,7 +112,7 @@ const videoSchema = {
   description: 'The official FLEXUS announcement trailer for the Dear Passengers co-op airline game.',
   thumbnailUrl: 'https://i.ytimg.com/vi/XRvd_HZesys/maxresdefault.jpg',
   uploadDate: '2026-07-14T00:00:00Z',
-  contentUrl: 'https://www.youtube.com/watch?v=XRvd_HZesys',
+  contentUrl: officialUrls.officialTrailer,
   embedUrl: 'https://www.youtube-nocookie.com/embed/XRvd_HZesys',
 };
 
@@ -161,10 +165,10 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="status-strip" aria-label="Confirmed Dear Passengers facts">
-              <div><small>RELEASE WINDOW</small><strong>2026</strong></div>
-              <div><small>CONFIRMED PLATFORM</small><strong>PC · STEAM</strong></div>
+              <div><small>RELEASE WINDOW</small><strong>{releaseWindow.shortValue}</strong></div>
+              <div><small>CONFIRMED PLATFORM</small><strong>{confirmedPlatform.shortValue}</strong></div>
               <div><small>PLAY MODES</small><strong>SOLO · ONLINE CO-OP</strong></div>
-              <div><small>DEVELOPER</small><strong>FLEXUS</strong></div>
+              <div><small>DEVELOPER</small><strong>{game.developer}</strong></div>
             </div>
           </div>
         </section>
@@ -220,7 +224,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <PreFlightControlCenter />
+        <PreFlightControlCenter
+          latestOfficialUpdate={gameFactRegistry.latestOfficialUpdate}
+          statusBoard={gameFactRegistry.statusBoard}
+          steamUrl={officialUrls.steamStore}
+        />
 
         <section className="section video-section" id="gameplay">
           <div className="container">

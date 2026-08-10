@@ -5,10 +5,12 @@
   "description": "Independent Dear Passengers game, gameplay, and release-date guide for dearpassengers.net",
   "scripts": {
     "dev": "next dev --turbo",
+    "prebuild": "pnpm audit:facts",
     "build": "next build && node scripts/set-static-language.mjs",
     "start": "next start",
     "preview:cf": "wrangler pages dev out",
     "deploy:cf": "pnpm build && wrangler pages deploy out --project-name dear-passengers --branch main",
+    "audit:facts": "node scripts/audit-game-facts.mjs",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },

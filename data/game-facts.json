@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "registryRevision": "2026-08-10",
+  "lastReviewedAt": "2026-08-10",
+  "game": {
+    "name": "Dear Passengers",
+    "steamAppId": "4534960",
+    "developer": "FLEXUS",
+    "publisher": "FLEXUS"
+  },
+  "sources": {
+    "steam-store": {
+      "label": "Official Dear Passengers Steam store",
+      "kind": "official-store",
+      "url": "https://store.steampowered.com/app/4534960/Dear_Passengers/",
+      "lastCheckedAt": "2026-08-10"
+    },
+    "steam-news": {
+      "label": "Official Dear Passengers Steam announcements",
+      "kind": "official-developer-channel",
+      "url": "https://steamcommunity.com/app/4534960/allnews/",
+      "lastCheckedAt": "2026-08-10"
+    },
+    "flexus-interview": {
+      "label": "GameDev DOU interview with FLEXUS founder Semen Kozyura",
+      "kind": "first-party-interview",
+      "url": "https://gamedev.dou.ua/articles/dear-passengers-interview/",
+      "lastCheckedAt": "2026-08-10"
+    },
+    "official-trailer": {
+      "label": "Official Dear Passengers announcement trailer",
+      "kind": "official-video",
+      "url": "https://www.youtube.com/watch?v=XRvd_HZesys",
+      "lastCheckedAt": "2026-08-10"
+    }
+  },
+  "facts": {
+    "identity.developer": {
+      "label": "Developer",
+      "status": "confirmed",
+      "value": "FLEXUS",
+      "shortValue": "FLEXUS",
+      "summary": "Steam names FLEXUS as the developer.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-developer-flexus/"],
+      "affectedRoutes": ["/", "/game-dear-passengers/", "/dear-passengers-news/"]
+    },
+    "identity.publisher": {
+      "label": "Publisher",
+      "status": "confirmed",
+      "value": "FLEXUS",
+      "shortValue": "FLEXUS",
+      "summary": "Steam names FLEXUS as the publisher.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-developer-flexus/"],
+      "affectedRoutes": ["/", "/game-dear-passengers/", "/dear-passengers-news/"]
+    },
+    "release.window": {
+      "label": "Release window",
+      "status": "confirmed",
+      "value": "2026",
+      "shortValue": "2026",
+      "summary": "Steam lists a broad 2026 release window with no month or day.",
+      "sourceIds": ["steam-store", "flexus-interview"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-release-date/"],
+      "affectedRoutes": ["/", "/dear-passengers-download/", "/dear-passengers-demo/", "/dear-passengers-news/"]
+    },
+    "release.exactDate": {
+      "label": "Exact release date",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT ANNOUNCED",
+      "summary": "No exact release month or day is shown by the official sources checked.",
+      "sourceIds": ["steam-store", "steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-release-date/"],
+      "affectedRoutes": ["/", "/dear-passengers-news/"]
+    },
+    "release.price": {
+      "label": "Price and business model",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT ANNOUNCED",
+      "summary": "No official purchase price, preorder price, launch discount, or free-to-play confirmation is published.",
+      "sourceIds": ["steam-store", "steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-release-date/", "/dear-passengers-download/"],
+      "affectedRoutes": ["/"]
+    },
+    "release.fullGameAvailability": {
+      "label": "Full-game availability",
+      "status": "confirmed",
+      "value": "Not released",
+      "shortValue": "NOT LIVE",
+      "summary": "The official Steam page is open for wishlisting and does not offer a public purchase or install action.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-download/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/", "/dear-passengers-demo/"]
+    },
+    "access.publicDemoPlan": {
+      "label": "Public demo plan",
+      "status": "confirmed",
+      "value": "Planned after a Gamescom build",
+      "shortValue": "PLANNED",
+      "summary": "FLEXUS has described a Gamescom build and a later public demo plan.",
+      "sourceIds": ["flexus-interview"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-demo/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/", "/dear-passengers-download/"]
+    },
+    "access.publicDemoAvailability": {
+      "label": "Public demo availability",
+      "status": "confirmed",
+      "value": "Not live",
+      "shortValue": "NOT LIVE",
+      "summary": "No public demo date or official download is available in the first-party sources checked.",
+      "sourceIds": ["steam-store", "flexus-interview"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-demo/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/", "/dear-passengers-download/"]
+    },
+    "platform.windows": {
+      "label": "Confirmed platform",
+      "status": "confirmed",
+      "value": "Windows PC via Steam",
+      "shortValue": "PC · STEAM",
+      "summary": "Windows PC through Steam is the only confirmed platform.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-platforms/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/", "/dear-passengers-download/", "/dear-passengers-system-requirements/"]
+    },
+    "platform.otherPlatforms": {
+      "label": "Other platforms",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT ANNOUNCED",
+      "summary": "Console, Mac, Linux, VR, and Steam Deck releases or support have not been announced.",
+      "sourceIds": ["steam-store", "steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-platforms/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/", "/dear-passengers-player-count/"]
+    },
+    "playMode.singlePlayer": {
+      "label": "Single-player",
+      "status": "confirmed",
+      "value": true,
+      "shortValue": "CONFIRMED",
+      "summary": "Steam lists Single-player in the feature panel.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-player-count/"],
+      "affectedRoutes": ["/", "/dear-passengers-gameplay/", "/dear-passengers-roles/"]
+    },
+    "playMode.onlineCoop": {
+      "label": "Online co-op",
+      "status": "confirmed",
+      "value": true,
+      "shortValue": "CONFIRMED",
+      "summary": "Steam lists Online Co-op in the feature panel.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-player-count/"],
+      "affectedRoutes": ["/", "/dear-passengers-gameplay/", "/dear-passengers-roles/"]
+    },
+    "multiplayer.maximumPlayers": {
+      "label": "Maximum player count",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT STATED",
+      "summary": "FLEXUS has not published a maximum lobby or crew size in the official sources checked.",
+      "sourceIds": ["steam-store", "steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-player-count/"],
+      "affectedRoutes": ["/", "/dear-passengers-gameplay/", "/dear-passengers-roles/"]
+    },
+    "multiplayer.splitScreen": {
+      "label": "Split-screen or local co-op",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT LISTED",
+      "summary": "Steam does not list shared-screen or split-screen support.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-player-count/"],
+      "affectedRoutes": ["/", "/dear-passengers-platforms/"]
+    },
+    "multiplayer.crossplay": {
+      "label": "Crossplay",
+      "status": "unknown",
+      "value": null,
+      "shortValue": "NOT ANNOUNCED",
+      "summary": "Cross-platform multiplayer has not been announced.",
+      "sourceIds": ["steam-store", "steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-player-count/"],
+      "affectedRoutes": ["/", "/dear-passengers-platforms/"]
+    },
+    "languages.interface": {
+      "label": "Steam-listed interface languages",
+      "status": "confirmed",
+      "value": ["English", "Arabic", "Simplified Chinese", "Turkish", "Ukrainian", "Japanese"],
+      "shortValue": "6 INTERFACE LANGUAGES",
+      "summary": "Steam lists six interface languages; full audio and subtitles are not listed in the current table.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-confirmed-features/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/"]
+    },
+    "requirements.minimum": {
+      "label": "Minimum PC requirements",
+      "status": "confirmed",
+      "value": {
+        "operatingSystem": "Windows 10 64-bit",
+        "processor": "Intel Core i5 @ 2.5 GHz or equivalent",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GTX 1060 or AMD RX 6600 XT",
+        "directX": "Version 12",
+        "storage": "4 GB available space"
+      },
+      "shortValue": "MINIMUM ONLY",
+      "summary": "Steam publishes minimum requirements and does not currently show recommended specifications.",
+      "sourceIds": ["steam-store"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-system-requirements/"],
+      "affectedRoutes": ["/"]
+    },
+    "gameplay.fullPlaneControl": {
+      "label": "Full plane control",
+      "status": "confirmed",
+      "value": true,
+      "shortValue": "CONFIRMED",
+      "summary": "FLEXUS stated that players fully control the plane.",
+      "sourceIds": ["steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-gameplay/"],
+      "affectedRoutes": ["/", "/dear-passengers-news/", "/dear-passengers-trailer/"]
+    },
+    "media.actualFlightVideo": {
+      "label": "Actual-flight gameplay video",
+      "status": "confirmed",
+      "value": "In production; no publication date announced",
+      "shortValue": "IN PRODUCTION",
+      "summary": "FLEXUS said it was preparing a video showing an actual flight and did not give a release date for the video.",
+      "sourceIds": ["steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-trailer/", "/dear-passengers-news/"],
+      "affectedRoutes": ["/", "/dear-passengers-gameplay/"]
+    },
+    "interest.wishlists": {
+      "label": "Developer-reported wishlists",
+      "status": "confirmed",
+      "value": 2000000,
+      "shortValue": "2 MILLION REPORTED",
+      "summary": "FLEXUS reported two million wishlists on July 31; this is not a sales or active-player count.",
+      "sourceIds": ["steam-news"],
+      "verifiedAt": "2026-08-10",
+      "ownerRoutes": ["/dear-passengers-news/"],
+      "affectedRoutes": ["/", "/dear-passengers-release-date/"]
+    }
+  },
+  "statusBoard": {
+    "revision": "2026-08-08",
+    "lastVerifiedAt": "2026-08-08",
+    "lastVerifiedLabel": "August 8, 2026",
+    "cards": [
+      {
+        "code": "DP-01",
+        "eyebrow": "Release window",
+        "statusLabel": "Confirmed",
+        "tone": "confirmed",
+        "value": "2026",
+        "detail": "Steam still gives the Dear Passengers game a broad 2026 window. No month, day, price, or preorder has been announced.",
+        "href": "/dear-passengers-release-date",
+        "linkLabel": "Review release evidence",
+        "factIds": ["release.window", "release.exactDate", "release.price"]
+      },
+      {
+        "code": "DP-02",
+        "eyebrow": "Public demo",
+        "statusLabel": "Planned",
+        "tone": "planned",
+        "value": "Not live",
+        "detail": "FLEXUS plans a public Dear Passengers game demo after its Gamescom build, but there is no public date or download.",
+        "href": "/dear-passengers-demo",
+        "linkLabel": "Check demo access status",
+        "factIds": ["access.publicDemoPlan", "access.publicDemoAvailability"]
+      },
+      {
+        "code": "DP-03",
+        "eyebrow": "Confirmed platform",
+        "statusLabel": "Confirmed",
+        "tone": "confirmed",
+        "value": "PC · Steam",
+        "detail": "Windows PC is the only announced platform. Console, Mac, Linux, VR, and Steam Deck plans remain open.",
+        "href": "/dear-passengers-platforms",
+        "linkLabel": "Compare platform status",
+        "factIds": ["platform.windows", "platform.otherPlatforms"]
+      },
+      {
+        "code": "DP-04",
+        "eyebrow": "Crew modes",
+        "statusLabel": "Mixed status",
+        "tone": "open",
+        "value": "Solo + online",
+        "detail": "Single-player and online co-op are confirmed. Maximum crew size, split screen, and crossplay are not stated.",
+        "href": "/dear-passengers-player-count",
+        "linkLabel": "See the multiplayer briefing",
+        "factIds": ["playMode.singlePlayer", "playMode.onlineCoop", "multiplayer.maximumPlayers", "multiplayer.splitScreen", "multiplayer.crossplay"]
+      }
+    ]
+  },
+  "latestOfficialUpdate": {
+    "publishedAt": "2026-07-31",
+    "dateLabel": "JUL 31",
+    "yearLabel": "2026",
+    "headline": "Full plane control confirmed; actual-flight video in production",
+    "summary": "FLEXUS reported two million wishlists and said it was producing a video showing an actual flight. The wishlist figure is developer-reported—not a sales or active-player count—and no video date was given.",
+    "sourceIds": ["steam-news"],
+    "factIds": ["gameplay.fullPlaneControl", "media.actualFlightVideo", "interest.wishlists"],
+    "ownerRoute": "/dear-passengers-news"
+  }
+}
