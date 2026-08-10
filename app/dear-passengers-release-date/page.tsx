@@ -27,6 +27,7 @@ export const metadata: Metadata = {
       'my-MM': '/my/dear-passengers-release-date/',
       ru: '/ru/dear-passengers-data-vyhoda/',
       cs: '/cs/dear-passengers-datum-vydani/',
+      it: '/it/dear-passengers-data-di-uscita/',
       'zh-CN': '/zh-cn/dear-passengers-release-date/',
       'x-default': '/dear-passengers-release-date/',
     },
@@ -443,6 +444,7 @@ export default function ReleaseDatePage() {
                   <Link className="button button-ghost" href="/dear-passengers-system-requirements">PC requirements →</Link>
                   <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">Deutscher Release-Guide →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date" hrefLang="zh-CN">中文发售指南 →</Link>
+                  <Link className="button button-ghost" href="/it/dear-passengers-data-di-uscita/" hrefLang="it">Guida italiana all’uscita →</Link>
                 </div>
               </section>
             </div>

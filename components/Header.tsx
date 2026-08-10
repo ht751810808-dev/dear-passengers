@@ -113,7 +113,16 @@ const czechLinks = [
   { href: '/cs/dear-passengers-cestina/', label: 'Čeština' },
 ];
 
-type Locale = 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs';
+const italianLinks = [
+  { href: '#uscita', label: 'Uscita' },
+  { href: '#prezzo', label: 'Prezzo' },
+  { href: '#piattaforme', label: 'Piattaforme' },
+  { href: '#demo', label: 'Demo' },
+  { href: '#lingua', label: 'Lingua italiana' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+type Locale = 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs' | 'it';
 
 const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }> = [
   { locale: 'en', shortLabel: 'EN', label: 'English' },
@@ -126,15 +135,16 @@ const localeOptions: Array<{ locale: Locale; shortLabel: string; label: string }
   { locale: 'my-MM', shortLabel: 'MY', label: 'မြန်မာ' },
   { locale: 'ru', shortLabel: 'RU', label: 'Русский' },
   { locale: 'cs', shortLabel: 'CS', label: 'Čeština' },
+  { locale: 'it', shortLabel: 'IT', label: 'Italiano' },
 ];
 
-const localizedRoutes: Array<Record<Locale, string>> = [
+const localizedRoutes: Array<Partial<Record<Locale, string>> & { en: string }> = [
   { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', cs: '/cs/' },
   { en: '/game-dear-passengers/', 'zh-CN': '/zh-cn/dear-passengers-game/', de: '/de/dear-passengers-spiel/', ar: '/ar/dear-passengers-game/', tr: '/tr/dear-passengers-oyunu/', 'pt-BR': '/pt-br/jogo-dear-passengers/', es: '/es/juego-dear-passengers/', 'my-MM': '/my/', ru: '/ru/igra-dear-passengers/', cs: '/cs/hra-dear-passengers/' },
   { en: '/dear-passengers-gameplay/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-gameplay/', ar: '/ar/dear-passengers-gameplay/', tr: '/tr/dear-passengers-oynanis/', 'pt-BR': '/pt-br/dear-passengers-como-jogar/', es: '/es/dear-passengers-como-jugar/', 'my-MM': '/my/dear-passengers-gameplay/', ru: '/ru/dear-passengers-kak-igrat/', cs: '/cs/dear-passengers-jak-hrat/' },
   { en: '/dear-passengers-roles/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-rollen/', ar: '/ar/dear-passengers-roles/', tr: '/tr/dear-passengers-rolleri/', 'pt-BR': '/pt-br/dear-passengers-funcoes/', es: '/es/dear-passengers-roles/', 'my-MM': '/my/dear-passengers-roles/', ru: '/ru/', cs: '/cs/' },
   { en: '/dear-passengers-player-count/', 'zh-CN': '/zh-cn/dear-passengers-player-count/', de: '/de/dear-passengers-spielerzahl/', ar: '/ar/dear-passengers-player-count/', tr: '/tr/dear-passengers-kac-kisilik/', 'pt-BR': '/pt-br/dear-passengers-quantos-jogadores/', es: '/es/dear-passengers-cuantos-jugadores/', 'my-MM': '/my/dear-passengers-player-count/', ru: '/ru/dear-passengers-skolko-igrokov/', cs: '/cs/dear-passengers-pocet-hracu/' },
-  { en: '/dear-passengers-release-date/', 'zh-CN': '/zh-cn/dear-passengers-release-date/', de: '/de/dear-passengers-release/', ar: '/ar/dear-passengers-release/', tr: '/tr/dear-passengers-cikis-tarihi/', 'pt-BR': '/pt-br/dear-passengers-data-de-lancamento/', es: '/es/dear-passengers-fecha-de-lanzamiento/', 'my-MM': '/my/dear-passengers-release-date/', ru: '/ru/dear-passengers-data-vyhoda/', cs: '/cs/dear-passengers-datum-vydani/' },
+  { en: '/dear-passengers-release-date/', 'zh-CN': '/zh-cn/dear-passengers-release-date/', de: '/de/dear-passengers-release/', ar: '/ar/dear-passengers-release/', tr: '/tr/dear-passengers-cikis-tarihi/', 'pt-BR': '/pt-br/dear-passengers-data-de-lancamento/', es: '/es/dear-passengers-fecha-de-lanzamiento/', 'my-MM': '/my/dear-passengers-release-date/', ru: '/ru/dear-passengers-data-vyhoda/', cs: '/cs/dear-passengers-datum-vydani/', it: '/it/dear-passengers-data-di-uscita/' },
   { en: '/dear-passengers-demo/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'pt-BR': '/pt-br/dear-passengers-demo/', es: '/es/dear-passengers-demo/', 'my-MM': '/my/dear-passengers-demo/', ru: '/ru/dear-passengers-demo/', cs: '/cs/dear-passengers-demo/' },
   { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/', de: '/de/dear-passengers-download/', ar: '/ar/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/', cs: '/cs/dear-passengers-stahnout/' },
   { en: '/dear-passengers-system-requirements/', 'zh-CN': '/zh-cn/dear-passengers-system-requirements/', de: '/de/dear-passengers-systemanforderungen/', ar: '/ar/dear-passengers-system-requirements/', tr: '/tr/dear-passengers-sistem-gereksinimleri/', 'pt-BR': '/pt-br/dear-passengers-requisitos/', es: '/es/dear-passengers-requisitos/', 'my-MM': '/my/dear-passengers-system-requirements/', ru: '/ru/dear-passengers-sistemnye-trebovaniya/', cs: '/cs/dear-passengers-systemove-pozadavky/' },
@@ -149,7 +159,7 @@ const localizedRoutes: Array<Record<Locale, string>> = [
   { en: '/privacy-policy/', 'zh-CN': '/zh-cn/', de: '/de/datenschutz/', ar: '/ar/privacy-policy/', tr: '/tr/gizlilik/', 'pt-BR': '/pt-br/privacidade/', es: '/es/privacidad/', 'my-MM': '/my/privacy-policy/', ru: '/ru/', cs: '/cs/' },
 ];
 
-const localeHomes: Record<Locale, string> = { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', cs: '/cs/' };
+const localeHomes: Record<Locale, string> = { en: '/', 'zh-CN': '/zh-cn/', de: '/de/', ar: '/ar/', tr: '/tr/', 'pt-BR': '/pt-br/', es: '/es/', 'my-MM': '/my/', ru: '/ru/', cs: '/cs/', it: '/it/dear-passengers-data-di-uscita/' };
 
 function normalizePath(pathname: string) {
   if (pathname === '/') return pathname;
@@ -169,15 +179,17 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
   const isMyanmar = locale === 'my-MM';
   const isRussian = locale === 'ru';
   const isCzech = locale === 'cs';
-  const links = isChinese ? chineseLinks : isGerman ? germanLinks : isArabic ? arabicLinks : isTurkish ? turkishLinks : isPortuguese ? portugueseLinks : isSpanish ? spanishLinks : isMyanmar ? myanmarLinks : isRussian ? russianLinks : isCzech ? czechLinks : englishLinks;
+  const isItalian = locale === 'it';
+  const links = isChinese ? chineseLinks : isGerman ? germanLinks : isArabic ? arabicLinks : isTurkish ? turkishLinks : isPortuguese ? portugueseLinks : isSpanish ? spanishLinks : isMyanmar ? myanmarLinks : isRussian ? russianLinks : isCzech ? czechLinks : isItalian ? italianLinks : englishLinks;
   const localizedRoute = localizedRoutes.find((route) => Object.values(route).includes(pathname));
   const localeHref = (targetLocale: Locale) => {
     if (targetLocale === locale) return pathname;
-    if (localizedRoute) return localizedRoute[targetLocale];
+    if (localizedRoute?.[targetLocale]) return localizedRoute[targetLocale]!;
     if (targetLocale === 'en' && languageHref) return normalizePath(languageHref);
     return localeHomes[targetLocale];
   };
   const currentLocale = localeOptions.find((option) => option.locale === locale) || localeOptions[0];
+  const visibleLocaleOptions = localeOptions.filter((option) => option.locale !== 'it' || isItalian || Boolean(localizedRoute?.it));
   const homeHref = isChinese ? '/zh-cn' : isGerman ? '/de/' : isArabic ? '/ar/' : isTurkish ? '/tr/' : isPortuguese ? '/pt-br/' : isSpanish ? '/es/' : isMyanmar ? '/my/' : isRussian ? '/ru/' : isCzech ? '/cs/' : '/';
   const homeLabel = isChinese
     ? 'Dear Passengers 中文指南首页'
@@ -197,9 +209,11 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
                   ? 'Русский гид по игре Dear Passengers'
                   : isCzech
                     ? 'Český průvodce hrou Dear Passengers'
+                    : isItalian
+                      ? 'Guida italiana indipendente a Dear Passengers'
       : 'Dear Passengers game guide home';
-  const siteLabel = isChinese ? '独立游戏资料站' : isGerman ? 'UNABHÄNGIGER SPIELE-GUIDE' : isArabic ? 'دليل ألعاب مستقل' : isTurkish ? 'BAĞIMSIZ OYUN REHBERİ' : isPortuguese ? 'GUIA BRASILEIRO INDEPENDENTE' : isSpanish ? 'GUÍA INDEPENDIENTE EN ESPAÑOL' : isMyanmar ? 'လွတ်လပ်သော မြန်မာဂိမ်းလမ်းညွှန်' : isRussian ? 'НЕЗАВИСИМЫЙ ГИД ПО ИГРЕ' : isCzech ? 'NEZÁVISLÝ HERNÍ PRŮVODCE' : 'INDEPENDENT FLIGHT GUIDE';
-  const languageAria = isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : isArabic ? 'اختر لغة الموقع' : isTurkish ? 'Site dilini seçin' : isPortuguese ? 'Escolher idioma do site' : isSpanish ? 'Elegir idioma del sitio' : isMyanmar ? 'ဝဘ်ဆိုက်ဘာသာစကား ရွေးချယ်ရန်' : isRussian ? 'Выбрать язык сайта' : isCzech ? 'Vybrat jazyk webu' : 'Choose site language';
+  const siteLabel = isChinese ? '独立游戏资料站' : isGerman ? 'UNABHÄNGIGER SPIELE-GUIDE' : isArabic ? 'دليل ألعاب مستقل' : isTurkish ? 'BAĞIMSIZ OYUN REHBERİ' : isPortuguese ? 'GUIA BRASILEIRO INDEPENDENTE' : isSpanish ? 'GUÍA INDEPENDIENTE EN ESPAÑOL' : isMyanmar ? 'လွတ်လပ်သော မြန်မာဂိမ်းလမ်းညွှန်' : isRussian ? 'НЕЗАВИСИМЫЙ ГИД ПО ИГРЕ' : isCzech ? 'NEZÁVISLÝ HERNÍ PRŮVODCE' : isItalian ? 'GUIDA INDIPENDENTE IN ITALIANO' : 'INDEPENDENT FLIGHT GUIDE';
+  const languageAria = isChinese ? '选择网站语言' : isGerman ? 'Website-Sprache wählen' : isArabic ? 'اختر لغة الموقع' : isTurkish ? 'Site dilini seçin' : isPortuguese ? 'Escolher idioma do site' : isSpanish ? 'Elegir idioma del sitio' : isMyanmar ? 'ဝဘ်ဆိုက်ဘာသာစကား ရွေးချယ်ရန်' : isRussian ? 'Выбрать язык сайта' : isCzech ? 'Vybrat jazyk webu' : isItalian ? 'Scegli la lingua del sito' : 'Choose site language';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -225,7 +239,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav className="desktop-nav" aria-label={isItalian ? 'Navigazione principale' : 'Primary navigation'}>
           {links.map((link) => (
             <Link href={link.href} key={link.href}>{link.label}</Link>
           ))}
@@ -239,7 +253,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
               <span className="language-chevron" aria-hidden="true">⌄</span>
             </summary>
             <div className="language-menu">
-              {localeOptions.map((option) => (
+              {visibleLocaleOptions.map((option) => (
                 <a
                   href={localeHref(option.locale)}
                   hrefLang={option.locale}
@@ -253,12 +267,12 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
             </div>
           </details>
           <a className="button button-small" href={STEAM_URL} target="_blank" rel="noopener noreferrer">
-            {isChinese ? 'Steam 愿望单' : isGerman ? 'Auf Steam vormerken' : isArabic ? 'أضفها إلى قائمة الأمنيات' : isTurkish ? 'Steam istek listesi' : isPortuguese ? 'Adicionar à lista de desejos' : isSpanish ? 'Añadir a deseados' : isMyanmar ? 'Steam ဆန္ဒစာရင်း' : isRussian ? 'В желаемое Steam' : isCzech ? 'Přidat na seznam přání' : 'Wishlist on Steam'} <span aria-hidden="true">↗</span>
+            {isChinese ? 'Steam 愿望单' : isGerman ? 'Auf Steam vormerken' : isArabic ? 'أضفها إلى قائمة الأمنيات' : isTurkish ? 'Steam istek listesi' : isPortuguese ? 'Adicionar à lista de desejos' : isSpanish ? 'Añadir a deseados' : isMyanmar ? 'Steam ဆန္ဒစာရင်း' : isRussian ? 'В желаемое Steam' : isCzech ? 'Přidat na seznam přání' : isItalian ? 'Aggiungi ai desideri' : 'Wishlist on Steam'} <span aria-hidden="true">↗</span>
           </a>
           <button
             className="menu-button"
             type="button"
-            aria-label="Toggle navigation"
+            aria-label={isItalian ? 'Apri o chiudi la navigazione' : 'Toggle navigation'}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
@@ -269,12 +283,12 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
       </div>
 
       {open && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
+        <nav className="mobile-nav" aria-label={isItalian ? 'Navigazione mobile' : 'Mobile navigation'}>
           {links.map((link) => (
             <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</Link>
           ))}
           <div className="mobile-language-options" aria-label={languageAria}>
-            {localeOptions.map((option) => (
+            {visibleLocaleOptions.map((option) => (
               <a
                 href={localeHref(option.locale)}
                 hrefLang={option.locale}
@@ -288,7 +302,7 @@ export default function Header({ locale = 'en', languageHref }: { locale?: Local
             ))}
           </div>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">
-            {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : isArabic ? 'افتح صفحة Steam الرسمية' : isTurkish ? 'Resmî Steam sayfasını aç' : isPortuguese ? 'Abrir a página oficial na Steam' : isSpanish ? 'Abrir la página oficial de Steam' : isMyanmar ? 'Steam တရားဝင်စာမျက်နှာ ဖွင့်ရန်' : isRussian ? 'Открыть официальную страницу Steam' : isCzech ? 'Otevřít oficiální stránku Steam' : 'Open the official Steam page'} ↗
+            {isChinese ? '打开 Steam 官方页面' : isGerman ? 'Offizielle Steam-Seite öffnen' : isArabic ? 'افتح صفحة Steam الرسمية' : isTurkish ? 'Resmî Steam sayfasını aç' : isPortuguese ? 'Abrir a página oficial na Steam' : isSpanish ? 'Abrir la página oficial de Steam' : isMyanmar ? 'Steam တရားဝင်စာမျက်နှာ ဖွင့်ရန်' : isRussian ? 'Открыть официальную страницу Steam' : isCzech ? 'Otevřít oficiální stránku Steam' : isItalian ? 'Apri la pagina Steam ufficiale' : 'Open the official Steam page'} ↗
           </a>
         </nav>
       )}

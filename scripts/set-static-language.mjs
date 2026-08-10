@@ -35,6 +35,7 @@ const localizedOutputs = [
   { directory: join(process.cwd(), 'out', 'my'), language: 'my-MM' },
   { directory: join(process.cwd(), 'out', 'ru'), language: 'ru' },
   { directory: join(process.cwd(), 'out', 'cs'), language: 'cs' },
+  { directory: join(process.cwd(), 'out', 'it'), language: 'it' },
 ];
 
 for (const output of localizedOutputs) {

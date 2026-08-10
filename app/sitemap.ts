@@ -237,6 +237,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-05') })),
     ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-08') })),
     {
+      url: `${baseUrl}/it/dear-passengers-data-di-uscita/`,
+      lastModified: new Date('2026-08-10'),
+    },
+    {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,
       lastModified: new Date('2026-07-20'),
     },

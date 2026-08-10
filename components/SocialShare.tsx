@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useId, useRef, useState } from 'react';
 
 type CopyState = 'idle' | 'copied' | 'failed';
-type Locale = 'en' | 'zh' | 'de' | 'ar' | 'tr';
+type Locale = 'en' | 'zh' | 'de' | 'ar' | 'tr' | 'it';
 
 const labels = {
   en: { share: 'Share', title: 'Share this guide', copy: 'Copy link', copied: 'Link copied', failed: 'Could not copy', close: 'Close share menu' },
@@ -12,6 +12,7 @@ const labels = {
   de: { share: 'Teilen', title: 'Diesen Guide teilen', copy: 'Link kopieren', copied: 'Link kopiert', failed: 'Kopieren fehlgeschlagen', close: 'Teilen-Menü schließen' },
   ar: { share: 'مشاركة', title: 'شارك هذا الدليل', copy: 'نسخ الرابط', copied: 'تم نسخ الرابط', failed: 'تعذر النسخ', close: 'إغلاق قائمة المشاركة' },
   tr: { share: 'Paylaş', title: 'Bu rehberi paylaş', copy: 'Bağlantıyı kopyala', copied: 'Bağlantı kopyalandı', failed: 'Kopyalanamadı', close: 'Paylaşım menüsünü kapat' },
+  it: { share: 'Condividi', title: 'Condividi questa guida', copy: 'Copia link', copied: 'Link copiato', failed: 'Copia non riuscita', close: 'Chiudi il menu di condivisione' },
 } satisfies Record<Locale, Record<string, string>>;
 
 function localeFromPath(pathname: string): Locale {
@@ -19,6 +20,7 @@ function localeFromPath(pathname: string): Locale {
   if (pathname.startsWith('/de')) return 'de';
   if (pathname.startsWith('/ar')) return 'ar';
   if (pathname.startsWith('/tr')) return 'tr';
+  if (pathname.startsWith('/it')) return 'it';
   return 'en';
 }
 
@@ -27,6 +29,7 @@ function defaultShareTitle(locale: Locale) {
   if (locale === 'de') return 'Dear Passengers Spiele-Guide';
   if (locale === 'ar') return 'دليل لعبة Dear Passengers';
   if (locale === 'tr') return 'Dear Passengers oyun rehberi';
+  if (locale === 'it') return 'Guida italiana a Dear Passengers';
   return 'Dear Passengers game guide';
 }
 

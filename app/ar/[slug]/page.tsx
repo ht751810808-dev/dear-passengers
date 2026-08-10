@@ -22,6 +22,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (russian) languages.ru = `/ru/${russian.slug}/`;
   const czech = czechGuideByEnglishPath.get(guide.englishPath);
   if (czech) languages.cs = `/cs/${czech.slug}/`;
+  if (guide.englishPath === '/dear-passengers-release-date/') languages.it = '/it/dear-passengers-data-di-uscita/';
   return {
     title: { absolute: guide.title }, description: guide.description, alternates: { canonical, languages },
     openGraph: { title: guide.title, description: guide.description, url: `https://dearpassengers.net${canonical}`, siteName: 'DearPassengers.net', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: guide.heroAlt }], locale: 'ar', alternateLocale: ['en_US', 'de_DE'], type: 'article' },

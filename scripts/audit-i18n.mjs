@@ -9,7 +9,7 @@ const sets = [
   ['/dear-passengers-confirmed-features/', '/de/dear-passengers-bestaetigte-features/', '/ar/dear-passengers-confirmed-features/', '/tr/dear-passengers-ozellikleri/', '/pt-br/dear-passengers-recursos-confirmados/', '/es/dear-passengers-caracteristicas-confirmadas/', '/my/dear-passengers-confirmed-features/'],
   ['/dear-passengers-roles/', '/de/dear-passengers-rollen/', '/ar/dear-passengers-roles/', '/tr/dear-passengers-rolleri/', '/pt-br/dear-passengers-funcoes/', '/es/dear-passengers-roles/', '/my/dear-passengers-roles/'],
   ['/dear-passengers-player-count/', '/de/dear-passengers-spielerzahl/', '/zh-cn/dear-passengers-player-count/', '/ar/dear-passengers-player-count/', '/tr/dear-passengers-kac-kisilik/', '/pt-br/dear-passengers-quantos-jogadores/', '/es/dear-passengers-cuantos-jugadores/', '/my/dear-passengers-player-count/', '/ru/dear-passengers-skolko-igrokov/', '/cs/dear-passengers-pocet-hracu/'],
-  ['/dear-passengers-release-date/', '/de/dear-passengers-release/', '/zh-cn/dear-passengers-release-date/', '/ar/dear-passengers-release/', '/tr/dear-passengers-cikis-tarihi/', '/pt-br/dear-passengers-data-de-lancamento/', '/es/dear-passengers-fecha-de-lanzamiento/', '/my/dear-passengers-release-date/', '/ru/dear-passengers-data-vyhoda/', '/cs/dear-passengers-datum-vydani/'],
+  ['/dear-passengers-release-date/', '/de/dear-passengers-release/', '/zh-cn/dear-passengers-release-date/', '/ar/dear-passengers-release/', '/tr/dear-passengers-cikis-tarihi/', '/pt-br/dear-passengers-data-de-lancamento/', '/es/dear-passengers-fecha-de-lanzamiento/', '/my/dear-passengers-release-date/', '/ru/dear-passengers-data-vyhoda/', '/cs/dear-passengers-datum-vydani/', '/it/dear-passengers-data-di-uscita/'],
   ['/dear-passengers-demo/', '/de/dear-passengers-demo/', '/ar/dear-passengers-demo/', '/tr/dear-passengers-demo/', '/pt-br/dear-passengers-demo/', '/es/dear-passengers-demo/', '/my/dear-passengers-demo/', '/ru/dear-passengers-demo/', '/cs/dear-passengers-demo/'],
   ['/dear-passengers-download/', '/de/dear-passengers-download/', '/ar/dear-passengers-download/', '/tr/dear-passengers-indir/', '/pt-br/dear-passengers-baixar/', '/es/dear-passengers-descargar/', '/my/dear-passengers-download/', '/ru/dear-passengers-skachat/', '/cs/dear-passengers-stahnout/'],
   ['/dear-passengers-news/', '/de/dear-passengers-news/', '/ar/dear-passengers-news/', '/tr/dear-passengers-haberleri/', '/pt-br/dear-passengers-noticias/', '/es/dear-passengers-noticias/', '/my/dear-passengers-news/'],
@@ -55,7 +55,9 @@ for (const set of sets) {
                   : path.startsWith('/ru/') || path === '/ru/'
                     ? 'ru'
                     : path.startsWith('/cs/') || path === '/cs/'
-                      ? 'cs'
+                    ? 'cs'
+                    : path.startsWith('/it/') || path === '/it/'
+                      ? 'it'
           : 'en';
     if (!selfOk || !setOk || !defaultOk || lang !== expectedLang) {
       failures += 1;

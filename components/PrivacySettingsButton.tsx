@@ -26,7 +26,7 @@ export default function PrivacySettingsButton({
   locale = 'en',
   className = '',
 }: {
-  locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs';
+  locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs' | 'it';
   className?: string;
 }) {
   const [available, setAvailable] = useState(false);
@@ -57,7 +57,7 @@ export default function PrivacySettingsButton({
       type="button"
       onClick={() => window.googlefc?.showRevocationMessage?.()}
     >
-      {locale === 'zh-CN' ? '隐私与 Cookie 设置' : locale === 'de' ? 'Datenschutz- und Cookie-Einstellungen' : locale === 'ar' ? 'إعدادات الخصوصية وملفات الارتباط' : locale === 'tr' ? 'Gizlilik ve çerez ayarları' : locale === 'pt-BR' ? 'Configurações de privacidade e cookies' : locale === 'es' ? 'Configuración de privacidad y cookies' : locale === 'my-MM' ? 'ကိုယ်ရေးလုံခြုံမှုနှင့် Cookie ဆက်တင်များ' : locale === 'ru' ? 'Настройки конфиденциальности и Cookie' : locale === 'cs' ? 'Nastavení soukromí a cookies' : 'Privacy and cookie settings'}
+      {locale === 'zh-CN' ? '隐私与 Cookie 设置' : locale === 'de' ? 'Datenschutz- und Cookie-Einstellungen' : locale === 'ar' ? 'إعدادات الخصوصية وملفات الارتباط' : locale === 'tr' ? 'Gizlilik ve çerez ayarları' : locale === 'pt-BR' ? 'Configurações de privacidade e cookies' : locale === 'es' ? 'Configuración de privacidad y cookies' : locale === 'my-MM' ? 'ကိုယ်ရေးလုံခြုံမှုနှင့် Cookie ဆက်တင်များ' : locale === 'ru' ? 'Настройки конфиденциальности и Cookie' : locale === 'cs' ? 'Nastavení soukromí a cookies' : locale === 'it' ? 'Impostazioni privacy e cookie' : 'Privacy and cookie settings'}
     </button>
   );
 }

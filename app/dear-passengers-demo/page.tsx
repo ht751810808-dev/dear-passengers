@@ -384,6 +384,10 @@ export default function DearPassengersDemoPage() {
                   <Link href="/dear-passengers-news">Dear Passengers news log</Link>. For the original demo statement,
                   read the <a href={INTERVIEW_URL} target="_blank" rel="noopener noreferrer">dev.ua founder interview ↗</a>.
                 </p>
+                <p>
+                  Italian readers can use the <Link href="/it/dear-passengers-data-di-uscita/" hrefLang="it">guida italiana alla data di uscita di Dear Passengers</Link>{' '}
+                  for a locally written summary of release timing, euro price status, platforms, demo access, and Italian-language support.
+                </p>
                 <div className="related-actions">
                   <Link className="button" href="/dear-passengers-news">Latest verified news →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-download">Download safety →</Link>

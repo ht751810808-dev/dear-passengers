@@ -14,7 +14,7 @@ function FriendLinks({ title }: { title: string }) {
   );
 }
 
-export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs' }) {
+export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'de' | 'ar' | 'tr' | 'pt-BR' | 'es' | 'my-MM' | 'ru' | 'cs' | 'it' }) {
   const isChinese = locale === 'zh-CN';
   const isGerman = locale === 'de';
   const isArabic = locale === 'ar';
@@ -24,6 +24,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
   const isMyanmar = locale === 'my-MM';
   const isRussian = locale === 'ru';
   const isCzech = locale === 'cs';
+  const isItalian = locale === 'it';
 
   if (isChinese) {
     return (
@@ -445,6 +446,50 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
     );
   }
 
+  if (isItalian) {
+    return (
+      <footer className="site-footer" lang="it">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link className="brand" href="/">
+              <Image src="/images/logo.png" alt="Guida italiana a Dear Passengers" width={36} height={36} />
+              <span><b>DEAR PASSENGERS</b><small>GUIDA INDIPENDENTE IN ITALIANO</small></span>
+            </Link>
+            <p>DearPassengers.net è una guida indipendente e non ufficiale. Il sito non è affiliato con FLEXUS, Valve o Steam; le informazioni variabili vengono verificate su fonti primarie.</p>
+          </div>
+          <div>
+            <h2>Guida italiana</h2>
+            <Link href="/it/dear-passengers-data-di-uscita/#uscita">Data di uscita</Link>
+            <Link href="/it/dear-passengers-data-di-uscita/#prezzo">Prezzo</Link>
+            <Link href="/it/dear-passengers-data-di-uscita/#piattaforme">PC, PS5 e Xbox</Link>
+            <Link href="/it/dear-passengers-data-di-uscita/#demo">Demo e Playtest</Link>
+            <Link href="/it/dear-passengers-data-di-uscita/#lingua">Lingua italiana</Link>
+          </div>
+          <div>
+            <h2>Fonti e verifiche</h2>
+            <a href={`${STEAM_URL}?l=italian`} target="_blank" rel="noopener noreferrer">Pagina Steam ufficiale ↗</a>
+            <Link href="/dear-passengers-release-date/" hrefLang="en">Guida completa in inglese</Link>
+            <Link href="/dear-passengers-demo/" hrefLang="en">Stato della demo (in inglese)</Link>
+            <Link href="/dear-passengers-platforms/" hrefLang="en">Stato delle piattaforme (in inglese)</Link>
+          </div>
+          <div>
+            <h2>Informazioni sul sito</h2>
+            <Link href="/" hrefLang="en">Sito principale in inglese</Link>
+            <Link href="/about/" hrefLang="en">Chi gestisce DearPassengers.net</Link>
+            <Link href="/editorial-policy/" hrefLang="en">Politica editoriale</Link>
+            <Link href="/contact/" hrefLang="en">Contatti e correzioni</Link>
+            <Link href="/privacy-policy/" hrefLang="en">Informativa sulla privacy</Link>
+            <PrivacySettingsButton locale="it" className="footer-privacy-button" />
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <span>© 2026 DearPassengers.net</span>
+          <span>Ultima verifica: 10 agosto 2026 · Controlla su Steam le informazioni soggette a variazioni.</span>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -480,6 +525,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           <Link href="/dear-passengers-developer-flexus">Dear Passengers Developer</Link>
           <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
           <Link href="/dear-passengers-platforms">Dear Passengers Platforms</Link>
+          <Link href="/it/dear-passengers-data-di-uscita/" hrefLang="it">Guida italiana all’uscita</Link>
         </div>
 
         <div>

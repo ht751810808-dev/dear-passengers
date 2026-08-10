@@ -32,6 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     if (spanish) languages.es = `/es/${spanish.slug}/`;
     if (myanmar) languages['my-MM'] = `/my/${myanmar.slug}/`;
     if (russian) languages.ru = `/ru/${russian.slug}/`;
+    if (guide.englishPath === '/dear-passengers-release-date/') languages.it = '/it/dear-passengers-data-di-uscita/';
     if (guide.englishPath === '/game-dear-passengers/') Object.assign(languages, {
       de: '/de/dear-passengers-spiel/', ar: '/ar/dear-passengers-game/', tr: '/tr/dear-passengers-oyunu/',
       'pt-BR': '/pt-br/jogo-dear-passengers/', es: '/es/juego-dear-passengers/', 'zh-CN': '/zh-cn/dear-passengers-game/', ru: '/ru/igra-dear-passengers/',
