@@ -1,10 +1,14 @@
 # DearPassengers.net
 
-Independent English-language guide for the co-op airline game **Dear Passengers**.
+Independent multilingual guide and player-companion project for the co-op airline game **Dear Passengers**.
 
 **Live website:** [Dear Passengers Game Guide — DearPassengers.net](https://dearpassengers.net/)
 
 The site covers confirmed gameplay, multiplayer status, the 2026 Steam release window, platforms, PC requirements, language support, and official update tracking. It is not affiliated with FLEXUS, Valve, or Steam.
+
+## Internal growth operations
+
+The tracked [SEO launch and traffic-capture playbook](./SEO-LAUNCH-PLAYBOOK.md) defines the evidence gates, launch-day workflow, future interactive tools, database rules, analytics events, localization sequence, and production verification checklist. Do not create public placeholder routes for launch content before their evidence and demand gates pass.
 
 ## Stack
 
