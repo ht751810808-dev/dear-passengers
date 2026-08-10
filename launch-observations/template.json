@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "isTemplate": true,
+  "recordId": "template",
+  "recordStatus": "draft",
+  "eventType": null,
+  "detectedAt": null,
+  "verifiedAt": null,
+  "verifier": {
+    "role": null,
+    "initials": null
+  },
+  "activation": {
+    "firstPartySignal": {
+      "confirmed": false,
+      "sourceUrls": [],
+      "capturedAt": null,
+      "notes": null
+    },
+    "publicAccess": {
+      "confirmed": false,
+      "storefront": null,
+      "storeRegion": null,
+      "purchaseOrInstallAvailable": false,
+      "price": {
+        "amount": null,
+        "currency": null,
+        "discountPercent": null,
+        "discountEndsAt": null
+      },
+      "evidencePaths": [],
+      "notes": null
+    }
+  },
+  "build": {
+    "steamAppId": "4534960",
+    "accessType": null,
+    "buildId": null,
+    "versionLabel": null,
+    "branchLabel": null,
+    "platform": "Windows PC",
+    "storeRegion": null,
+    "downloadBytes": null,
+    "installedBytes": null,
+    "firstLaunchRequirements": [],
+    "notes": null
+  },
+  "testEnvironment": {
+    "environmentId": null,
+    "operatingSystem": null,
+    "cpu": null,
+    "gpu": null,
+    "memoryGb": null,
+    "storageType": null,
+    "display": {
+      "resolution": null,
+      "refreshRateHz": null
+    },
+    "inputDevices": [],
+    "networkRegion": null,
+    "notes": null
+  },
+  "controls": {
+    "tested": false,
+    "testStartedAt": null,
+    "testEndedAt": null,
+    "keyboardMouse": [],
+    "controllers": [],
+    "accessibilityOptions": [],
+    "evidencePaths": [],
+    "notes": null
+  },
+  "multiplayer": {
+    "tested": false,
+    "participantConsentConfirmed": false,
+    "participantCount": null,
+    "maximumLobbySize": null,
+    "maximumLobbySizeStatus": "unknown",
+    "inviteFlow": [],
+    "matchmaking": {
+      "status": "unknown",
+      "notes": null
+    },
+    "joinInProgress": {
+      "status": "unknown",
+      "notes": null
+    },
+    "localCoop": {
+      "status": "unknown",
+      "notes": null
+    },
+    "splitScreen": {
+      "status": "unknown",
+      "notes": null
+    },
+    "crossplay": {
+      "status": "unknown",
+      "notes": null
+    },
+    "voiceChat": {
+      "status": "unknown",
+      "notes": null
+    },
+    "evidencePaths": [],
+    "notes": null
+  },
+  "performance": {
+    "tested": false,
+    "methodology": null,
+    "runs": [],
+    "evidencePaths": [],
+    "notes": null
+  },
+  "issues": [],
+  "media": [],
+  "demandEvidence": [],
+  "contentDecision": {
+    "selectedOwnerRoute": null,
+    "candidateNewRoute": null,
+    "independentIntentConfirmed": false,
+    "decision": "research-only",
+    "reason": null,
+    "requiredInternalLinks": [],
+    "localizationCandidates": []
+  },
+  "publication": {
+    "status": "not-started",
+    "modifiedRoutes": [],
+    "checks": {
+      "factAudit": false,
+      "typecheck": false,
+      "productionBuild": false,
+      "internalLinks": false,
+      "hreflang": false,
+      "desktopVisual": false,
+      "mobile390Visual": false,
+      "structuredData": false
+    },
+    "gitCommit": null,
+    "branch": null,
+    "deploymentUrl": null,
+    "productionUrls": [],
+    "sitemapUrlCount": null,
+    "submissions": {
+      "google": {
+        "status": "not-attempted",
+        "receipt": null
+      },
+      "bing": {
+        "status": "not-attempted",
+        "receipt": null
+      },
+      "indexNow": {
+        "status": "not-attempted",
+        "receipt": null
+      }
+    }
+  },
+  "unknowns": [],
+  "followUpAt": null
+}

@@ -32,6 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 pnpm typecheck
 pnpm audit:facts
+pnpm audit:observations
 pnpm build
 ```
 
@@ -42,6 +43,18 @@ pnpm build
 Time-sensitive product facts live in [`data/game-facts.json`](./data/game-facts.json). Each record carries an evidence status, source IDs, verification date, intent-owner routes, and affected routes. The typed helpers in [`lib/game-facts.ts`](./lib/game-facts.ts) feed the homepage and Pre-Flight Control Center, while `pnpm audit:facts` rejects missing sources, invalid dates, unknown facts with asserted values, broken fact references, and invalid route ownership.
 
 Update the registry before changing a connected fact in public copy. A new verification date alone must not change the control-center revision unless a displayed fact actually changed.
+
+## Launch Observation Kit
+
+Use [`launch-observations/`](./launch-observations/) to create private, versioned evidence records for a full release, Early Access build, public demo, Steam Playtest, or major announcement. The kit captures storefront activation, build IDs, controls, controller hardware, multiplayer consent and lobby flow, performance methodology, reproducible issues, original media rights, demand evidence, SEO route decisions, production checks, and verified submission receipts.
+
+```bash
+pnpm create:observation -- --event full-release
+pnpm create:observation -- --event demo --id 2026-08-10-demo-check
+pnpm audit:observations
+```
+
+The observation audit runs automatically before production builds. Draft records may retain `null` and `unknown` fields; verified and published records have stricter source, access, consent, evidence, route, deployment, and readback requirements.
 
 ## Google services
 

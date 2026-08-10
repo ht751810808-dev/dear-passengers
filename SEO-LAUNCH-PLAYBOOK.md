@@ -188,7 +188,7 @@ Do not reserve these routes with empty or “coming soon” indexable pages.
 
 - [x] Store this launch playbook in the tracked project repository.
 - [x] Create a single machine-readable game-fact registry with source URL, verification time, status, value, and affected routes.
-- [ ] Create a launch observation template for build number, platform, controls, lobby flow, screenshots, performance hardware, and reproduction steps.
+- [x] Create a launch observation template for build number, platform, controls, lobby flow, screenshots, performance hardware, and reproduction steps.
 - [ ] Create reusable analytics helpers and a documented event registry before new tools are released.
 - [ ] Define who can verify Steam, capture the game, publish, deploy, and submit search-engine URLs on launch day.
 - [ ] Test the clean-worktree build and deployment path without changing production content.
