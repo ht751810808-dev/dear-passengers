@@ -228,11 +228,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
       lastModified: new Date('2026-07-24'),
     },
-    ...germanPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/de/' ? '2026-07-29' : '2026-07-24') })),
+    ...germanPaths.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: new Date(path === '/de/kontakt/' ? '2026-08-10' : path === '/de/' ? '2026-07-29' : '2026-07-24'),
+    })),
     ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
     ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/' ? '2026-07-29' : '2026-07-27') })),
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
-    ...spanishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
+    ...spanishPaths.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: new Date(path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
+    })),
     ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-05') })),
     ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-08') })),
@@ -250,7 +256,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/editorial-policy/`,
-      lastModified: new Date('2026-07-15'),
+      lastModified: new Date('2026-08-10'),
     },
     {
       url: `${baseUrl}/contact/`,
@@ -258,7 +264,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privacy-policy/`,
-      lastModified: new Date('2026-07-15'),
+      lastModified: new Date('2026-08-10'),
     },
   ];
 }

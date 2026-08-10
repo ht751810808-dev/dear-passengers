@@ -533,6 +533,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           <Link href="/about">About DearPassengers.net</Link>
           <Link href="/editorial-policy">Editorial and corrections policy</Link>
           <Link href="/contact">Contact and corrections</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           <PrivacySettingsButton className="footer-privacy-button" />
           <Link href="/#sources">Sources and verification</Link>
           <FriendLinks title="Friends" />

@@ -25,7 +25,7 @@ const articleSchema = {
   headline: 'DearPassengers.net Editorial Policy',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-07-15',
+  dateModified: '2026-08-10',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team' },
   publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/' },
 };
@@ -37,7 +37,7 @@ export default function EditorialPolicyPage() {
       <Header />
       <main className="legal-page">
         <article className="container legal-card trust-card">
-          <span className="kicker">VERIFICATION STANDARD · EFFECTIVE JULY 15, 2026</span>
+          <span className="kicker">VERIFICATION STANDARD · UPDATED AUGUST 10, 2026</span>
           <h1>Editorial Policy</h1>
           <p className="legal-lede">
             This policy explains how DearPassengers.net researches, writes, updates, and corrects its independent Dear
@@ -69,6 +69,24 @@ export default function EditorialPolicyPage() {
             false freshness signal. Important changes should be summarized in the relevant announcement timeline.
           </p>
 
+          <h2>Research and Publication Workflow</h2>
+          <p>
+            A guide begins with a defined reader question rather than a target page count. Research checks the official
+            Steam record, relevant FLEXUS channels, platform-holder listings, and direct interviews before using
+            secondary reporting for context. Drafts keep source-backed product facts separate from editorial
+            explanation. Before publication, names, dates, store identifiers, quotations, image attributions, links,
+            metadata, canonical URLs, and structured data are checked for consistency. A page should answer a distinct
+            search intent and link to broader or narrower guides where that helps the reader; near-duplicate pages are
+            not created merely to capture wording variants.
+          </p>
+          <p>
+            The site may publish a useful negative answer when readers need protection from misinformation—for example,
+            that no public demo download or console listing has been announced. Such a page must explain how to verify
+            the status and which official event would change the answer. It must not imitate a download button, use a
+            false countdown, promise access, or stretch an unknown detail into a rumor. Content is written for readers
+            first; search terms may describe the question but do not justify repetitive or unnatural text.
+          </p>
+
           <h2>Corrections</h2>
           <p>
             Clear factual errors are corrected promptly when a verifiable source is supplied. A correction may update
@@ -86,6 +104,23 @@ export default function EditorialPolicyPage() {
             storefront links and do not change the site’s verification standard.
           </p>
 
+          <h2>Images, Video and Community Material</h2>
+          <p>
+            Official screenshots, store artwork, and trailers are used only when they help identify or explain the
+            product, and their source should be clear from nearby context, a caption, or the linked evidence. An
+            editorial illustration must not be presented as an in-game screenshot. Cropping, compression, and
+            responsive delivery may be used for layout and performance, but an edit must not create a false interface,
+            mechanic, character, endorsement, or announcement. If a rights holder identifies an attribution problem,
+            the request is reviewed through the <Link href="/contact">contact process</Link>.
+          </p>
+          <p>
+            Community posts, search suggestions, comments, and forum questions help reveal what players want to know.
+            They do not establish player counts, release dates, features, reviews, or public sentiment on their own.
+            Individual remarks are not invented or converted into a supposed consensus. When community reaction is
+            relevant, coverage distinguishes a documented discussion from a statistically representative survey and
+            avoids exposing unnecessary personal information.
+          </p>
+
           <h2>Automation and AI Assistance</h2>
           <p>
             Automation may assist with formatting, consistency checks, keyword measurement, or technical validation.
@@ -98,6 +133,16 @@ export default function EditorialPolicyPage() {
             Pages are maintained under the byline “DearPassengers.net Editorial Team.” This shared byline identifies
             the site responsible for verification and corrections; it does not imply affiliation with the game studio.
             More context is available on the <Link href="/about">About DearPassengers.net page</Link>.
+          </p>
+
+          <h2>Quality Review and Page Retirement</h2>
+          <p>
+            Technical checks cover production rendering, internal links, mobile readability, image dimensions,
+            language metadata, sitemap inclusion, and whether cited pages remain reachable. Editorial review also asks
+            whether the answer is still useful, whether an unknown has become confirmed, and whether two pages now
+            compete for the same purpose. A stale page may be updated, consolidated, redirected, or removed rather
+            than kept online for traffic alone. Advertising does not turn an empty, expired, or low-value page into
+            publishable content.
           </p>
 
           <Link className="button" href="/">Return to the Dear Passengers guide →</Link>
