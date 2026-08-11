@@ -256,7 +256,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/editorial-policy/`,
-      lastModified: new Date('2026-08-10'),
+      lastModified: new Date('2026-08-11'),
     },
     {
       url: `${baseUrl}/contact/`,

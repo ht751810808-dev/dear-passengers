@@ -500,7 +500,8 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
           </Link>
           <p>
             DearPassengers.net is an independent, unofficial guide created for players following the
-            Dear Passengers game. We are not affiliated with FLEXUS, Valve, or Steam.
+            Dear Passengers game. We are not affiliated with FLEXUS, Valve, or Steam. Current Steam links are direct,
+            unpaid storefront links; this site receives no commission from them.
           </p>
         </div>
 

@@ -164,6 +164,9 @@ export default function HomePage() {
                 Check the release date <span aria-hidden="true">→</span>
               </Link>
             </div>
+            <p className="storefront-disclosure">
+              Direct link to the official Steam store · no affiliate tracking or commission.
+            </p>
             <div className="status-strip" aria-label="Confirmed Dear Passengers facts">
               <div><small>RELEASE WINDOW</small><strong>{releaseWindow.shortValue}</strong></div>
               <div><small>CONFIRMED PLATFORM</small><strong>{confirmedPlatform.shortValue}</strong></div>

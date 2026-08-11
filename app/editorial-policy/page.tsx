@@ -25,7 +25,7 @@ const articleSchema = {
   headline: 'DearPassengers.net Editorial Policy',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-08-10',
+  dateModified: '2026-08-11',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team' },
   publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/' },
 };
@@ -37,7 +37,7 @@ export default function EditorialPolicyPage() {
       <Header />
       <main className="legal-page">
         <article className="container legal-card trust-card">
-          <span className="kicker">VERIFICATION STANDARD · UPDATED AUGUST 10, 2026</span>
+          <span className="kicker">VERIFICATION STANDARD · UPDATED AUGUST 11, 2026</span>
           <h1>Editorial Policy</h1>
           <p className="legal-lede">
             This policy explains how DearPassengers.net researches, writes, updates, and corrects its independent Dear
@@ -100,8 +100,9 @@ export default function EditorialPolicyPage() {
           <p>
             DearPassengers.net is independent from FLEXUS, Valve, and Steam. Advertising technology may appear on the
             site, but advertisers do not approve editorial conclusions. If an affiliate relationship is introduced in
-            the future, it should be disclosed near the relevant link. The current Steam wishlist links are direct
-            storefront links and do not change the site’s verification standard.
+            the future, it will be disclosed near the relevant link. Every current Steam wishlist link is a direct,
+            unpaid storefront link without affiliate tracking, and DearPassengers.net receives no commission when a
+            reader follows it. These links do not change the site’s verification standard.
           </p>
 
           <h2>Images, Video and Community Material</h2>

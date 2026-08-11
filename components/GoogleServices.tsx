@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import AdSenseScript from '@/components/AdSenseScript';
 
 const DEFAULT_GA4_ID = 'G-YR5WE8P3Q4';
 const DEFAULT_ADSENSE_ID = 'ca-pub-4159784234426326';
@@ -61,15 +62,7 @@ export default function GoogleServices() {
         `}
       </Script>
 
-      {adsenseId ? (
-        <Script
-          id="google-adsense"
-          async
-          crossOrigin="anonymous"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-          strategy="afterInteractive"
-        />
-      ) : null}
+      <AdSenseScript publisherId={adsenseId} />
     </>
   );
 }
