@@ -11,15 +11,15 @@ const FLEXUS_URL = 'https://flexus.games/';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-platforms/';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dear Passengers Platforms: PC, PS5, Xbox & VR Status' },
+  title: { absolute: 'Where Can You Play Dear Passengers? PC & Console Status' },
   description:
-    'Check Dear Passengers platforms today: confirmed Windows PC and Steam support, plus sourced PS5, Xbox, Switch, VR, mobile, Mac, Linux, and Steam Deck status.',
+    'Dear Passengers is confirmed only for Windows PC on Steam. Check PS5, Xbox, Switch, VR, mobile, Mac, Linux, controller, Deck and crossplay status.',
   alternates: {
     canonical: '/dear-passengers-platforms/',
     languages: { en: '/dear-passengers-platforms/', 'x-default': '/dear-passengers-platforms/' },
   },
   openGraph: {
-    title: 'Dear Passengers Platforms: What Is Actually Confirmed?',
+    title: 'Where Can You Play Dear Passengers? Current Platform Status',
     description:
       'A source-led platform board for PC, Steam, PS5, Xbox, Nintendo, VR, mobile, Mac, Linux, controllers, and Steam Deck.',
     url: PAGE_URL,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dear Passengers Platforms: PC, PS5, Xbox & VR Status',
+    title: 'Where Can You Play Dear Passengers? PC & Console Status',
     description: 'Windows PC is confirmed. Check every announced and unannounced Dear Passengers platform.',
     images: ['/images/og-image.png'],
   },
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
 
 const faqs: FaqItem[] = [
   {
-    question: 'What platforms is Dear Passengers on?',
+    question: 'Where can I play Dear Passengers?',
     answer:
-      'Windows PC through Steam is the only confirmed Dear Passengers platform. The Steam page lists a 2026 release window and Windows minimum requirements. FLEXUS has not announced a PS5, Xbox, Nintendo, Mac, Linux, mobile, or VR edition.',
+      'Dear Passengers is not playable yet. Windows PC through Steam is the only confirmed Dear Passengers platform, and the store lists a 2026 release window. FLEXUS has not announced a PS5, Xbox, Nintendo, Mac, Linux, mobile, or VR edition.',
   },
   {
     question: 'Is Dear Passengers coming to PS5?',
@@ -85,12 +85,12 @@ const faqs: FaqItem[] = [
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Dear Passengers Platforms: PC, PS5, Xbox, VR and Mobile Status',
+  headline: 'Where Can You Play Dear Passengers? PC, PS5, Xbox, VR and Mobile Status',
   description:
     'A source-led guide to confirmed and unannounced Dear Passengers platforms, storefronts, input support, and crossplay.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-29',
-  dateModified: '2026-07-29',
+  dateModified: '2026-08-15',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -144,19 +144,20 @@ export default function PlatformsPage() {
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Platforms</span>
               </nav>
               <div className="eyebrow"><span>●</span> PLATFORM DESK · FIRST-PARTY STATUS</div>
-              <h1>Dear Passengers Platforms:<br /><em>PC, PS5, Xbox, VR & Mobile</em></h1>
+              <h1>Where Can You Play Dear Passengers?<br /><em>PC, PS5, Xbox, VR & Mobile Status</em></h1>
               <p>
-                The only confirmed <strong>Dear Passengers platform</strong> is Windows PC through Steam. No
+                <strong>Dear Passengers is not playable yet.</strong> The only confirmed Dear Passengers platform is
+                Windows PC through Steam, where the unreleased game can be wishlisted for its planned 2026 launch. No
                 Dear Passengers PS5, Xbox, Nintendo, Mac, Linux, mobile, or VR release has been announced. This guide
-                gives each platform a clear status, explains what would count as confirmation, and keeps online co-op,
-                crossplay, controllers, Steam Deck, price, and download questions in their correct evidence category.
+                gives each platform a clear status and separates online co-op from unconfirmed crossplay, controller,
+                and Steam Deck support.
               </p>
               <div className="hero-actions">
                 <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam page ↗</a>
                 <Link className="button button-ghost" href="/dear-passengers-release-date">Release-date briefing →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 29, 2026</span><span>Fact-checked July 29, 2026</span><span>Confirmed: Windows PC</span>
+                <span>Published July 29, 2026</span><span>Fact-checked August 15, 2026</span><span>Confirmed: Windows PC</span>
               </div>
             </div>
           </header>
@@ -179,12 +180,13 @@ export default function PlatformsPage() {
 
               <section id="answer">
                 <span className="kicker">DIRECT ANSWER</span>
-                <h2>What Platforms Is Dear Passengers On?</h2>
+                <h2>Where Can You Play Dear Passengers?</h2>
                 <p className="snippet-answer">
-                  <strong>Dear Passengers is confirmed for Windows PC through Steam in 2026.</strong> The game
-                  is not yet released, and FLEXUS has not announced versions for PlayStation 5, Xbox Series X|S,
-                  Nintendo Switch or Switch 2, Mac, Linux, Android, iPhone, VR, or Roblox. The exact Dear Passengers
-                  release date, price, public demo date, controller support, and Steam Deck status also remain open.
+                  <strong>You cannot play Dear Passengers yet.</strong> You can wishlist the game on Steam for Windows
+                  PC, its only confirmed platform, ahead of the planned 2026 release. FLEXUS has not announced versions
+                  for PlayStation 5, Xbox Series X|S, Nintendo Switch or Switch 2, Mac, Linux, Android, iPhone, or VR.
+                  The exact release date, price, public demo date, controller support, Steam Deck status, and crossplay
+                  also remain unannounced.
                 </p>
                 <p>
                   That answer is intentionally narrower than the list of searches surrounding Dear Passengers. A title
@@ -201,7 +203,7 @@ export default function PlatformsPage() {
                   can move from unknown to confirmed.
                 </p>
 
-                <div className="platform-table" role="table" aria-label="Dear Passengers platform status on July 29, 2026">
+                <div className="platform-table" role="table" aria-label="Dear Passengers platform status on August 15, 2026">
                   <div className="platform-head" role="row"><span role="columnheader">Platform</span><span role="columnheader">Status</span><span role="columnheader">Evidence</span></div>
                   <div role="row"><strong role="cell">Windows PC / Steam</strong><span className="status-confirmed" role="cell">Confirmed · 2026</span><span role="cell">Steam listing and requirements</span></div>
                   <div role="row"><strong role="cell">PlayStation 5</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No first-party statement</span></div>
@@ -295,7 +297,7 @@ export default function PlatformsPage() {
                 </p>
                 <p>
                   Dear Passengers mobile searches create a different risk: name confusion. FLEXUS does not link an
-                  an Android or iOS Dear Passengers version from its current game page, and Steam identifies the announced
+                  Android or iOS Dear Passengers version from its current game page, and Steam identifies the announced
                   project as a Windows PC title. A similarly named mobile listing should be checked for developer name,
                   publisher, official links, screenshots, and privacy details. Without a direct FLEXUS connection, it
                   should not be presented as the mobile edition of this game.
@@ -372,7 +374,7 @@ export default function PlatformsPage() {
                 <span className="kicker">PLATFORM QUESTIONS</span>
                 <h2>Dear Passengers Platforms FAQ</h2>
                 <p>
-                  These Dear Passengers answers reflect the current Steam and FLEXUS records on July 29, 2026. The FAQ
+                  These Dear Passengers answers reflect the current Steam and FLEXUS records on August 15, 2026. The FAQ
                   is designed for quick verification; it does not turn platform demand into a release commitment.
                 </p>
                 <FAQ items={faqs} />
@@ -386,7 +388,8 @@ export default function PlatformsPage() {
                   listing ↗</a> confirms Windows, 2026, single-player, online co-op, six interface languages, and the
                   minimum PC requirements. The <a href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">official
                   FLEXUS website ↗</a> identifies Dear Passengers as a studio project and links back to Steam. Neither
-                  source currently announces the other platforms covered above.
+                  source currently announces the other platforms covered above. This status was rechecked on August 15,
+                  including the Steam operating-system, category, release, and input-support fields.
                 </p>
                 <p>
                   Continue with the <Link href="/">complete Dear Passengers game guide</Link>, the{' '}
