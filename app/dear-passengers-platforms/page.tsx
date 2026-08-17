@@ -8,6 +8,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const FLEXUS_URL = 'https://flexus.games/';
+const QUEST_STORE_DB_URL = 'https://queststoredb.com/game/dear-passengers-vr-1251691901365016/';
+const META_QUEST_URL = 'https://www.meta.com/experiences/1251691901365016/';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-platforms/';
 
 export const metadata: Metadata = {
@@ -61,6 +63,11 @@ const faqs: FaqItem[] = [
       'Dear Passengers VR support has not been announced. The first-person camera and cockpit setting do not prove a VR mode. Steam does not currently show a VR-only or VR-supported feature for the game.',
   },
   {
+    question: 'Is the Dear Passengers VR listing on Meta Quest official?',
+    answer:
+      'No verified source connects the Meta Quest listing with app ID 1251691901365016 to FLEXUS or Steam app 4534960. Quest Store DB attributes the separate listing to Fun Land Games and records it as delisted on August 13, 2026; the linked Meta page is currently unavailable. That does not establish malicious intent, but it does mean the listing is not evidence of an official FLEXUS VR edition.',
+  },
+  {
     question: 'Can I play Dear Passengers on mobile?',
     answer:
       'No FLEXUS Dear Passengers mobile version is confirmed for Android or iOS. A similarly named app or game should not be treated as the same product unless FLEXUS links to it or an official store identifies FLEXUS as the publisher.',
@@ -90,7 +97,7 @@ const articleSchema = {
     'A source-led guide to confirmed and unannounced Dear Passengers platforms, storefronts, input support, and crossplay.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-29',
-  dateModified: '2026-08-15',
+  dateModified: '2026-08-17',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -157,7 +164,7 @@ export default function PlatformsPage() {
                 <Link className="button button-ghost" href="/dear-passengers-release-date">Release-date briefing →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 29, 2026</span><span>Fact-checked August 15, 2026</span><span>Confirmed: Windows PC</span>
+                <span>Published July 29, 2026</span><span>Fact-checked August 17, 2026</span><span>Confirmed: Windows PC</span>
               </div>
             </div>
           </header>
@@ -203,7 +210,7 @@ export default function PlatformsPage() {
                   can move from unknown to confirmed.
                 </p>
 
-                <div className="platform-table" role="table" aria-label="Dear Passengers platform status on August 15, 2026">
+                <div className="platform-table" role="table" aria-label="Dear Passengers platform status on August 17, 2026">
                   <div className="platform-head" role="row"><span role="columnheader">Platform</span><span role="columnheader">Status</span><span role="columnheader">Evidence</span></div>
                   <div role="row"><strong role="cell">Windows PC / Steam</strong><span className="status-confirmed" role="cell">Confirmed · 2026</span><span role="cell">Steam listing and requirements</span></div>
                   <div role="row"><strong role="cell">PlayStation 5</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No first-party statement</span></div>
@@ -295,6 +302,31 @@ export default function PlatformsPage() {
                   headset performance, comfort settings, seated play, or a VR interface. Steam does not currently mark
                   it as VR supported or VR only. Community requests remain requests.
                 </p>
+                <h3>What Is the Separate Dear Passengers VR Quest Listing?</h3>
+                <p>
+                  Google currently surfaces a Quest Store DB result titled <em>Dear Passengers VR</em>. The archived
+                  record identifies Meta app ID <code>1251691901365016</code>, developer and publisher Fun Land Games,
+                  a $6.99 base price, an August 8 preorder, and an August 13, 2026 delisting. Quest Store DB also states
+                  that it is a hobby database not affiliated with Meta. Its record is useful for identity history, not
+                  for proving that FLEXUS announced a headset edition.
+                </p>
+                <p>
+                  The record’s <a href={META_QUEST_URL} target="_blank" rel="noopener noreferrer">linked Meta Quest
+                  page ↗</a> currently says that the page is unavailable. Neither that unavailable page nor the{' '}
+                  <a href={QUEST_STORE_DB_URL} target="_blank" rel="noopener noreferrer">Quest Store DB archive ↗</a>
+                  identifies FLEXUS or links to the official Steam app. The confirmed PC product instead names FLEXUS
+                  as developer and publisher and uses Steam app ID <code>4534960</code>.
+                </p>
+                <div className="platform-table" role="table" aria-label="Dear Passengers PC and VR listing identity comparison">
+                  <div className="platform-head" role="row"><span role="columnheader">Listing</span><span role="columnheader">Named publisher</span><span role="columnheader">Current evidence</span></div>
+                  <div role="row"><strong role="cell">Dear Passengers · Steam 4534960</strong><span className="status-confirmed" role="cell">FLEXUS</span><span role="cell">Confirmed Windows PC product</span></div>
+                  <div role="row"><strong role="cell">Dear Passengers VR · Meta 1251691901365016</strong><span className="status-open" role="cell">Fun Land Games</span><span role="cell">Separate, delisted record; no verified FLEXUS link</span></div>
+                </div>
+                <p>
+                  The careful conclusion is not that the Quest listing was malicious. It is that a shared name and a
+                  similar airline premise do not establish affiliation. Players should not treat its price, August 21
+                  placeholder, screenshots, or compatibility fields as Dear Passengers announcements from FLEXUS.
+                </p>
                 <p>
                   Dear Passengers mobile searches create a different risk: name confusion. FLEXUS does not link an
                   Android or iOS Dear Passengers version from its current game page, and Steam identifies the announced
@@ -374,7 +406,8 @@ export default function PlatformsPage() {
                 <span className="kicker">PLATFORM QUESTIONS</span>
                 <h2>Dear Passengers Platforms FAQ</h2>
                 <p>
-                  These Dear Passengers answers reflect the current Steam and FLEXUS records on August 15, 2026. The FAQ
+                  These Dear Passengers answers reflect the current Steam, FLEXUS, Meta, and archived Quest listing
+                  records on August 17, 2026. The FAQ
                   is designed for quick verification; it does not turn platform demand into a release commitment.
                 </p>
                 <FAQ items={faqs} />
@@ -388,8 +421,12 @@ export default function PlatformsPage() {
                   listing ↗</a> confirms Windows, 2026, single-player, online co-op, six interface languages, and the
                   minimum PC requirements. The <a href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">official
                   FLEXUS website ↗</a> identifies Dear Passengers as a studio project and links back to Steam. Neither
-                  source currently announces the other platforms covered above. This status was rechecked on August 15,
-                  including the Steam operating-system, category, release, and input-support fields.
+                  source currently announces the other platforms covered above. The separate{' '}
+                  <a href={QUEST_STORE_DB_URL} target="_blank" rel="noopener noreferrer">Dear Passengers VR archive ↗</a>
+                  names Fun Land Games and records a delisting, while its{' '}
+                  <a href={META_QUEST_URL} target="_blank" rel="noopener noreferrer">Meta app URL ↗</a> is currently
+                  unavailable. This status was rechecked on August 17, including the Steam operating-system, category,
+                  release, input-support, and publisher fields.
                 </p>
                 <p>
                   Continue with the <Link href="/">complete Dear Passengers game guide</Link>, the{' '}
