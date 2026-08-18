@@ -88,7 +88,7 @@ export default function PreFlightControlCenter({ latestOfficialUpdate, statusBoa
             </div>
             <div className="preflight-heading-copy">
               <p>
-                One fast, source-checked view of the <strong>Dear Passengers game</strong> release, demo, platform, and
+                One fast, source-checked view of the release, demo, platform, and
                 multiplayer status. Each route below owns the full answer; this board shows only what changed and what
                 remains unknown.
               </p>

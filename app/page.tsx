@@ -29,37 +29,37 @@ const faqs: FaqItem[] = [
   {
     question: 'When will Dear Passengers be released?',
     answer:
-      'The official Dear Passengers Steam listing gives a 2026 release window but does not provide an exact day or month. Our dedicated release-date guide separates confirmed details from speculation and will be updated when FLEXUS changes the official listing.',
+      'The official Steam listing gives a 2026 release window but does not provide an exact day or month. Our dedicated release-date guide separates confirmed details from speculation and will be updated when FLEXUS changes the listing.',
   },
   {
     question: 'How many players can play Dear Passengers?',
     answer:
-      'The Dear Passengers Steam page confirms online co-op but does not currently state a maximum group size in the feature list. Reveal footage shows multiple crew members working together. Until FLEXUS publishes a formal player-count specification, a precise maximum should be treated as unconfirmed.',
+      'The Steam page confirms online co-op but does not currently state a maximum group size in the feature list. Reveal footage shows multiple crew members working together. Until FLEXUS publishes a formal player-count specification, a precise maximum should be treated as unconfirmed.',
   },
   {
     question: 'Can you play Dear Passengers alone?',
     answer:
-      'Yes. The Dear Passengers Steam feature panel includes Single-player as well as Online Co-op. FLEXUS has not yet explained how solo role switching, automated crew, or difficulty scaling will work, so the exact solo experience remains unknown.',
+      'Yes. The Steam feature panel includes Single-player as well as Online Co-op. FLEXUS has not yet explained how solo role switching, automated crew, or difficulty scaling will work, so the exact solo experience remains unknown.',
   },
   {
     question: 'Is Dear Passengers coming to PS5, Xbox, or Switch?',
     answer:
-      'Dear Passengers is currently confirmed only for Windows PC through Steam. No PlayStation 5, Xbox Series, or Nintendo Switch version has been announced. Console availability should remain marked as not announced unless an official store page or FLEXUS statement appears.',
+      'The game is currently confirmed only for Windows PC through Steam. No PlayStation 5, Xbox Series, or Nintendo Switch version has been announced. Console availability should remain marked as not announced unless an official store page or FLEXUS statement appears.',
   },
   {
     question: 'Does Dear Passengers support local co-op or split screen?',
     answer:
-      'The current Dear Passengers store listing confirms online co-op but does not list shared-screen or split-screen play. Local co-op, crossplay, Remote Play Together, controller support, and Steam Deck status are therefore unconfirmed at this stage.',
+      'The current store listing confirms online co-op but does not list shared-screen or split-screen play. Local co-op, crossplay, Remote Play Together, controller support, and Steam Deck status are therefore unconfirmed at this stage.',
   },
   {
     question: 'Is there a Dear Passengers demo or beta?',
     answer:
-      'FLEXUS is preparing a Dear Passengers demo for Gamescom and says a public demo will follow later. The public build is not downloadable yet, and no demo date, beta signup, or Steam Playtest has been announced. Our dedicated demo guide tracks the verified access status.',
+      'FLEXUS is preparing a Gamescom demo and says a public build will follow later. It is not downloadable yet, and no demo date, beta signup, or Steam Playtest has been announced. Our dedicated guide tracks the verified access status.',
   },
   {
     question: 'What are the Dear Passengers system requirements?',
     answer:
-      'The current Dear Passengers minimum specifications list Windows 10 64-bit, an Intel Core i5 at 2.5 GHz or equivalent, 8 GB RAM, a GTX 1060 or RX 6600 XT, DirectX 12, and 4 GB of storage. Recommended specifications have not been posted.',
+      'The current minimum specifications list Windows 10 64-bit, an Intel Core i5 at 2.5 GHz or equivalent, 8 GB RAM, a GTX 1060 or RX 6600 XT, DirectX 12, and 4 GB of storage. Recommended specifications have not been posted.',
   },
 ];
 
@@ -190,35 +190,35 @@ export default function HomePage() {
               <p className="kicker">A BAD AIRLINE. A VERY GOOD CO-OP PREMISE.</p>
               <h2>What Is the Dear Passengers Game?</h2>
               <p>
-                The <strong>Dear Passengers game</strong> is an action-adventure and online co-op title in which you
+                This action-adventure and online co-op title lets you
                 and your friends become the world&apos;s worst airline crew. The plane is unreliable, the cargo may be
-                illegal, and passenger safety competes with profit. Dear Passengers uses unpredictable physics and
+                illegal, and passenger safety competes with profit. It uses unpredictable physics and
                 divided roles to create entertaining disasters instead of an orderly flight simulation.
               </p>
               <p>
-                Before takeoff in Dear Passengers, the crew chooses which passengers and cargo to accept. Higher-paying jobs can introduce
+                Before takeoff, the crew chooses which passengers and cargo to accept. Higher-paying jobs can introduce
                 harder problems. One crew member may fly while others serve food, calm the cabin, protect cargo, and
-                contain emergencies. Turbulence can throw unsecured objects through the aircraft, giving the
-                <strong> Dear Passengers game</strong> a clear identity beyond a conventional flight simulator.
+                contain emergencies. Turbulence can throw unsecured objects through the aircraft, giving the game a
+                clear identity beyond a conventional flight simulator.
               </p>
 
               <h3>Who Is Developing Dear Passengers?</h3>
               <p>
-                FLEXUS is listed as both developer and publisher. The official Dear Passengers Steam page is the primary source for the
+                FLEXUS is listed as both developer and publisher. The official Steam page is the primary source for the
                 current feature list, language, release window, and PC specifications. DearPassengers.net is independent
                 and never treats trailer interpretation or community discussion as an official promise.
               </p>
               <p>
                 FLEXUS describes itself as a Kyiv-based studio founded in 2020 with more than 70 team members and more
                 than 300 million downloads across 150 countries. Our{' '}
-                <Link href="/dear-passengers-developer-flexus">Dear Passengers developer profile</Link> explains who
+                <Link href="/dear-passengers-developer-flexus">developer profile</Link> explains who
                 made the game, the studio&apos;s mobile catalogue, its move into PC co-op, and what founder Semen
                 Kozyura has said about the demo and release.
               </p>
 
               <h3>Is Dear Passengers an Official Steam Game?</h3>
               <p>
-                Yes. The <strong>Dear Passengers game</strong> has an official Steam store page and can be added to a
+                Yes. The game has an official Steam store page and can be added to a
                 wishlist now. The listing names Windows as the operating system and 2026 as the planned release year.
                 Its interface table currently includes English, Arabic, Simplified Chinese, Turkish, Ukrainian, and
                 Japanese. It has no user reviews because it is unreleased.
@@ -241,9 +241,9 @@ export default function HomePage() {
                 <h2>Dear Passengers Gameplay: How the Airline Co-op Works</h2>
               </div>
               <p>
-                Four short Dear Passengers gameplay clips show the tone more clearly than a feature checklist: service tasks collide
+                Four short gameplay clips show the tone more clearly than a feature checklist: service tasks collide
                 with loose luggage, strange cargo, impatient passengers, and crew improvisation. Together, the clips
-                show why the <strong>Dear Passengers game</strong> is built for shared reactions rather than silent,
+                show why this co-op game is built for shared reactions rather than silent,
                 perfectly optimized play.
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function HomePage() {
               <div>
                 <h3>Pilot and Cabin Crew Roles</h3>
                 <p>
-                  The central idea behind <strong>Dear Passengers game</strong> sessions is role pressure. A pilot must
+                  The central idea behind each session is role pressure. A pilot must
                   keep the aircraft moving toward its destination while the cabin crew handles everything happening
                   behind the cockpit door. The separation creates useful communication problems: a smooth turn for the
                   pilot may send a service cart across the aisle, while a cabin emergency may demand a maneuver the
@@ -276,7 +276,7 @@ export default function HomePage() {
               <span className="card-number">B</span>
               <h3>Passengers, Cargo and Dynamic Weather</h3>
               <p>
-                In Dear Passengers, passenger and cargo selection appears to be part of the risk-reward loop. Bigger payouts can bring more
+                Passenger and cargo selection appears to be part of the risk-reward loop. Bigger payouts can bring more
                 troublesome loads, while weather adds a second source of instability. The official description names
                 turbulence and air pockets, both of which can move passengers, baggage, and anything left unsecured.
               </p>
@@ -285,7 +285,7 @@ export default function HomePage() {
               <span className="card-number">C</span>
               <h3>Physics-Based Chaos and Emergencies</h3>
               <p>
-                The <strong>Dear Passengers game</strong> is designed around escalating mishaps rather than perfect
+                The game is designed around escalating mishaps rather than perfect
                 procedure. A loose object or upset traveler can create a chain reaction, and the crew must invent a
                 practical response before the situation becomes worse. That makes communication and quick adaptation
                 more important than memorizing a single optimal route.
@@ -300,37 +300,37 @@ export default function HomePage() {
               <span className="kicker">CREW MANIFEST</span>
               <h2>Dear Passengers Multiplayer and Player Count</h2>
               <p>
-                Steam confirms that the <strong>Dear Passengers game</strong> supports online co-op and single-player.
+                Steam confirms that the game supports online co-op and single-player.
                 Reveal footage clearly shows several people sharing crew duties, but the current store feature panel
                 does not publish an official maximum player count. Some coverage interprets the trailer as showing four
                 players; until FLEXUS writes that number in an official specification, this guide keeps the maximum
                 marked as unconfirmed.
               </p>
               <p>
-                The Dear Passengers cockpit-versus-cabin structure gives each participant a responsibility. Matchmaking,
+                The cockpit-versus-cabin structure gives each participant a responsibility. Matchmaking,
                 public lobbies, join-in-progress, and an in-game voice system remain unannounced.
               </p>
 
               <h3>Can You Play Dear Passengers Solo?</h3>
               <p>
-                Steam includes Dear Passengers single-player support. FLEXUS has not explained whether solo players
+                Steam includes single-player support. FLEXUS has not explained whether solo players
                 switch roles, receive AI assistance, or face simplified problems, so the exact experience remains open.
               </p>
 
               <h3>Local Co-op, Split Screen and Crossplay Status</h3>
               <p>
-                Dear Passengers online co-op is confirmed; local co-op and split screen are not. Steam also does not currently list
+                Online co-op is confirmed; local co-op and split screen are not. Steam also does not currently list
                 Remote Play Together. With no console edition announced, crossplay is unconfirmed. Controller, Steam
                 Deck, VR, and cross-progression details are also open.
               </p>
               <p>
-                Our <Link href="/dear-passengers-player-count">Dear Passengers player count guide</Link> tracks the
+                Our <Link href="/dear-passengers-player-count">player-count guide</Link> tracks the
                 official maximum, solo behavior, split screen, crossplay, voice chat, controllers, Steam Deck, VR, and
                 lobby questions in one dedicated briefing.
               </p>
               <p>
                 To compare cockpit, cabin, cargo, and emergency duties before launch, use the{' '}
-                <Link href="/dear-passengers-roles">Dear Passengers roles guide</Link>. Its table separates confirmed
+                <Link href="/dear-passengers-roles">crew-roles guide</Link>. Its table separates confirmed
                 responsibilities from suggested team assignments and shows why solo suitability remains unresolved.
               </p>
             </div>
@@ -343,7 +343,7 @@ export default function HomePage() {
               <div className="board-row open"><span>Local co-op / split screen</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Crossplay</span><b>NOT ANNOUNCED</b></div>
               <div className="board-row open"><span>Controller / Steam Deck</span><b>NOT ANNOUNCED</b></div>
-              <p>Source: current Dear Passengers Steam store feature panel. Checked July 29, 2026.</p>
+              <p>Source: current official Steam store feature panel. Checked July 29, 2026.</p>
             </div>
           </div>
         </section>
@@ -355,28 +355,28 @@ export default function HomePage() {
               <span className="kicker">ARRIVALS BOARD</span>
               <h2>Dear Passengers Release Date and Platforms</h2>
               <p>
-                The <strong>Dear Passengers game</strong> is scheduled for 2026, but FLEXUS has not announced a month
-                or day. The Dear Passengers Windows PC edition through Steam is the only confirmed platform. There is no announced PlayStation 5,
+                The game is scheduled for 2026, but FLEXUS has not announced a month
+                or day. Its Windows PC edition through Steam is the only confirmed platform. There is no announced PlayStation 5,
                 Xbox Series, Nintendo Switch, Mac, or Linux version, and no public price or preorder option is listed.
               </p>
               <p>
-                In a July 17 interview, Kozyura said the team still intends to release Dear Passengers in 2026 but will
+                In a July 17 interview, Kozyura said the team still intends to release the game in 2026 but will
                 not rush an unpolished build. That statement supports the year shown on Steam without creating a more
                 precise launch date.
               </p>
               <p>
-                Our <Link href="/dear-passengers-release-date">complete Dear Passengers release date guide</Link>
+                Our <Link href="/dear-passengers-release-date">complete release-date guide</Link>
                 separates official timing from open launch questions. The dedicated{' '}
-                <Link href="/dear-passengers-platforms">Dear Passengers platforms guide</Link> tracks PC, PS5, Xbox,
+                <Link href="/dear-passengers-platforms">platforms guide</Link> tracks PC, PS5, Xbox,
                 Nintendo, VR, mobile, controllers, and Steam Deck without treating search demand as a port announcement. German
                 readers can use the locally researched{' '}
                 <Link href="/de/dear-passengers-release/" hrefLang="de">Dear Passengers Release guide</Link>, built
                 around the way German gaming audiences ask when a game comes out.
               </p>
               <p>
-                FLEXUS has now confirmed that it is preparing a Dear Passengers demo for Gamescom and plans to release
+                FLEXUS has now confirmed that it is preparing a Gamescom demo and plans to release
                 a public demo later. There is no public download or date yet. Read the{' '}
-                <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> for the complete source-backed status.
+                <Link href="/dear-passengers-demo">demo guide</Link> for the complete source-backed status.
               </p>
               <Link className="text-link" href="/dear-passengers-release-date">Open the full release briefing →</Link>
             </div>
@@ -389,13 +389,13 @@ export default function HomePage() {
               <span className="kicker">AIRCRAFT REQUIREMENTS</span>
               <h2>Dear Passengers System Requirements and Languages</h2>
               <p>
-                The current minimum requirements for the <strong>Dear Passengers game</strong> are modest in storage
+                The current minimum requirements are modest in storage
                 size but call for a dedicated graphics card and DirectX 12. Steam lists Windows 10 64-bit, an Intel Core
                 i5 running at 2.5 GHz or an equivalent processor, 8 GB of memory, and either an NVIDIA GTX 1060 or AMD
-                RX 6600 XT. The Dear Passengers installation requires 4 GB of available storage.
+                RX 6600 XT. The installation requires 4 GB of available storage.
               </p>
               <p>
-                These minimum specifications do not promise a resolution or frame rate. Dear Passengers recommended
+                These minimum specifications do not promise a resolution or frame rate. Recommended
                 specifications are unannounced, so players with integrated graphics or older hardware should wait for
                 testing before judging performance.
               </p>
@@ -403,13 +403,13 @@ export default function HomePage() {
               <h3>Does Dear Passengers Support Chinese?</h3>
               <p>
                 Yes at the interface level. Steam currently lists English, Arabic, Simplified Chinese, Turkish,
-                Ukrainian, and Japanese interface support for Dear Passengers. The table does not currently mark full
+                Ukrainian, and Japanese interface support for the game. The table does not currently mark full
                 audio or subtitles for these languages, so interface availability should not be expanded into a claim
                 about voice acting. The Steam language table remains the reliable reference while development continues.
               </p>
               <p>
                 For hardware explanations, laptop guidance, and every status that remains open, read the complete{' '}
-                <Link href="/dear-passengers-system-requirements">Dear Passengers system requirements guide</Link>.
+                <Link href="/dear-passengers-system-requirements">system requirements guide</Link>.
               </p>
             </div>
 
@@ -431,11 +431,11 @@ export default function HomePage() {
             <h2>How to Wishlist the Dear Passengers Game on Steam</h2>
             <p>
               Open the official Steam listing, sign in, and select <em>Add to your wishlist</em>. Steam can then notify
-              you when the Dear Passengers release status changes or the game becomes available. Following the Dear Passengers store page is also more
+              you when the release status changes or the game becomes available. Following the official store page is also more
               reliable than copying an unverified countdown because the developer controls the official listing.
             </p>
             <ol className="steps">
-              <li><span>01</span><p>Visit the official <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Dear Passengers Steam page</a>.</p></li>
+              <li><span>01</span><p>Visit the official <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam page</a>.</p></li>
               <li><span>02</span><p>Sign in to the Steam account where you want the launch notification.</p></li>
               <li><span>03</span><p>Select <strong>Add to your wishlist</strong> beneath the game media panel.</p></li>
               <li><span>04</span><p>Recheck the store page for demo, playtest, language, and release updates.</p></li>
@@ -449,7 +449,7 @@ export default function HomePage() {
               <span className="kicker">CONNECTING FLIGHTS</span>
               <h2>Games Like Dear Passengers</h2>
               <p>
-                The <strong>Dear Passengers game</strong> belongs beside social co-op experiences where communication,
+                The game belongs beside social co-op experiences where communication,
                 physical comedy, and failure create the best stories. It remains distinctive by putting that chaos in
                 one moving aircraft with separate cockpit and cabin roles.
               </p>
@@ -462,7 +462,7 @@ export default function HomePage() {
             </div>
             <div className="related-actions">
               <Link className="button" href="/games-like-dear-passengers">Compare all eight similar games →</Link>
-              <Link className="button button-ghost" href="/dear-passengers-gameplay">Review Dear Passengers gameplay →</Link>
+              <Link className="button button-ghost" href="/dear-passengers-gameplay">Review the gameplay →</Link>
             </div>
           </div>
         </section>
@@ -475,8 +475,8 @@ export default function HomePage() {
               <span className="kicker">PASSENGER QUESTIONS</span>
               <h2>Dear Passengers Game FAQ</h2>
               <p>
-                These answers summarize confirmed Dear Passengers information and clearly label details that remain unannounced. For
-                launch-specific changes, visit the <Link href="/dear-passengers-release-date">latest Dear Passengers release date updates</Link>.
+                These answers summarize confirmed information and clearly label details that remain unannounced. For
+                launch-specific changes, visit the <Link href="/dear-passengers-release-date">latest release-date updates</Link>.
               </p>
             </div>
             <FAQ items={faqs} />
@@ -488,7 +488,7 @@ export default function HomePage() {
             <span className="kicker">FINAL BOARDING CALL</span>
             <h2>Follow the Dear Passengers Game Before Takeoff</h2>
             <p>
-              Wishlist the <strong>Dear Passengers game</strong> on Steam for official availability updates, then keep
+              Wishlist the game on Steam for official availability updates, then keep
               this independent briefing bookmarked for plain-language coverage of gameplay, multiplayer, platforms,
               system requirements, and launch details.
             </p>
