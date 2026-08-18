@@ -50,6 +50,12 @@ if (fs.existsSync(path.join(OUTPUT_DIR, 'adsterra-native', 'index.html'))) {
   failures.push('/adsterra-native/ is a retired blank advertising page and must not be published');
 }
 
+const redirectsPath = path.join(OUTPUT_DIR, '_redirects');
+const redirects = fs.existsSync(redirectsPath) ? fs.readFileSync(redirectsPath, 'utf8') : '';
+if (!redirects.includes('/adsterra-native/* / 301')) {
+  failures.push('/adsterra-native/ does not have a permanent retirement redirect');
+}
+
 if (excludedMyanmarPages === 0) {
   failures.push('no Myanmar pages were found, so the unsupported-language exclusion was not verified');
 }

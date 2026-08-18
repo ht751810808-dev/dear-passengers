@@ -1,0 +1,4 @@
+# Retired third-party advertising shell. Keep old backlinks and cached paths
+# away from a blank, non-content response.
+/adsterra-native / 301
+/adsterra-native/* / 301
