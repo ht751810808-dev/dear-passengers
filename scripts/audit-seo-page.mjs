@@ -8,10 +8,10 @@ if (!htmlPath || !keyword) {
 }
 
 const html = fs.readFileSync(htmlPath, 'utf8');
-const mainMatch = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
+const bodyMatch = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
 
-if (!mainMatch) {
-  console.error(`SEO page audit failed: no <main> found in ${htmlPath}`);
+if (!bodyMatch) {
+  console.error(`SEO page audit failed: no <body> found in ${htmlPath}`);
   process.exit(1);
 }
 
@@ -26,9 +26,8 @@ const decodeEntities = (value) => value
   .replace(/&gt;/gi, '>');
 
 const visibleText = decodeEntities(
-  mainMatch[1]
+  bodyMatch[1]
     .replace(/<(script|style|svg)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<(nav|aside)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<[^>]+>/g, ' '),
 ).replace(/\s+/g, ' ').trim();
 
@@ -41,7 +40,9 @@ const escapedKeyword = keyword
   .replace(/\s+/g, '\\s+');
 const occurrencePattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapedKeyword}(?![\\p{L}\\p{N}])`, 'giu');
 const occurrences = [...visibleText.matchAll(occurrencePattern)].length;
-const density = words.length === 0 ? 0 : (keywordWords.length * occurrences / words.length) * 100;
+// Exact-phrase density: consecutive phrase occurrences divided by all visible page words.
+// Do not multiply by the number of words inside the phrase.
+const density = words.length === 0 ? 0 : (occurrences / words.length) * 100;
 
 const minWords = Number(minWordsRaw);
 const maxWords = Number(maxWordsRaw);
@@ -63,7 +64,7 @@ console.log(JSON.stringify({
   keywordWords: keywordWords.length,
   exactOccurrences: occurrences,
   densityPercent: Number(density.toFixed(2)),
-  formula: `(${keywordWords.length} × ${occurrences} ÷ ${words.length}) × 100`,
+  formula: `(${occurrences} ÷ ${words.length}) × 100`,
 }, null, 2));
 
 if (errors.length > 0) {
