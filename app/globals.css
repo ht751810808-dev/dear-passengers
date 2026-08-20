@@ -795,6 +795,31 @@ h1, h2, h3, h4 {
 .status-grid .fact-callout ul { margin: 14px 1.1rem 0 0; }
 .status-grid .fact-callout li { margin: 6px 0; font-size: .82rem; }
 .status-grid .unknown-callout { background: var(--white); border-color: var(--red-dark); }
+
+/* Steam store verification desk */
+.steam-article-hero { min-height: 720px; }
+.steam-article-hero > img { object-position: center 42%; }
+.steam-hero-content { padding-top: 126px; padding-bottom: 48px; }
+.steam-hero-content .breadcrumbs { margin-bottom: 22px; }
+.steam-hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(290px, .55fr); gap: clamp(34px, 6vw, 78px); align-items: center; }
+.steam-hero-copy h1 { max-width: 820px; font-size: clamp(3.5rem, 6.4vw, 6.2rem); }
+.steam-hero-copy > p { max-width: 750px; color: #d7e0e7; font-size: 1rem; }
+.steam-hero-copy .button { color: var(--navy-2); background: var(--orange); box-shadow: 0 9px 0 #a95219, 0 14px 28px rgba(4,12,25,.3); }
+.steam-hero-copy .button:hover { background: #f4a35d; box-shadow: 0 6px 0 #a95219, 0 10px 20px rgba(4,12,25,.25); }
+.steam-hero-copy .button:focus-visible,
+.steam-identity-board:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+.steam-hero-copy .storefront-disclosure { margin-top: 12px; color: #c4d0d9; font-size: .72rem; }
+.steam-hero-copy .article-meta { margin-top: 30px; }
+.steam-identity-board { display: grid; gap: 1px; overflow: hidden; border: 1px solid rgba(255,255,255,.24); border-radius: 20px; background: rgba(255,255,255,.16); box-shadow: 0 26px 70px rgba(0,0,0,.28); }
+.steam-identity-board > div { padding: 18px 20px; background: rgba(7,17,31,.86); backdrop-filter: blur(12px); }
+.steam-identity-board dt { color: var(--orange); font-size: .62rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+.steam-identity-board dd { margin-top: 2px; color: var(--white); font-family: var(--font-display); font-size: 1.72rem; font-weight: 800; line-height: 1.12; text-transform: uppercase; }
+.steam-identity-board small { display: block; margin-top: 3px; color: #aebdcb; font-size: .68rem; }
+.steam-store-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 35px 0; }
+.steam-store-grid > div { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 12px 34px rgba(20,35,58,.07); }
+.steam-store-grid dt { color: var(--red-dark); font-size: .62rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.steam-store-grid dd { margin-top: 5px; overflow-wrap: anywhere; color: var(--ink); font-family: var(--font-display); font-size: 1.42rem; font-weight: 800; line-height: 1.2; }
+.steam-store-grid small { display: block; margin-top: 8px; color: var(--ink-soft); font-size: .73rem; line-height: 1.55; }
 .article-source-figure { margin: 37px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: 0 14px 40px rgba(20,35,58,.08); }
 .article-source-figure img { display: block; width: 100%; height: auto; }
 .article-source-figure figcaption { padding: 12px 16px 14px; color: var(--ink-soft); font-size: .72rem; line-height: 1.55; }
@@ -1061,6 +1086,8 @@ h1, h2, h3, h4 {
   .article-toc p { width: 100%; }
   .article-toc a { padding: 4px 0; }
   .article-toc .toc-cta { margin: 0 0 0 auto; padding: 5px 10px; }
+  .steam-hero-grid { grid-template-columns: minmax(0, 1fr) 270px; gap: 30px; }
+  .steam-hero-copy h1 { font-size: clamp(3.3rem, 8vw, 5.3rem); }
   .source-grid { grid-template-columns: repeat(2, 1fr); }
   .preflight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .preflight-latest { grid-template-columns: 125px minmax(0, 1fr); }
@@ -1105,6 +1132,12 @@ h1, h2, h3, h4 {
   .footer-grid { gap: 38px; }
   .footer-bottom { flex-direction: column; }
   .article-layout { padding-top: 60px; }
+  .steam-article-hero { min-height: 760px; }
+  .steam-hero-content { padding-top: 112px; padding-bottom: 42px; }
+  .steam-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .steam-hero-copy h1 { max-width: 650px; font-size: clamp(3.2rem, 13vw, 4.8rem); }
+  .steam-identity-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steam-identity-board > div { min-height: 108px; }
   .article-prose section { padding-bottom: 60px; }
   .article-prose section + section { padding-top: 60px; }
   .editorial-note { grid-template-columns: 1fr; }
@@ -1187,6 +1220,11 @@ h1, h2, h3, h4 {
   .footer-brand { grid-column: auto; }
   .platform-table { overflow-x: auto; }
   .platform-table > div { min-width: 620px; }
+  .steam-store-grid { grid-template-columns: 1fr; }
+  .steam-identity-board dd { font-size: 1.35rem; }
+  .steam-hero-copy .hero-actions,
+  .steam-hero-copy .storefront-disclosure { padding-right: 70px; }
+  .steam-article-hero .hero-shade { background: linear-gradient(0deg, rgba(7,17,31,.99) 3%, rgba(7,17,31,.76) 72%, rgba(7,17,31,.58)); }
   .article-toc { display: none; }
   .timeline > div { padding-left: 76px; }
   .timeline time { left: 18px; }

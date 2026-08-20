@@ -161,6 +161,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-08-20'),
     },
     {
+      url: `${baseUrl}/dear-passengers-steam/`,
+      lastModified: new Date('2026-08-20'),
+    },
+    {
       url: `${baseUrl}/dear-passengers-gameplay/`,
       lastModified: new Date('2026-08-04'),
     },

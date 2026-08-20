@@ -236,6 +236,11 @@ export default function DearPassengersDownloadPage() {
                   The <Link href="/dear-passengers-confirmed-features">confirmed features record</Link> explains which
                   store fields are present and which launch details remain open.
                 </p>
+                <p>
+                  Before evaluating any file, <Link href="/dear-passengers-steam">verify Steam app 4534960</Link> and
+                  its current store controls. The dedicated store desk owns the App ID, developer and publisher match,
+                  wishlist status, language table, and the difference between official fields and user tags.
+                </p>
 
                 <div className="platform-table" role="table" aria-label="Official Dear Passengers download status">
                   <div className="platform-head" role="row"><span role="columnheader">Dear Passengers access</span><span role="columnheader">Status</span><span role="columnheader">Verification</span></div>

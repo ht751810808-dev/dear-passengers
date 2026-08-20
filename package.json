@@ -12,6 +12,7 @@
     "deploy:cf": "pnpm build && wrangler pages deploy out --project-name dear-passengers --branch main",
     "audit:facts": "node scripts/audit-game-facts.mjs",
     "audit:observations": "node scripts/audit-launch-observations.mjs",
+    "audit:seo-page": "node scripts/audit-seo-page.mjs",
     "audit:adsense": "node scripts/audit-adsense-build.mjs",
     "create:observation": "node scripts/create-launch-observation.mjs",
     "lint": "next lint",

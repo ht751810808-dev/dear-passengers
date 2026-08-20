@@ -218,10 +218,10 @@ export default function HomePage() {
 
               <h3>Is Dear Passengers an Official Steam Game?</h3>
               <p>
-                Yes. The game has an official Steam store page and can be added to a
-                wishlist now. The listing names Windows as the operating system and 2026 as the planned release year.
-                Its interface table currently includes English, Arabic, Simplified Chinese, Turkish, Ukrainian, and
-                Japanese. It has no user reviews because it is unreleased.
+                Yes. The game has a <Link href="/dear-passengers-steam">verified Dear Passengers Steam listing</Link>{' '}
+                and can be added to a wishlist now. The listing names Windows as the operating system and 2026 as the
+                planned release year. Its interface table currently includes English, Arabic, Simplified Chinese,
+                Turkish, Ukrainian, and Japanese. It has no user reviews because it is unreleased.
               </p>
             </div>
           </div>

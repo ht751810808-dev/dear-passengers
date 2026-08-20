@@ -78,8 +78,8 @@ export const gamePagePaths: Record<GamePageLocale, string> = {
 
 const english: GamePageContent = {
   locale: 'en', canonicalPath: gamePagePaths.en, homePath: '/', homeLabel: 'Dear Passengers game guide',
-  title: 'What Is Dear Passengers? Official Game Details & Steam Status',
-  description: 'Identify the official Dear Passengers game from FLEXUS and check its verified Steam status, gameplay premise, platforms, demo plan and unanswered questions.',
+  title: 'What Is Dear Passengers? Official Game Details & Identity',
+  description: 'Identify the official Dear Passengers game from FLEXUS and check its gameplay premise, current identity, platforms, demo plan and unanswered questions.',
   primaryKeyword: 'Dear Passengers game', eyebrow: 'OFFICIAL PRODUCT IDENTITY · VERIFIED AUGUST 20, 2026',
   h1: 'What Is Dear Passengers? Official Game Details',
   intro: 'Dear Passengers is an upcoming co-op airline action-adventure from FLEXUS. This independent product briefing identifies the official Steam listing, explains what the game is actually about, and separates current first-party facts from fake downloads, placeholder dates, trailer assumptions, and details the studio has not published.',
@@ -150,6 +150,7 @@ const english: GamePageContent = {
   steamSourceLabel: 'Official Dear Passengers Steam listing', interviewSourceLabel: 'Direct FLEXUS interview',
   relatedKicker: 'DEEPER GUIDES', relatedHeading: 'Continue with the exact Dear Passengers question', relatedIntro: 'These routes have separate intent and evidence, so this identity page can stay focused.',
   related: [
+    { href: '/dear-passengers-steam/', label: 'Official Steam app and wishlist status' },
     { href: '/dear-passengers-gameplay/', label: 'How Dear Passengers gameplay works' },
     { href: '/dear-passengers-release-date/', label: 'Release date and price status' },
     { href: '/dear-passengers-platforms/', label: 'PC, console and VR status' },

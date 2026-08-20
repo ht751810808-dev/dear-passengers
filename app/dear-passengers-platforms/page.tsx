@@ -230,6 +230,9 @@ export default function PlatformsPage() {
                   FLEXUS as both developer and publisher, offers wishlisting, and says the game is not
                   yet available. Steam currently shows 2026 rather than an exact day. There is no Dear Passengers
                   purchase button, preorder, preload, Early Access label, or public Playtest panel.
+                  The <Link href="/dear-passengers-steam">Dear Passengers Steam storefront status</Link> verifies the
+                  official App ID, wishlist action, languages, and live access controls without duplicating this
+                  platform comparison.
                 </p>
                 <p>
                   The published Dear Passengers minimum requirements are Windows 10 64-bit, an Intel Core i5 at 2.5 GHz
