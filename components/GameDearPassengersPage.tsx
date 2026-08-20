@@ -13,7 +13,7 @@ export default function GameDearPassengersPage({ content }: { content: GamePageC
   const steamUrl = `https://store.steampowered.com/app/4534960/Dear_Passengers/${content.steamLanguage ? `?l=${content.steamLanguage}` : ''}`;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article', headline: content.title, description: content.description,
-    mainEntityOfPage: pageUrl, datePublished: '2026-07-30', dateModified: '2026-07-30', inLanguage: content.locale,
+    mainEntityOfPage: pageUrl, datePublished: '2026-07-30', dateModified: content.dateModified || '2026-07-30', inLanguage: content.locale,
     author: { '@type': 'Organization', name: content.authorName, url: `https://dearpassengers.net${content.aboutPath}` },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: 'https://dearpassengers.net/images/og-image.png',

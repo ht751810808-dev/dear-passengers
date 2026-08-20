@@ -2,41 +2,15 @@
 
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import adsenseRoutePolicy from '../data/adsense-route-policy.json';
 
-const NON_CONTENT_PATHS = new Set([
-  '/404',
-  '/_not-found',
-  '/about',
-  '/contact',
-  '/editorial-policy',
-  '/privacy-policy',
-  '/de/ueber-uns',
-  '/de/redaktionsrichtlinien',
-  '/de/kontakt',
-  '/de/datenschutz',
-  '/ar/about',
-  '/ar/editorial-policy',
-  '/ar/contact',
-  '/ar/privacy-policy',
-  '/tr/hakkimizda',
-  '/tr/editorial-policy',
-  '/tr/iletisim',
-  '/tr/gizlilik',
-  '/pt-br/sobre',
-  '/pt-br/politica-editorial',
-  '/pt-br/contato',
-  '/pt-br/privacidade',
-  '/es/sobre',
-  '/es/politica-editorial',
-  '/es/contacto',
-  '/es/privacidad',
-]);
+const NON_CONTENT_PATHS = new Set(adsenseRoutePolicy.nonContentPaths);
 
 // Google Publisher products do not currently support Burmese/Myanmar as a
 // primary content language. The site can keep serving those editorial pages,
 // but Google ad code must never load on them.
 // https://support.google.com/adsense/answer/9727
-const UNSUPPORTED_AD_LANGUAGE_PREFIXES = ['/my'];
+const UNSUPPORTED_AD_LANGUAGE_PREFIXES = adsenseRoutePolicy.unsupportedAdLanguagePrefixes;
 
 export function isAdSenseContentPath(pathname: string) {
   const normalizedPath = pathname.replace(/\/+$/, '') || '/';

@@ -1,0 +1,33 @@
+{
+  "nonContentPaths": [
+    "/404",
+    "/_not-found",
+    "/about",
+    "/contact",
+    "/editorial-policy",
+    "/privacy-policy",
+    "/de/ueber-uns",
+    "/de/redaktionsrichtlinien",
+    "/de/kontakt",
+    "/de/datenschutz",
+    "/ar/about",
+    "/ar/editorial-policy",
+    "/ar/contact",
+    "/ar/privacy-policy",
+    "/tr/hakkimizda",
+    "/tr/editorial-policy",
+    "/tr/iletisim",
+    "/tr/gizlilik",
+    "/pt-br/sobre",
+    "/pt-br/politica-editorial",
+    "/pt-br/contato",
+    "/pt-br/privacidade",
+    "/es/sobre",
+    "/es/politica-editorial",
+    "/es/contacto",
+    "/es/privacidad"
+  ],
+  "unsupportedAdLanguagePrefixes": [
+    "/my"
+  ]
+}
