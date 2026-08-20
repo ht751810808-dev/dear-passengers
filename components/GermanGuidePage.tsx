@@ -11,6 +11,7 @@ const DOU_RELEASE_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-i
 
 const labels: Record<string, string> = {
   'dear-passengers-spiel': 'Was ist Dear Passengers?',
+  'dear-passengers-steam': 'Steam-App und Wunschliste',
   'dear-passengers-gameplay': 'Gameplay',
   'dear-passengers-spielerzahl': 'Spielerzahl und Koop',
   'dear-passengers-release': 'Release 2026',

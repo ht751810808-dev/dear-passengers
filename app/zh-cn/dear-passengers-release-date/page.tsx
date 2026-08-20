@@ -400,6 +400,7 @@ export default function ChineseReleaseDatePage() {
                   如果需要原始证据，可以直接打开 Steam 与开发者采访。
                 </p>
                 <div className="related-actions">
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-steam/">Steam 商店与愿望单 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-game">游戏介绍与当前状态 →</Link>
                   <Link className="button" href="/zh-cn/">Dear Passengers 中文首页 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link>

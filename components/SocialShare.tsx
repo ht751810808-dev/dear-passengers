@@ -16,11 +16,12 @@ const labels = {
 } satisfies Record<Locale, Record<string, string>>;
 
 function localeFromPath(pathname: string): Locale {
-  if (pathname.startsWith('/zh-cn')) return 'zh';
-  if (pathname.startsWith('/de')) return 'de';
-  if (pathname.startsWith('/ar')) return 'ar';
-  if (pathname.startsWith('/tr')) return 'tr';
-  if (pathname.startsWith('/it')) return 'it';
+  const isLocalePath = (prefix: string) => pathname === prefix || pathname.startsWith(`${prefix}/`);
+  if (isLocalePath('/zh-cn')) return 'zh';
+  if (isLocalePath('/de')) return 'de';
+  if (isLocalePath('/ar')) return 'ar';
+  if (isLocalePath('/tr')) return 'tr';
+  if (isLocalePath('/it')) return 'it';
   return 'en';
 }
 

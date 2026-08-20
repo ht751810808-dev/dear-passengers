@@ -470,6 +470,7 @@ export default function GermanReleasePage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/de/">Zum vollständigen Spiele-Guide →</Link>
+                  <Link className="button button-ghost" href="/de/dear-passengers-steam/">Steam-App und Wunschliste →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date/" hrefLang="en">English release guide →</Link>
                   <Link className="button button-ghost" href="/de/dear-passengers-news/">Aktuelle Meldungen →</Link>
                   <Link className="button button-ghost" href="/de/dear-passengers-demo/">Demo-Status →</Link>

@@ -835,7 +835,7 @@ export const germanHomeGuide: GermanGuide = {
     { question: 'Kommt Dear Passengers für PS5 oder Xbox?', answer: 'Nicht bestätigt. Windows-PC über Steam ist bislang die einzige Plattform.' },
     { question: 'Ist das Dear Passengers Spiel auf Deutsch?', answer: 'Steam markiert Deutsch derzeit als nicht unterstützt. Dieser deutsche Guide ist unabhängig und keine Spiellokalisierung.' }
   ],
-  related: ['dear-passengers-spiel', 'dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-spielerzahl'],
+  related: ['dear-passengers-spiel', 'dear-passengers-steam', 'dear-passengers-gameplay', 'dear-passengers-release', 'dear-passengers-spielerzahl'],
 };
 
 export const germanGuideBySlug = new Map(germanGuides.map((guide) => [guide.slug, guide]));

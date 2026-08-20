@@ -397,6 +397,7 @@ export default function ChineseDearPassengersDownloadPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/zh-cn/">Dear Passengers 中文首页 →</Link>
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-steam/">Steam 官方商店核验 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date/">发售与 Demo 状态 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-system-requirements/">电脑配置要求 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-game/">这是什么游戏？ →</Link>

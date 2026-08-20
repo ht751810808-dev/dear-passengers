@@ -133,7 +133,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers ücretsiz mi?', answer: 'Fiyat ve iş modeli açıklanmadı. Kullanıcı etiketi resmî free-to-play onayı değildir.' },
       { question: 'Dear Passengers erken erişime çıkacak mı?', answer: 'Early Access planı açıklanmadı.' },
       { question: 'Dear Passengers Türkçe olacak mı?', answer: 'Steam, Türkçe arayüz desteğini onaylıyor; seslendirme ve altyazı sütunlarında onay yok.' },
-    ], related: ['dear-passengers-haberleri', 'dear-passengers-demo', 'dear-passengers-indir', 'dear-passengers-sistem-gereksinimleri'],
+    ], related: ['dear-passengers-steam', 'dear-passengers-haberleri', 'dear-passengers-demo', 'dear-passengers-indir', 'dear-passengers-sistem-gereksinimleri'],
   },
   {
     slug: 'dear-passengers-demo', englishPath: '/dear-passengers-demo/', germanPath: '/de/dear-passengers-demo/', arabicPath: '/ar/dear-passengers-demo/',
@@ -555,7 +555,7 @@ export const turkishHomeGuide: TurkishGuide = {
     { question: 'Dear Passengers indirilebilir mi?', answer: 'Henüz hayır. Şu anda yalnız Steam istek listesine eklenebilir.' },
     { question: 'Dear Passengers demo var mı?', answer: 'Halka açık demo henüz yok; FLEXUS demo planından söz etti.' },
     { question: 'Dear Passengers sistem gereksinimleri neler?', answer: 'Minimum Windows 10 64-bit, i5 2.5 GHz, 8 GB RAM, GTX 1060 veya RX 6600 XT, DirectX 12 ve 4 GB alan.' },
-  ], related: ['dear-passengers-oyunu', 'dear-passengers-oynanis', 'dear-passengers-cikis-tarihi', 'dear-passengers-kac-kisilik'],
+  ], related: ['dear-passengers-oyunu', 'dear-passengers-steam', 'dear-passengers-oynanis', 'dear-passengers-cikis-tarihi', 'dear-passengers-kac-kisilik'],
 };
 
 export const turkishGuideBySlug = new Map(turkishGuides.map((guide) => [guide.slug, guide]));

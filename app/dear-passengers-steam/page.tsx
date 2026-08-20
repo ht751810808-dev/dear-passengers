@@ -27,7 +27,13 @@ export const metadata: Metadata = {
     'Find the official Dear Passengers Steam page, App ID 4534960, wishlist status, 2026 release window, demo, price, languages, and store checks.',
   alternates: {
     canonical: '/dear-passengers-steam/',
-    languages: { en: '/dear-passengers-steam/', 'x-default': '/dear-passengers-steam/' },
+    languages: {
+      en: '/dear-passengers-steam/',
+      de: '/de/dear-passengers-steam/',
+      tr: '/tr/dear-passengers-steam/',
+      'zh-CN': '/zh-cn/dear-passengers-steam/',
+      'x-default': '/dear-passengers-steam/',
+    },
   },
   openGraph: {
     title: 'Dear Passengers Steam: Official App, Wishlist and Store Status',
@@ -147,7 +153,7 @@ export default function DearPassengersSteamPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <main id="main-content">
+      <main id="main-content" className="steam-guide-page">
         <article>
           <header className="article-hero steam-article-hero">
             <Image
@@ -176,7 +182,7 @@ export default function DearPassengersSteamPage() {
                   </p>
                   <div className="hero-actions">
                     <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">
-                      Open the official Steam page ↗
+                      Open the official Dear Passengers Steam page ↗
                     </a>
                   </div>
                   <p className="storefront-disclosure">Direct official-store link · no affiliate tracking or commission</p>
