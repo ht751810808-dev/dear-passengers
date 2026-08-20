@@ -41,6 +41,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <h2>中文指南</h2>
             <Link href="/zh-cn/#gameplay">Dear Passengers 游戏玩法</Link>
             <Link href="/zh-cn/dear-passengers-player-count">玩家人数与联机</Link>
+            <Link href="/zh-cn/dear-passengers-download">正版下载与 APK 安全</Link>
             <Link href="/zh-cn/dear-passengers-system-requirements">电脑配置要求</Link>
             <Link href="/zh-cn/#faq">常见问题</Link>
           </div>

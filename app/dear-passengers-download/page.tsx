@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Download: Official Steam & APK Safety' },
   description:
     'Check the Dear Passengers download status, Steam app, demo access, APK safety, and how same-name Google Play listings differ from the FLEXUS game.',
-  alternates: { canonical: '/dear-passengers-download/', languages: { en: '/dear-passengers-download/', ar: '/ar/dear-passengers-download/', de: '/de/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/', cs: '/cs/dear-passengers-stahnout/', 'x-default': '/dear-passengers-download/' } },
+  alternates: { canonical: '/dear-passengers-download/', languages: { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/dear-passengers-download/', ar: '/ar/dear-passengers-download/', de: '/de/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/', cs: '/cs/dear-passengers-stahnout/', 'x-default': '/dear-passengers-download/' } },
   openGraph: {
     title: 'Dear Passengers Download: Official Access and APK Safety',
     description:

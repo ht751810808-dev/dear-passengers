@@ -180,7 +180,7 @@ export const portugueseGuides: PortugueseGuide[] = [
     ], related: ['dear-passengers-baixar', 'dear-passengers-data-de-lancamento', 'dear-passengers-noticias', 'dear-passengers-como-jogar'],
   },
   {
-    slug: 'dear-passengers-baixar', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/', arabicPath: '/ar/dear-passengers-download/', turkishPath: '/tr/dear-passengers-indir/',
+    slug: 'dear-passengers-baixar', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/', arabicPath: '/ar/dear-passengers-download/', turkishPath: '/tr/dear-passengers-indir/', chinesePath: '/zh-cn/dear-passengers-download/',
     keyword: 'Dear Passengers baixar', title: 'Dear Passengers Baixar: Steam, Demo e Alerta de APK Falso',
     description: 'Dear Passengers baixar com segurança: situação oficial na Steam, ausência de versão pública, APK, torrent, crack, tamanho e páginas falsas.',
     eyebrow: 'DOWNLOAD SEGURO · SEM ARQUIVO FALSO', h1: 'Dear Passengers: onde baixar com segurança?',

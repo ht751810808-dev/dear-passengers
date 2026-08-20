@@ -377,6 +377,8 @@ export default function HomePage() {
                 FLEXUS has now confirmed that it is preparing a Gamescom demo and plans to release
                 a public demo later. There is no public download or date yet. Read the{' '}
                 <Link href="/dear-passengers-demo">demo guide</Link> for the complete source-backed status.
+                For the official PC route, same-name Android listings, and installer checks, use the{' '}
+                <Link href="/dear-passengers-download">Dear Passengers download safety guide</Link>.
               </p>
               <Link className="text-link" href="/dear-passengers-release-date">Open the full release briefing →</Link>
             </div>

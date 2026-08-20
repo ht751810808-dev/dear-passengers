@@ -148,7 +148,7 @@ export const arabicGuides: ArabicGuide[] = [
     ], related: ['dear-passengers-download', 'dear-passengers-release', 'dear-passengers-gameplay', 'dear-passengers-news'],
   },
   {
-    slug: 'dear-passengers-download', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/',
+    slug: 'dear-passengers-download', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/', chinesePath: '/zh-cn/dear-passengers-download/',
     keyword: 'تحميل Dear Passengers', title: 'تحميل Dear Passengers: أين يوجد التنزيل الرسمي والآمن؟',
     description: 'لا يوجد تحميل Dear Passengers رسمي بعد، ولا نسخة APK أو Android. اللعبة مقررة على Windows عبر Steam في 2026. افحص روابط الديمو والتنزيل المزيفة بأمان.',
     eyebrow: 'دليل التحميل الآمن · آخر تحقق 25 يوليو 2026', h1: 'تحميل Dear Passengers: تجنب ملفات APK والنسخ المزيفة',

@@ -373,6 +373,8 @@ export default function ChineseReleaseDatePage() {
                 <p>
                   这种做法不仅避免恶意文件，也防止下载到另一个同名项目。Dear Passengers 是常见英语短语，搜索结果
                   中可能出现铁路、航空通知或其他作品。开发商名称、Steam 应用编号和官方页面三项同时匹配才是可靠入口。
+                  更完整的 APK、同名移动应用与安装器核验见
+                  <Link href="/zh-cn/dear-passengers-download/"> Dear Passengers 下载安全指南</Link>。
                 </p>
               </section>
 
@@ -401,6 +403,7 @@ export default function ChineseReleaseDatePage() {
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-game">游戏介绍与当前状态 →</Link>
                   <Link className="button" href="/zh-cn/">Dear Passengers 中文首页 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link>
+                  <Link className="button button-ghost" href="/zh-cn/dear-passengers-download/">正版下载与 APK 安全 →</Link>
                   <Link className="button button-ghost" href="/zh-cn/dear-passengers-system-requirements">中文配置要求 →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news" hrefLang="en">英文新闻 →</Link>
                   <Link className="button button-ghost" href="/de/dear-passengers-release/" hrefLang="de">德语发售指南 →</Link>

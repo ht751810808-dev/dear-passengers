@@ -228,6 +228,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/zh-cn/dear-passengers-release-date/`,
       lastModified: new Date('2026-07-24'),
     },
+    {
+      url: `${baseUrl}/zh-cn/dear-passengers-download/`,
+      lastModified: new Date('2026-08-20'),
+    },
     ...germanPaths.map((path) => ({
       url: `${baseUrl}${path}`,
       lastModified: new Date(path === '/de/kontakt/' ? '2026-08-10' : path === '/de/' ? '2026-07-29' : '2026-07-24'),

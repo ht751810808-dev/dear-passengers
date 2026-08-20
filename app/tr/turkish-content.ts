@@ -178,7 +178,7 @@ export const turkishGuides: TurkishGuide[] = [
     ], related: ['dear-passengers-indir', 'dear-passengers-cikis-tarihi', 'dear-passengers-oynanis', 'dear-passengers-haberleri'],
   },
   {
-    slug: 'dear-passengers-indir', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/', arabicPath: '/ar/dear-passengers-download/',
+    slug: 'dear-passengers-indir', englishPath: '/dear-passengers-download/', germanPath: '/de/dear-passengers-download/', arabicPath: '/ar/dear-passengers-download/', chinesePath: '/zh-cn/dear-passengers-download/',
     keyword: 'Dear Passengers indir', title: 'Dear Passengers İndir: Resmî ve Güvenli İndirme Durumu',
     description: 'Dear Passengers indir araması için güvenli cevap: oyun henüz çıkmadı; resmî Steam yolu, sahte APK, crack, torrent ve ücretsiz indirme iddiaları.',
     eyebrow: 'GÜVENLİ İNDİRME · SAHTE DOSYA UYARISI', h1: 'Dear Passengers indir: resmî dosya nerede?',

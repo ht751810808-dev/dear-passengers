@@ -286,6 +286,7 @@ export const germanGuides: GermanGuide[] = [
   {
     slug: 'dear-passengers-download',
     englishPath: '/dear-passengers-download/',
+    chinesePath: '/zh-cn/dear-passengers-download/',
     keyword: 'Dear Passengers Download',
     title: 'Dear Passengers Download: Steam, Demo und APK sicher prüfen',
     description: 'Der Dear Passengers Download ist noch nicht verfügbar. So prüfen Sie Steam, Demo, APK, Android-Angebote und vermeintliche Keys anhand offizieller Quellen.',

@@ -246,6 +246,8 @@ export default function ChineseSystemRequirementsPage() {
                 <p>
                   <strong>Dear Passengers 配置要求</strong>目前列出 4GB 可用空间。这是商店显示的安装空间，不一定等于下载包大小。
                   压缩、安装临时文件、补丁、存档、日志和着色器缓存都可能额外占用空间，预留余量比只剩刚好 4GB 更稳妥。
+                  正版入口、当前可用状态与第三方安装包识别请查看
+                  <Link href="/zh-cn/dear-passengers-download/"> Dear Passengers 下载安全指南</Link>。
                 </p>
                 <ol className="steps article-steps">
                   <li><span>01</span><p>确认 Windows 为 64 位版本，并完成必要系统更新。</p></li>
@@ -288,7 +290,7 @@ export default function ChineseSystemRequirementsPage() {
                   <Link href="/dear-passengers-release-date" hrefLang="en">英文发售时间指南</Link>和
                   <Link href="/zh-cn/dear-passengers-player-count">中文玩家人数指南</Link>。
                 </p>
-                <div className="related-actions"><Link className="button" href="/zh-cn/">返回中文首页 →</Link><Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link><Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">English version →</Link></div>
+                <div className="related-actions"><Link className="button" href="/zh-cn/">返回中文首页 →</Link><Link className="button button-ghost" href="/zh-cn/dear-passengers-download/">正版下载与 APK 安全 →</Link><Link className="button button-ghost" href="/zh-cn/dear-passengers-player-count">中文联机人数 →</Link><Link className="button button-ghost" href="/dear-passengers-system-requirements" hrefLang="en">English version →</Link></div>
               </section>
             </div>
           </div>

@@ -119,6 +119,7 @@ export default function ChineseHomePage() {
               <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">加入 Steam 愿望单 ↗</a>
               <Link className="button button-ghost" href="/zh-cn/dear-passengers-game">这是什么游戏？ →</Link>
               <Link className="button button-ghost" href="/zh-cn/dear-passengers-release-date">查看发售与试玩状态 →</Link>
+              <Link className="button button-ghost" href="/zh-cn/dear-passengers-download">下载与 APK 安全 →</Link>
             </div>
             <div className="status-strip" aria-label="Dear Passengers 已确认信息">
               <div><small>发售窗口</small><strong>2026 年</strong></div>
@@ -224,6 +225,8 @@ export default function ChineseHomePage() {
               <p>
                 中文用户可以查看
                 <Link href="/zh-cn/dear-passengers-release-date"> Dear Passengers 发售时间、试玩与平台指南</Link>；
+                想确认正版安装入口、APK 和同名手游区别，可以打开
+                <Link href="/zh-cn/dear-passengers-download"> Dear Passengers 下载安全指南</Link>；
                 需要核对英文原始说明时，再打开
                 <Link href="/dear-passengers-release-date" hrefLang="en"> 英文发售指南</Link>。
               </p>
