@@ -1224,6 +1224,7 @@ h1, h2, h3, h4 {
   .steam-identity-board dd { font-size: 1.35rem; }
   .steam-hero-copy .hero-actions,
   .steam-hero-copy .storefront-disclosure { padding-right: 70px; }
+  .steam-related-guide .related-actions { padding-right: 70px; }
   .steam-article-hero .hero-shade { background: linear-gradient(0deg, rgba(7,17,31,.99) 3%, rgba(7,17,31,.76) 72%, rgba(7,17,31,.58)); }
   .article-toc { display: none; }
   .timeline > div { padding-left: 76px; }

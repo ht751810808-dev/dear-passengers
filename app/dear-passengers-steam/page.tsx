@@ -449,7 +449,7 @@ export default function DearPassengersSteamPage() {
                 </figure>
               </section>
 
-              <section className="related-guide">
+              <section className="related-guide steam-related-guide">
                 <span className="kicker">CONTINUE THE CHECK</span>
                 <h2>Continue After the Dear Passengers Steam Check</h2>
                 <p>
