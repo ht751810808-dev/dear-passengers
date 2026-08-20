@@ -63,7 +63,7 @@ export const portugueseGuides: PortugueseGuide[] = [
       { question: 'Dear Passengers é simulador de voo?', answer: 'Há pilotagem e clima, mas o nível de simulação e os controles ainda não foram publicados.' },
       { question: 'Dear Passengers está em português?', answer: 'Não no momento. A Steam marca Português (Brasil) como indisponível para a interface do jogo.' },
       { question: 'Quando será possível jogar Dear Passengers?', answer: 'A janela oficial é 2026; não há data exata nem demo pública disponível agora.' },
-    ], related: ['jogo-dear-passengers', 'dear-passengers-funcoes', 'dear-passengers-quantos-jogadores', 'dear-passengers-recursos-confirmados'],
+    ], related: ['jogo-dear-passengers', 'dear-passengers-funcoes', 'dear-passengers-quantos-jogadores', 'dear-passengers-recursos-confirmados', 'jogos-parecidos-com-dear-passengers'],
   },
   {
     slug: 'dear-passengers-quantos-jogadores', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', arabicPath: '/ar/dear-passengers-player-count/', turkishPath: '/tr/dear-passengers-kac-kisilik/', chinesePath: '/zh-cn/dear-passengers-player-count/',
@@ -405,7 +405,7 @@ export const portugueseGuides: PortugueseGuide[] = [
       { question: 'Existe engenheiro em Dear Passengers?', answer: 'Manutenção pode aparecer em cenas, mas uma classe de engenheiro não foi confirmada.' },
       { question: 'A equipe precisa de piloto?', answer: 'Pilotar é uma tarefa central, porém as regras de composição não foram divulgadas.' },
       { question: 'Dear Passengers tem chat de voz?', answer: 'O chat integrado não foi confirmado.' },
-    ], related: ['dear-passengers-como-jogar', 'dear-passengers-recursos-confirmados', 'dear-passengers-quantos-jogadores', 'dear-passengers-trailer'],
+    ], related: ['dear-passengers-como-jogar', 'dear-passengers-recursos-confirmados', 'dear-passengers-quantos-jogadores', 'dear-passengers-trailer', 'jogos-parecidos-com-dear-passengers'],
   },
   {
     slug: 'dear-passengers-desenvolvedora-flexus', englishPath: '/dear-passengers-developer-flexus/', germanPath: '/de/dear-passengers-entwickler-flexus/', arabicPath: '/ar/dear-passengers-developer/', turkishPath: '/tr/dear-passengers-gelistiricisi/',

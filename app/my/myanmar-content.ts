@@ -79,7 +79,7 @@ export const myanmarGuides: MyanmarGuide[] = [
       { question: 'မြန်မာဘာသာပါလား', answer: 'မပါသေးပါ။ Steam တွင် မြန်မာစာ interface၊ အသံနှင့် subtitle ကို မဖော်ပြထားပါ။' },
       { question: 'ဘယ်တော့ကစားနိုင်မလဲ', answer: '2026 ဖြန့်ချိမည်ဟုသာ အတည်ပြုထားပြီး ရက်အတိအကျနှင့် public demo မရှိသေးပါ။' },
     ],
-    related: ['dear-passengers-roles', 'dear-passengers-player-count', 'dear-passengers-confirmed-features', 'dear-passengers-demo'],
+    related: ['dear-passengers-roles', 'dear-passengers-player-count', 'dear-passengers-confirmed-features', 'dear-passengers-demo', 'games-like-dear-passengers'],
   },
   {
     slug: 'dear-passengers-player-count',
@@ -611,7 +611,7 @@ export const myanmarGuides: MyanmarGuide[] = [
       { question: 'Class ability ပါလား', answer: 'Character class နှင့် ability system ကို မကြေညာသေးပါ။' },
       { question: 'Solo mode မှာ role တွေဘယ်လိုလုပ်မလဲ', answer: 'Single-player ရှိသော်လည်း station management ပုံစံ မသိရသေးပါ။' },
     ],
-    related: ['dear-passengers-gameplay', 'dear-passengers-player-count', 'dear-passengers-confirmed-features', 'dear-passengers-trailer'],
+    related: ['dear-passengers-gameplay', 'dear-passengers-player-count', 'dear-passengers-confirmed-features', 'dear-passengers-trailer', 'games-like-dear-passengers'],
   },
   {
     slug: 'dear-passengers-developer-flexus',

@@ -49,7 +49,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers uçuş simülasyonu mu?', answer: 'Pilotluk ve hava koşulları var; fakat gerçekçilik seviyesi veya ayrıntılı simülasyon sistemleri açıklanmadı.' },
       { question: 'Oyunda Türkçe var mı?', answer: 'Steam Türkçe arayüz desteğini gösteriyor; Türkçe seslendirme ve altyazı onaylanmış değil.' },
       { question: 'Dear Passengers ne zaman oynanabilir?', answer: 'Steam 2026 penceresini gösteriyor. Kesin tarih ve açık demo erişimi henüz açıklanmadı.' },
-    ], related: ['dear-passengers-oyunu', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri'],
+    ], related: ['dear-passengers-oyunu', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-benzeri-oyunlar'],
   },
   {
     slug: 'dear-passengers-kac-kisilik', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', arabicPath: '/ar/dear-passengers-player-count/', chinesePath: '/zh-cn/dear-passengers-player-count/',
@@ -343,7 +343,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers fiyatı belli mi?', answer: 'Hayır. Steam’de satın alma fiyatı yok.' },
       { question: 'Dear Passengers demo çıktı mı?', answer: 'Hayır, halka açık demo henüz yayımlanmadı.' },
       { question: 'Dear Passengers Türkçe mi?', answer: 'Steam Türkçe arayüz desteğini işaretliyor.' },
-    ], related: ['dear-passengers-fragman', 'dear-passengers-cikis-tarihi', 'dear-passengers-demo', 'dear-passengers-ozellikleri'],
+    ], related: ['dear-passengers-fragman', 'dear-passengers-cikis-tarihi', 'dear-passengers-demo', 'dear-passengers-ozellikleri', 'dear-passengers-gelistiricisi'],
   },
   {
     slug: 'dear-passengers-ozellikleri', englishPath: '/dear-passengers-confirmed-features/', germanPath: '/de/dear-passengers-bestaetigte-features/', arabicPath: '/ar/dear-passengers-confirmed-features/',
@@ -385,7 +385,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers crossplay var mı?', answer: 'Crossplay duyurulmadı.' },
       { question: 'Dear Passengers konsolda var mı?', answer: 'Hayır; şu anda yalnız Windows PC duyuruldu.' },
       { question: 'Dear Passengers fizik tabanlı mı?', answer: 'Evet. Yolcu, kargo ve kabin nesnelerinin fizik tabanlı davranışı resmî özellik.' },
-    ], related: ['dear-passengers-oyunu', 'dear-passengers-oynanis', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik'],
+    ], related: ['dear-passengers-oyunu', 'dear-passengers-oynanis', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-fragman', 'dear-passengers-gelistiricisi'],
   },
   {
     slug: 'dear-passengers-rolleri', englishPath: '/dear-passengers-roles/', germanPath: '/de/dear-passengers-rollen/', arabicPath: '/ar/dear-passengers-roles/',
@@ -427,7 +427,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Kabin ekibi ne yapar?', answer: 'Servis, yolcu kontrolü, kargo koruması ve sorunların büyümesini önlemeyle ilgilenir.' },
       { question: 'Rol değiştirilebilir mi?', answer: 'Rol değiştirme kuralları henüz açıklanmadı.' },
       { question: 'Tek oyuncuda yapay zekâ ekip var mı?', answer: 'Tek oyunculu mod var; AI ekip kullanıp kullanmadığı bilinmiyor.' },
-    ], related: ['dear-passengers-oynanis', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-demo'],
+    ], related: ['dear-passengers-oynanis', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-demo', 'dear-passengers-benzeri-oyunlar'],
   },
   {
     slug: 'dear-passengers-gelistiricisi', englishPath: '/dear-passengers-developer-flexus/', germanPath: '/de/dear-passengers-entwickler-flexus/', arabicPath: '/ar/dear-passengers-developer/',

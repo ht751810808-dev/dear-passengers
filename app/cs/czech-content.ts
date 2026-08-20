@@ -56,7 +56,7 @@ export const czechGuides: CzechGuide[] = [
       { question: 'Půjde hrát sólo?', answer: 'Ano, Steam uvádí režim pro jednoho hráče, ale jeho provedení zatím neznáme.' },
       { question: 'Má hra kooperaci?', answer: 'Ano, online kooperace je potvrzená; maximální počet hráčů zveřejněn nebyl.' },
       { question: 'Bude Dear Passengers česky?', answer: 'Aktuální tabulka jazyků ve službě Steam označuje češtinu jako nepodporovanou.' },
-    ], related: ['dear-passengers-jak-hrat', 'dear-passengers-datum-vydani', 'dear-passengers-demo', 'dear-passengers-cestina'],
+    ], related: ['dear-passengers-jak-hrat', 'dear-passengers-datum-vydani', 'dear-passengers-demo', 'dear-passengers-cestina', 'dear-passengers-pocet-hracu'],
   },
   {
     slug: 'dear-passengers-jak-hrat', englishPath: '/dear-passengers-gameplay/', keyword: 'Dear Passengers jak hrát',

@@ -59,7 +59,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Es un simulador de vuelo?', answer: 'Incluye pilotaje y clima, pero el nivel de simulación no se ha publicado.' },
       { question: '¿Está disponible en español?', answer: 'No por ahora. Steam marca la interfaz, las voces y los subtítulos en español como no disponibles.' },
       { question: '¿Cuándo se podrá jugar?', answer: 'La ventana oficial es 2026; no hay fecha exacta ni demo pública.' },
-    ], related: ['juego-dear-passengers', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas'],
+    ], related: ['juego-dear-passengers', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas', 'juegos-parecidos-a-dear-passengers'],
   },
   {
     slug: 'dear-passengers-cuantos-jugadores', englishPath: '/dear-passengers-player-count/',
@@ -401,7 +401,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Hay ingeniero?', answer: 'Puede haber tareas de mantenimiento, pero no una clase de ingeniero confirmada.' },
       { question: '¿Hace falta piloto?', answer: 'Pilotar es central, pero las reglas de composición no están publicadas.' },
       { question: '¿Hay chat de voz?', answer: 'El chat integrado no está confirmado.' },
-    ], related: ['dear-passengers-como-jugar', 'dear-passengers-caracteristicas-confirmadas', 'dear-passengers-cuantos-jugadores', 'dear-passengers-trailer'],
+    ], related: ['dear-passengers-como-jugar', 'dear-passengers-caracteristicas-confirmadas', 'dear-passengers-cuantos-jugadores', 'dear-passengers-trailer', 'juegos-parecidos-a-dear-passengers'],
   },
   {
     slug: 'dear-passengers-desarrollador-flexus', englishPath: '/dear-passengers-developer-flexus/',

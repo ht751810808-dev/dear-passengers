@@ -286,7 +286,7 @@ export default function ChineseHomePage() {
             <span className="kicker">登机提醒</span>
             <h2>在 Dear Passengers 发售前关注官方消息</h2>
             <p>将游戏加入 Steam 愿望单以获取官方发售提醒，并收藏本站查看配置、联机、平台和语言信息的核验更新。</p>
-            <div className="hero-actions"><a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">加入 Steam 愿望单 ↗</a><Link className="button button-ghost" href="/">English site →</Link></div>
+            <div className="hero-actions"><a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">加入 Steam 愿望单 ↗</a><Link className="button button-ghost" href="/" hrefLang="en">English site →</Link></div>
           </div>
         </section>
       </main>
