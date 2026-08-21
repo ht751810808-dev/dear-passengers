@@ -468,6 +468,7 @@ export default function DearPassengersSteamPage() {
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-download">Download safety →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-platforms">Platform status →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-vr/">VR and Quest identity →</Link>
                 </div>
               </section>
             </div>

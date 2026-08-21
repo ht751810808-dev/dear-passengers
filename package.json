@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "prebuild": "pnpm audit:facts && pnpm audit:observations",
-    "build": "next build && node scripts/set-static-language.mjs && node scripts/audit-adsense-build.mjs && node scripts/audit-steam-locales.mjs",
+    "build": "next build && node scripts/set-static-language.mjs && node scripts/audit-adsense-build.mjs && node scripts/audit-steam-locales.mjs && node scripts/audit-vr-locales.mjs",
     "start": "next start",
     "preview:cf": "wrangler pages dev out",
     "deploy:cf": "pnpm build && wrangler pages deploy out --project-name dear-passengers --branch main",
@@ -14,6 +14,7 @@
     "audit:observations": "node scripts/audit-launch-observations.mjs",
     "audit:seo-page": "node scripts/audit-seo-page.mjs",
     "audit:steam-locales": "node scripts/audit-steam-locales.mjs",
+    "audit:vr-locales": "node scripts/audit-vr-locales.mjs",
     "audit:adsense": "node scripts/audit-adsense-build.mjs",
     "create:observation": "node scripts/create-launch-observation.mjs",
     "lint": "next lint",

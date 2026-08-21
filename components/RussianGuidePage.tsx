@@ -10,6 +10,7 @@ const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interv
 
 const labels: Record<string, string> = {
   'igra-dear-passengers': 'Что это за игра',
+  'dear-passengers-vr': 'VR и Meta Quest',
   'dear-passengers-kak-igrat': 'Как играть',
   'dear-passengers-skolko-igrokov': 'Сколько игроков',
   'dear-passengers-data-vyhoda': 'Дата выхода',

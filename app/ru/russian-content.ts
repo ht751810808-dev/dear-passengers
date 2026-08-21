@@ -56,7 +56,7 @@ export const russianGuides: RussianGuide[] = [
       { question: 'Можно ли играть одному?', answer: 'Да, Steam отмечает одиночный режим, но его устройство пока не раскрыто.' },
       { question: 'Есть ли кооператив?', answer: 'Да, сетевой кооператив подтверждён; максимальное число игроков не названо.' },
       { question: 'Есть ли русский язык?', answer: 'Нет подтверждения: текущая таблица Steam помечает русский как неподдерживаемый.' },
-    ], related: ['dear-passengers-kak-igrat', 'dear-passengers-data-vyhoda', 'dear-passengers-demo', 'dear-passengers-russkiy-yazyk'],
+    ], related: ['dear-passengers-kak-igrat', 'dear-passengers-vr', 'dear-passengers-data-vyhoda', 'dear-passengers-demo', 'dear-passengers-russkiy-yazyk'],
   },
   {
     slug: 'dear-passengers-kak-igrat', englishPath: '/dear-passengers-gameplay/', keyword: 'Dear Passengers как играть',
@@ -90,7 +90,7 @@ export const russianGuides: RussianGuide[] = [
       { question: 'Есть ли кооператив?', answer: 'Да, сетевой кооператив подтверждён.' },
       { question: 'Поддерживается ли геймпад?', answer: 'Поддержка контроллера пока не подтверждена.' },
       { question: 'Когда покажут полноценный полёт?', answer: 'FLEXUS сообщил, что готовит отдельное видео, но дату публикации не назвал.' },
-    ], related: ['igra-dear-passengers', 'dear-passengers-skolko-igrokov', 'dear-passengers-sistemnye-trebovaniya', 'dear-passengers-demo'],
+    ], related: ['igra-dear-passengers', 'dear-passengers-vr', 'dear-passengers-skolko-igrokov', 'dear-passengers-sistemnye-trebovaniya', 'dear-passengers-demo'],
   },
   {
     slug: 'dear-passengers-skolko-igrokov', englishPath: '/dear-passengers-player-count/', keyword: 'Dear Passengers сколько игроков',

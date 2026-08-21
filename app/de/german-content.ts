@@ -116,7 +116,7 @@ export const germanGuides: GermanGuide[] = [
       { question: 'Ist Dear Passengers ein realistischer Flugsimulator?', answer: 'Nicht bestätigt. Die offizielle Einordnung betont Action, Adventure, Online-Koop und physikalisches Chaos. Ein vollständiger realistischer Simulator wurde nicht angekündigt.' },
       { question: 'Wann kann man das Dear Passengers Gameplay testen?', answer: 'FLEXUS plant eine Demo, aber aktuell gibt es auf Steam keinen öffentlichen Download und keinen Termin. Drittanbieterdateien sind kein verifizierter Testzugang.' }
     ],
-    related: ['dear-passengers-spiel', ...sharedRelated.slice(0, 3), 'spiele-wie-dear-passengers'],
+    related: ['dear-passengers-spiel', 'dear-passengers-vr', ...sharedRelated.slice(0, 3), 'spiele-wie-dear-passengers'],
   },
   {
     slug: 'dear-passengers-spielerzahl',

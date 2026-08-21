@@ -59,7 +59,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Es un simulador de vuelo?', answer: 'Incluye pilotaje y clima, pero el nivel de simulación no se ha publicado.' },
       { question: '¿Está disponible en español?', answer: 'No por ahora. Steam marca la interfaz, las voces y los subtítulos en español como no disponibles.' },
       { question: '¿Cuándo se podrá jugar?', answer: 'La ventana oficial es 2026; no hay fecha exacta ni demo pública.' },
-    ], related: ['juego-dear-passengers', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas', 'juegos-parecidos-a-dear-passengers'],
+    ], related: ['juego-dear-passengers', 'dear-passengers-vr', 'dear-passengers-roles', 'dear-passengers-cuantos-jugadores', 'dear-passengers-caracteristicas-confirmadas', 'juegos-parecidos-a-dear-passengers'],
   },
   {
     slug: 'dear-passengers-cuantos-jugadores', englishPath: '/dear-passengers-player-count/',
