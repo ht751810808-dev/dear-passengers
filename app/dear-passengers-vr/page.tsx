@@ -372,6 +372,7 @@ export default function DearPassengersVrPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/dear-passengers-platforms/">All platforms →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-mobile/">Mobile identity →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-steam/">Steam identity →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-confirmed-features/">Feature facts →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date/">Release status →</Link>

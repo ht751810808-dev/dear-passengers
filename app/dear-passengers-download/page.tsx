@@ -325,8 +325,9 @@ export default function DearPassengersDownloadPage() {
                   Confirmation would require a FLEXUS announcement and a platform listing that identifies the same
                   studio and product. A Dear Passengers icon, copied description, screenshot montage, preregistration
                   page, or emulator catalog is not sufficient by itself. Until that evidence exists, Android and iOS
-                  remain unannounced in the <Link href="/dear-passengers-release-date#platforms">Dear Passengers platform
-                  tracker</Link>.
+                  remain unannounced. The <Link href="/dear-passengers-mobile/">Dear Passengers mobile identity guide</Link>
+                  compares current phone-store records, while the <Link href="/dear-passengers-release-date#platforms">Dear
+                  Passengers platform tracker</Link> keeps the broader release status.
                 </p>
               </section>
 
@@ -420,6 +421,7 @@ export default function DearPassengersDownloadPage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/">Complete game guide →</Link>
+                  <Link className="button button-ghost" href="/dear-passengers-mobile/">Mobile status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-release-date">Release date →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Official updates →</Link>

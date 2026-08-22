@@ -320,6 +320,13 @@ export default function PlatformsPage() {
                   publisher, official links, screenshots, and privacy details. Without a direct FLEXUS connection, it
                   should not be presented as the mobile edition of this game.
                 </p>
+                <h3>Why mobile now has a dedicated identity check</h3>
+                <p>
+                  Google Play and App Store results now place several developer identities behind closely matching
+                  names, while direct search questions ask whether the FLEXUS game runs on Android or iPhone. The{' '}
+                  <Link href="/dear-passengers-mobile/">Dear Passengers mobile status and app identity guide</Link>
+                  compares those store IDs and owns the phone-platform question. This hub keeps the wider platform map.
+                </p>
                 <p>
                   Dear Passengers Roblox searches are also not evidence of an official experience. No Roblox edition or
                   partnership is announced in the current first-party sources. Fan-made games, recreations, clips,

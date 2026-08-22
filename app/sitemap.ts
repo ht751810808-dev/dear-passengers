@@ -187,11 +187,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
-      lastModified: new Date('2026-08-21'),
+      lastModified: new Date('2026-08-22'),
     },
     {
       url: `${baseUrl}/dear-passengers-vr/`,
       lastModified: new Date('2026-08-21'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-mobile/`,
+      lastModified: new Date('2026-08-22'),
     },
     {
       url: `${baseUrl}/dear-passengers-player-count/`,
@@ -211,7 +215,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-download/`,
-      lastModified: new Date('2026-08-16'),
+      lastModified: new Date('2026-08-22'),
     },
     {
       url: `${baseUrl}/dear-passengers-news/`,
