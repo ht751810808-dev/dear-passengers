@@ -297,9 +297,10 @@ export default function ReleaseDatePage() {
                   Because platform plans can change, this table distinguishes confirmed availability from possibility.
                 </p>
                 <p>
-                  For a platform-first answer covering PC, PS5, Xbox, Nintendo, VR, mobile, controllers, and Steam Deck,
-                  use the <Link href="/dear-passengers-platforms">Dear Passengers platforms status board</Link>. This
-                  release guide remains focused on timing, demo access, price, and launch milestones.
+                  For the PlayStation, Xbox and Nintendo evidence check, use the{' '}
+                  <Link href="/dear-passengers-console/">Dear Passengers console status guide</Link>. The broader{' '}
+                  <Link href="/dear-passengers-platforms">platforms status board</Link> remains the map for PC, VR,
+                  mobile, controllers and Steam Deck, while this release guide stays focused on timing and access.
                 </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">

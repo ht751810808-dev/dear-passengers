@@ -187,7 +187,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
-      lastModified: new Date('2026-08-22'),
+      lastModified: new Date('2026-08-23'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-console/`,
+      lastModified: new Date('2026-08-23'),
     },
     {
       url: `${baseUrl}/dear-passengers-vr/`,

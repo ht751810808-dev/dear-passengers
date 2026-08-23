@@ -377,8 +377,9 @@ export default function DearPassengersConfirmedFeaturesPage() {
                 </p>
                 <p>
                   The <Link href="/dear-passengers-platforms">Dear Passengers platforms guide</Link> keeps the full PC,
-                  PS5, Xbox, Nintendo, Mac, Linux, mobile, VR, controller, and Steam Deck status in one place so these
-                  searches do not compete across several partial answers.
+                  Mac, Linux, mobile, VR, controller and Steam Deck map. The dedicated{' '}
+                  <Link href="/dear-passengers-console/">Dear Passengers console status guide</Link> now owns the
+                  narrower PS5, Xbox and Nintendo evidence check without turning search demand into a port announcement.
                 </p>
               </section>
 

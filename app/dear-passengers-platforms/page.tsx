@@ -97,7 +97,7 @@ const articleSchema = {
     'A source-led guide to confirmed and unannounced Dear Passengers platforms, storefronts, input support, and crossplay.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-29',
-  dateModified: '2026-08-21',
+  dateModified: '2026-08-23',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -164,7 +164,7 @@ export default function PlatformsPage() {
                 <Link className="button button-ghost" href="/dear-passengers-release-date">Release-date briefing →</Link>
               </div>
               <div className="article-meta">
-                <span>Published July 29, 2026</span><span>Fact-checked August 17, 2026</span><span>Confirmed: Windows PC</span>
+                <span>Published July 29, 2026</span><span>Fact-checked August 23, 2026</span><span>Confirmed: Windows PC</span>
               </div>
             </div>
           </header>
@@ -262,37 +262,18 @@ export default function PlatformsPage() {
                 <span className="kicker">CONSOLE STATUS</span>
                 <h2>Is Dear Passengers Coming to PS5, Xbox or Nintendo?</h2>
                 <p>
-                  No Dear Passengers console version is confirmed. PS5 interest is visible in search,
-                  but search volume is a demand signal rather than a FLEXUS roadmap. The current first-party Dear Passengers
-                  materials do not name PlayStation 5, PlayStation 4, Xbox Series X|S, Xbox One, Nintendo
-                  Switch, or Switch 2. Windows PC through Steam remains the only published platform.
-                </p>
-                <h3>Dear Passengers PS5 and PlayStation Status</h3>
-                <p>
-                  There is no announced Dear Passengers PS5 release date or PlayStation Store page. The Dear Passengers game may
-                  look suitable for a living-room co-op audience, yet appearance and audience fit do not prove porting,
-                  certification, controller design, or a launch agreement. Until FLEXUS or PlayStation publishes a
-                  listing, headlines promising a PS5 edition go beyond the evidence.
-                </p>
-                <h3>Dear Passengers Xbox and Game Pass Status</h3>
-                <p>
-                  A Dear Passengers Xbox release is also unannounced. No Xbox Series date, Xbox store listing, console
-                  crossplay plan, or Game Pass commitment appears in the current Dear Passengers sources. “PC game” does
-                  not mean Microsoft Store or PC Game Pass: Steam is the only named storefront. If that
-                  changes, the source should identify both the platform and its release timing.
-                </p>
-                <h3>Dear Passengers Nintendo Switch or Switch 2 Status</h3>
-                <p>
-                  FLEXUS has not announced Dear Passengers for either Nintendo system. Trailer visuals cannot establish
-                  whether it would meet a console performance target, and the minimum PC requirements do
-                  not answer that question. A platform-holder page or direct FLEXUS announcement is needed before a
-                  Nintendo edition can move beyond unknown.
+                  No Dear Passengers console version is confirmed. Search demand for PS5, Xbox and Nintendo is real,
+                  but it is not a FLEXUS roadmap. The dedicated{' '}
+                  <Link href="/dear-passengers-console/">Dear Passengers console status guide</Link> now owns the
+                  PlayStation, Xbox and Nintendo evidence check, including store-page confirmation, release timing,
+                  subscriptions, local co-op and crossplay. This hub keeps the wider PC, VR, mobile, input and operating-
+                  system map.
                 </p>
                 <p>
                   Launch timing and platform timing are related but separate. The{' '}
                   <Link href="/dear-passengers-release-date">Dear Passengers release date tracker</Link> owns the 2026
-                  window, price, demo, and launch schedule. This platforms page owns where the game is
-                  confirmed to run, preventing several partial pages from competing for the same console question.
+                  window, price, demo, and launch schedule. The console guide does not copy that PC window into an
+                  unannounced port and will link to narrower platform pages only after their own research gates pass.
                 </p>
               </section>
 
