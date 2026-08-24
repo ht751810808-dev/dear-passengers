@@ -10,6 +10,28 @@ function FriendLinks({ title }: { title: string }) {
       <h2 style={{ marginTop: '18px' }}>{title}</h2>
       <a href="https://linktovideo.org/" target="_blank" rel="noopener">Link to Video ↗</a>
       <a href="https://www.impostergame.pro/" target="_blank" rel="noopener">Imposter Game ↗</a>
+      <div className="directory-badges" aria-label="Directory partners">
+        <a href="https://dododirectory.com" target="_blank" title="Featured on DodoDirectory">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://dododirectory.com/badge-light.png" alt="Featured on DodoDirectory" width="200" height="54" loading="lazy" />
+        </a>
+        <a href="https://shinylaunch.com/product/dearpassengers" target="_blank" title="Featured on ShinyLaunch">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://shinylaunch.com/assets/images/badge-dark.png" alt="ShinyLaunch" height="54" loading="lazy" />
+        </a>
+        <a href="https://www.gametopsites.net" target="_blank" title="Listed on GameTopSites">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://www.gametopsites.net/images/game-banner-small.jpg" alt="Game Directory and Topsites" width="88" height="32" loading="lazy" />
+        </a>
+        <a href="https://startupfa.st" target="_blank" title="Powered by Startup Fast">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://startupfa.st/images/badges/powered-by-dark.svg" alt="Powered by Startup Fast" width="150" height="44" loading="lazy" />
+        </a>
+        <a href="https://startupfa.me/s/dear-passengers?utm_source=dearpassengers.net" target="_blank" title="Featured on Startup Fame">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://startupfa.me/badges/featured/default.webp" alt="Dear Passengers - Featured on Startup Fame" width="171" height="54" loading="lazy" />
+        </a>
+      </div>
     </>
   );
 }
@@ -481,6 +503,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
             <Link href="/contact/" hrefLang="en">Contatti e correzioni</Link>
             <Link href="/privacy-policy/" hrefLang="en">Informativa sulla privacy</Link>
             <PrivacySettingsButton locale="it" className="footer-privacy-button" />
+            <FriendLinks title="Siti partner" />
           </div>
         </div>
         <div className="container footer-bottom">

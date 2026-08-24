@@ -760,6 +760,28 @@ h1, h2, h3, h4 {
 .footer-privacy-button { margin: 5px 0; padding: 0; border: 0; color: #b8c5cf; background: transparent; font: inherit; font-size: .83rem; text-align: left; cursor: pointer; }
 .footer-privacy-button:hover { color: var(--orange); }
 .site-footer a:hover { color: var(--orange) !important; }
+.directory-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.site-footer .directory-badges a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  min-height: 44px;
+}
+.directory-badges img {
+  display: block;
+  width: auto;
+  max-width: 200px;
+  height: auto;
+  max-height: 54px;
+  border-radius: 6px;
+}
 .footer-bottom { margin-top: 54px; padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.12); color: #718496; font-size: .7rem; }
 
 /* Release-date article */
