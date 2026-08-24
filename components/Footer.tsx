@@ -31,6 +31,10 @@ function FriendLinks({ title }: { title: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://startupfa.me/badges/featured/default.webp" alt="Dear Passengers - Featured on Startup Fame" width="171" height="54" loading="lazy" />
         </a>
+        <a href="https://fazier.com" target="_blank" title="Launched on Fazier">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" alt="Launched on Fazier" width="105" loading="lazy" />
+        </a>
       </div>
     </>
   );
