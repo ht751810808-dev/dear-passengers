@@ -313,9 +313,10 @@ export default function ConsolePage() {
                 <p>
                   Nintendo demand deserves a separate route later because Switch and Switch 2 users ask about
                   performance, handheld play, local co-op, eShop regions and online subscriptions. For now, this Dear
-                  Passengers console parent keeps the answer short: there is no first-party Nintendo announcement.
-                  The queued Switch page will not be published before its own research and content-quality gate passes,
-                  so the Dear Passengers console parent remains the verified handoff.
+                  Passengers console parent keeps the answer short: there is no first-party Nintendo announcement. The{' '}
+                  <Link href="/dear-passengers-switch/">Dear Passengers Switch evidence guide</Link> now owns eShop
+                  identity, Switch 2, handheld performance and Nintendo-specific co-op questions after passing its
+                  independent research and content-quality gate.
                 </p>
               </section>
 

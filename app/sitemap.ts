@@ -6,6 +6,7 @@ const germanPaths = [
   '/de/dear-passengers-spiel/',
   '/de/dear-passengers-steam/',
   '/de/dear-passengers-vr/',
+  '/de/dear-passengers-switch/',
   '/de/dear-passengers-gameplay/',
   '/de/dear-passengers-trailer/',
   '/de/dear-passengers-bestaetigte-features/',
@@ -191,7 +192,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-console/`,
-      lastModified: new Date('2026-08-23'),
+      lastModified: new Date('2026-08-24'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-switch/`,
+      lastModified: new Date('2026-08-24'),
     },
     {
       url: `${baseUrl}/dear-passengers-vr/`,
@@ -259,7 +264,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...germanPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/' || path === '/de/dear-passengers-spiel/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
+      lastModified: new Date(path === '/de/dear-passengers-switch/' ? '2026-08-24' : path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/' || path === '/de/dear-passengers-spiel/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
     })),
     ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
     ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/' || path === '/tr/dear-passengers-oyunu/' || path === '/tr/dear-passengers-steam/' || path === '/tr/dear-passengers-cikis-tarihi/' || path === '/tr/gizlilik/' ? '2026-08-20' : '2026-07-27') })),

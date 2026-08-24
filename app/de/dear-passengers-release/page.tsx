@@ -295,7 +295,9 @@ export default function GermanReleasePage() {
                   Dass sich das Spiel mit Freunden spielen lässt oder im Trailer Controller-tauglich wirkt, beweist
                   weder eine Konsolenportierung noch Crossplay. Zertifizierung, Portierung und Netzwerkverbindungen
                   zwischen Plattformen sind eigene technische Zusagen. Bis eine solche Meldung erscheint, sollte der
-                  <strong> Dear Passengers Release</strong> nicht als PS5-, Xbox- oder Switch-Spiel beworben werden.
+                  <strong> Dear Passengers Release</strong> nicht als PS5-, Xbox- oder Switch-Spiel beworben werden. Der{' '}
+                  <Link href="/de/dear-passengers-switch/">deutsche Dear Passengers Switch Check</Link> prüft Nintendo
+                  eShop, Switch 2, Handheld-Nutzung und Koop getrennt von diesem Termin-Guide.
                 </p>
               </section>
 

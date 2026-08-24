@@ -273,7 +273,9 @@ export default function PlatformsPage() {
                   Launch timing and platform timing are related but separate. The{' '}
                   <Link href="/dear-passengers-release-date">Dear Passengers release date tracker</Link> owns the 2026
                   window, price, demo, and launch schedule. The console guide does not copy that PC window into an
-                  unannounced port and will link to narrower platform pages only after their own research gates pass.
+                  unannounced port. The narrower{' '}
+                  <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> separately checks
+                  Nintendo eShop identity, Switch 2, handheld performance, controls and online play.
                 </p>
               </section>
 

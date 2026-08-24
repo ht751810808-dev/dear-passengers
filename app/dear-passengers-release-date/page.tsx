@@ -300,7 +300,9 @@ export default function ReleaseDatePage() {
                   For the PlayStation, Xbox and Nintendo evidence check, use the{' '}
                   <Link href="/dear-passengers-console/">Dear Passengers console status guide</Link>. The broader{' '}
                   <Link href="/dear-passengers-platforms">platforms status board</Link> remains the map for PC, VR,
-                  mobile, controllers and Steam Deck, while this release guide stays focused on timing and access.
+                  mobile, controllers and Steam Deck. Nintendo players can use the{' '}
+                  <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> for eShop and
+                  hardware-specific evidence, while this release guide stays focused on timing and access.
                 </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">

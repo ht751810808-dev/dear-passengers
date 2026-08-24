@@ -255,8 +255,9 @@ export default function GermanSteamPage() {
                   <h2>Weitere Informationen zu Dear Passengers Steam</h2>
                   <div className="related-actions">
                     <Link className="button" href="/de/">Deutscher Überblick →</Link>
-                    <Link className="button button-ghost" href="/de/dear-passengers-spiel/">Spielprofil →</Link>
+                    <Link className="button button-ghost" href="/de/dear-passengers-spiel/">Dear Passengers Steam Spielprofil mit allen wichtigen Grundlagen im Überblick →</Link>
                     <Link className="button button-ghost" href="/de/dear-passengers-release/">Release 2026 →</Link>
+                    <Link className="button button-ghost" href="/de/dear-passengers-switch/">Nintendo Switch →</Link>
                     <Link className="button button-ghost" href="/de/dear-passengers-demo/">Demo →</Link>
                     <Link className="button button-ghost" href="/de/dear-passengers-download/">Download →</Link>
                     <Link className="button button-ghost" href="/de/dear-passengers-systemanforderungen/">Systemanforderungen →</Link>
