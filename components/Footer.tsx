@@ -35,6 +35,9 @@ function FriendLinks({ title }: { title: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" alt="Launched on Fazier" width="105" loading="lazy" />
         </a>
+        <a href="https://deeplaunch.io" target="_blank" rel="noopener" title="Featured on DeepLaunch.io">
+          Featured on DeepLaunch.io ↗
+        </a>
       </div>
     </>
   );
