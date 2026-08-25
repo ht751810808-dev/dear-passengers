@@ -38,6 +38,10 @@ function FriendLinks({ title }: { title: string }) {
         <a href="https://deeplaunch.io" target="_blank" rel="noopener" title="Featured on DeepLaunch.io">
           Featured on DeepLaunch.io ↗
         </a>
+        <a href="https://apphublist.com/products/dearpassengers" target="_blank" rel="noopener" title="Featured on App Hub List">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://apphublist.com/assets/images/badge-dark.png" alt="App Hub List" height="54" loading="lazy" />
+        </a>
       </div>
     </>
   );
