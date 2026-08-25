@@ -85,7 +85,7 @@ const articleSchema = {
     'A comprehensive status board for official Dear Passengers features, announced plans, trailer observations, and unconfirmed claims.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-07-19',
+  dateModified: '2026-08-25',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -380,6 +380,8 @@ export default function DearPassengersConfirmedFeaturesPage() {
                   Mac, Linux, mobile, VR, controller and Steam Deck map. The dedicated{' '}
                   <Link href="/dear-passengers-console/">Dear Passengers console status guide</Link> now owns the
                   narrower PS5, Xbox and Nintendo evidence check without turning search demand into a port announcement.
+                  The <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> keeps
+                  the PS5, PS4, PlayStation Store, PS Plus, DualSense and trophy questions on their own page.
                 </p>
               </section>
 

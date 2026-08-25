@@ -180,19 +180,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-confirmed-features/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-08-25'),
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
-      lastModified: new Date('2026-08-08'),
+      lastModified: new Date('2026-08-25'),
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
-      lastModified: new Date('2026-08-23'),
+      lastModified: new Date('2026-08-25'),
     },
     {
       url: `${baseUrl}/dear-passengers-console/`,
-      lastModified: new Date('2026-08-24'),
+      lastModified: new Date('2026-08-25'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-playstation/`,
+      lastModified: new Date('2026-08-25'),
     },
     {
       url: `${baseUrl}/dear-passengers-switch/`,

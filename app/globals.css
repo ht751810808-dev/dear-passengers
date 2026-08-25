@@ -1120,6 +1120,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 800px) {
   .container { width: min(100% - 28px, 1180px); }
+  .breadcrumbs { flex-wrap: wrap; }
   .site-header { top: 8px; width: calc(100% - 16px); }
   .header-inner { min-height: 60px; padding: 0 10px; }
   .brand small { display: none; }

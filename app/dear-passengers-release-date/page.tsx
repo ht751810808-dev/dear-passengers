@@ -106,7 +106,7 @@ const articleSchema = {
     'An independent, source-backed guide to the Dear Passengers release window, price status, free-to-play claim, platforms, and demo plan.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-08-08',
+  dateModified: '2026-08-25',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -302,7 +302,9 @@ export default function ReleaseDatePage() {
                   <Link href="/dear-passengers-platforms">platforms status board</Link> remains the map for PC, VR,
                   mobile, controllers and Steam Deck. Nintendo players can use the{' '}
                   <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> for eShop and
-                  hardware-specific evidence, while this release guide stays focused on timing and access.
+                  hardware-specific evidence. PlayStation players can use the{' '}
+                  <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> for PS5,
+                  PS4, Store, PS Plus and DualSense evidence, while this release guide stays focused on timing and access.
                 </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">

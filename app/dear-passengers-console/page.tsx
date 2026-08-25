@@ -91,7 +91,7 @@ const articleSchema = {
   description: 'A source-led check of announced and unannounced Dear Passengers console platforms and features.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-08-23',
-  dateModified: '2026-08-23',
+  dateModified: '2026-08-25',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -265,9 +265,10 @@ export default function ConsolePage() {
                 </p>
                 <p>
                   A real PlayStation confirmation would normally identify the exact hardware generation, publisher,
-                  regions, release state and store URL. Even then, a Dear Passengers console date would need its own
-                  field: the PC year 2026 could not be inherited automatically. Each Dear Passengers console platform
-                  needs its own dated record. A narrower PlayStation guide must pass its own research gate.
+                  regions, release state and store URL. A Dear Passengers console date cannot automatically inherit the
+                  PC 2026 window. Each Dear Passengers console platform needs a dated record. See the{' '}
+                  <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation guide</Link> for PS5 and PS4
+                  evidence.
                 </p>
               </section>
 

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "prebuild": "pnpm audit:facts && pnpm audit:observations",
-    "build": "next build && node scripts/set-static-language.mjs && node scripts/audit-adsense-build.mjs && node scripts/audit-steam-locales.mjs && node scripts/audit-vr-locales.mjs && node scripts/audit-mobile.mjs && node scripts/audit-console.mjs && node scripts/audit-switch-locales.mjs",
+    "build": "next build && node scripts/set-static-language.mjs && node scripts/audit-adsense-build.mjs && node scripts/audit-steam-locales.mjs && node scripts/audit-vr-locales.mjs && node scripts/audit-mobile.mjs && node scripts/audit-console.mjs && node scripts/audit-switch-locales.mjs && node scripts/audit-playstation.mjs",
     "start": "next start",
     "preview:cf": "wrangler pages dev out",
     "deploy:cf": "pnpm build && wrangler pages deploy out --project-name dear-passengers --branch main",
@@ -18,6 +18,7 @@
     "audit:mobile": "node scripts/audit-mobile.mjs",
     "audit:console": "node scripts/audit-console.mjs",
     "audit:switch-locales": "node scripts/audit-switch-locales.mjs",
+    "audit:playstation": "node scripts/audit-playstation.mjs",
     "audit:adsense": "node scripts/audit-adsense-build.mjs",
     "create:observation": "node scripts/create-launch-observation.mjs",
     "lint": "next lint",

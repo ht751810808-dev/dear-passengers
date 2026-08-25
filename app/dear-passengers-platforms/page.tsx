@@ -97,7 +97,7 @@ const articleSchema = {
     'A source-led guide to confirmed and unannounced Dear Passengers platforms, storefronts, input support, and crossplay.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-29',
-  dateModified: '2026-08-23',
+  dateModified: '2026-08-25',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -275,7 +275,9 @@ export default function PlatformsPage() {
                   window, price, demo, and launch schedule. The console guide does not copy that PC window into an
                   unannounced port. The narrower{' '}
                   <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> separately checks
-                  Nintendo eShop identity, Switch 2, handheld performance, controls and online play.
+                  Nintendo eShop identity, Switch 2, handheld performance, controls and online play. The{' '}
+                  <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> owns the
+                  separate PS5, PS4, PlayStation Store, PS Plus and DualSense evidence check.
                 </p>
               </section>
 
