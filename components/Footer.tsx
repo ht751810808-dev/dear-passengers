@@ -42,6 +42,14 @@ function FriendLinks({ title }: { title: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://apphublist.com/assets/images/badge-dark.png" alt="App Hub List" height="54" loading="lazy" />
         </a>
+        <a href="https://appnetworker.com/products/dearpassengers" target="_blank" rel="noopener" title="Featured on App Networker">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://appnetworker.com/assets/images/badge-dark.png" alt="App Networker" height="54" loading="lazy" />
+        </a>
+        <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://twelve.tools/badge2-dark.svg" alt="Featured on Twelve Tools" width="148" height="40" loading="lazy" />
+        </a>
       </div>
     </>
   );
