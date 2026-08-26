@@ -49,7 +49,7 @@ export const turkishGuides: TurkishGuide[] = [
       { question: 'Dear Passengers uçuş simülasyonu mu?', answer: 'Pilotluk ve hava koşulları var; fakat gerçekçilik seviyesi veya ayrıntılı simülasyon sistemleri açıklanmadı.' },
       { question: 'Oyunda Türkçe var mı?', answer: 'Steam Türkçe arayüz desteğini gösteriyor; Türkçe seslendirme ve altyazı onaylanmış değil.' },
       { question: 'Dear Passengers ne zaman oynanabilir?', answer: 'Steam 2026 penceresini gösteriyor. Kesin tarih ve açık demo erişimi henüz açıklanmadı.' },
-    ], related: ['dear-passengers-oyunu', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-benzeri-oyunlar'],
+    ], related: ['dear-passengers-oyunu', 'dear-passengers-ps5', 'dear-passengers-rolleri', 'dear-passengers-kac-kisilik', 'dear-passengers-ozellikleri', 'dear-passengers-benzeri-oyunlar'],
   },
   {
     slug: 'dear-passengers-kac-kisilik', englishPath: '/dear-passengers-player-count/', germanPath: '/de/dear-passengers-spielerzahl/', arabicPath: '/ar/dear-passengers-player-count/', chinesePath: '/zh-cn/dear-passengers-player-count/',

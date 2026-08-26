@@ -304,7 +304,8 @@ export default function ReleaseDatePage() {
                   <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> for eShop and
                   hardware-specific evidence. PlayStation players can use the{' '}
                   <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> for PS5,
-                  PS4, Store, PS Plus and DualSense evidence, while this release guide stays focused on timing and access.
+                  PS4 and the broader Sony ecosystem. The <Link href="/dear-passengers-ps5/">Dear Passengers PS5 release status</Link>{' '}
+                  owns the current-generation Store, date, price and hardware-feature check, while this guide stays focused on PC timing and access.
                 </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">

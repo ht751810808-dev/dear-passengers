@@ -297,7 +297,9 @@ export default function GermanReleasePage() {
                   zwischen Plattformen sind eigene technische Zusagen. Bis eine solche Meldung erscheint, sollte der
                   <strong> Dear Passengers Release</strong> nicht als PS5-, Xbox- oder Switch-Spiel beworben werden. Der{' '}
                   <Link href="/de/dear-passengers-switch/">deutsche Dear Passengers Switch Check</Link> prüft Nintendo
-                  eShop, Switch 2, Handheld-Nutzung und Koop getrennt von diesem Termin-Guide.
+                  eShop, Switch 2, Handheld-Nutzung und Koop getrennt von diesem Termin-Guide. Der{' '}
+                  <Link href="/de/dear-passengers-ps5/">deutsche Dear Passengers PS5 Check</Link> übernimmt Store,
+                  Release, Preis, DualSense und Crossplay für PlayStation 5.
                 </p>
               </section>
 

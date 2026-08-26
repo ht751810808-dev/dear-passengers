@@ -266,6 +266,7 @@ export default function TurkishDearPassengersSteamPage() {
                   <Link className="button" href="/tr/">Türkçe ana sayfa →</Link>
                   <Link className="button button-ghost" href="/tr/dear-passengers-oyunu/">Oyun kimliği →</Link>
                   <Link className="button button-ghost" href="/tr/dear-passengers-cikis-tarihi/">Çıkış tarihi →</Link>
+                  <Link className="button button-ghost" href="/tr/dear-passengers-ps5/">PS5 durumu →</Link>
                   <Link className="button button-ghost" href="/tr/dear-passengers-demo/">Demo durumu →</Link>
                   <Link className="button button-ghost" href="/tr/dear-passengers-indir/">İndirme güvenliği →</Link>
                   <Link className="button button-ghost" href="/tr/dear-passengers-sistem-gereksinimleri/">PC gereksinimleri →</Link>

@@ -287,7 +287,9 @@ export default function PlayStationPage() {
                   A Dear Passengers PlayStation product would also need region and age-rating fields. Store availability
                   can differ between the United States, Europe, Japan and other territories, while PS4 and PS5 may use
                   separate packages or upgrade rules. No regional listing, entitlement or upgrade path is published,
-                  so this page does not promise cross-buy or backward compatibility.
+                  so this page does not promise cross-buy or backward compatibility. The dedicated{' '}
+                  <Link href="/dear-passengers-ps5/">Dear Passengers PS5 status guide</Link> owns the newer-console
+                  Store, DualSense, trophies, performance and PS Plus task.
                 </p>
               </section>
 

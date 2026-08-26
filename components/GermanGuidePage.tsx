@@ -13,6 +13,7 @@ const labels: Record<string, string> = {
   'dear-passengers-spiel': 'Was ist Dear Passengers?',
   'dear-passengers-steam': 'Steam-App und Wunschliste',
   'dear-passengers-vr': 'VR-Support und Quest-Identität',
+  'dear-passengers-ps5': 'PS5-Status und PlayStation Store',
   'dear-passengers-gameplay': 'Gameplay',
   'dear-passengers-spielerzahl': 'Spielerzahl und Koop',
   'dear-passengers-release': 'Release 2026',

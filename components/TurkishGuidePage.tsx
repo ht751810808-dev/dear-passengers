@@ -12,6 +12,7 @@ const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interv
 const labels: Record<string, string> = {
   'dear-passengers-oyunu': 'Oyun nedir?',
   'dear-passengers-steam': 'Steam kaydı ve istek listesi',
+  'dear-passengers-ps5': 'PS5 ve PlayStation Store durumu',
   'dear-passengers-oynanis': 'Oynanış',
   'dear-passengers-kac-kisilik': 'Kaç kişilik?',
   'dear-passengers-cikis-tarihi': 'Çıkış tarihi',

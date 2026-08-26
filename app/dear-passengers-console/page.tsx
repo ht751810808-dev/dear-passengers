@@ -267,8 +267,8 @@ export default function ConsolePage() {
                   A real PlayStation confirmation would normally identify the exact hardware generation, publisher,
                   regions, release state and store URL. A Dear Passengers console date cannot automatically inherit the
                   PC 2026 window. Each Dear Passengers console platform needs a dated record. See the{' '}
-                  <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation guide</Link> for PS5 and PS4
-                  evidence.
+                  <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation guide</Link> and its focused{' '}
+                  <Link href="/dear-passengers-ps5/">PS5 evidence desk</Link>.
                 </p>
               </section>
 

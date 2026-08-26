@@ -7,6 +7,7 @@ const germanPaths = [
   '/de/dear-passengers-steam/',
   '/de/dear-passengers-vr/',
   '/de/dear-passengers-switch/',
+  '/de/dear-passengers-ps5/',
   '/de/dear-passengers-gameplay/',
   '/de/dear-passengers-trailer/',
   '/de/dear-passengers-bestaetigte-features/',
@@ -50,6 +51,7 @@ const turkishPaths = [
   '/tr/',
   '/tr/dear-passengers-oyunu/',
   '/tr/dear-passengers-steam/',
+  '/tr/dear-passengers-ps5/',
   '/tr/dear-passengers-oynanis/',
   '/tr/dear-passengers-fragman/',
   '/tr/dear-passengers-ozellikleri/',
@@ -184,19 +186,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
-      lastModified: new Date('2026-08-25'),
+      lastModified: new Date('2026-08-26'),
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
-      lastModified: new Date('2026-08-25'),
+      lastModified: new Date('2026-08-26'),
     },
     {
       url: `${baseUrl}/dear-passengers-console/`,
-      lastModified: new Date('2026-08-25'),
+      lastModified: new Date('2026-08-26'),
     },
     {
       url: `${baseUrl}/dear-passengers-playstation/`,
-      lastModified: new Date('2026-08-25'),
+      lastModified: new Date('2026-08-26'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-ps5/`,
+      lastModified: new Date('2026-08-26'),
     },
     {
       url: `${baseUrl}/dear-passengers-switch/`,
@@ -268,10 +274,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...germanPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/de/dear-passengers-switch/' ? '2026-08-24' : path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/' || path === '/de/dear-passengers-spiel/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
+      lastModified: new Date(path === '/de/dear-passengers-ps5/' || path === '/de/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' ? '2026-08-26' : path === '/de/dear-passengers-switch/' ? '2026-08-24' : path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/dear-passengers-spiel/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
     })),
     ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
-    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/' || path === '/tr/dear-passengers-oyunu/' || path === '/tr/dear-passengers-steam/' || path === '/tr/dear-passengers-cikis-tarihi/' || path === '/tr/gizlilik/' ? '2026-08-20' : '2026-07-27') })),
+    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/dear-passengers-ps5/' || path === '/tr/' || path === '/tr/dear-passengers-steam/' ? '2026-08-26' : path === '/tr/dear-passengers-oyunu/' || path === '/tr/dear-passengers-cikis-tarihi/' || path === '/tr/gizlilik/' ? '2026-08-20' : '2026-07-27') })),
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({
       url: `${baseUrl}${path}`,

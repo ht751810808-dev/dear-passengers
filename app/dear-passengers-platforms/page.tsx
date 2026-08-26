@@ -277,7 +277,8 @@ export default function PlatformsPage() {
                   <Link href="/dear-passengers-switch/">Dear Passengers Switch status guide</Link> separately checks
                   Nintendo eShop identity, Switch 2, handheld performance, controls and online play. The{' '}
                   <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> owns the
-                  separate PS5, PS4, PlayStation Store, PS Plus and DualSense evidence check.
+                  PS5 and PS4 comparison. The <Link href="/dear-passengers-ps5/">Dear Passengers PS5 status guide</Link>{' '}
+                  separately checks the current-generation Store listing, release, PS Plus, DualSense, trophies and performance.
                 </p>
               </section>
 
