@@ -50,6 +50,10 @@ function FriendLinks({ title }: { title: string }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://twelve.tools/badge2-dark.svg" alt="Featured on Twelve Tools" width="148" height="40" loading="lazy" />
         </a>
+        <a href="https://www.foundrlist.com/product/dearpassengersnet?utm_source=badge&amp;utm_medium=embed" target="_blank" rel="noopener" title="Featured on FoundrList">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://www.foundrlist.com/api/badge/dearpassengersnet" alt="Featured on FoundrList" width="150" height="48" loading="lazy" />
+        </a>
       </div>
     </>
   );
