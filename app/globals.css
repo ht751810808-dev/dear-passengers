@@ -851,6 +851,13 @@ h1, h2, h3, h4 {
 .platform-table > div { display: grid; grid-template-columns: 1fr .9fr 1.1fr; gap: 18px; padding: 17px 19px; border-bottom: 1px solid var(--line); font-size: .8rem; }
 .platform-table > div:last-child { border-bottom: 0; }
 .platform-table .platform-head { color: var(--white); background: var(--navy); font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.price-guide-page { background: linear-gradient(180deg, #f7f3ea 0, var(--cream) 540px); }
+.price-hero .hero-shade { background: linear-gradient(90deg, rgba(8, 23, 42, .94) 0%, rgba(8, 23, 42, .78) 52%, rgba(8, 23, 42, .35) 100%); }
+.price-ledger { box-shadow: 0 22px 60px rgba(8, 23, 42, .08); }
+.price-ledger > div { grid-template-columns: 1.05fr .85fr 1.1fr; }
+.price-ledger .platform-head { background: linear-gradient(90deg, var(--navy), #1c4964); }
+.related-price-links { flex-wrap: wrap; align-items: stretch; }
+.related-price-links .button { flex: 1 1 210px; justify-content: center; }
 .status-confirmed { color: #258151; font-weight: 800; }
 .status-open { color: var(--red-dark); font-weight: 800; }
 .article-steps li { border-color: var(--line); background: var(--white); }

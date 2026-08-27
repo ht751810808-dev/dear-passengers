@@ -145,7 +145,7 @@ export const czechGuides: CzechGuide[] = [
       ]},
       { id: 'platformy', kicker: 'PLATFORMY A CENA', heading: 'Vyjde Dear Passengers na PS5, Xboxu nebo Switchi?', paragraphs: [
         'Potvrzen je Windows PC. Konzolové verze pro PlayStation 5, Xbox Series nebo Nintendo Switch na oficiální kartě nejsou. Stejně není potvrzen macOS, Linux nebo Steam Deck. Popularita hry může vést k otázkám o dalších platformách, ale nenahrazuje vývojářské oznámení.',
-        'Cena není zveřejněna. Komunitní značka Free to play není cenové rozhodnutí vydavatele a nelze z ní odvodit, že hra bude zdarma. Rozhodující bude oficiální cenovka ve službě Steam.'
+        'Cena není zveřejněna. Komunitní značka Free to play není cenové rozhodnutí vydavatele a nelze z ní odvodit, že hra bude zdarma. Samostatná stránka [[/cs/cena-dear-passengers/|cena hry Dear Passengers]] kontroluje částku, koruny, edice a slevy podle oficiální karty Steam.'
       ]},
     ],
     localContext: ['Čeština používá „datum vydání“ nebo neformální „kdy vyjde“. Anglické release date je mezi hráči srozumitelné, ale český dotaz bývá přesnější a má jasnou odpověď.', 'Datum zapisujeme jako 8. 8. 2026 s mezerami po tečkách, což odpovídá běžné české typografii. U zatím neznámého termínu však žádný umělý den nevytváříme.'],
@@ -307,7 +307,7 @@ export const czechHomeGuide: CzechGuide = {
       'Oficiální karta potvrzuje režim pro jednoho hráče a online kooperaci. Neuvádí však přesný limit týmu. Hra je z pohledu první osoby a kombinuje akční, dobrodružné a nezávislé prvky. Komunitní značky pomáhají s orientací, ale funkce a cenu potvrzuje pouze vývojářská část obchodu.'
     ]},
     { id: 'nejhledanejsi', kicker: 'ČESKÉ VYHLEDÁVÁNÍ', heading: 'Co čeští hráči o Dear Passengers hledají?', paragraphs: [
-      'Data českého trhu ukazují nejsilnější zájem o datum vydání, demo, základní popis hry a počet hráčů. Proto má každá z těchto otázek vlastní stránku a krátkou odpověď před podrobnostmi. Není užitečné překládat desítky anglických článků, pokud by všechny opakovaly stejný stav „zatím neoznámeno“.',
+      'Data českého trhu ukazují zájem o datum vydání, demo, základní popis, počet hráčů i dotaz [[/cs/cena-dear-passengers/|cena hry Dear Passengers]]. Každá stránka má vlastní úkol a krátkou odpověď před podrobnostmi; není užitečné překládat desítky anglických článků, pokud by opakovaly stejný stav.',
       'Místní potřebu doplňuje otázka češtiny. Česká karta Steamu výslovně uvádí, že čeština není podporována, a samotný popis hry zůstává anglicky. Tento web nabízí české vysvětlení, ale nepředstírá, že tím vznikla lokalizace hry.'
     ]},
     { id: 'stav-vydani', kicker: 'VYDÁNÍ A DEMO', heading: 'Kdy vyjde Dear Passengers a bude demo?', paragraphs: [

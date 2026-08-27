@@ -408,8 +408,8 @@ export default function DearPassengersConfirmedFeaturesPage() {
                   status changes to live.
                 </p>
                 <p>
-                  Track volatile dates, platforms, and price in the{' '}
-                  <Link href="/dear-passengers-release-date">Dear Passengers release date guide</Link>.
+                  Track timing in the <Link href="/dear-passengers-release-date">Dear Passengers release date guide</Link>{' '}
+                  and commercial fields in the <Link href="/dear-passengers-price/">Dear Passengers price guide</Link>.
                 </p>
               </section>
 

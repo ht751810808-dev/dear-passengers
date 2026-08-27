@@ -261,6 +261,12 @@ export default function ReleaseDatePage() {
                   model and regional pricing therefore remain unknown.
                 </p>
                 <p>
+                  The dedicated <Link href="/dear-passengers-price/">Dear Passengers price guide</Link> now owns the
+                  numeric cost, free-to-play tag, regional currency, editions, preorder and discount checks. This
+                  release page keeps the concise answer so timing and access remain understandable without competing
+                  with that narrower commercial task.
+                </p>
+                <p>
                   Steam may show “Free to Play” among the popular user-defined tags attached to Dear Passengers. That is
                   community classification, not an official store price or a developer statement. Tags can describe
                   what users expect or associate with a game; they do not replace the purchase panel, product package,

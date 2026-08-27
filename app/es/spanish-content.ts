@@ -115,7 +115,7 @@ export const spanishGuides: SpanishGuide[] = [
         'Algunas bases de datos muestran 31 de diciembre de 2026. El último día del año suele utilizarse como relleno cuando solo se conoce el año. Sin una fuente primaria, no es un compromiso de FLEXUS y no debe usarse en una cuenta atrás.'
       ]},
       { id: 'precio', kicker: 'PRECIO Y PLATAFORMAS', heading: '¿Cuánto costará Dear Passengers y saldrá en consolas?', paragraphs: [
-        'El precio no se ha publicado en euros, pesos ni otra moneda. Tampoco se ha confirmado que sea gratuito. Una etiqueta popular de Steam no sustituye al precio oficial ni al botón de compra. Hasta que la tienda publique el modelo comercial, “gratis” y “de pago” son desconocidos.',
+        'El precio no se ha publicado en euros, pesos ni otra moneda. Tampoco se ha confirmado que sea gratuito. La guía [[/es/precio-de-dear-passengers/|precio de Dear Passengers]] controla la cifra, regiones, ediciones y descuentos sin convertir una etiqueta popular en modelo comercial.',
         'Windows PC es la única plataforma listada. PlayStation 5, Xbox Series, Nintendo Switch, Game Pass, Mac, Linux y Epic Games Store no han sido anunciados. Lo mismo ocurre con crossplay y progresión compartida.'
       ]},
       { id: 'idioma', kicker: 'IDIOMA ESPAÑOL', heading: '¿Dear Passengers estará disponible en español?', paragraphs: [
@@ -498,7 +498,7 @@ export const spanishHomeGuide: SpanishGuide = {
       'Steam confirma modo individual y cooperativo online. Pasajeros, equipaje y objetos reaccionan a la física; clima, turbulencia y bolsas de aire alteran el vuelo. Misiones, progresión, controles, capacidad de sala y duración todavía no se han publicado.'
     ]},
     { id: 'demanda', kicker: 'DEMANDA EN ESPAÑOL', heading: '¿Qué buscan los jugadores hispanohablantes?', paragraphs: [
-      'En los 30 días cerrados el 29 de julio, Search Console registró consultas como “Dear Passengers requisitos” con 64 impresiones, “Dear Passengers cuándo sale” con 23, “Dear passenger cuando sale” con 29, además de fecha de lanzamiento, precio, descargar y juego. España, México, Chile, Colombia, Perú y otros mercados ya aportan visibilidad.',
+      'Search Console registra consultas de fecha, requisitos, descarga y precio. El coste tiene ahora una tarea propia en [[/es/precio-de-dear-passengers/|precio de Dear Passengers]], mientras lanzamiento, demo y descarga conservan respuestas separadas. España y otros mercados hispanohablantes aportan vocabulario real.',
       'Son decisiones distintas, no sinónimos para una página traducida. Lanzamiento reúne fecha, precio y plataforma; requisitos conserva la tabla; descargar responde con seguridad; demo sigue el acceso; cuántos jugadores evita repetir cifras no oficiales.'
     ]},
     { id: 'estado', kicker: 'ESTADO DEL PRODUCTO', heading: '¿Cuál es el estado de lanzamiento, demo e idioma?', paragraphs: [

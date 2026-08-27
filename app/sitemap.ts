@@ -101,6 +101,7 @@ const spanishPaths = [
   '/es/dear-passengers-roles/',
   '/es/dear-passengers-cuantos-jugadores/',
   '/es/dear-passengers-fecha-de-lanzamiento/',
+  '/es/precio-de-dear-passengers/',
   '/es/dear-passengers-demo/',
   '/es/dear-passengers-descargar/',
   '/es/dear-passengers-noticias/',
@@ -152,6 +153,7 @@ const czechPaths = [
   '/cs/dear-passengers-jak-hrat/',
   '/cs/dear-passengers-pocet-hracu/',
   '/cs/dear-passengers-datum-vydani/',
+  '/cs/cena-dear-passengers/',
   '/cs/dear-passengers-demo/',
   '/cs/dear-passengers-stahnout/',
   '/cs/dear-passengers-systemove-pozadavky/',
@@ -186,7 +188,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
-      lastModified: new Date('2026-08-26'),
+      lastModified: new Date('2026-08-27'),
+    },
+    {
+      url: `${baseUrl}/dear-passengers-price/`,
+      lastModified: new Date('2026-08-27'),
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
@@ -281,14 +287,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
+      lastModified: new Date(path === '/es/precio-de-dear-passengers/' || path === '/es/dear-passengers-fecha-de-lanzamiento/' ? '2026-08-27' : path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
     })),
     ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-07-30') })),
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ru/dear-passengers-vr/' ? '2026-08-21' : '2026-08-05') })),
-    ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date('2026-08-08') })),
+    ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/cs/cena-dear-passengers/' || path === '/cs/dear-passengers-datum-vydani/' ? '2026-08-27' : '2026-08-08') })),
     {
       url: `${baseUrl}/it/dear-passengers-data-di-uscita/`,
-      lastModified: new Date('2026-08-10'),
+      lastModified: new Date('2026-08-27'),
+    },
+    {
+      url: `${baseUrl}/it/prezzo-di-dear-passengers/`,
+      lastModified: new Date('2026-08-27'),
     },
     {
       url: `${baseUrl}/zh-cn/dear-passengers-system-requirements/`,

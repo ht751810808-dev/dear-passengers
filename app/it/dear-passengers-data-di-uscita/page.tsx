@@ -250,6 +250,11 @@ export default function ItalianReleaseDatePage() {
                   regionali.
                 </p>
                 <p>
+                  La guida dedicata al <Link href="/it/prezzo-di-dear-passengers/" hrefLang="it">prezzo di Dear
+                  Passengers</Link> controlla importo, modello gratuito o a pagamento, valute regionali, edizioni e
+                  sconti. Questa pagina conserva soltanto il riepilogo necessario per la data di uscita.
+                </p>
+                <p>
                   La pagina ufficiale può mostrare “Free to Play” tra i tag popolari definiti dagli utenti. Quel campo
                   descrive una classificazione della community, non il modello commerciale deciso da FLEXUS. Finché non
                   appare un pulsante di acquisto con prezzo o una dichiarazione dello studio, non è corretto affermare

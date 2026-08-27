@@ -354,8 +354,9 @@ export default function DearPassengersSteamPage() {
                 <p>
                   For Dear Passengers Steam, the accurate wording is “price and business model not announced.” The Dear
                   Passengers Steam price remains unknown until a purchase field or official announcement appears. The{' '}
-                  <Link href="/dear-passengers-release-date">release and price briefing</Link> tracks that commercial
-                  field.
+                  <Link href="/dear-passengers-price/">Dear Passengers price briefing</Link> tracks the numeric cost,
+                  business model, regional fields and editions shown beside the Dear Passengers Steam identity; the
+                  release guide retains the timing task.
                 </p>
                 <p>
                   The Dear Passengers Steam feature panel confirms online co-op, while the developer description
