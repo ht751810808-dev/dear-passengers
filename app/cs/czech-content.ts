@@ -3,6 +3,8 @@ export type CzechSection = { id: string; kicker: string; heading: string; paragr
 export type CzechGuide = {
   slug: string;
   englishPath?: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
   keyword: string;
   title: string;
   description: string;
@@ -159,18 +161,19 @@ export const czechGuides: CzechGuide[] = [
   },
   {
     slug: 'dear-passengers-demo', englishPath: '/dear-passengers-demo/', keyword: 'Dear Passengers demo',
+    modifiedDate: '2026-08-29', verifiedDate: '29. 8. 2026',
     title: 'Dear Passengers demo: je už dostupné ke stažení?',
     description: 'Dear Passengers demo zatím není veřejně ke stažení na Steamu. Zde je potvrzený plán dema, jak poznat oficiální build a čemu se vyhnout.',
     eyebrow: 'DEMO · AKTUÁLNÍ DOSTUPNOST', h1: 'Je Dear Passengers demo už dostupné?',
-    intro: 'Hledání „Dear Passengers demo“ často vede k videím, neoficiálním souborům nebo stránkám, které zaměňují plánovanou ukázku za veřejné stažení. Rozhodující je aktuální karta Steam a přímé oznámení FLEXUS.',
-    answer: 'Veřejné demo Dear Passengers není k 8. 8. 2026 ve službě Steam dostupné. FLEXUS potvrdil, že demo plánuje, ale neuvedl přesný veřejný termín. Bez tlačítka „Stáhnout demo“ na oficiální kartě nebo odkazu z kanálu studia nelze žádný soubor považovat za ověřený.',
-    note: 'Pravidelně kontrolujeme Steam App ID 4534960 a oznámení FLEXUS. Video hrané na akci, interní build nebo přístup pro tvůrce není automaticky veřejné demo.',
+    intro: 'Hledání „Dear Passengers demo“ často vede k videím, neoficiálním souborům nebo stránkám, které zaměňují účast studia na akci za veřejné stažení. Účast FLEXUS na Gamescom 2026 je potvrzena, ale předvedení buildu Dear Passengers ani veřejný hands-on potvrzeny nejsou.',
+    answer: 'K 29. 8. 2026 není veřejné demo Dear Passengers ani Steam Playtest dostupný. FLEXUS se účastní Gamescom 2026 a dříve uvedl, že veřejné demo plánuje, ale přesný termín nezveřejnil. Primární zdroj nepotvrzuje, že byl na výstavě předveden build hry nebo že si jej mohli zahrát běžní návštěvníci.',
+    note: 'Pravidelně kontrolujeme Steam App ID 4534960 a oznámení FLEXUS. Účast studia na akci, interní build nebo přístup pro tvůrce není automaticky veřejné demo ani potvrzený veřejný hands-on.',
     heroImage: '/images/dear-passengers-unity-flight.webp', heroAlt: 'Vývojový záběr Dear Passengers u českého přehledu dostupnosti dema',
-    confirmed: ['FLEXUS s demem počítá', 'Steam zatím veřejné demo nenabízí', 'Hru lze přidat do seznamu přání'], unknown: ['Datum veřejného dema', 'Délka a obsah ukázky', 'Zda půjde hrát sólo i online', 'Požadavky případné testovací verze'],
+    confirmed: ['Účast FLEXUS na Gamescom 2026', 'Steam nenabízí veřejné demo ani Playtest', 'FLEXUS dříve uvedl, že veřejné demo plánuje'], unknown: ['Předvedení buildu Dear Passengers na Gamescom', 'Veřejný hands-on na výstavě', 'Datum, délka a obsah ukázky', 'Režimy a požadavky testovací verze'],
     sections: [
       { id: 'stav', kicker: 'STAV NA STEAMU', heading: 'Kde bude oficiální Dear Passengers demo?', paragraphs: [
         'Nejbezpečnější místo je oficiální karta Dear Passengers ve službě Steam. Veřejné demo se obvykle zobrazí jako samostatné tlačítko pro instalaci nebo propojená aplikace. Aktuální česká karta pouze oznamuje plánované vydání v roce 2026 a nabízí seznam přání.',
-        'Rozhovor se studiem potvrzuje záměr vydat demo před plnou hrou. Záměr ale nemá přesný den. Proto nepoužíváme odpočítávání a netvrdíme, že je demo „venku“, dokud jej může běžný uživatel stáhnout z oficiálního zdroje.'
+        'Poslední samostatná zpráva o Dear Passengers na Steamu je stále z 31. července: FLEXUS v ní uvedl dva miliony přidání do seznamu přání a přípravu gameplay videa. Jde o údaj vývojáře o wishlistech, nikoli o prodeje. Veřejné demo, Playtest ani přístupový odkaz oznámeny nebyly. Účast FLEXUS na Gamescom je potvrzena, ale předvedení hry a přístup veřejnosti nikoli.'
       ]},
       { id: 'bezpecnost', kicker: 'BEZPEČNÉ OVĚŘENÍ', heading: 'Jak poznat pravé demo Dear Passengers?', paragraphs: [
         'Ověřte doménu store.steampowered.com, App ID 4534960 a vývojáře FLEXUS. Odkaz sdílený z oficiálního profilu studia může být další důkaz. Instalační archiv z úložiště, zkrácený odkaz nebo stránka požadující vypnutí antiviru důkazem není.',
@@ -185,7 +188,8 @@ export const czechGuides: CzechGuide[] = [
     faqs: [
       { question: 'Je Dear Passengers demo ke stažení?', answer: 'Ne, veřejné demo zatím není na oficiální kartě Steam dostupné.' },
       { question: 'Bude demo vydáno?', answer: 'FLEXUS demo plánuje, ale přesný veřejný termín neuvedl.' },
-      { question: 'Bude demo zdarma?', answer: 'Cena nebo podmínky ukázky nebyly oznámeny; veřejná dema na Steamu bývají zdarma, ale zde to není potvrzený detail.' },
+      { question: 'Bylo Dear Passengers hratelné na Gamescom?', answer: 'Účast FLEXUS je potvrzena, ale předvedení buildu Dear Passengers ani veřejný hands-on potvrzeny nejsou.' },
+      { question: 'Bude demo zdarma?', answer: 'Cena ani podmínky ukázky nebyly oznámeny, takže u Dear Passengers není bezplatný přístup potvrzen.' },
       { question: 'Půjde demo hrát online?', answer: 'Obsah a režimy dema zatím nejsou popsané.' },
       { question: 'Kde dostanu upozornění?', answer: 'Přidejte si hru do seznamu přání ve službě Steam a sledujte kanály FLEXUS.' },
     ], related: ['dear-passengers-datum-vydani', 'dear-passengers-stahnout', 'dear-passengers-systemove-pozadavky', 'hra-dear-passengers'],

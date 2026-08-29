@@ -7,7 +7,9 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=turkish';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const GAMESCOM_PARTICIPATION_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'dear-passengers-oyunu': 'Oyun nedir?',
@@ -47,10 +49,13 @@ export default function TurkishGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isNewsOrDemo = guide.slug === 'dear-passengers-haberleri' || guide.slug === 'dear-passengers-demo';
+  const resolvedModifiedDate = guide.modifiedDate ?? modifiedDate;
+  const resolvedVerifiedDate = guide.verifiedDate ?? verifiedDate;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-27', dateModified: modifiedDate, inLanguage: 'tr',
+    datePublished: '2026-07-27', dateModified: resolvedModifiedDate, inLanguage: 'tr',
     author: { '@type': 'Organization', name: 'DearPassengers.net Türkçe Editör Ekibi', url: 'https://dearpassengers.net/tr/hakkimizda/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -83,7 +88,7 @@ export default function TurkishGuidePage({
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>{verifiedDate} tarihinde doğrulandı</span><span>Birincil kaynaklar: Steam ve FLEXUS</span><span>Dil: Türkçe</span></div>
+            <div className="article-meta"><span>{resolvedVerifiedDate} tarihinde doğrulandı</span><span>Birincil kaynaklar: Steam ve FLEXUS</span><span>Dil: Türkçe</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -96,7 +101,7 @@ export default function TurkishGuidePage({
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam istek listesine ekle ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked={verifiedDate} locale="tr" note={guide.note} />
+            <EditorialNote checked={resolvedVerifiedDate} locale="tr" note={guide.note} />
             <section id="kisa-cevap">
               <span className="kicker">KISA CEVAP</span>
               <h2>{guide.keyword}: güncel durum</h2>
@@ -122,7 +127,7 @@ export default function TurkishGuidePage({
               <p><RichText text="DearPassengers.net, FLEXUS, Valve veya Steam ile bağlantılı olmayan bağımsız bir rehberdir. Resmî görseller editoryal bağlamda kullanılır ve hakları sahiplerine aittir. Bir düzeltme, kaynak bağlantısıyla birlikte [[/tr/iletisim/|Türkçe iletişim sayfasından]] gönderilebilir; ortak bir gerçek değiştiğinde ilgili tüm dil sürümleri birlikte incelenir." /></p>
             </section>
             <section id="sss"><span className="kicker">SIK SORULAN SORULAR</span><h2>{guide.keyword} hakkında sorular</h2><p>Yanıtlar Türkiye’de kullanılan doğal oyun terimlerine göre yazıldı. Açıklanmayan bilgi, arama sonucunu doldurmak için tahmin edilmedi.</p><FAQ items={guide.faqs} /></section>
-            <section id="kaynaklar"><span className="kicker">BİRİNCİL KAYNAKLAR</span><h2>Bilgiyi kaynağından kontrol edin</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Dear Passengers Türkçe Steam sayfası ↗</a> platform, mod, Türkçe arayüz ve minimum gereksinimleri gösterir. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Doğrudan FLEXUS röportajı ↗</a> demo ve geliştirme hedeflerine bağlam sağlar. Üçüncü taraf indirme dosyalarına bağlantı vermiyoruz.</p></section>
+            <section id="kaynaklar"><span className="kicker">BİRİNCİL KAYNAKLAR</span><h2>Bilgiyi kaynağından kontrol edin</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Dear Passengers Türkçe Steam sayfası ↗</a> platform, mod, Türkçe arayüz ve minimum gereksinimleri gösterir. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Doğrudan FLEXUS röportajı ↗</a> demo ve geliştirme hedeflerine bağlam sağlar. Üçüncü taraf indirme dosyalarına bağlantı vermiyoruz.</p>{isNewsOrDemo && <p>Güncel durum için ayrıca <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">resmî Steam haber akışı ↗</a> ve <a href={GAMESCOM_PARTICIPATION_URL} target="_blank" rel="noopener noreferrer">Games From Ukraine katılımcı bilgisi ↗</a> kontrol edilir. Etkinlik kaynağı FLEXUS katılımını doğrular; Dear Passengers derlemesinin halka açık gösterimini doğrulamaz.</p>}</section>
             <section className="related-guide"><span className="kicker">TÜRKÇE REHBER</span><h2>İlgili Dear Passengers konuları</h2><p>Her sayfa bağımsız bir soruya yanıt verir; bağlamsal bağlantılar aynı anahtar kelimenin birden fazla URL tarafından hedeflenmesini önler.</p><div className="related-actions"><Link className="button" href="/tr/">Türkçe ana sayfa →</Link>{guide.related.map((slug) => <Link className="button button-ghost" href={`/tr/${slug}/`} key={slug}>{labels[slug] || slug} →</Link>)}</div></section>
           </div>
         </div>

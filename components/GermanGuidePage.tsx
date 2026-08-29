@@ -7,7 +7,9 @@ import Header from '@/components/Header';
 import type { GermanGuide } from '@/app/de/german-content';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=german';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
 const DOU_RELEASE_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const GAMESCOM_PARTICIPATION_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'dear-passengers-spiel': 'Was ist Dear Passengers?',
@@ -41,7 +43,7 @@ const supplements: Record<string, string[]> = {
     'Sobald eine Zahl erscheint, muss zusätzlich geklärt werden, ob sie Minimum, Maximum oder empfohlene Gruppengröße meint. Eine Storeangabe wie „2–4“ wäre stärker als eine Demo mit begrenzten Stationen. Die Dear Passengers Spielerzahl wird deshalb nicht ohne Plattform, Modus und Quellenzeitpunkt veröffentlicht.'
   ],
   'dear-passengers-demo': [
-    'Für deutsche Nutzer ist der Gamescom-Kontext ein eigener Informationswert. Trotzdem darf lokale Nähe nicht zu einer stärkeren Behauptung führen. Eine geplante Messefassung wird erst dann praktisch nutzbar, wenn Veranstalter oder FLEXUS Stand, Termin und Zugang nennen. Die Dear Passengers Demo bleibt vorher ein bestätigter Plan.',
+    'Für deutsche Nutzer ist der Gamescom-Kontext ein eigener Informationswert. Die Teilnahme von FLEXUS ist inzwischen bestätigt; daraus folgt jedoch weder, dass ein Dear-Passengers-Build gezeigt wird oder wurde, noch dass Besucher ihn ausprobieren können. Die Dear Passengers Demo bleibt ohne Steam-Zugang und Termin ein früherer Plan, keine verfügbare Testversion.',
     'Nach einer Veröffentlichung wird außerdem geprüft, ob Fortschritt gespeichert wird, ob der Test zeitlich begrenzt ist und welche Region teilnehmen kann. Diese Angaben beeinflussen die Antwort stärker als die bloße Existenz eines Buttons. Die Dear Passengers Demo erhält deshalb einen vollständigen Status statt einer kurzen Downloadmeldung.'
   ],
   'dear-passengers-download': [
@@ -61,8 +63,8 @@ const supplements: Record<string, string[]> = {
   ],
   'dear-passengers-news': [
     'Die deutsche News-Suche bevorzugt schnelle Antworten, doch Geschwindigkeit darf keine Statuswörter verschieben. „Studio plant“ bleibt ein Plan, „Steam listet“ ein Storefakt und „Nutzer diskutieren“ eine Communityreaktion. Dear Passengers News werden mit dieser Herkunft bereits im ersten Absatz eingeordnet.',
-    'Rang 9 ist keine klassische Chartplatzierung nach Verkäufen. Es handelt sich um die öffentliche Steam-Liste der meistgewünschten kommenden Spiele. Der Unterschied gehört in jede Meldung, damit Wunschlistenrang, Verkaufsrang und aktive Spieler nicht verwechselt werden.',
-    'Bei einer neuen Wunschlistenzahl wird geprüft, ob sie kumulativ, zeitlich eingegrenzt oder gerundet ist. Dear Passengers News nennen dann „laut FLEXUS“ und vermeiden einen künstlichen Live-Zähler. Ohne neue Studioangabe bleibt 1,5 Millionen die zuletzt gemeldete Zahl, nicht zwangsläufig der aktuelle exakte Stand.',
+    'Platz 4 ist keine klassische Chartplatzierung nach Verkäufen. Er stammt aus einer am 29.08.2026 ohne persönliche Präferenzfilter geprüften Momentaufnahme der öffentlichen Steam-Liste „Top Wishlists“. Der Unterschied gehört in jede Meldung, damit Wunschlistenrang, Verkaufsrang und aktive Spieler nicht verwechselt werden.',
+    'Bei einer neuen Wunschlistenzahl wird geprüft, ob sie kumulativ, zeitlich eingegrenzt oder gerundet ist. Dear Passengers News nennen deshalb „laut FLEXUS“: Das Studio meldete am 31.07.2026 zwei Millionen Wunschlisten. Die Zahl ist weder ein Live-Zähler noch ein Verkaufs- oder Spielerwert.',
     'Die Seite dient zugleich als Änderungsprotokoll für die deutschen Guides. Eine bestätigte Plattformmeldung aktualisiert Release und Download; neue Specs aktualisieren den Hardware-Guide; eine Lobbyzahl aktualisiert Koop und Rollen. So verbreitet sich eine neue Tatsache konsistent statt als widersprüchlicher Einzelartikel.'
   ],
   'dear-passengers-bestaetigte-features': [
@@ -188,6 +190,9 @@ export default function GermanGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isNewsOrDemo = guide.slug === 'dear-passengers-news' || guide.slug === 'dear-passengers-demo';
+  const resolvedModifiedDate = guide.modifiedDate ?? modifiedDate;
+  const resolvedVerifiedDate = guide.verifiedDate ?? verifiedDate;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -195,7 +200,7 @@ export default function GermanGuidePage({
     description: guide.description,
     mainEntityOfPage: pageUrl,
     datePublished: '2026-07-24',
-    dateModified: modifiedDate,
+    dateModified: resolvedModifiedDate,
     inLanguage: 'de',
     author: { '@type': 'Organization', name: 'DearPassengers.net Redaktion', url: 'https://dearpassengers.net/de/ueber-uns/' },
     publisher: {
@@ -245,7 +250,7 @@ export default function GermanGuidePage({
               <h1>{guide.h1}<br /><em>{guide.h1Accent}</em></h1>
               <p><RichText text={guide.intro} /></p>
               <div className="article-meta">
-                <span>Geprüft: {verifiedDate}</span><span>Primärquellen: Steam + FLEXUS</span><span>Sprache: Deutsch</span>
+                <span>Geprüft: {resolvedVerifiedDate}</span><span>Primärquellen: Steam + FLEXUS</span><span>Sprache: Deutsch</span>
               </div>
             </div>
           </header>
@@ -259,7 +264,7 @@ export default function GermanGuidePage({
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote checked={verifiedDate} locale="de" note={guide.note} />
+              <EditorialNote checked={resolvedVerifiedDate} locale="de" note={guide.note} />
               <section id="kurzantwort">
                 <span className="kicker">KURZANTWORT</span>
                 <h2>{guide.keyword}: Das Wichtigste</h2>
@@ -313,6 +318,9 @@ export default function GermanGuidePage({
                   liefert Kontext zu Entwicklung, Demo und Release-Ziel. Medienberichte helfen bei deutscher Terminologie,
                   ersetzen aber keine Produktbestätigung.
                 </p>
+                {isNewsOrDemo && <p>
+                  Für den aktuellen Status werden zusätzlich der <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">offizielle Steam-Newsfeed ↗</a> und die <a href={GAMESCOM_PARTICIPATION_URL} target="_blank" rel="noopener noreferrer">Games-From-Ukraine-Teilnehmerinformation ↗</a> geprüft. Die Messequelle bestätigt die Teilnahme von FLEXUS, aber keine öffentliche Vorführung eines Dear-Passengers-Builds.
+                </p>}
               </section>
 
               <section className="related-guide">

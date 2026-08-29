@@ -2,6 +2,7 @@ export type TurkishFaq = { question: string; answer: string };
 export type TurkishSection = { id: string; kicker: string; heading: string; paragraphs: string[]; bullets?: string[] };
 export type TurkishGuide = {
   slug: string; englishPath: string; germanPath: string; arabicPath: string; chinesePath?: string;
+  modifiedDate?: string; verifiedDate?: string;
   keyword: string; title: string; description: string; eyebrow: string; h1: string; intro: string; answer: string; note: string;
   heroImage: string; heroAlt: string; confirmed: string[]; unknown: string[]; sections: TurkishSection[];
   localContext: string[]; faqs: TurkishFaq[]; related: string[];
@@ -137,22 +138,23 @@ export const turkishGuides: TurkishGuide[] = [
   },
   {
     slug: 'dear-passengers-demo', englishPath: '/dear-passengers-demo/', germanPath: '/de/dear-passengers-demo/', arabicPath: '/ar/dear-passengers-demo/',
+    modifiedDate: '2026-08-29', verifiedDate: '29 Ağustos 2026',
     keyword: 'Dear Passengers demo', title: 'Dear Passengers Demo: İndirme ve Playtest Durumu',
     description: 'Dear Passengers demo henüz açık değil. Gamescom planı, halka açık demo hedefi, Steam Playtest, beta, güvenli indirme ve Türkiye erişimi.',
-    eyebrow: 'DEMO VE TEST DURUMU · 27 TEMMUZ 2026', h1: 'Dear Passengers demo: indirilebilir bir sürüm var mı?',
-    intro: 'Dear Passengers demo araması Türkiye’de şimdiden tıklama alıyor. FLEXUS, Gamescom için oynanabilir bir yapı ve sonrasında halka açık demo hedefinden söz etti; fakat Steam’de şu anda indirilebilir demo veya Playtest kayıt düğmesi bulunmuyor. Bu sayfa geliştirici planını gerçek erişim gibi sunmaz.',
-    answer: 'Dear Passengers demo henüz herkese açık değil. Gamescom yapısı ve daha sonra halka açık bir demo geliştirici hedefi olarak doğrulandı; yayın tarihi, içerik, süre, oyuncu limiti ve Türkiye’den erişim koşulları açıklanmadı. Steam’de şu anda demo, beta veya Playtest indirme düğmesi yok.',
+    eyebrow: 'DEMO VE TEST DURUMU · 29 AĞUSTOS 2026', h1: 'Dear Passengers demo: indirilebilir bir sürüm var mı?',
+    intro: 'Dear Passengers demo hâlâ herkese açık değil. FLEXUS’un Gamescom 2026’ya katıldığı doğrulandı; ancak Dear Passengers derlemesinin etkinlikte gösterildiği veya ziyaretçilerin oyunu deneyebildiği doğrulanmadı. Steam’de indirilebilir demo ya da Playtest kayıt düğmesi de bulunmuyor.',
+    answer: 'Dear Passengers demo 29 Ağustos 2026 itibarıyla herkese açık değil. FLEXUS’un Gamescom katılımı doğrulandı, fakat Dear Passengers derlemesinin sunulduğu veya ziyaretçilerin deneyebildiği halka açık erişim bulunduğu doğrulanmadı. Kamuya açık demo tarihi, içerik, süre, oyuncu limiti ve Türkiye erişimi açıklanmadı; Steam’de demo veya Playtest düğmesi yok.',
     note: 'Bir geliştirici hedefi demo planını doğrular, indirme erişimini değil. “Yayınlandı” statüsü yalnızca resmî FLEXUS kanalından doğrulanabilen çalışan mağaza veya kayıt bağlantısıyla kullanılır.',
     heroImage: '/images/hero-bg.webp', heroAlt: 'Dear Passengers demo ve Playtest rehberi için uçak kabini görseli',
-    confirmed: ['Gamescom için oynanabilir yapı hedefi', 'Daha sonra halka açık demo planı', 'Steam’de ana oyun sayfası'], unknown: ['Demo yayın tarihi', 'İçerik ve oynama süresi', 'Türkiye bölge erişimi', 'Playtest veya beta yöntemi'],
+    confirmed: ['FLEXUS’un Gamescom 2026 katılımı', 'Daha sonra halka açık demo için önceki geliştirici planı', 'Steam’de ana oyun sayfası'], unknown: ['Dear Passengers derlemesinin fuarda gösterilip gösterilmediği', 'Ziyaretçilerin deneyebildiği halka açık erişim', 'Demo yayın tarihi ve içeriği', 'Playtest veya beta yöntemi'],
     sections: [
       { id: 'durum', kicker: 'MEVCUT DURUM', heading: 'Dear Passengers demo şu anda var mı?', paragraphs: [
         'Hayır, resmî ve herkese açık bir indirme henüz görünmüyor. Steam sayfasında “Demo indir” düğmesi ya da Steam Playtest için “Erişim iste” alanı bulunmuyor. Dear Passengers demo planı konuşulmuş olsa da kullanılabilir dosya, başlangıç saati, bitiş tarihi veya katılımcı sınırı yayımlanmadı.',
-        'FLEXUS kurucu ortağı Semen Kozyura, doğrudan röportajda Gamescom için bir sürüm hazırlamak ve sonrasında halka açık demo sunmak istediklerini anlattı. Bu, stüdyonun niyetini gösterir. Fuar yapısı ile evden indirilecek demo aynı içerik veya aynı tarihte olmak zorunda değildir.'
+        'FLEXUS kurucu ortağı Semen Kozyura, doğrudan röportajda Gamescom için bir sürüm hazırlamak ve sonrasında halka açık demo sunmak istediklerini anlattı. Stüdyonun Gamescom 2026 katılımı artık doğrulanmış durumda; fakat bu katılım, Dear Passengers derlemesinin gösterildiğini veya ziyaretçilere açıldığını tek başına kanıtlamaz.'
       ]},
       { id: 'gamescom', kicker: 'GAMESCOM', heading: 'Gamescom demosu ne anlama geliyor?', paragraphs: [
-        'Bir fuar yapısı, geliştiricinin belirli donanımda ve sınırlı görevle gösterim yapmasına uygun olabilir. Dear Passengers için Gamescom hedefi; stand numarası, halka açık sıra, randevu sistemi, günlük kapasite veya herkesin oynayacağı garantisi vermez. Bu ayrıntılar FLEXUS veya etkinlik organizatörü tarafından ayrıca duyurulmalıdır.',
-        'Fuar videosunda görülen bir özellik de nihai sürüm taahhüdü değildir. Test yapısının sürüm numarası, tarih ve koşulları kaydedilmelidir. Dear Passengers demo daha sonra ev kullanıcısına açılırsa, fuar yapısından farklı görevler ve hata düzeltmeleri içerebilir.'
+        'Doğrulanan bilgi, FLEXUS’un Gamescom 2026’ya katılmasıdır. Dear Passengers için belirli bir sunum, oynanabilir istasyon, halka açık sıra, randevu sistemi veya ziyaretçilerin deneyebildiği açık erişim doğrulanmış değildir. Stüdyo katılımı ile belirli bir oyunun halka açık gösterimi aynı şey değildir.',
+        'Bir Dear Passengers fuar derlemesi daha sonra resmî olarak gösterilirse sürüm, tarih, erişim türü ve koşullar ayrıca kaydedilmelidir. Böyle bir derleme ile evden indirilecek demo aynı içerikte olmak zorunda değildir. Şu anda gösterilmiş bir derleme varmış gibi özellik veya oynanış sonucu çıkarılamaz.'
       ]},
       { id: 'erisim', kicker: 'GÜVENLİ ERİŞİM', heading: 'Dear Passengers demo nereden indirilir?', paragraphs: [
         'En güvenilir başlangıç resmî Steam sayfasıdır. Gerçek bir demo doğru oyun adını ve FLEXUS yayıncı bağlantısını gösterir, yüklemeyi Steam istemcisi üzerinden yapar. Bilinmeyen bir siteden ZIP, şifreli arşiv, tarayıcı eklentisi veya APK indirmek gerekmez. Şu anda böyle bir üçüncü taraf dosya resmî demo olarak doğrulanamaz.',
@@ -166,12 +168,12 @@ export const turkishGuides: TurkishGuide[] = [
     localContext: [
       'Brezilya ve Türkiye verileri karşılaştırıldığında demo sorgusu iki ülkede de güçlüydü. Türkiye’de “dear passengers demo” sorgusu mevcut İngilizce sayfaya 17 gösterim ve 4 tıklama getirdi; bu, Türkçe durum sayfası için gerçek ve bağımsız bir niyet oluşturuyor.',
       'Türkiye’de kullanıcılar “demo indir”, “beta ne zaman” ve “playtest” kelimelerini birlikte kullanabilir. İçerik bu kelimeleri tek bir hayalî ürün gibi birleştirmez; her erişim biçimini kendi resmî durumuyla açıklar.',
-      'Gamescom Türkiye’de yapılmasa da fuar yapısı Türk oyuncunun evden erişeceği anlamına gelmez. Yerel açıklama özellikle bu yanlış çıkarımı önler.'
+      'FLEXUS’un Gamescom’a katılması, Dear Passengers’ın fuarda halka açık oynanabildiği ya da Türk oyuncuların evden erişebileceği anlamına gelmez. Yerel açıklama özellikle bu iki yanlış çıkarımı önler.'
     ],
     faqs: [
       { question: 'Dear Passengers demo çıktı mı?', answer: 'Hayır. Steam’de şu anda herkese açık demo veya Playtest düğmesi yok.' },
       { question: 'Dear Passengers demo ne zaman çıkacak?', answer: 'Halka açık demo planlanıyor, ancak tarih açıklanmadı.' },
-      { question: 'Dear Passengers Gamescom’da oynanacak mı?', answer: 'FLEXUS bir Gamescom yapısı hedeflediğini söyledi; stand ve erişim ayrıntıları henüz duyurulmadı.' },
+      { question: 'Dear Passengers Gamescom’da oynanabiliyor mu?', answer: 'FLEXUS’un katılımı doğrulandı; Dear Passengers derlemesinin gösterildiği veya ziyaretçilerin deneyebildiği halka açık erişim bulunduğu doğrulanmadı.' },
       { question: 'Dear Passengers beta kaydı var mı?', answer: 'Resmî beta veya Steam Playtest kaydı şu anda görünmüyor.' },
       { question: 'Demo Türkiye’den indirilebilir mi?', answer: 'Demo yayımlanmadığı için bölge erişimi açıklanmadı.' },
       { question: 'Dear Passengers demo APK var mı?', answer: 'Hayır. Android sürümü ve resmî APK duyurulmadı.' },
@@ -305,26 +307,27 @@ export const turkishGuides: TurkishGuide[] = [
   },
   {
     slug: 'dear-passengers-haberleri', englishPath: '/dear-passengers-news/', germanPath: '/de/dear-passengers-news/', arabicPath: '/ar/dear-passengers-news/',
+    modifiedDate: '2026-08-29', verifiedDate: '29 Ağustos 2026',
     keyword: 'Dear Passengers haberleri', title: 'Dear Passengers Haberleri: Resmî Güncellemeler ve Durum',
     description: 'Dear Passengers haberleri için kaynak kontrollü Türkçe takip: FLEXUS videoları, Steam güncellemeleri, istek listesi açıklamaları, demo ve çıkış durumu.',
-    eyebrow: 'CANLI HABER DOSYASI · KAYNAK ETİKETLİ', h1: 'Dear Passengers haberleri: en son ne açıklandı?',
-    intro: 'Dear Passengers haberleri sayfası, stüdyo duyurusu ile topluluk söylentisini aynı başlık altında eritmez. En yeni doğrulanmış materyal 22 Temmuz’daki resmî kısa videodur. FLEXUS açıklamasına göre oyun o tarihte iki milyon Steam istek listesine yakındı; bu sayı satış veya aktif oyuncu değildir.',
-    answer: 'En yeni Dear Passengers güncellemesi, FLEXUS’un 22 Temmuz 2026’da yayımladığı 37 saniyelik “Another Friendslop Game” videosudur. Açıklama oyunun iki milyon istek listesine yaklaştığını söyledi. Steam hâlâ 2026 Windows çıkışı, tek oyunculu ve online co-op gösteriyor; kesin tarih, fiyat ve oyuncu limiti açıklanmadı.',
+    eyebrow: 'HABER DOSYASI · 29 AĞUSTOS 2026', h1: 'Dear Passengers haberleri: en son ne açıklandı?',
+    intro: 'Dear Passengers haberleri için en yeni oyuna özel Steam gönderisi 31 Temmuz 2026 tarihli FLEXUS duyurusudur: stüdyo iki milyon Steam istek listesi bildirdi. 29 Ağustos’ta kişisel tercih filtrelerinden bağımsız kontrol edilen Steam “Top Wishlists” anlık görüntüsünde oyun 4. sıradaydı. Bunlar satış veya aktif oyuncu değildir.',
+    answer: 'En son Dear Passengers’a özel Steam haberi, FLEXUS’un 31 Temmuz 2026’da iki milyon istek listesi bildirdiği gönderidir. 29 Ağustos 2026 tarihli kişiselleştirilmemiş Steam Top Wishlists anlık görüntüsünde oyun 4. sıradaydı. FLEXUS’un Gamescom katılımı doğrulandı; Dear Passengers derlemesinin gösterildiği veya ziyaretçiler tarafından oynandığı doğrulanmadı.',
     note: 'Haberler yayın tarihi ve kaynakla kaydedilir. İstek listesi sayıları FLEXUS’a atfedilir; bağımsız olarak denetlenebilen canlı Steam hesap verisi veya oyuncu sayısı gibi sunulmaz.',
-    heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Dear Passengers haberleri için resmî istek listesi kilometre taşı görseli',
-    confirmed: ['22 Temmuz ikinci resmî video', '2026 Windows çıkış penceresi', 'Tek oyunculu ve online co-op', 'Türkçe arayüz desteği'], unknown: ['Güncel kesin istek listesi toplamı', 'Kesin çıkış tarihi', 'Fiyat ve sürümler', 'Demo yayın günü'],
+    heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Dear Passengers haberlerinde tarihsel bağlam için kullanılan resmî 1,5 milyon istek listesi kilometre taşı görseli',
+    confirmed: ['31 Temmuz’da FLEXUS’un bildirdiği iki milyon istek listesi', '29 Ağustos tarihli Top Wishlists anlık görüntüsünde 4. sıra', 'FLEXUS’un Gamescom 2026 katılımı', '2026 Windows çıkış penceresi'], unknown: ['Steam tarafından denetlenebilir canlı istek listesi toplamı', 'Dear Passengers derlemesinin Gamescom’da gösterimi', 'Halka açık demo günü', 'Kesin çıkış tarihi ve fiyat'],
     sections: [
-      { id: 'son-guncelleme', kicker: '22 TEMMUZ 2026', heading: 'En yeni Dear Passengers haberi nedir?', paragraphs: [
-        'FLEXUS, 22 Temmuz’da “Another Friendslop Game” başlıklı kısa bir video yayımladı. 37 saniyelik içerik oyunun arkadaşlarla co-op kaos fikrini yeniden gösterdi. Video açıklaması Dear Passengers’ın iki milyon Steam istek listesine yaklaştığını belirtti; kesin bir iki milyon kilometre taşı ilan etmedi.',
-        'Bu video yeni bir çıkış tarihi, fiyat, platform, demo linki veya oyuncu sınırı açıklamadı. Dear Passengers haberleri sayfası yeni materyali kaydeder, fakat videonun söylemediği ürün ayrıntılarını başlıktan türetmez. [[/tr/dear-passengers-fragman/|Fragman analizi]] sahneleri ayrı kanıt düzeyleriyle inceler.'
+      { id: 'son-guncelleme', kicker: '29 AĞUSTOS 2026 KONTROLÜ', heading: 'En yeni Dear Passengers haberi nedir?', paragraphs: [
+        'FLEXUS, 31 Temmuz’da Dear Passengers’ın iki milyon Steam istek listesine ulaştığını bildirdi. Bu, stüdyonun tarihli açıklamasıdır; Valve tarafından herkese açık biçimde denetlenen canlı hesap toplamı değildir. İstek listesi ayrıca satış, gelir, indirme veya oyuncu sayısı anlamına gelmez.',
+        '29 Ağustos’ta kişisel tercih filtreleri olmadan kontrol edilen Steam “Top Wishlists” anlık görüntüsü Dear Passengers’ı 4. sırada gösterdi. Sıra değişebilir ve satış listesi değildir. 31 Temmuz gönderisi, kontrol tarihinde Steam haber akışındaki en yeni Dear Passengers’a özel haberdir; duyurulan oynanış videosu henüz yeni bir Steam gönderisi olarak yayımlanmadı.'
       ]},
       { id: 'istek-listesi', kicker: 'İSTEK LİSTESİ BAĞLAMI', heading: 'Dear Passengers kaç istek listesine ulaştı?', paragraphs: [
-        'FLEXUS daha önce 700 bin, bir milyon ve 1,5 milyon gibi kilometre taşları açıkladı. 22 Temmuz metni iki milyona yaklaşıldığını söyledi. Bunlar stüdyonun tarihli açıklamalarıdır. Steam, herkese açık canlı toplamı denetlenebilir bir panel olarak sunmadığı için rakam “FLEXUS’a göre” ifadesiyle aktarılır.',
-        'İstek listesi; satış, gelir, inceleme, indirme veya eş zamanlı oyuncu değildir. Ayrıca listelerdeki sıra zamanla değişebilir. Dear Passengers haberleri bir tarihli sıralamayı kalıcı başarı etiketi yapmaz ve eski rakamı güncel canlı sayaç gibi göstermeye devam etmez.'
+        'FLEXUS daha önce 700 bin, bir milyon ve 1,5 milyon kilometre taşlarını, 31 Temmuz’da ise iki milyon istek listesini bildirdi. Eski “iki milyona yakın” ifadesi artık en güncel toplam değildir. Her rakam yine de stüdyo açıklamasıdır ve Steam’in herkese açık canlı sayacı olarak sunulamaz.',
+        'İstek listesi; satış, gelir, inceleme, indirme veya eş zamanlı oyuncu değildir. Top Wishlists sırası da zamanla değişir. Dear Passengers haberleri 4. sırayı 29 Ağustos tarihli ve kişiselleştirilmemiş bir anlık görüntü olarak kaydeder; kalıcı etiket veya satış tahmini yapmaz.'
       ]},
       { id: 'urun-durumu', kicker: 'ÜRÜN DURUMU', heading: 'Steam sayfasında ne değişti?', paragraphs: [
-        '27 Temmuz kontrolünde Steam hâlâ 2026 çıkışı, Windows 10 minimum sistemi, tek oyunculu ve çevrimiçi eşli oyunu listeliyor. Türkçe destek arayüz sütununda işaretli. Kesin tarih, satın alma fiyatı, maksimum oyuncu sayısı ve konsol mağazası yok.',
-        'Yeni bir Steam alanı görünürse ilgili konu sayfaları birlikte güncellenir. Fiyat çıkış rehberine, lobi sınırı oyuncu sayfasına, yeni donanım tablosu sistem gereksinimlerine aktarılır. Böylece Dear Passengers haberleri diğer Türkçe sayfalarla çelişen izole bir kayıt olmaz.'
+        '29 Ağustos kontrolünde Steam hâlâ 2026 çıkışı, Windows 10 minimum sistemi, tek oyunculu ve çevrimiçi eşli oyunu listeliyor. Türkçe destek arayüz sütununda işaretli. Kesin tarih, satın alma fiyatı, maksimum oyuncu sayısı, demo ve Playtest düğmesi yok.',
+        'FLEXUS’un Gamescom 2026 katılımı doğrulandı. Ancak Dear Passengers derlemesinin gösterildiği veya ziyaretçilerin deneyebildiği halka açık bir alanda oynandığı doğrulanmadı. [[/tr/dear-passengers-demo/|Demo rehberi]], stüdyo katılımını oyun gösterimi ya da halka açık ev demosu gibi sunmaz.'
       ]},
       { id: 'soylenti', kicker: 'SÖYLENTİ KONTROLÜ', heading: 'Topluluk iddiaları nasıl ele alınıyor?', paragraphs: [
         'Forumlarda yapay zekâ kullanımı, konsol sürümü, ücretsiz model veya belirli co-op sayısı tartışılabilir. Bir tartışmanın çok paylaşılması ürün özelliğini doğrulamaz. Geliştiricinin doğrudan yanıtı varsa kaynak ve bağlamla aktarılır; yanıt yoksa iddia “tartışılıyor” seviyesinde kalır.',
@@ -333,12 +336,12 @@ export const turkishGuides: TurkishGuide[] = [
     ],
     localContext: [
       'Türkiye’de “haberleri”, “son dakika”, “güncelleme” ve “ne zaman çıkacak” sorguları birbirine yaklaşabilir. Bu sayfa tarihli değişiklikleri toplar; çıkış tarihinin kalıcı cevabı ayrı rehberde tutulur.',
-      'Türkçe sayı biçiminde 1,5 milyon yazılır. Ancak kaynağın İngilizce “close to 2,000,000” ifadesi “yaklaşık iki milyon” değil “iki milyona yakın” olarak aktarılır; kilometre taşının geçildiğini ima etmez.',
+      '31 Temmuz tarihli “2,000,000 wishlists” stüdyo açıklaması Türkçede “iki milyon istek listesi” olarak aktarılır ve FLEXUS’a atfedilir. Bu ifade iki milyon oyuncu veya satış anlamına gelmez.',
       'Yalnız başlık veya küçük görsel değişikliği haber sayılmaz. Dear Passengers haberleri yeni birincil bilgi olduğunda güncellenir ve görünürde sahte tazelik üretmez.'
     ],
     faqs: [
-      { question: 'En son Dear Passengers haberi ne?', answer: 'FLEXUS 22 Temmuz’da ikinci resmî kısa videoyu yayımladı ve iki milyon istek listesine yakın olduğunu söyledi.' },
-      { question: 'Dear Passengers iki milyon istek listesine ulaştı mı?', answer: '22 Temmuz açıklaması “yakın” dedi; ulaşıldığını doğrulamadı.' },
+      { question: 'En son Dear Passengers haberi ne?', answer: 'En yeni oyuna özel Steam gönderisi, FLEXUS’un 31 Temmuz 2026’da iki milyon istek listesi bildirdiği duyurudur.' },
+      { question: 'Dear Passengers iki milyon istek listesine ulaştı mı?', answer: 'FLEXUS 31 Temmuz’da bunu bildirdi. Bu geliştirici açıklamasıdır; satış veya oyuncu sayısı değildir.' },
       { question: 'Dear Passengers çıkış tarihi açıklandı mı?', answer: 'Yalnızca 2026 penceresi açıklandı.' },
       { question: 'Dear Passengers fiyatı belli mi?', answer: 'Hayır. Steam’de satın alma fiyatı yok.' },
       { question: 'Dear Passengers demo çıktı mı?', answer: 'Hayır, halka açık demo henüz yayımlanmadı.' },

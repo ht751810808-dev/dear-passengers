@@ -8,6 +8,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const GAMES_FROM_UKRAINE_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'dear-passengers-gameplay': 'ကစားနည်း',
@@ -34,6 +36,8 @@ function RichText({ text }: { text: string }) {
 
 export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: MyanmarGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const modifiedDate = guide.modifiedDate ?? '2026-07-30';
+  const verifiedDate = guide.verifiedDate ?? '2026 ဇူလိုင် 30 ရက်';
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': guide.slug ? 'Article' : 'WebPage',
@@ -41,7 +45,7 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
     description: guide.description,
     mainEntityOfPage: pageUrl,
     datePublished: '2026-07-30',
-    dateModified: '2026-07-30',
+    dateModified: modifiedDate,
     inLanguage: 'my-MM',
     author: {
       '@type': 'Organization',
@@ -99,7 +103,7 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
               <h1><RichText text={guide.h1} /></h1>
               <p><RichText text={guide.intro} /></p>
               <div className="article-meta">
-                <span>2026 ဇူလိုင် 30 ရက် စစ်ဆေးပြီး</span>
+                <span>{verifiedDate} စစ်ဆေးပြီး</span>
                 <span>Primary source: Steam နှင့် FLEXUS</span>
                 <span>ဝဘ်ဆိုက်ဘာသာ: မြန်မာ</span>
               </div>
@@ -115,7 +119,7 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
               <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam Wishlist ထည့်ရန် ↗</a>
             </aside>
             <div className="article-prose prose">
-              <EditorialNote checked="2026 ဇူလိုင် 30 ရက်" locale="my-MM" note={guide.note} />
+              <EditorialNote checked={verifiedDate} locale="my-MM" note={guide.note} />
               <section id="answer">
                 <span className="kicker">အမြန်အဖြေ</span>
                 <h2>{guide.keyword}: လက်ရှိအခြေအနေ</h2>
@@ -166,6 +170,7 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
                   <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Dear Passengers တရားဝင် Steam စာမျက်နှာ ↗</a> တွင် platform၊ play mode၊ language table နှင့် minimum requirements ရှိသည်။{' '}
                   <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">FLEXUS တိုက်ရိုက်အင်တာဗျူး ↗</a> က demo plan ကို context ပေးသည်။ Third-party file သို့မဟုတ် installer ကို မချိတ်ပါ။
                 </p>
+                {['dear-passengers-news', 'dear-passengers-demo'].includes(guide.slug) && <p><a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">Dear Passengers Steam news history ↗</a> တွင် နောက်ဆုံး game-specific post ရက်ကို စစ်နိုင်ပြီး <a href={GAMES_FROM_UKRAINE_URL} target="_blank" rel="noopener noreferrer">Games From Ukraine ↗</a> တွင် FLEXUS ၏ Gamescom ပါဝင်မှု context ကို ပြန်စစ်နိုင်သည်။</p>}
               </section>
               <section className="related-guide">
                 <span className="kicker">မြန်မာဘာသာလမ်းညွှန်</span>

@@ -3,6 +3,8 @@ export type SpanishSection = { id: string; kicker: string; heading: string; para
 export type SpanishGuide = {
   slug: string;
   englishPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
   keyword: string;
   title: string;
   description: string;
@@ -139,22 +141,23 @@ export const spanishGuides: SpanishGuide[] = [
   },
   {
     slug: 'dear-passengers-demo', englishPath: '/dear-passengers-demo/',
+    modifiedDate: '2026-08-29', verifiedDate: '29 de agosto de 2026',
     keyword: 'Dear Passengers demo', title: 'Demo de Dear Passengers: Gamescom, Prueba Pública y Acceso',
     description: 'Demo de Dear Passengers: plan de FLEXUS para Gamescom y una versión pública posterior, sin confundir una intención con una descarga disponible.',
-    eyebrow: 'DEMO Y PRUEBAS · ESTADO REAL', h1: '¿Existe una demo de Dear Passengers para descargar?',
-    intro: 'La demo de Dear Passengers aún no está disponible al público. FLEXUS ha hablado de una versión jugable para Gamescom 2026 y de su intención de publicar una demo abierta después. No hay botón en Steam, fecha, inscripción de beta ni archivo oficial.',
-    answer: 'No existe una demo pública de Dear Passengers disponible ahora. FLEXUS declaró que prepara una versión jugable para Gamescom 2026 y que pretende ofrecer una demo pública posteriormente. La fecha, el canal de distribución, las regiones, la duración y el contenido siguen sin anunciarse.',
+    eyebrow: 'DEMO Y PRUEBAS · 29 DE AGOSTO DE 2026', h1: '¿Existe una demo de Dear Passengers para descargar?',
+    intro: 'La demo de Dear Passengers aún no está disponible al público. La participación de FLEXUS en Gamescom 2026 está confirmada, pero no se ha confirmado que allí se muestre una build de Dear Passengers ni que exista una prueba hands-on abierta a visitantes. Steam tampoco ofrece demo o Playtest.',
+    answer: 'No existe una demo pública de Dear Passengers a 29 de agosto de 2026. FLEXUS participa en Gamescom, pero eso no confirma una presentación de la build ni acceso hands-on público para este juego. Steam no muestra botón de demo o Playtest; fecha, regiones, duración y contenido de una futura prueba siguen sin anunciarse.',
     note: '“Planeada” no significa “publicada”. La demo solo se marcará como disponible cuando Steam o un canal oficial de FLEXUS ofrezca un acceso funcional y verificable.',
     heroImage: '/images/hero-bg.webp', heroAlt: 'Cabina oficial utilizada en la guía en español sobre la demo de Dear Passengers',
-    confirmed: ['Versión jugable planeada para Gamescom', 'Intención de una demo pública posterior', 'Juego completo previsto para 2026'], unknown: ['Fecha de la demo pública', 'Demo de Steam o Steam Playtest', 'Regiones y duración', 'Transferencia de progreso'],
+    confirmed: ['Participación de FLEXUS en Gamescom 2026', 'Intención anterior de una demo pública posterior', 'Juego completo previsto para 2026'], unknown: ['Si se ha mostrado una build de Dear Passengers en la feria', 'Acceso hands-on público', 'Fecha y contenido de la demo', 'Demo de Steam o Steam Playtest'],
     sections: [
       { id: 'estado', kicker: 'ESTADO ACTUAL', heading: '¿Ya se puede jugar a la demo de Dear Passengers?', paragraphs: [
         'No. La página oficial ofrece una lista de deseados, pero no muestra “Descargar demo” ni inscripción a Steam Playtest. Un resultado que incluya “demo”, “beta” o “descargar” en el título no es acceso legítimo si no existe un enlace desde FLEXUS o Steam.',
         'La comunidad pregunta por beta y demo, y varios usuarios quieren probarla con amigos. Esas preguntas demuestran interés, no disponibilidad. Tampoco son invitaciones oficiales ni distribución de claves.'
       ]},
       { id: 'gamescom', kicker: 'PLAN DE FLEXUS', heading: '¿Qué dijo FLEXUS sobre la demo de Gamescom?', paragraphs: [
-        'En una entrevista directa, el cofundador de FLEXUS explicó que el equipo preparaba una versión jugable para el pabellón ucraniano de Gamescom 2026 y una demo pública un poco más tarde. La declaración confirma un plan de desarrollo, pero no aporta día, enlace de descarga o garantía sobre el contenido final.',
-        'Una build de feria y una demo doméstica pueden diferir en misiones, estabilidad, controles y límite de jugadores. Cuando haya acceso, registraremos versión, fecha, plataforma, regiones y requisitos en vez de asumir que ambas versiones son idénticas.'
+        'En una entrevista directa, el cofundador de FLEXUS explicó que el equipo preparaba una versión jugable para Gamescom 2026 y una demo pública un poco más tarde. La participación del estudio en la feria ya está confirmada. Sin embargo, esa presencia no demuestra que la build de Dear Passengers se haya mostrado ni que los visitantes puedan probarla.',
+        'Si aparece una confirmación específica del juego, registraremos build, fecha y tipo de acceso. Una versión de feria y una demo doméstica pueden diferir en misiones, estabilidad, controles y límite de jugadores. Hasta entonces no se atribuye a Dear Passengers ningún hands-on público ni contenido observado en Gamescom.'
       ]},
       { id: 'seguridad', kicker: 'ACCESO SEGURO', heading: '¿Cómo reconocer una descarga legítima?', paragraphs: [
         'El camino seguro es la ficha oficial de Steam o un anuncio de FLEXUS que enlace a ella. Formularios externos solo deben considerarse cuando un canal oficial los identifique. Ejecutables, APK, torrents, “online fix” y claves de terceros no son una demo confirmada.',
@@ -167,11 +170,11 @@ export const spanishGuides: SpanishGuide[] = [
       'Steam usa “demo” y “demostración” según el contexto regional. Ninguna forma implica que el producto esté localizado al español.'
     ],
     faqs: [
-      { question: '¿Dear Passengers tiene demo?', answer: 'Aún no hay demo pública; FLEXUS planea una después de la versión para Gamescom.' },
+      { question: '¿Dear Passengers tiene demo?', answer: 'Aún no hay demo pública. FLEXUS había comunicado ese objetivo, pero Steam no ofrece demo ni Playtest.' },
       { question: '¿Cuándo sale la demo?', answer: 'No se ha anunciado una fecha.' },
       { question: '¿Dónde se puede descargar?', answer: 'En ningún sitio por ahora; revisa Steam y los canales oficiales de FLEXUS.' },
       { question: '¿Existe una beta?', answer: 'No hay beta ni Steam Playtest público confirmado.' },
-      { question: '¿La demo de Gamescom será online?', answer: 'Su modo, contenido y distribución no se han detallado.' },
+      { question: '¿Dear Passengers se puede probar en Gamescom?', answer: 'No está confirmado. La participación de FLEXUS sí lo está, pero no una build mostrada ni acceso hands-on público para Dear Passengers.' },
       { question: '¿Se conservará el progreso?', answer: 'No se ha anunciado transferencia de progreso.' },
     ], related: ['dear-passengers-descargar', 'dear-passengers-fecha-de-lanzamiento', 'dear-passengers-noticias', 'dear-passengers-como-jugar'],
   },
@@ -291,22 +294,23 @@ export const spanishGuides: SpanishGuide[] = [
   },
   {
     slug: 'dear-passengers-noticias', englishPath: '/dear-passengers-news/',
+    modifiedDate: '2026-08-29', verifiedDate: '29 de agosto de 2026',
     keyword: 'Dear Passengers noticias', title: 'Noticias de Dear Passengers: Anuncios de FLEXUS Verificados',
     description: 'Noticias de Dear Passengers con fecha, fuente y estado: Steam, FLEXUS, tráileres, listas de deseados, demo y lanzamiento sin rumores reciclados.',
-    eyebrow: 'NOTICIAS · FUENTE Y FECHA', h1: '¿Cuáles son las últimas noticias de Dear Passengers?',
-    intro: '“Dear Passengers noticias” debe responder qué cambió, cuándo y quién lo dijo. Este registro prioriza Steam, publicaciones de FLEXUS, vídeos oficiales y entrevistas directas. Un rumor repetido o una página que cambia la fecha sin fuente no se convierte en noticia.',
-    answer: 'La información oficial más reciente mantiene Dear Passengers para Windows en 2026. FLEXUS anunció 1,5 millones de listas de deseados el 19 de julio y afirmó el 22 de julio que se acercaba a dos millones. El estudio también declaró que prepara una build para Gamescom 2026 y una demo pública posterior; Steam todavía no ofrece esa demo.',
+    eyebrow: 'NOTICIAS · VERIFICADO EL 29 DE AGOSTO DE 2026', h1: '¿Cuáles son las últimas noticias de Dear Passengers?',
+    intro: 'La última noticia de Steam dedicada específicamente a Dear Passengers sigue siendo la publicación de FLEXUS del 31 de julio de 2026, en la que el estudio comunicó dos millones de listas de deseados. Una captura sin personalización de Steam Top Wishlists situó el juego en el puesto 4 el 29 de agosto; ninguno de los datos representa ventas o jugadores.',
+    answer: 'FLEXUS informó el 31 de julio de 2026 que Dear Passengers alcanzó dos millones de listas de deseados; es un dato del estudio, no ventas auditadas. En una captura sin filtros de preferencia de Steam Top Wishlists, verificada el 29 de agosto, aparecía en el puesto 4. FLEXUS participa en Gamescom, pero no está confirmada una build del juego ni una prueba hands-on pública.',
     note: 'Los números de listas de deseados se atribuyen a FLEXUS y no son ventas, descargas ni jugadores activos. Los planes de demo pueden cambiar hasta que exista acceso público.',
-    heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Imagen oficial de FLEXUS sobre las listas de deseados de Dear Passengers',
-    confirmed: ['Ventana de lanzamiento 2026', 'Hito de 1,5 millones comunicado por FLEXUS', 'Teaser posterior cercano a dos millones', 'Plan de Gamescom y demo posterior'], unknown: ['Fecha exacta de lanzamiento', 'Fecha de la demo pública', 'Precio', 'Ventas y jugadores activos'],
+    heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Imagen oficial del hito histórico de 1,5 millones de deseados usada como contexto en las noticias de Dear Passengers',
+    confirmed: ['Dos millones de listas de deseados comunicados por FLEXUS el 31/07', 'Puesto 4 en una captura de Top Wishlists del 29/08', 'Participación de FLEXUS en Gamescom 2026', 'Ventana de lanzamiento 2026'], unknown: ['Total vivo auditable por Steam', 'Si se ha mostrado una build de Dear Passengers en Gamescom', 'Acceso hands-on o demo pública', 'Fecha exacta y precio'],
     sections: [
       { id: 'cronologia', kicker: 'CRONOLOGÍA', heading: '¿Qué anuncios oficiales se han publicado?', paragraphs: [
-        'FLEXUS comunicó 700.000 listas de deseados el 15 de julio, un millón el 16 y 1,5 millones el 19. El 22 de julio, el teaser “Another Friendslop Game” afirmó que Dear Passengers se acercaba a dos millones. Son declaraciones del estudio en un periodo de crecimiento rápido, no una auditoría externa.',
-        'La ficha de Steam sigue indicando 2026 y Windows. No ha aparecido precio, día, reserva ni acceso anticipado. Cuando una noticia no cambia el producto, no modificamos títulos o fechas solo para parecer recientes.'
+        'FLEXUS comunicó 700.000 listas de deseados el 15 de julio, un millón el 16, 1,5 millones el 19 y dos millones el 31 de julio. La cifra del 31 sustituye como último hito a la frase anterior “cerca de dos millones”, pero continúa siendo una declaración de la desarrolladora y no una auditoría de Valve.',
+        'El 29 de agosto, una captura de la lista pública Steam Top Wishlists sin filtros de preferencias mostraba Dear Passengers en el puesto 4. Es una posición fechada y variable, no una clasificación de ventas. La publicación del 31 de julio seguía siendo ese día la noticia más reciente del juego en su feed de Steam.'
       ]},
       { id: 'demo', kicker: 'DEMO Y EVENTOS', heading: '¿Qué se sabe de Gamescom y la demo?', paragraphs: [
-        'En una entrevista, un cofundador de FLEXUS dijo que el equipo preparaba una build jugable para el pabellón ucraniano de Gamescom y que pretendía publicar una demo poco después. La formulación indica intención y secuencia, no una fecha garantizada.',
-        'Steam continúa sin botón de demo o Playtest. La [[/es/dear-passengers-demo/|página de la demo]] solo cambiará a “disponible” si una fuente oficial conduce a un acceso funcional.'
+        'En una entrevista, un cofundador de FLEXUS dijo que el equipo preparaba una build para Gamescom y que pretendía publicar una demo más adelante. La participación de FLEXUS en Gamescom 2026 está confirmada, pero no se ha confirmado que una build de Dear Passengers se muestre o se haya mostrado, ni que exista acceso hands-on público.',
+        'Steam continúa sin botón de demo o Playtest. La [[/es/dear-passengers-demo/|página de la demo]] solo cambiará a “disponible” si una fuente oficial conduce a un acceso funcional. La presencia del estudio en una feria no equivale a una demo doméstica ni a una estación pública del juego.'
       ]},
       { id: 'rumores', kicker: 'RUMOR Y CONTEXTO', heading: '¿Cómo tratamos rumores, polémicas y cifras?', paragraphs: [
         'Las discusiones comunitarias pueden revelar preguntas sobre número de jugadores, IA, contenido del tráiler o modelo gratuito. Son evidencia de interés o controversia, no prueba de una función. Una respuesta identificada como desarrollador se cita con su contexto y no se extiende más allá de lo dicho.',
@@ -319,10 +323,10 @@ export const spanishGuides: SpanishGuide[] = [
       'Las fechas de Dear Passengers se escriben con el mes en palabras para que se entiendan igual en España y Latinoamérica.'
     ],
     faqs: [
-      { question: '¿Cuál es la última noticia?', answer: 'FLEXUS mantiene 2026 y ha comunicado hitos de listas de deseados y planes de demo.' },
+      { question: '¿Cuál es la última noticia?', answer: 'La última publicación de Steam dedicada al juego sigue siendo la del 31 de julio, cuando FLEXUS informó dos millones de listas de deseados.' },
       { question: '¿Ya hay fecha exacta?', answer: 'No. Steam solo muestra 2026.' },
       { question: '¿La demo ya salió?', answer: 'No. Hay un plan, pero no existe acceso público.' },
-      { question: '¿Tiene dos millones de jugadores?', answer: 'No; FLEXUS habló de listas de deseados cercanas a dos millones.' },
+      { question: '¿Tiene dos millones de jugadores?', answer: 'No. FLEXUS informó dos millones de listas de deseados el 31 de julio; no son jugadores ni ventas.' },
       { question: '¿Se conoce el precio?', answer: 'No se ha anunciado.' },
       { question: '¿Dónde publica FLEXUS?', answer: 'En Steam y en sus canales sociales y de vídeo vinculados.' },
     ], related: ['dear-passengers-fecha-de-lanzamiento', 'dear-passengers-demo', 'dear-passengers-trailer', 'dear-passengers-desarrollador-flexus'],

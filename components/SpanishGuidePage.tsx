@@ -7,7 +7,9 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=spanish';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const GAMESCOM_PARTICIPATION_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'juego-dear-passengers': 'Qué es el juego',
@@ -36,10 +38,13 @@ function RichText({ text }: { text: string }) {
 
 export default function SpanishGuidePage({ guide, canonicalPath }: { guide: SpanishGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isNewsOrDemo = guide.slug === 'dear-passengers-noticias' || guide.slug === 'dear-passengers-demo';
+  const modifiedDate = guide.modifiedDate ?? '2026-07-30';
+  const verifiedDate = guide.verifiedDate ?? '30 de julio de 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-30', dateModified: '2026-07-30', inLanguage: 'es',
+    datePublished: '2026-07-30', dateModified: modifiedDate, inLanguage: 'es',
     author: { '@type': 'Organization', name: 'Equipo editorial en español de DearPassengers.net', url: 'https://dearpassengers.net/es/sobre/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -72,7 +77,7 @@ export default function SpanishGuidePage({ guide, canonicalPath }: { guide: Span
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>Verificado el 30 de julio de 2026</span><span>Fuentes primarias: Steam y FLEXUS</span><span>Idioma del sitio: español</span></div>
+            <div className="article-meta"><span>Verificado el {verifiedDate}</span><span>Fuentes primarias: Steam y FLEXUS</span><span>Idioma del sitio: español</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -83,7 +88,7 @@ export default function SpanishGuidePage({ guide, canonicalPath }: { guide: Span
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Añadir a la lista de deseados ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked="30 de julio de 2026" locale="es" note={guide.note} />
+            <EditorialNote checked={verifiedDate} locale="es" note={guide.note} />
             <section id="respuesta">
               <span className="kicker">RESPUESTA RÁPIDA</span><h2>{guide.keyword}: situación actual</h2>
               <p className="snippet-answer"><strong><RichText text={guide.answer} /></strong></p>
@@ -108,7 +113,7 @@ export default function SpanishGuidePage({ guide, canonicalPath }: { guide: Span
               <p><RichText text="DearPassengers.net es una guía independiente sin relación con FLEXUS, Valve o Steam. Las imágenes oficiales se usan con finalidad editorial y pertenecen a sus titulares. Puedes enviar una corrección con fuente desde la [[/es/contacto/|página de contacto]]." /></p>
             </section>
             <section id="preguntas"><span className="kicker">PREGUNTAS FRECUENTES</span><h2>Dudas sobre {guide.keyword}</h2><p>Las respuestas usan español natural y no rellenan una laguna oficial con una suposición.</p><FAQ items={guide.faqs} /></section>
-            <section id="fuentes"><span className="kicker">FUENTES PRIMARIAS</span><h2>Comprueba la información en su origen</h2><p>La <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">ficha oficial de Dear Passengers en Steam ↗</a> muestra plataforma, modos, ausencia de español y requisitos mínimos. La <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">entrevista directa con FLEXUS ↗</a> aporta contexto sobre la demo. No enlazamos archivos de terceros.</p></section>
+            <section id="fuentes"><span className="kicker">FUENTES PRIMARIAS</span><h2>Comprueba la información en su origen</h2><p>La <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">ficha oficial de Dear Passengers en Steam ↗</a> muestra plataforma, modos, ausencia de español y requisitos mínimos. La <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">entrevista directa con FLEXUS ↗</a> aporta contexto sobre la demo. No enlazamos archivos de terceros.</p>{isNewsOrDemo && <p>Para el estado actual también revisamos el <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">feed oficial de noticias en Steam ↗</a> y la <a href={GAMESCOM_PARTICIPATION_URL} target="_blank" rel="noopener noreferrer">información de participantes de Games From Ukraine ↗</a>. La fuente del evento confirma la presencia de FLEXUS, no una muestra pública de una build de Dear Passengers.</p>}</section>
             <section className="related-guide"><span className="kicker">GUÍA EN ESPAÑOL</span><h2>Más temas sobre Dear Passengers</h2><p>Cada página responde a una intención propia y los enlaces contextuales conectan las dudas sin hacer que varias URLs compitan por la misma consulta.</p><div className="related-actions"><Link className="button" href="/es/">Inicio en español →</Link>{guide.related.map((slug) => <Link className="button button-ghost" href={`/es/${slug}/`} key={slug}>{labels[slug] || slug} →</Link>)}</div></section>
           </div>
         </div>

@@ -3,6 +3,8 @@ export type MyanmarSection = { id: string; kicker: string; heading: string; para
 export type MyanmarGuide = {
   slug: string;
   englishPath: string;
+  modifiedDate?: string;
+  verifiedDate?: string;
   keyword: string;
   title: string;
   description: string;
@@ -202,18 +204,20 @@ export const myanmarGuides: MyanmarGuide[] = [
   {
     slug: 'dear-passengers-demo',
     englishPath: '/dear-passengers-demo/',
+    modifiedDate: '2026-08-29',
+    verifiedDate: '2026 ဩဂုတ် 29 ရက်',
     keyword: 'Dear Passengers demo',
     title: 'Dear Passengers Demo၊ Gamescom နှင့် Public Test အခြေအနေ',
     description: 'Dear Passengers demo ကို ယခု download လုပ်၍မရသေးပါ။ Gamescom build၊ public demo အစီအစဉ်၊ beta၊ Playtest နှင့် လုံခြုံသော access အချက်များ။',
     eyebrow: 'DEMO နှင့် TEST · လက်ရှိအခြေအနေ',
     h1: 'Dear Passengers demo ကို အခုဒေါင်းလုဒ်လုပ်လို့ရပြီလား',
-    intro: 'Dear Passengers demo ကို အများပြည်သူ download လုပ်၍ မရသေးပါ။ FLEXUS က Gamescom 2026 အတွက် playable build ပြင်ဆင်နေပြီး နောက်ပိုင်း public demo ထုတ်ရန် ရည်ရွယ်ကြောင်း ပြောထားသည်။ Steam တွင် Download Demo button၊ beta signup သို့မဟုတ် Steam Playtest panel မရှိသေးပါ။',
-    answer: 'လက်ရှိတွင် Dear Passengers public demo မရှိသေးပါ။ FLEXUS သည် Gamescom 2026 တွင် စမ်းကစားနိုင်မည့် build နှင့် ထို့နောက် public demo တစ်ခု ထုတ်ရန် စီစဉ်ထားကြောင်း ပြောထားသည်။ Demo ရက်၊ Steam distribution၊ region၊ duration၊ content နှင့် save transfer ကို မကြေညာသေးပါ။',
-    note: '“စီစဉ်ထားသည်” သည် “ရရှိနိုင်ပြီ” မဟုတ်ပါ။ Steam သို့မဟုတ် FLEXUS တရားဝင် channel မှ အလုပ်လုပ်သည့် access link ပေးမှသာ demo ကို available ဟု သတ်မှတ်မည်။',
+    intro: 'Dear Passengers demo ကို အများပြည်သူ download လုပ်၍ မရသေးပါ။ FLEXUS ၏ Gamescom 2026 ပါဝင်မှုကို အတည်ပြုနိုင်သော်လည်း Dear Passengers build ကို ပြသခဲ့ခြင်း သို့မဟုတ် အများပြည်သူ hands-on ကစားခွင့်ရှိခြင်းကို primary source က မအတည်ပြုသေးပါ။ Steam တွင် Download Demo button သို့မဟုတ် Steam Playtest panel မရှိပါ။',
+    answer: '2026 ဩဂုတ် 29 ရက်အထိ Dear Passengers public demo သို့မဟုတ် Steam Playtest မရှိသေးပါ။ FLEXUS က Gamescom 2026 တွင် ပါဝင်နေပြီး အစောပိုင်းအင်တာဗျူးတွင် နောက်ပိုင်း public demo ထုတ်ရန် ရည်ရွယ်ကြောင်း ပြောခဲ့သည်။ သို့သော် game build ပြသမှု၊ public hands-on၊ demo ရက်၊ region၊ duration နှင့် content ကို မအတည်ပြုသေးပါ။',
+    note: 'Studio ၏ event တက်ရောက်မှုသည် Dear Passengers ကို ကစားနိုင်သည်ဟု မဆိုလိုပါ။ Steam သို့မဟုတ် FLEXUS တရားဝင် channel မှ အလုပ်လုပ်သည့် access link ပေးမှသာ demo ကို available ဟု သတ်မှတ်မည်။',
     heroImage: '/images/hero-bg.webp',
     heroAlt: 'Dear Passengers demo အခြေအနေကို ရှင်းပြသည့် cabin မူရင်းအယ်ဒီတာသရုပ်ဖော်ပုံ',
-    confirmed: ['Gamescom အတွက် playable build စီစဉ်ထားခြင်း', 'နောက်ပိုင်း public demo ထုတ်ရန် ရည်ရွယ်ခြင်း', 'Full game ကို 2026 တွင် ဖြန့်ချိရန် စီစဉ်ခြင်း'],
-    unknown: ['Public demo ရက်', 'Steam Demo သို့မဟုတ် Steam Playtest', 'Region နှင့် duration', 'Progress transfer'],
+    confirmed: ['FLEXUS ၏ Gamescom 2026 ပါဝင်မှု', 'Steam တွင် public demo သို့မဟုတ် Playtest မရှိခြင်း', 'နောက်ပိုင်း public demo ထုတ်ရန် FLEXUS ရည်ရွယ်ခဲ့ခြင်း'],
+    unknown: ['Dear Passengers build ကို Gamescom တွင် ပြသခဲ့ခြင်း', 'အများပြည်သူ hands-on access', 'Public demo ရက်၊ content နှင့် duration', 'Region၊ player count နှင့် progress transfer'],
     sections: [
       {
         id: 'current-status',
@@ -221,7 +225,7 @@ export const myanmarGuides: MyanmarGuide[] = [
         heading: 'Dear Passengers demo ကို အခုကစားလို့ရလား',
         paragraphs: [
           'မရသေးပါ။ Dear Passengers Steam page တွင် wishlist နှင့် follow action ရှိသော်လည်း “Download Demo” သို့မဟုတ် “Request Access” မရှိပါ။ Search result တစ်ခု၏ title တွင် demo၊ beta သို့မဟုတ် download ပါရုံဖြင့် တရားဝင် access မဖြစ်ပါ။ FLEXUS သို့မဟုတ် Steam ထံမှ ချိတ်ဆက်မှုမရှိသည့် installer ကို မဖွင့်သင့်ပါ။',
-          'Steam community မှ ကစားသူများက beta နှင့် demo အကြောင်း မေးထားပြီး သူငယ်ချင်းများနှင့် စမ်းကစားလိုကြသည်။ ဒီလိုမေးခွန်းများက demand ကို ပြသသော်လည်း invitation၊ key drop သို့မဟုတ် public test ကို အတည်မပြုနိုင်ပါ။',
+          'Dear Passengers အတွက် နောက်ဆုံး Steam news သည် ဇူလိုင် 31 ရက် post ဖြစ်ပြီး FLEXUS က wishlist နှစ်သန်းနှင့် ပြင်ဆင်နေသည့် gameplay video ကို ဖော်ပြထားသည်။ နှစ်သန်းသည် developer-reported wishlist ဖြစ်ပြီး sale မဟုတ်ပါ။ ထို post တွင် public demo၊ Playtest၊ invitation သို့မဟုတ် key drop မကြေညာထားပါ။',
         ],
       },
       {
@@ -229,8 +233,8 @@ export const myanmarGuides: MyanmarGuide[] = [
         kicker: 'FLEXUS အစီအစဉ်',
         heading: 'Gamescom demo နှင့် public demo က ဘာကွာသလဲ',
         paragraphs: [
-          'FLEXUS co-founder အင်တာဗျူးအရ studio သည် Gamescom အတွက် build ပြင်ဆင်နေသည်။ Event booth တွင် စမ်းကစားနိုင်ခြင်းသည် ကမ္ဘာတစ်ဝန်း download လုပ်နိုင်သော demo နှင့် မတူပါ။ Booth access၊ queue၊ hardware သို့မဟုတ် participant eligibility ကို ဤဆိုက်က အာမခံမပေးနိုင်ပါ။',
-          'အင်တာဗျူးတွင် public demo ကို နောက်ပိုင်း ထုတ်ရန် ရည်ရွယ်ထားကြောင်းလည်း ပါသည်။ သို့သော် release date၊ Steam page၊ duration၊ multiplayer capacity နှင့် region restriction မရှိသေးပါ။ Plan သည် ပြောင်းနိုင်သောကြောင့် [[/my/dear-passengers-news/|သတင်းစာမျက်နှာ]] တွင် announcement တစ်ခုချင်းစီကို ရက်နှင့် source ဖြင့် မှတ်တမ်းတင်သည်။',
+          'FLEXUS co-founder ၏ အစောပိုင်းအင်တာဗျူးတွင် Gamescom build ပြင်ဆင်ရန် ရည်ရွယ်ကြောင်း ပြောခဲ့ပြီး ယခု FLEXUS ၏ Gamescom 2026 ပါဝင်မှုကို အတည်ပြုနိုင်သည်။ သို့သော် Dear Passengers build ကို အမှန်တကယ်ပြသခဲ့သည်၊ booth တွင် ကစားနိုင်သည် သို့မဟုတ် public hands-on ရှိသည်ဟု အတည်ပြုနိုင်သော game-specific source မရှိသေးပါ။',
+          'အင်တာဗျူးတွင် public demo ကို နောက်ပိုင်း ထုတ်ရန် ရည်ရွယ်ထားကြောင်းလည်း ပါသည်။ သို့သော် release date၊ Steam access page၊ duration၊ multiplayer capacity နှင့် region restriction မရှိသေးပါ။ Plan သည် ပြောင်းနိုင်သောကြောင့် [[/my/dear-passengers-news/|သတင်းစာမျက်နှာ]] တွင် announcement တစ်ခုချင်းစီကို ရက်နှင့် source ဖြင့် မှတ်တမ်းတင်သည်။',
         ],
       },
       {
@@ -249,11 +253,11 @@ export const myanmarGuides: MyanmarGuide[] = [
       'မြန်မာဘာသာဖြင့် လမ်းညွှန်ရှိခြင်းသည် region-specific beta သို့မဟုတ် Myanmar server ရှိကြောင်း မဆိုလိုပါ။ Region policy ကို FLEXUS က မကြေညာသေးပါ။',
     ],
     faqs: [
-      { question: 'Dear Passengers demo ရှိပြီလား', answer: 'Public demo မရှိသေးပါ။ Gamescom build နှင့် နောက်ပိုင်း demo ကို စီစဉ်ထားသည်။' },
+      { question: 'Dear Passengers demo ရှိပြီလား', answer: 'Public demo သို့မဟုတ် Steam Playtest မရှိသေးပါ။' },
       { question: 'Steam မှာ demo download လုပ်လို့ရလား', answer: 'မရသေးပါ။ Steam page တွင် demo button သို့မဟုတ် Playtest panel မရှိပါ။' },
       { question: 'Demo ဘယ်တော့ထွက်မလဲ', answer: 'ရက်မကြေညာသေးပါ။' },
       { question: 'Beta signup ရှိလား', answer: 'တရားဝင် signup သို့မဟုတ် key distribution မရှိသေးပါ။' },
-      { question: 'Gamescom build ကို online ကစားလို့ရလား', answer: 'Event build ကို public online access အဖြစ် မကြေညာသေးပါ။' },
+      { question: 'Gamescom မှာ Dear Passengers ကို ကစားလို့ရလား', answer: 'FLEXUS ပါဝင်မှုကို အတည်ပြုနိုင်သော်လည်း Dear Passengers build ပြသမှုနှင့် public hands-on ကို မအတည်ပြုသေးပါ။' },
       { question: 'Demo file ကို ဘယ်မှာရှာရမလဲ', answer: 'Steam နှင့် FLEXUS channel ကိုသာ စောင့်ကြည့်ပါ။ Third-party installer မသုံးပါနှင့်။' },
     ],
     related: ['dear-passengers-download', 'dear-passengers-release-date', 'dear-passengers-news', 'dear-passengers-gameplay'],
@@ -439,25 +443,27 @@ export const myanmarGuides: MyanmarGuide[] = [
   {
     slug: 'dear-passengers-news',
     englishPath: '/dear-passengers-news/',
+    modifiedDate: '2026-08-29',
+    verifiedDate: '2026 ဩဂုတ် 29 ရက်',
     keyword: 'Dear Passengers သတင်း',
     title: 'Dear Passengers နောက်ဆုံးသတင်း၊ Wishlist နှင့် Release Update',
     description: 'Dear Passengers နောက်ဆုံးသတင်းကို မြန်မာဘာသာဖြင့် စစ်ဆေးထားသည်။ Steam wishlist rank၊ developer milestone၊ demo plan၊ release window နှင့် မကြေညာသေးသည့်အချက်များ။',
     eyebrow: 'သတင်းမှတ်တမ်း · SOURCE ပါရှိသည်',
     h1: 'Dear Passengers နောက်ဆုံးသတင်းနှင့် တရားဝင် update များ',
     intro: 'Dear Passengers သတင်းကို မတူညီသောအချက်အလက်အမျိုးအစားဖြင့် မှတ်တမ်းတင်ရသည်။ Steam public wishlist rank သည် ပြောင်းလဲနိုင်သော snapshot ဖြစ်ပြီး FLEXUS ၏ wishlist total သည် developer-reported figure ဖြစ်သည်။ နှစ်ခုလုံးကို sale၊ download သို့မဟုတ် active player အဖြစ် မရေးပါ။',
-    answer: 'ဇူလိုင် 30၊ 2026 စစ်ဆေးချိန်တွင် Dear Passengers သည် Steam public Top Wishlists list တွင် No. 7 နေရာတွင် ရှိသည်။ FLEXUS ၏ နောက်ဆုံး Steam announcement က ဇူလိုင် 19 ရက်တွင် wishlist 1.5 million ရောက်ကြောင်း ဖော်ပြခဲ့ပြီး ဇူလိုင် 22 teaser description က နှစ်သန်းနီးပါးဟု ဆိုသည်။ Steam သည် 2026 Windows release ကိုသာ ဆက်လက်ဖော်ပြပြီး exact date၊ price နှင့် public demo date မရှိသေးပါ။',
-    note: 'Rank ကို preference filtering ပိတ်ထားသည့် Steam public list မှ ရက်စွဲနှင့်တကွ မှတ်တမ်းတင်သည်။ Developer figure ကို independent audited total အဖြစ် မတင်ပြပါ။',
+    answer: '2026 ဩဂုတ် 29 ရက် preference-neutral Steam Top Wishlists snapshot တွင် Dear Passengers သည် No. 4 ဖြစ်သည်။ Dear Passengers အတွက် နောက်ဆုံး Steam news သည် ဇူလိုင် 31 ရက် FLEXUS post ဖြစ်ပြီး wishlist နှစ်သန်းရောက်ကြောင်းနှင့် gameplay video ပြင်ဆင်နေကြောင်း ဖော်ပြသည်။ နှစ်သန်းသည် developer-reported wishlist ဖြစ်ပြီး sale သို့မဟုတ် active player မဟုတ်ပါ။',
+    note: 'Top Wishlists rank ကို preference filtering မပါသည့် dated snapshot အဖြစ်သာ မှတ်တမ်းတင်သည်။ FLEXUS ၏ နှစ်သန်း figure သည် independent audit မဟုတ်သလို sales၊ downloads သို့မဟုတ် players ကို မဆိုလိုပါ။',
     heroImage: '/images/dear-passengers-1-5-million-wishlists.webp',
-    heroAlt: 'Dear Passengers wishlist 1.5 million ရောက်ကြောင်း FLEXUS ထုတ်ပြန်သည့် တရားဝင်အနုပညာပုံ',
-    confirmed: ['Steam Top Wishlists No. 7 snapshot on July 30', 'FLEXUS က 1.5 million wishlist ဟု July 19 တွင် ထုတ်ပြန်ခြင်း', 'July 22 teaser တွင် နှစ်သန်းနီးပါးဟု ဖော်ပြခြင်း', '2026 Windows release window'],
-    unknown: ['လက်ရှိ audited wishlist total', 'Sale နှင့် revenue', 'Exact release date နှင့် price', 'Public demo date'],
+    heroAlt: 'Dear Passengers wishlist milestone အဟောင်းအတွက် FLEXUS ၏ တရားဝင်အနုပညာပုံ',
+    confirmed: ['Steam Top Wishlists No. 4 snapshot on August 29', 'FLEXUS က July 31 တွင် wishlist နှစ်သန်းဟု ထုတ်ပြန်ခြင်း', 'FLEXUS ၏ Gamescom 2026 ပါဝင်မှု', '2026 Windows release window'],
+    unknown: ['လက်ရှိ independently audited wishlist total', 'Sale၊ revenue နှင့် active players', 'Dear Passengers Gamescom build သို့မဟုတ် public hands-on', 'Exact release date၊ price နှင့် public demo date'],
     sections: [
       {
         id: 'latest',
         kicker: 'နောက်ဆုံးစစ်ဆေးချက်',
         heading: 'Dear Passengers အတွက် အသစ်ဆုံး အတည်ပြုထားသော update ကဘာလဲ',
         paragraphs: [
-          'ဇူလိုင် 30 ရက်တွင် Steam public Top Wishlists page ကို preference filtering မပါဘဲ စစ်ဆေးရာ Dear Passengers သည် No. 7 ဖြစ်သည်။ ဇူလိုင် 28 တွင် No. 8 ဖြစ်ခဲ့သဖြင့် public ordering တစ်နေရာ တက်လာခြင်းဖြစ်သည်။ Rank သည် အခြားမထွက်သေးသော game များနှင့် wishlist activity ပြောင်းသလို ပြောင်းနိုင်သည်။',
+          'ဩဂုတ် 29 ရက်တွင် Steam public Top Wishlists page ကို preference filtering မပါဘဲ စစ်ဆေးရာ Dear Passengers သည် No. 4 ဖြစ်သည်။ Rank သည် အခြားမထွက်သေးသော game များနှင့် wishlist activity ပြောင်းသလို ပြောင်းနိုင်သဖြင့် ယနေ့ snapshot ကို အမြဲတမ်းအဆင့်အဖြစ် မရေးပါ။',
           'Rank ပြောင်းခြင်းသည် product feature announcement မဟုတ်ပါ။ Steam store page တွင် release window၊ platform၊ play mode၊ language နှင့် minimum requirements မပြောင်းပါ။ ထို့ကြောင့် rank ကို news snapshot အဖြစ် သတ်မှတ်ပြီး gameplay၊ player count သို့မဟုတ် release date proof အဖြစ် မသုံးပါ။',
         ],
       },
@@ -466,8 +472,8 @@ export const myanmarGuides: MyanmarGuide[] = [
         kicker: 'WISHLIST MILESTONE',
         heading: 'Dear Passengers wishlist ဘယ်လောက်ရှိသလဲ',
         paragraphs: [
-          'FLEXUS က ဇူလိုင် 15 ရက်တွင် 700,000၊ ဇူလိုင် 17 ရက်တွင် one million နှင့် ဇူလိုင် 19 ရက်တွင် 1.5 million wishlist ရောက်ကြောင်း Steam announcement များတွင် ပြောခဲ့သည်။ အင်တာဗျူးတစ်ခုတွင် အချိန်အလိုက် 1.2 million ခန့်ဟုလည်း ဖော်ပြထားသည်။ ဒီနံပါတ်များကို studio statement အဖြစ် attribution ထည့်ထားသည်။',
-          'ဇူလိုင် 22 teaser description တွင် Dear Passengers သည် two million wishlist နီးပါးဟု ရေးထားသည်။ “နီးပါး” ကို “ကျော်ပြီး” ဟု မပြောင်းသင့်ပါ။ Wishlist သည် ဝယ်ယူမှုမဟုတ်သဖြင့် two million players၊ sales သို့မဟုတ် concurrent users ဟုလည်း မဆိုနိုင်ပါ။',
+          'FLEXUS က ဇူလိုင် 15 ရက်တွင် 700,000၊ ဇူလိုင် 17 ရက်တွင် one million နှင့် ဇူလိုင် 19 ရက်တွင် 1.5 million wishlist ရောက်ကြောင်း Steam announcement များတွင် ပြောခဲ့သည်။ ထို့နောက် ဇူလိုင် 31 ရက် Dear Passengers-specific Steam news တွင် wishlist နှစ်သန်းရောက်ပြီဟု developer က ထုတ်ပြန်ခဲ့သည်။',
+          'နှစ်သန်းကို studio statement အဖြစ် attribution ထည့်ထားပြီး independent audited total ဟု မဆိုပါ။ Wishlist သည် ဝယ်ယူမှုမဟုတ်သဖြင့် two million players၊ sales၊ downloads သို့မဟုတ် concurrent users ဟုလည်း မပြောင်းရေးရပါ။',
         ],
       },
       {
@@ -476,7 +482,7 @@ export const myanmarGuides: MyanmarGuide[] = [
         heading: 'ဘယ် update တွေက Dear Passengers စာမျက်နှာကို တကယ်ပြောင်းစေမလဲ',
         paragraphs: [
           'Exact launch date၊ price၊ public demo access၊ player cap၊ console announcement၊ recommended requirements သို့မဟုတ် new language table သည် product page များကို update လုပ်ရန် အရေးပါသော primary-source event ဖြစ်သည်။ Rank တစ်နေရာပြောင်းခြင်းကို အခြေခံ၍ homepage copy နှင့် feature claim မပြောင်းပါ။',
-          'FLEXUS က Gamescom build နှင့် နောက်ပိုင်း public demo အစီအစဉ်ကို ပြောထားသည်။ Event ရောက်လာချိန်တွင် playable build access၊ footage နှင့် developer statement ကို သီးခြားစစ်ရမည်။ [[/my/dear-passengers-demo/|Demo အခြေအနေစာမျက်နှာ]] သည် “planned” နှင့် “available” ကို မရောစပ်ပါ။',
+          'FLEXUS ၏ Gamescom 2026 ပါဝင်မှုကို အတည်ပြုနိုင်သော်လည်း Dear Passengers build ကို ပြသခဲ့ခြင်း သို့မဟုတ် public hands-on ကစားခွင့်ရှိခြင်းကို မအတည်ပြုသေးပါ။ [[/my/dear-passengers-demo/|Demo အခြေအနေစာမျက်နှာ]] သည် studio attendance၊ planned build နှင့် available public demo ကို မရောစပ်ပါ။',
         ],
       },
     ],
@@ -486,11 +492,11 @@ export const myanmarGuides: MyanmarGuide[] = [
       'Rank၊ total နှင့် players သုံးခုကို မတူသည့် metric အဖြစ် ထိန်းထားသည်။ မြန်မာဘာသာဖြင့် ရှင်းလင်းမှုက viral number ကို မမှန်ကန်စွာ ချဲ့ထွင်ခြင်းထက် ပိုတန်ဖိုးရှိသည်။',
     ],
     faqs: [
-      { question: 'Dear Passengers နောက်ဆုံး update ကဘာလဲ', answer: 'July 30 စစ်ဆေးချက်တွင် Steam Top Wishlists No. 7 ဖြစ်ပြီး product details မပြောင်းသေးပါ။' },
-      { question: 'Wishlist နှစ်သန်းကျော်ပြီလား', answer: 'FLEXUS က နှစ်သန်းနီးပါးဟုသာ ပြောထားပြီး ကျော်ပြီဟု မအတည်ပြုပါ။' },
-      { question: '1.5 million players ရှိလား', answer: 'မဟုတ်ပါ။ 1.5 million သည် developer-reported wishlist ဖြစ်သည်။' },
+      { question: 'Dear Passengers နောက်ဆုံး update ကဘာလဲ', answer: 'နောက်ဆုံး game-specific Steam news သည် July 31 post ဖြစ်ပြီး FLEXUS က wishlist နှစ်သန်းနှင့် gameplay video ပြင်ဆင်မှုကို ဖော်ပြထားသည်။' },
+      { question: 'Wishlist နှစ်သန်းရောက်ပြီလား', answer: 'FLEXUS က ဇူလိုင် 31 ရက်တွင် နှစ်သန်းရောက်ကြောင်း ပြောထားသည်။ ၎င်းသည် developer-reported figure ဖြစ်သည်။' },
+      { question: 'Wishlist နှစ်သန်းဆိုတာ players နှစ်သန်းလား', answer: 'မဟုတ်ပါ။ Wishlist သည် sale၊ download၊ active player သို့မဟုတ် concurrent user မဟုတ်ပါ။' },
       { question: 'Release date အသစ်ရှိလား', answer: 'မရှိပါ။ 2026 window သာရှိသည်။' },
-      { question: 'Demo update ရှိလား', answer: 'Gamescom build နှင့် public demo plan ရှိသော်လည်း access ရက်မရှိပါ။' },
+      { question: 'Gamescom မှာ game ကို public စမ်းကစားနိုင်လား', answer: 'FLEXUS ပါဝင်မှုကို အတည်ပြုနိုင်သော်လည်း Dear Passengers build နှင့် public hands-on ကို မအတည်ပြုသေးပါ။' },
       { question: 'ဘယ် source ကို ယုံရမလဲ', answer: 'Steam store၊ Steam announcements နှင့် FLEXUS တရားဝင် channel ကို ဦးစားပေးပါ။' },
     ],
     related: ['dear-passengers-release-date', 'dear-passengers-demo', 'dear-passengers-trailer', 'dear-passengers-developer-flexus'],

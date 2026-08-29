@@ -7,6 +7,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=czech';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const GAMES_FROM_UKRAINE_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'hra-dear-passengers': 'Co je to za hru',
@@ -29,10 +31,12 @@ function RichText({ text }: { text: string }) {
 
 export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const modifiedDate = guide.modifiedDate ?? '2026-08-08';
+  const verifiedDate = guide.verifiedDate ?? '8. 8. 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-08-08', dateModified: '2026-08-08', inLanguage: 'cs',
+    datePublished: '2026-08-08', dateModified: modifiedDate, inLanguage: 'cs',
     author: { '@type': 'Organization', name: 'Česká redakce DearPassengers.net', url: 'https://dearpassengers.net/about/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -65,7 +69,7 @@ export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechG
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>Ověřeno 8. 8. 2026</span><span>Primární zdroje: Steam a FLEXUS</span><span>Jazyk sekce: čeština</span></div>
+            <div className="article-meta"><span>Ověřeno {verifiedDate}</span><span>Primární zdroje: Steam a FLEXUS</span><span>Jazyk sekce: čeština</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -79,7 +83,7 @@ export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechG
             <aside className="editorial-note" aria-label="Redakční kontrola">
               <div><span>REDAKČNÍ KONTROLA</span><strong>Česká redakce DearPassengers.net</strong></div>
               <p>{guide.note}</p>
-              <div className="editorial-note-links"><small>Poslední kontrola: 8. 8. 2026</small><Link href="/editorial-policy" hrefLang="en">Jak ověřujeme zdroje →</Link></div>
+              <div className="editorial-note-links"><small>Poslední kontrola: {verifiedDate}</small><Link href="/editorial-policy" hrefLang="en">Jak ověřujeme zdroje →</Link></div>
             </aside>
             <section id="answer">
               <span className="kicker">STRUČNÁ ODPOVĚĎ</span><h2>{guide.keyword}: aktuální stav</h2>
@@ -105,7 +109,7 @@ export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechG
               <p>DearPassengers.net je nezávislý neoficiální průvodce bez spojení s FLEXUS, Valve nebo Steamem. Oficiální obrázky citujeme v redakčním kontextu a patří jejich vlastníkům. Opravu doloženou zdrojem lze poslat přes <Link href="/contact" hrefLang="en">kontaktní stránku</Link>.</p>
             </section>
             <section id="faq"><span className="kicker">ČASTÉ OTÁZKY</span><h2>Otázky k tématu {guide.keyword}</h2><p>Odpovědi používají přirozenou češtinu a nevyplňují neznámé údaje dohady.</p><FAQ items={guide.faqs} /></section>
-            <section id="sources"><span className="kicker">PRIMÁRNÍ ZDROJE</span><h2>Kde si údaje ověřit?</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Oficiální česká karta Dear Passengers ve službě Steam ↗</a> uvádí platformu, režimy, jazyky a minimální požadavky. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Přímý rozhovor s FLEXUS ↗</a> vysvětluje vydání a plán dema. Neoficiální instalátory nepoužíváme jako zdroje.</p></section>
+            <section id="sources"><span className="kicker">PRIMÁRNÍ ZDROJE</span><h2>Kde si údaje ověřit?</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Oficiální česká karta Dear Passengers ve službě Steam ↗</a> uvádí platformu, režimy, jazyky a minimální požadavky. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Přímý rozhovor s FLEXUS ↗</a> vysvětluje vydání a plán dema. Neoficiální instalátory nepoužíváme jako zdroje.</p>{guide.slug === 'dear-passengers-demo' && <p>Datum poslední samostatné zprávy lze ověřit v <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">historii Dear Passengers na Steamu ↗</a> a kontext účasti FLEXUS na stránce <a href={GAMES_FROM_UKRAINE_URL} target="_blank" rel="noopener noreferrer">Games From Ukraine ↗</a>.</p>}</section>
             <section className="related-guide"><span className="kicker">ČESKÝ PRŮVODCE</span><h2>Další témata k Dear Passengers</h2><p>Každá stránka odpovídá na samostatnou vyhledávací otázku. Kontextové odkazy pomáhají pokračovat bez opakování stejného článku.</p><div className="related-actions"><Link className="button" href="/cs/">Česká hlavní stránka →</Link>{guide.related.map((slug) => <Link className="button button-ghost" href={`/cs/${slug}/`} key={slug}>{labels[slug] || slug} →</Link>)}</div></section>
           </div>
         </div>

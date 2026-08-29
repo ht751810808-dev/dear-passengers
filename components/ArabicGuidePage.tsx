@@ -8,6 +8,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=arabic';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const GAMES_FROM_UKRAINE_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'dear-passengers-game': 'ما هي اللعبة؟',
@@ -40,8 +42,8 @@ function RichText({ text }: { text: string }) {
 export default function ArabicGuidePage({
   guide,
   canonicalPath,
-  modifiedDate = '2026-07-25',
-  verifiedDate = '25 يوليو 2026',
+  modifiedDate,
+  verifiedDate,
 }: {
   guide: ArabicGuide;
   canonicalPath: string;
@@ -49,10 +51,12 @@ export default function ArabicGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const effectiveModifiedDate = modifiedDate ?? guide.modifiedDate ?? '2026-07-25';
+  const effectiveVerifiedDate = verifiedDate ?? guide.verifiedDate ?? '25 يوليو 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-07-25', dateModified: modifiedDate, inLanguage: 'ar',
+    datePublished: '2026-07-25', dateModified: effectiveModifiedDate, inLanguage: 'ar',
     author: { '@type': 'Organization', name: 'فريق تحرير DearPassengers.net', url: 'https://dearpassengers.net/ar/about/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -85,7 +89,7 @@ export default function ArabicGuidePage({
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>نُشر في 25 يوليو 2026</span><span>المصادر: Steam وFLEXUS</span><span>اللغة: العربية</span></div>
+            <div className="article-meta"><span>{guide.verifiedDate ? `آخر تحقق ${effectiveVerifiedDate}` : 'نُشر في 25 يوليو 2026'}</span><span>المصادر: Steam وFLEXUS</span><span>اللغة: العربية</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -97,7 +101,7 @@ export default function ArabicGuidePage({
             <a className="toc-cta" href={STEAM_URL} target="_blank" rel="noopener noreferrer">أضفها إلى قائمة الأمنيات ↗</a>
           </aside>
           <div className="article-prose prose">
-            <EditorialNote checked={verifiedDate} locale="ar" note={guide.note} />
+            <EditorialNote checked={effectiveVerifiedDate} locale="ar" note={guide.note} />
             <section id="answer">
               <span className="kicker">الإجابة المختصرة</span>
               <h2><RichText text={guide.keyword} />: الخلاصة</h2>
@@ -119,7 +123,7 @@ export default function ArabicGuidePage({
               <p>DearPassengers.net موقع مستقل غير تابع إلى FLEXUS أو Valve أو Steam. الصور الرسمية مستخدمة في سياق تحريري وتبقى حقوقها لأصحابها. يمكن إرسال رابط تصحيح عبر <Link href="/ar/contact/">صفحة التواصل العربية</Link>، ويُراجع قبل تغيير الحالة.</p>
             </section>
             <section id="faq"><span className="kicker">أسئلة شائعة</span><h2>أسئلة عن {guide.keyword}</h2><p>إجابات مباشرة بصياغة عربية، مع ترك المعلومات الغائبة مفتوحة بدلاً من ملئها بالتخمين.</p><FAQ items={guide.faqs} /></section>
-            <section id="sources"><span className="kicker">المصادر الأولى</span><h2>تحقق من البيانات الأصلية</h2><p>راجع <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">صفحة Dear Passengers الرسمية على Steam ↗</a> للمنصة واللغات والأنماط والمتطلبات، و<a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">مقابلة FLEXUS المباشرة ↗</a> لسياق الإصدار والديمو. لا نربط ملفات تنزيل من طرف ثالث.</p></section>
+            <section id="sources"><span className="kicker">المصادر الأولى</span><h2>تحقق من البيانات الأصلية</h2><p>راجع <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">صفحة Dear Passengers الرسمية على Steam ↗</a> للمنصة واللغات والأنماط والمتطلبات، و<a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">مقابلة FLEXUS المباشرة ↗</a> لسياق الإصدار والديمو. لا نربط ملفات تنزيل من طرف ثالث.</p>{['dear-passengers-news', 'dear-passengers-demo'].includes(guide.slug) && <p>راجع أيضاً <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">سجل أخبار Dear Passengers على Steam ↗</a> لتاريخ آخر منشور، و<a href={GAMES_FROM_UKRAINE_URL} target="_blank" rel="noopener noreferrer">Games From Ukraine ↗</a> لسياق مشاركة FLEXUS في Gamescom.</p>}</section>
             <section className="related-guide"><span className="kicker">الدليل العربي</span><h2>موضوعات مرتبطة</h2><p>هذه الصفحات تشكل مجموعة عربية مترابطة، ولكل منها سؤال مستقل ومصدر واضح.</p><div className="related-actions"><Link className="button" href="/ar/">الصفحة العربية الرئيسية →</Link>{guide.related.map((slug) => <Link className="button button-ghost" href={`/ar/${slug}/`} key={slug}>{labels[slug] || slug} →</Link>)}</div></section>
           </div>
         </div>

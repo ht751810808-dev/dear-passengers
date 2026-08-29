@@ -7,6 +7,8 @@ import Header from '@/components/Header';
 
 const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/?l=russian';
 const FLEXUS_INTERVIEW = 'https://gamedev.dou.ua/articles/dear-passengers-interview/';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const GAMES_FROM_UKRAINE_URL = 'https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/';
 
 const labels: Record<string, string> = {
   'igra-dear-passengers': 'Что это за игра',
@@ -30,10 +32,12 @@ function RichText({ text }: { text: string }) {
 
 export default function RussianGuidePage({ guide, canonicalPath }: { guide: RussianGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const modifiedDate = guide.modifiedDate ?? '2026-08-05';
+  const verifiedDate = guide.verifiedDate ?? '05.08.2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
     headline: guide.title, description: guide.description, mainEntityOfPage: pageUrl,
-    datePublished: '2026-08-05', dateModified: '2026-08-05', inLanguage: 'ru',
+    datePublished: '2026-08-05', dateModified: modifiedDate, inLanguage: 'ru',
     author: { '@type': 'Organization', name: 'Русская редакция DearPassengers.net', url: 'https://dearpassengers.net/about/' },
     publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/', logo: { '@type': 'ImageObject', url: 'https://dearpassengers.net/images/logo.png' } },
     image: `https://dearpassengers.net${guide.heroImage}`,
@@ -66,7 +70,7 @@ export default function RussianGuidePage({ guide, canonicalPath }: { guide: Russ
             <div className="eyebrow"><span>●</span> {guide.eyebrow}</div>
             <h1><RichText text={guide.h1} /></h1>
             <p><RichText text={guide.intro} /></p>
-            <div className="article-meta"><span>Проверено 05.08.2026</span><span>Первоисточники: Steam и FLEXUS</span><span>Язык раздела: русский</span></div>
+            <div className="article-meta"><span>Проверено {verifiedDate}</span><span>Первоисточники: Steam и FLEXUS</span><span>Язык раздела: русский</span></div>
           </div>
         </header>
         <div className="container article-layout">
@@ -80,7 +84,7 @@ export default function RussianGuidePage({ guide, canonicalPath }: { guide: Russ
             <aside className="editorial-note" aria-label="Редакционная проверка">
               <div><span>РЕДАКЦИОННАЯ ПРОВЕРКА</span><strong>Русская редакция DearPassengers.net</strong></div>
               <p>{guide.note}</p>
-              <div className="editorial-note-links"><small>Последняя проверка: 05.08.2026</small><Link href="/editorial-policy" hrefLang="en">Как мы проверяем источники →</Link></div>
+              <div className="editorial-note-links"><small>Последняя проверка: {verifiedDate}</small><Link href="/editorial-policy" hrefLang="en">Как мы проверяем источники →</Link></div>
             </aside>
             <section id="answer">
               <span className="kicker">КОРОТКИЙ ОТВЕТ</span><h2>{guide.keyword}: актуальный статус</h2>
@@ -106,7 +110,7 @@ export default function RussianGuidePage({ guide, canonicalPath }: { guide: Russ
               <p>DearPassengers.net — независимый неофициальный гид без связи с FLEXUS, Valve или Steam. Официальные изображения цитируются в редакционном контексте и принадлежат правообладателям. Исправление со ссылкой на источник можно отправить через <Link href="/contact" hrefLang="en">страницу контактов</Link>.</p>
             </section>
             <section id="faq"><span className="kicker">ЧАСТЫЕ ВОПРОСЫ</span><h2>Вопросы о {guide.keyword}</h2><p>Ответы сохраняют естественный русский язык и не заполняют пробелы догадками.</p><FAQ items={guide.faqs} /></section>
-            <section id="sources"><span className="kicker">ПЕРВОИСТОЧНИКИ</span><h2>Где проверить сведения самостоятельно?</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Официальная карточка Dear Passengers в Steam ↗</a> показывает платформу, режимы, языки и минимальные требования. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Прямое интервью с FLEXUS ↗</a> объясняет план демоверсии. Сторонние установочные файлы не используются как источники.</p></section>
+            <section id="sources"><span className="kicker">ПЕРВОИСТОЧНИКИ</span><h2>Где проверить сведения самостоятельно?</h2><p><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Официальная карточка Dear Passengers в Steam ↗</a> показывает платформу, режимы, языки и минимальные требования. <a href={FLEXUS_INTERVIEW} target="_blank" rel="noopener noreferrer">Прямое интервью с FLEXUS ↗</a> объясняет план демоверсии. Сторонние установочные файлы не используются как источники.</p>{guide.slug === 'dear-passengers-demo' && <p>Дату последнего отдельного сообщения можно сверить в <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">ленте Dear Passengers в Steam ↗</a>, а контекст участия FLEXUS в выставке — на сайте <a href={GAMES_FROM_UKRAINE_URL} target="_blank" rel="noopener noreferrer">Games From Ukraine ↗</a>.</p>}</section>
             <section className="related-guide"><span className="kicker">РУССКИЙ ГИД</span><h2>Другие темы о Dear Passengers</h2><p>Каждая страница отвечает на отдельную поисковую задачу, а контекстные ссылки помогают перейти к следующему решению без дублирования материалов.</p><div className="related-actions"><Link className="button" href="/ru/">Главная на русском →</Link>{guide.related.map((slug) => <Link className="button button-ghost" href={`/ru/${slug}/`} key={slug}>{labels[slug] || slug} →</Link>)}</div></section>
           </div>
         </div>
