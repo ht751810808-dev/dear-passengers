@@ -244,7 +244,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-news/`,
-      lastModified: new Date('2026-08-29'),
+      lastModified: new Date('2026-09-02'),
     },
     {
       url: `${baseUrl}/dear-passengers-developer-flexus/`,
@@ -280,16 +280,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...germanPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/de/dear-passengers-demo/' || path === '/de/dear-passengers-news/' ? '2026-08-29' : path === '/de/dear-passengers-ps5/' || path === '/de/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' ? '2026-08-26' : path === '/de/dear-passengers-switch/' ? '2026-08-24' : path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/dear-passengers-spiel/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
+      lastModified: new Date(path === '/de/dear-passengers-news/' ? '2026-09-02' : path === '/de/dear-passengers-demo/' ? '2026-08-29' : path === '/de/dear-passengers-ps5/' || path === '/de/' || path === '/de/dear-passengers-steam/' || path === '/de/dear-passengers-release/' ? '2026-08-26' : path === '/de/dear-passengers-switch/' ? '2026-08-24' : path === '/de/dear-passengers-vr/' ? '2026-08-21' : path === '/de/dear-passengers-spiel/' || path === '/de/redaktionsrichtlinien/' ? '2026-08-20' : path === '/de/kontakt/' ? '2026-08-10' : '2026-07-24'),
     })),
-    ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/dear-passengers-demo/' || path === '/ar/dear-passengers-news/' ? '2026-08-29' : path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
-    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/dear-passengers-demo/' || path === '/tr/dear-passengers-haberleri/' ? '2026-08-29' : path === '/tr/dear-passengers-ps5/' || path === '/tr/' || path === '/tr/dear-passengers-steam/' ? '2026-08-26' : path === '/tr/dear-passengers-oyunu/' || path === '/tr/dear-passengers-cikis-tarihi/' || path === '/tr/gizlilik/' ? '2026-08-20' : '2026-07-27') })),
-    ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/dear-passengers-demo/' || path === '/pt-br/dear-passengers-noticias/' ? '2026-08-29' : path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
+    ...arabicPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ar/dear-passengers-news/' ? '2026-09-02' : path === '/ar/dear-passengers-demo/' ? '2026-08-29' : path === '/ar/' ? '2026-07-29' : '2026-07-25') })),
+    ...turkishPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/tr/dear-passengers-haberleri/' ? '2026-09-02' : path === '/tr/dear-passengers-demo/' ? '2026-08-29' : path === '/tr/dear-passengers-ps5/' || path === '/tr/' || path === '/tr/dear-passengers-steam/' ? '2026-08-26' : path === '/tr/dear-passengers-oyunu/' || path === '/tr/dear-passengers-cikis-tarihi/' || path === '/tr/gizlilik/' ? '2026-08-20' : '2026-07-27') })),
+    ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/dear-passengers-noticias/' ? '2026-09-02' : path === '/pt-br/dear-passengers-demo/' ? '2026-08-29' : path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/es/dear-passengers-demo/' || path === '/es/dear-passengers-noticias/' ? '2026-08-29' : path === '/es/precio-de-dear-passengers/' || path === '/es/dear-passengers-fecha-de-lanzamiento/' ? '2026-08-27' : path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
+      lastModified: new Date(path === '/es/dear-passengers-noticias/' ? '2026-09-02' : path === '/es/dear-passengers-demo/' ? '2026-08-29' : path === '/es/precio-de-dear-passengers/' || path === '/es/dear-passengers-fecha-de-lanzamiento/' ? '2026-08-27' : path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
     })),
-    ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/my/dear-passengers-demo/' || path === '/my/dear-passengers-news/' ? '2026-08-29' : '2026-07-30') })),
+    ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/my/dear-passengers-news/' ? '2026-09-02' : path === '/my/dear-passengers-demo/' ? '2026-08-29' : '2026-07-30') })),
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ru/dear-passengers-demo/' ? '2026-08-29' : path === '/ru/dear-passengers-vr/' ? '2026-08-21' : '2026-08-05') })),
     ...czechPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/cs/dear-passengers-demo/' ? '2026-08-29' : path === '/cs/cena-dear-passengers/' || path === '/cs/dear-passengers-datum-vydani/' ? '2026-08-27' : '2026-08-08') })),
     {

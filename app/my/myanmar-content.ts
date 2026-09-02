@@ -443,19 +443,19 @@ export const myanmarGuides: MyanmarGuide[] = [
   {
     slug: 'dear-passengers-news',
     englishPath: '/dear-passengers-news/',
-    modifiedDate: '2026-08-29',
-    verifiedDate: '2026 ဩဂုတ် 29 ရက်',
+    modifiedDate: '2026-09-02',
+    verifiedDate: '2026 စက်တင်ဘာ 2 ရက်',
     keyword: 'Dear Passengers သတင်း',
     title: 'Dear Passengers နောက်ဆုံးသတင်း၊ Wishlist နှင့် Release Update',
     description: 'Dear Passengers နောက်ဆုံးသတင်းကို မြန်မာဘာသာဖြင့် စစ်ဆေးထားသည်။ Steam wishlist rank၊ developer milestone၊ demo plan၊ release window နှင့် မကြေညာသေးသည့်အချက်များ။',
     eyebrow: 'သတင်းမှတ်တမ်း · SOURCE ပါရှိသည်',
     h1: 'Dear Passengers နောက်ဆုံးသတင်းနှင့် တရားဝင် update များ',
     intro: 'Dear Passengers သတင်းကို မတူညီသောအချက်အလက်အမျိုးအစားဖြင့် မှတ်တမ်းတင်ရသည်။ Steam public wishlist rank သည် ပြောင်းလဲနိုင်သော snapshot ဖြစ်ပြီး FLEXUS ၏ wishlist total သည် developer-reported figure ဖြစ်သည်။ နှစ်ခုလုံးကို sale၊ download သို့မဟုတ် active player အဖြစ် မရေးပါ။',
-    answer: '2026 ဩဂုတ် 29 ရက် preference-neutral Steam Top Wishlists snapshot တွင် Dear Passengers သည် No. 4 ဖြစ်သည်။ Dear Passengers အတွက် နောက်ဆုံး Steam news သည် ဇူလိုင် 31 ရက် FLEXUS post ဖြစ်ပြီး wishlist နှစ်သန်းရောက်ကြောင်းနှင့် gameplay video ပြင်ဆင်နေကြောင်း ဖော်ပြသည်။ နှစ်သန်းသည် developer-reported wishlist ဖြစ်ပြီး sale သို့မဟုတ် active player မဟုတ်ပါ။',
+    answer: '2026 စက်တင်ဘာ 2 ရက် preference-neutral Steam Top Wishlists snapshot တွင် Dear Passengers သည် No. 4 ဖြစ်သည်။ Dear Passengers အတွက် နောက်ဆုံး Steam news သည် ဇူလိုင် 31 ရက် FLEXUS post ဖြစ်ပြီး wishlist နှစ်သန်းရောက်ကြောင်းနှင့် gameplay video ပြင်ဆင်နေကြောင်း ဖော်ပြသည်။ နှစ်သန်းသည် developer-reported wishlist ဖြစ်ပြီး sale သို့မဟုတ် active player မဟုတ်ပါ။ Gamescom သည် ဩဂုတ် 30 ရက်တွင် ပြီးဆုံးခဲ့ပြီး ဩဂုတ် 31 ရက် Games Gathering ၏ တရားဝင် ပွဲပြီးနောက် ကျေးဇူးတင်စာတွင် FLEXUS ကို B2B ပါဝင်သူအဖြစ် ဖော်ပြထားသည်။ သို့သော် ယင်းစာက Dear Passengers build ပြသမှုနှင့် public hands-on ကို မအတည်ပြုပါ။',
     note: 'Top Wishlists rank ကို preference filtering မပါသည့် dated snapshot အဖြစ်သာ မှတ်တမ်းတင်သည်။ FLEXUS ၏ နှစ်သန်း figure သည် independent audit မဟုတ်သလို sales၊ downloads သို့မဟုတ် players ကို မဆိုလိုပါ။',
     heroImage: '/images/dear-passengers-1-5-million-wishlists.webp',
     heroAlt: 'Dear Passengers wishlist milestone အဟောင်းအတွက် FLEXUS ၏ တရားဝင်အနုပညာပုံ',
-    confirmed: ['Steam Top Wishlists No. 4 snapshot on August 29', 'FLEXUS က July 31 တွင် wishlist နှစ်သန်းဟု ထုတ်ပြန်ခြင်း', 'FLEXUS ၏ Gamescom 2026 ပါဝင်မှု', '2026 Windows release window'],
+    confirmed: ['Steam Top Wishlists No. 4 snapshot on September 2', 'FLEXUS က July 31 တွင် wishlist နှစ်သန်းဟု ထုတ်ပြန်ခြင်း', 'Gamescom ပြီးနောက် တရားဝင်မှတ်တမ်းတွင် FLEXUS ကို B2B ပါဝင်သူအဖြစ် ဖော်ပြထားခြင်း', '2026 Windows release window'],
     unknown: ['လက်ရှိ independently audited wishlist total', 'Sale၊ revenue နှင့် active players', 'Dear Passengers Gamescom build သို့မဟုတ် public hands-on', 'Exact release date၊ price နှင့် public demo date'],
     sections: [
       {
@@ -463,7 +463,7 @@ export const myanmarGuides: MyanmarGuide[] = [
         kicker: 'နောက်ဆုံးစစ်ဆေးချက်',
         heading: 'Dear Passengers အတွက် အသစ်ဆုံး အတည်ပြုထားသော update ကဘာလဲ',
         paragraphs: [
-          'ဩဂုတ် 29 ရက်တွင် Steam public Top Wishlists page ကို preference filtering မပါဘဲ စစ်ဆေးရာ Dear Passengers သည် No. 4 ဖြစ်သည်။ Rank သည် အခြားမထွက်သေးသော game များနှင့် wishlist activity ပြောင်းသလို ပြောင်းနိုင်သဖြင့် ယနေ့ snapshot ကို အမြဲတမ်းအဆင့်အဖြစ် မရေးပါ။',
+          'စက်တင်ဘာ 2 ရက်တွင် Steam public Top Wishlists page ကို preference filtering မပါဘဲ စစ်ဆေးရာ Dear Passengers သည် No. 4 ဖြစ်သည်။ Rank သည် အခြားမထွက်သေးသော game များနှင့် wishlist activity ပြောင်းသလို ပြောင်းနိုင်သဖြင့် ယနေ့ snapshot ကို အမြဲတမ်းအဆင့်အဖြစ် မရေးပါ။',
           'Rank ပြောင်းခြင်းသည် product feature announcement မဟုတ်ပါ။ Steam store page တွင် release window၊ platform၊ play mode၊ language နှင့် minimum requirements မပြောင်းပါ။ ထို့ကြောင့် rank ကို news snapshot အဖြစ် သတ်မှတ်ပြီး gameplay၊ player count သို့မဟုတ် release date proof အဖြစ် မသုံးပါ။',
         ],
       },
@@ -482,7 +482,7 @@ export const myanmarGuides: MyanmarGuide[] = [
         heading: 'ဘယ် update တွေက Dear Passengers စာမျက်နှာကို တကယ်ပြောင်းစေမလဲ',
         paragraphs: [
           'Exact launch date၊ price၊ public demo access၊ player cap၊ console announcement၊ recommended requirements သို့မဟုတ် new language table သည် product page များကို update လုပ်ရန် အရေးပါသော primary-source event ဖြစ်သည်။ Rank တစ်နေရာပြောင်းခြင်းကို အခြေခံ၍ homepage copy နှင့် feature claim မပြောင်းပါ။',
-          'FLEXUS ၏ Gamescom 2026 ပါဝင်မှုကို အတည်ပြုနိုင်သော်လည်း Dear Passengers build ကို ပြသခဲ့ခြင်း သို့မဟုတ် public hands-on ကစားခွင့်ရှိခြင်းကို မအတည်ပြုသေးပါ။ [[/my/dear-passengers-demo/|Demo အခြေအနေစာမျက်နှာ]] သည် studio attendance၊ planned build နှင့် available public demo ကို မရောစပ်ပါ။',
+          'Gamescom 2026 သည် ဩဂုတ် 30 ရက်တွင် ပြီးဆုံးခဲ့ပြီး ဩဂုတ် 31 ရက် Games Gathering ၏ တရားဝင် ပွဲပြီးနောက် ကျေးဇူးတင်စာတွင် FLEXUS ကို B2B ပါဝင်သူအဖြစ် ဖော်ပြထားသည်။ သို့သော် Dear Passengers build ကို ပြသခဲ့ခြင်း သို့မဟုတ် public hands-on ကစားခွင့်ရှိခြင်းကို မအတည်ပြုသေးပါ။ [[/my/dear-passengers-demo/|Demo အခြေအနေစာမျက်နှာ]] သည် studio attendance၊ planned build နှင့် available public demo ကို မရောစပ်ပါ။',
         ],
       },
     ],

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "registryRevision": "2026-08-29",
-  "lastReviewedAt": "2026-08-29",
+  "registryRevision": "2026-09-02",
+  "lastReviewedAt": "2026-09-02",
   "game": {
     "name": "Dear Passengers",
     "steamAppId": "4534960",
@@ -13,13 +13,13 @@
       "label": "Official Dear Passengers Steam store",
       "kind": "official-store",
       "url": "https://store.steampowered.com/app/4534960/Dear_Passengers/",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "steam-news": {
       "label": "Official Dear Passengers Steam announcements",
       "kind": "official-developer-channel",
       "url": "https://steamcommunity.com/app/4534960/allnews/",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "flexus-interview": {
       "label": "GameDev DOU interview with FLEXUS founder Semen Kozyura",
@@ -37,13 +37,13 @@
       "label": "Steam Top Wishlists with preference filtering disabled",
       "kind": "official-store",
       "url": "https://store.steampowered.com/search/?filter=popularwishlist&ignore_preferences=1",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "steam-july-31-announcement": {
       "label": "Official July 31 Dear Passengers Steam announcement",
       "kind": "official-developer-channel",
       "url": "https://steamcommunity.com/ogg/4534960/announcements/detail/692016318956701189",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "devua-demo-comment": {
       "label": "dev.ua founder comment about the Gamescom build and later public demo",
@@ -55,19 +55,25 @@
       "label": "Games From Ukraine 2026 organizer participant page listing Dear Passengers and FLEXUS",
       "kind": "platform-documentation",
       "url": "https://www.ggconference.com/en/conference/games-from-ukraine-2026/participants/",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "games-gathering-event": {
       "label": "Games From Ukraine 2026 organizer event overview",
       "kind": "platform-documentation",
       "url": "https://www.ggconference.com/en/conference/games-from-ukraine-2026/",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
     },
     "gamescom-games-from-ukraine": {
       "label": "Official Gamescom Games From Ukraine exhibitor listing",
       "kind": "platform-documentation",
       "url": "https://www.gamescom.global/en/exhibitor/games-from-ukraine",
-      "lastCheckedAt": "2026-08-29"
+      "lastCheckedAt": "2026-09-02"
+    },
+    "games-gathering-post-event": {
+      "label": "Official Games Gathering post-event recap naming Flexus as a B2B participant",
+      "kind": "platform-documentation",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7500168039930404864",
+      "lastCheckedAt": "2026-09-02"
     }
   },
   "facts": {
@@ -301,22 +307,22 @@
     "interest.topWishlistsSnapshot": {
       "label": "Steam Top Wishlists dated snapshot",
       "status": "observed",
-      "value": "No. 4 on 2026-08-29 with Steam preference filtering disabled",
-      "shortValue": "NO. 4 · AUG 29 SNAPSHOT",
-      "summary": "Dear Passengers appeared at No. 4 during the August 29 preference-neutral check; this is a dated, changeable snapshot rather than a permanent rank.",
+      "value": "No. 4 on 2026-09-02 with Steam preference filtering disabled",
+      "shortValue": "NO. 4 · SEP 2 SNAPSHOT",
+      "summary": "Dear Passengers appeared at No. 4 during the September 2 preference-neutral check; this is a dated, changeable snapshot rather than a permanent rank.",
       "sourceIds": ["steam-top-wishlists"],
-      "verifiedAt": "2026-08-29",
+      "verifiedAt": "2026-09-02",
       "ownerRoutes": ["/dear-passengers-news/"],
       "affectedRoutes": ["/", "/dear-passengers-steam/"]
     },
     "events.gamescom2026Participation": {
       "label": "FLEXUS Gamescom 2026 participation",
       "status": "confirmed",
-      "value": "Dear Passengers and FLEXUS included on the Games From Ukraine 2026 participant page",
+      "value": "FLEXUS listed for the August 26–30 Games From Ukraine event and named as a B2B participant in the organizer's post-event recap",
       "shortValue": "FLEXUS LISTED",
-      "summary": "The organizer participant page includes the Dear Passengers description and links to FLEXUS; this confirms participation, not a public Dear Passengers demo.",
-      "sourceIds": ["games-gathering-participants", "games-gathering-event", "gamescom-games-from-ukraine"],
-      "verifiedAt": "2026-08-29",
+      "summary": "The organizer's event page, participant page, and August 31 recap confirm that Gamescom concluded and name Flexus among the B2B participants; they do not confirm a Dear Passengers build or public demo.",
+      "sourceIds": ["games-gathering-participants", "games-gathering-event", "gamescom-games-from-ukraine", "games-gathering-post-event"],
+      "verifiedAt": "2026-09-02",
       "ownerRoutes": ["/dear-passengers-news/", "/dear-passengers-demo/"],
       "affectedRoutes": ["/"]
     },
@@ -325,9 +331,9 @@
       "status": "unknown",
       "value": null,
       "shortValue": "NOT VERIFIED",
-      "summary": "No first-party source checked on August 29 verifies that a Dear Passengers build was shown at Gamescom or available for public hands-on play.",
-      "sourceIds": ["steam-store", "steam-news", "games-gathering-participants", "games-gathering-event", "gamescom-games-from-ukraine"],
-      "verifiedAt": "2026-08-29",
+      "summary": "Gamescom ended on August 30, but no first-party source checked through September 2 verifies that a Dear Passengers build was shown or available for public hands-on play.",
+      "sourceIds": ["steam-store", "steam-news", "games-gathering-participants", "games-gathering-event", "gamescom-games-from-ukraine", "games-gathering-post-event"],
+      "verifiedAt": "2026-09-02",
       "ownerRoutes": ["/dear-passengers-demo/"],
       "affectedRoutes": ["/dear-passengers-news/"]
     }
