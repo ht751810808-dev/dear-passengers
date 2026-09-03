@@ -211,6 +211,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-08-26'),
     },
     {
+      url: `${baseUrl}/dear-passengers-xbox/`,
+      lastModified: new Date('2026-09-03'),
+    },
+    {
       url: `${baseUrl}/dear-passengers-switch/`,
       lastModified: new Date('2026-08-24'),
     },

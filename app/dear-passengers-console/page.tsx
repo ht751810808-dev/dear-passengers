@@ -288,11 +288,11 @@ export default function ConsolePage() {
                   Xbox accounts, shared lobbies, cloud streaming or a Dear Passengers console subscription agreement.
                 </p>
                 <p>
-                  A secondary media report reproduced a statement attributed to the official Discord FAQ saying the
-                  studio was still deciding platforms and demo access. That report supports an open decision rather
-                  than a confirmed Dear Passengers console roadmap, but it cannot replace a platform-holder page. Until
-                  FLEXUS publishes an Xbox announcement, the status remains “not announced.” Dear Passengers console
-                  reporting must preserve that wording.
+                  A secondary report attributed an official Discord FAQ answer to FLEXUS saying platforms were still
+                  being decided. That supports an open Dear Passengers console decision, not an Xbox roadmap, and it
+                  cannot replace a platform-holder record. Until one exists, the status remains “not announced.” The{' '}
+                  <Link href="/dear-passengers-xbox/">Dear Passengers Xbox evidence desk</Link> tracks Microsoft Store,
+                  Game Pass, cloud and hardware fields; this Dear Passengers console page keeps the ecosystem comparison.
                 </p>
               </section>
 

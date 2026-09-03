@@ -311,7 +311,9 @@ export default function ReleaseDatePage() {
                   hardware-specific evidence. PlayStation players can use the{' '}
                   <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> for PS5,
                   PS4 and the broader Sony ecosystem. The <Link href="/dear-passengers-ps5/">Dear Passengers PS5 release status</Link>{' '}
-                  owns the current-generation Store, date, price and hardware-feature check, while this guide stays focused on PC timing and access.
+                  owns the current-generation Store, date, price and hardware-feature check. The{' '}
+                  <Link href="/dear-passengers-xbox/">Dear Passengers Xbox release status</Link> separately checks
+                  Microsoft Store, Game Pass, cloud and Xbox hardware fields, while this guide stays focused on PC timing and access.
                 </p>
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers platform release status">

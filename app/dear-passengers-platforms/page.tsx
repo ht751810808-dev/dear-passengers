@@ -279,6 +279,8 @@ export default function PlatformsPage() {
                   <Link href="/dear-passengers-playstation/">Dear Passengers PlayStation status guide</Link> owns the
                   PS5 and PS4 comparison. The <Link href="/dear-passengers-ps5/">Dear Passengers PS5 status guide</Link>{' '}
                   separately checks the current-generation Store listing, release, PS Plus, DualSense, trophies and performance.
+                  The <Link href="/dear-passengers-xbox/">Dear Passengers Xbox status guide</Link> owns the matching
+                  Microsoft Store, Game Pass, cloud, generation, controls and network questions.
                 </p>
               </section>
 
