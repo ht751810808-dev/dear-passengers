@@ -6,6 +6,7 @@ const pages = [
   { route: 'es/precio-de-dear-passengers', locale: 'es-ES', keyword: 'precio de Dear Passengers', checkCharacters: true },
   { route: 'cs/cena-dear-passengers', locale: 'cs-CZ', keyword: 'cena hry Dear Passengers', checkCharacters: true },
   { route: 'it/prezzo-di-dear-passengers', locale: 'it-IT', keyword: 'prezzo di Dear Passengers', checkCharacters: true },
+  { route: 'tr/dear-passengers-parali-mi', locale: 'tr-TR', keyword: 'Dear Passengers paralı mı', checkCharacters: true },
 ];
 
 const remoteBase = process.argv[2]?.replace(/\/$/, '');

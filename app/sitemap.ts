@@ -52,6 +52,7 @@ const turkishPaths = [
   '/tr/dear-passengers-oyunu/',
   '/tr/dear-passengers-steam/',
   '/tr/dear-passengers-ps5/',
+  '/tr/dear-passengers-parali-mi/',
   '/tr/dear-passengers-oynanis/',
   '/tr/dear-passengers-fragman/',
   '/tr/dear-passengers-ozellikleri/',
@@ -192,7 +193,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-price/`,
-      lastModified: new Date('2026-08-27'),
+      lastModified: new Date('2026-09-07'),
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,

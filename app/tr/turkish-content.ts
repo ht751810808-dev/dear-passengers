@@ -114,8 +114,8 @@ export const turkishGuides: TurkishGuide[] = [
         'Bir konsol sürümü açıklanırsa çıkış tarihi, çapraz oyun, kontrolcü desteği ve fiyatı ayrı ayrı doğrulanmalıdır. PC ile aynı gün çıkacağı varsayılamaz. [[/tr/dear-passengers-sistem-gereksinimleri/|Sistem gereksinimleri rehberi]] mevcut Windows tablosunu tam değerlerle aktarır.'
       ]},
       { id: 'fiyat', kicker: 'TÜRKİYE FİYATI', heading: 'Dear Passengers kaç TL olacak?', paragraphs: [
-        'FLEXUS fiyat açıklamadı ve Steam’de satın alma düğmesi yok. Dear Passengers kaç TL sorusuna güvenilir bir rakam verilemiyor. Oyunun popüler etiketlerinde görülen “Oynaması Ücretsiz” kullanıcı etiketi, yayıncının free-to-play modelini onayladığı anlamına gelmez.',
-        'Steam Türkiye’de fiyatlandırmayı dolar üzerinden gösterebilir; ancak kesin bölgesel tutar ürün satışa açılmadan bilinmez. Kur dönüşümü yapıp “beklenen TL fiyatı” yayımlamak resmî fiyat değildir. Standart, Deluxe veya başka sürümler de açıklanmadı.'
+        'FLEXUS fiyat açıklamadı ve Steam’de satın alma düğmesi yok. [[/tr/dear-passengers-parali-mi/|Dear Passengers paralı mı rehberi]], kullanıcı etiketini resmî iş modelinden ayırır; Türkiye tutarını, sürümleri ve indirimleri yalnız mağaza alanı açıldığında kaydeder.',
+        'Bu çıkış sayfası zamanlamayı sahiplenir. Steam Türkiye fiyatı, ücretsiz ya da ücretli model ve paket ayrıntıları ayrı ticari durum sayfasında tutulur; böylece aynı yanıt iki sayfada büyütülmez.'
       ]},
       { id: 'demo', kicker: 'ÇIKIŞ ÖNCESİ ERİŞİM', heading: 'Demo veya erken erişim ne zaman gelecek?', paragraphs: [
         'FLEXUS ile yapılan doğrudan röportaj, Gamescom için oynanabilir bir yapı ve sonrasında halka açık demo hedefinden söz ediyor. Bu önemli bir plan, fakat Steam’de şu anda demo indirme veya Playtest kayıt düğmesi yok. Dear Passengers çıkış tarihi ile demo tarihi aynı kabul edilemez.',
@@ -210,7 +210,7 @@ export const turkishGuides: TurkishGuide[] = [
     localContext: [
       '“İndir” Türkiye’de “download”dan daha güçlü bir eylem kelimesi ve bu siteye gelen gerçek sorguların en belirgin yerel örneği. Sayfa kelimeyi dosya vaadi için değil, kullanıcının sahte sonuçlardan önce doğru durumu görmesi için hedefler.',
       '“Full indir”, “torrent”, “crack” ve “APK” aramaları güvenlik riski taşıyabilir. Dear Passengers henüz çıkmadığından bu ifadelerle hazırlanan erken dosyaların güvenilirliği özellikle düşüktür.',
-      'Steam Türkiye fiyatı henüz olmadığı için “ücretsiz” iddiası da doğrulanamaz. Demo ücretsiz olabilir; bu, tam oyunun free-to-play olacağını göstermez.'
+      'Steam Türkiye fiyatı henüz olmadığı için “ücretsiz” iddiası da doğrulanamaz. [[/tr/dear-passengers-parali-mi/|Dear Passengers paralı mı kontrolü]], tam oyunun iş modelini ücretsiz demo ihtimalinden ayrı tutar.'
     ],
     faqs: [
       { question: 'Dear Passengers nereden indirilir?', answer: 'Şu anda indirilemez. Yayınlandığında onaylanan yol Windows için Steam olacaktır.' },

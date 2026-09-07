@@ -6,7 +6,7 @@ import FAQ, { type FaqItem } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
-type Locale = 'en' | 'es' | 'cs' | 'it';
+type Locale = 'en' | 'es' | 'cs' | 'it' | 'tr';
 type Section = { id: string; kicker: string; heading: string; paragraphs: ReactNode[]; bullets?: string[] };
 type StatusRow = { label: string; status: string; evidence: string; confirmed?: boolean };
 type RelatedLink = { href: string; label: string; hrefLang?: string };

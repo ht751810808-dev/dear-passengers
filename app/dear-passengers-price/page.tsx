@@ -11,7 +11,7 @@ const INSIDER_URL = 'https://insider-gaming.com/how-much-will-dear-passengers-co
 export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Price: Steam Cost & Free Status' },
   description: 'The Dear Passengers price is not numeric yet. Check the Steam price field, free-to-play tag, regional cost, editions, discounts and official evidence.',
-  alternates: { canonical: '/dear-passengers-price/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', 'x-default': '/dear-passengers-price/' } },
+  alternates: { canonical: '/dear-passengers-price/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', tr: '/tr/dear-passengers-parali-mi/', 'x-default': '/dear-passengers-price/' } },
   openGraph: { title: 'Dear Passengers Price: Steam Cost and Free Status', description: 'A source-backed fare desk for the unannounced numeric price, business model and regional Steam fields.', url: PAGE_URL, type: 'article', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Dear Passengers price and Steam cost status guide' }] },
   twitter: { card: 'summary_large_image', title: 'Dear Passengers Price: Current Steam Status', description: 'No numeric price is published; the community tag is not a purchase field.', images: ['/images/og-image.png'] },
 };

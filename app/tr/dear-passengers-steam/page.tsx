@@ -228,9 +228,10 @@ export default function TurkishDearPassengersSteamPage() {
                 <span className="kicker">ERİŞİM VE DİL</span>
                 <h2>Dear Passengers Steam ne zaman çıkacak?</h2>
                 <p>
-                  Dear Passengers Steam için Steam’de yalnızca 2026 aralığı doğrulandı; ay ve gün açıklanmadı. Güncellemeler için{' '}
+                  Dear Passengers Steam için yalnız 2026 aralığı doğrulandı; gün açıklanmadı. Güncel durum için{' '}
                   <Link href="/tr/dear-passengers-cikis-tarihi/">çıkış</Link>, <Link href="/tr/dear-passengers-demo/">demo</Link>{' '}
-                  ve <Link href="/tr/dear-passengers-indir/">indirme</Link> rehberlerini izleyin.
+                  <Link href="/tr/dear-passengers-parali-mi/">fiyat ve ücret durumu</Link> ve <Link href="/tr/dear-passengers-indir/">indirme</Link>{' '}
+                  rehberlerini izleyin.
                 </p>
                 <p>
                   Dear Passengers Steam mağaza sayfasının dil tablosunda Türkçe yalnızca arayüz desteği olarak işaretlidir;

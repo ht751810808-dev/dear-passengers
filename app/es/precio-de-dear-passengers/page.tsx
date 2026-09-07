@@ -16,7 +16,7 @@ const faqs = [
 export const metadata: Metadata = {
   title: { absolute: 'Precio de Dear Passengers: coste y estado en Steam' },
   description: 'El precio de Dear Passengers aún no tiene cifra. Comprueba coste en euros, si será gratis, ediciones, reserva, descuentos y la fuente oficial de Steam.',
-  alternates: { canonical: '/es/precio-de-dear-passengers/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', 'x-default': '/dear-passengers-price/' } },
+  alternates: { canonical: '/es/precio-de-dear-passengers/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', tr: '/tr/dear-passengers-parali-mi/', 'x-default': '/dear-passengers-price/' } },
   openGraph: { title: 'Precio de Dear Passengers: estado oficial', description: 'Guía española del coste, modelo comercial y campos regionales aún no publicados.', url: PAGE_URL, locale: 'es_ES', type: 'article', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Guía del precio de Dear Passengers y su estado en Steam' }] },
 };
 const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', inLanguage: 'es-ES', headline: 'Precio de Dear Passengers: coste y estado en Steam', mainEntityOfPage: PAGE_URL, datePublished: '2026-08-27', dateModified: '2026-08-27', author: { '@type': 'Organization', name: 'Equipo editorial en español de DearPassengers.net' }, publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/' }, citation: [STEAM_URL, COMMUNITY_URL] };

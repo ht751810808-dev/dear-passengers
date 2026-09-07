@@ -14,7 +14,7 @@ const faqs = [
 export const metadata: Metadata = {
   title: { absolute: 'Cena hry Dear Passengers: kolik bude stát na Steamu' },
   description: 'Cena hry Dear Passengers zatím není zveřejněná. Ověřte cenu v Kč, Free to Play tag, edice, slevu, předobjednávku a oficiální zdroj.',
-  alternates: { canonical: '/cs/cena-dear-passengers/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', 'x-default': '/dear-passengers-price/' } },
+  alternates: { canonical: '/cs/cena-dear-passengers/', languages: { en: '/dear-passengers-price/', es: '/es/precio-de-dear-passengers/', cs: '/cs/cena-dear-passengers/', it: '/it/prezzo-di-dear-passengers/', tr: '/tr/dear-passengers-parali-mi/', 'x-default': '/dear-passengers-price/' } },
   openGraph: { title: 'Cena hry Dear Passengers: aktuální stav', description: 'Český přehled ceny, obchodního modelu a regionálních údajů na Steamu.', url: PAGE_URL, locale: 'cs_CZ', type: 'article', images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Český průvodce cenou hry Dear Passengers' }] },
 };
 const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', inLanguage: 'cs-CZ', headline: 'Cena hry Dear Passengers: kolik bude stát na Steamu', mainEntityOfPage: PAGE_URL, datePublished: '2026-08-27', dateModified: '2026-08-27', author: { '@type': 'Organization', name: 'Česká redakce DearPassengers.net' }, publisher: { '@type': 'Organization', name: 'DearPassengers.net', url: 'https://dearpassengers.net/' }, citation: [STEAM_URL, COMMUNITY_URL] };
