@@ -165,7 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date('2026-08-08'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/game-dear-passengers/`,
@@ -173,11 +173,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-steam/`,
-      lastModified: new Date('2026-08-20'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/dear-passengers-gameplay/`,
-      lastModified: new Date('2026-08-04'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/dear-passengers-trailer/`,
@@ -197,7 +197,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-platforms/`,
-      lastModified: new Date('2026-08-26'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/dear-passengers-console/`,
@@ -245,7 +245,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-download/`,
-      lastModified: new Date('2026-08-22'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/dear-passengers-news/`,
@@ -253,11 +253,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-developer-flexus/`,
-      lastModified: new Date('2026-07-19'),
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/games-like-dear-passengers/`,
-      lastModified: new Date('2026-07-20'),
+      lastModified: new Date('2026-09-08'),
+    },
+    {
+      url: `${baseUrl}/co-op-flight-games/`,
+      lastModified: new Date('2026-09-08'),
     },
     {
       url: `${baseUrl}/zh-cn/`,
@@ -292,7 +296,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...portuguesePaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/pt-br/dear-passengers-noticias/' ? '2026-09-02' : path === '/pt-br/dear-passengers-demo/' ? '2026-08-29' : path === '/pt-br/' ? '2026-07-29' : '2026-07-28') })),
     ...spanishPaths.map((path) => ({
       url: `${baseUrl}${path}`,
-      lastModified: new Date(path === '/es/dear-passengers-noticias/' ? '2026-09-02' : path === '/es/dear-passengers-demo/' ? '2026-08-29' : path === '/es/precio-de-dear-passengers/' || path === '/es/dear-passengers-fecha-de-lanzamiento/' ? '2026-08-27' : path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
+      lastModified: new Date(path === '/es/dear-passengers-descargar/' ? '2026-09-08' : path === '/es/dear-passengers-noticias/' ? '2026-09-02' : path === '/es/dear-passengers-demo/' ? '2026-08-29' : path === '/es/precio-de-dear-passengers/' || path === '/es/dear-passengers-fecha-de-lanzamiento/' ? '2026-08-27' : path === '/es/dear-passengers-vr/' ? '2026-08-21' : path === '/es/privacidad/' ? '2026-08-10' : '2026-07-30'),
     })),
     ...myanmarPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/my/dear-passengers-news/' ? '2026-09-02' : path === '/my/dear-passengers-demo/' ? '2026-08-29' : '2026-07-30') })),
     ...russianPaths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(path === '/ru/dear-passengers-demo/' ? '2026-08-29' : path === '/ru/dear-passengers-vr/' ? '2026-08-21' : '2026-08-05') })),

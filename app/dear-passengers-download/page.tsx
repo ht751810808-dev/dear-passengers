@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Download: Official Steam & APK Safety' },
   description:
     'Check the Dear Passengers download status, Steam app, demo access, APK safety, and how same-name Google Play listings differ from the FLEXUS game.',
+  keywords: [
+    'play Dear Passengers',
+    'Dear Passenger web play',
+    'Dear Passengers online',
+    'Dear Passengers without download',
+    'Dear Passengers download PC',
+  ],
   alternates: { canonical: '/dear-passengers-download/', languages: { en: '/dear-passengers-download/', 'zh-CN': '/zh-cn/dear-passengers-download/', ar: '/ar/dear-passengers-download/', de: '/de/dear-passengers-download/', tr: '/tr/dear-passengers-indir/', 'pt-BR': '/pt-br/dear-passengers-baixar/', es: '/es/dear-passengers-descargar/', 'my-MM': '/my/dear-passengers-download/', ru: '/ru/dear-passengers-skachat/', cs: '/cs/dear-passengers-stahnout/', 'x-default': '/dear-passengers-download/' } },
   openGraph: {
     title: 'Dear Passengers Download: Official Access and APK Safety',
@@ -73,6 +80,11 @@ const faqs: FaqItem[] = [
       'Not yet. FLEXUS founder Semen Kozyura has said that a Gamescom demo is being prepared and that a public Dear Passengers demo will follow later. The public build has no announced date or official download method, and Steam does not currently show a Download Demo button.',
   },
   {
+    question: 'Can I play Dear Passengers online without downloading it?',
+    answer:
+      'No official browser or web-play version of the FLEXUS game exists. Steam confirms online co-op as a play mode, but that means players connect online after installing an official build; it does not mean the unreleased game can be played in a browser. Same-name web games are separate products.',
+  },
+  {
     question: 'Is Dear Passengers free to play?',
     answer:
       'FLEXUS has not announced the Dear Passengers price or business model. There is no evidence that the full game will be free to play, paid, subscription-based, or sold through Early Access. The wishlist button is free to use, but wishlisting is not ownership or a Dear Passengers download.',
@@ -96,7 +108,7 @@ const articleSchema = {
   description: 'A source-backed guide to the official Dear Passengers download status and safe access checks.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-21',
-  dateModified: '2026-08-16',
+  dateModified: '2026-09-08',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -153,7 +165,7 @@ export default function DearPassengersDownloadPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Download</span>
               </nav>
-              <div className="eyebrow"><span>●</span> ACCESS CONTROL · CHECKED AUGUST 16, 2026</div>
+              <div className="eyebrow"><span>●</span> ACCESS CONTROL · CHECKED SEPTEMBER 8, 2026</div>
               <h1>Dear Passengers Download:<br /><em>Official Steam & APK Safety</em></h1>
               <p>
                 The official <strong>Dear Passengers download</strong> is not live yet. This independent checkpoint shows
@@ -181,6 +193,7 @@ export default function DearPassengersDownloadPage() {
               <a href="#verify">Verification steps</a>
               <a href="#apk">APK and Android</a>
               <a href="#demo">Demo and Playtest</a>
+              <a href="#online">Online without download</a>
               <a href="#platforms">Platform status</a>
               <a href="#warnings">Warning signs</a>
               <a href="#download-faq">FAQ</a>
@@ -189,7 +202,7 @@ export default function DearPassengersDownloadPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="August 16, 2026"
+                checked="September 8, 2026"
                 note="The hero is an original editorial illustration, not an official screenshot. Access claims are checked against the Steam app that names FLEXUS as developer and publisher and against the developer identities shown on cited Google Play records. We do not download, execute, or endorse third-party installers."
               />
 
@@ -357,6 +370,34 @@ export default function DearPassengersDownloadPage() {
                 </p>
               </section>
 
+              <section id="online">
+                <span className="kicker">WEB PLAY CHECK</span>
+                <h2>Can You Play Dear Passengers Online Without Downloading?</h2>
+                <p className="snippet-answer">
+                  No official <strong>Dear Passengers web-play or browser version</strong> is available. The Steam page
+                  confirms online co-op, but online co-op describes how installed players connect with friends. It does
+                  not turn the unreleased Windows game into an instant-play browser title.
+                </p>
+                <p>
+                  Search results can show games with a similar singular name, embedded play buttons, or “play now”
+                  language. Those results do not become the FLEXUS product merely because they involve passengers or
+                  flying. Verify the plural title <em>Dear Passengers</em>, FLEXUS as developer and publisher, and Steam
+                  App ID 4534960. A different developer, domain, or product ID identifies a separate game.
+                </p>
+                <h3>What “Play Dear Passengers Online” Will Mean After Release</h3>
+                <p>
+                  If the current store plan remains unchanged, players will first obtain and install the Windows build
+                  through an official channel, then use its online co-op mode. FLEXUS has not announced cloud streaming,
+                  a browser client, instant web play, or a no-download demo. A future third-party streaming service
+                  would also require an attributable product listing before this guide treats it as supported.
+                </p>
+                <p>
+                  Until an official access button appears, wishlisting is the only verified action. For what friends
+                  will do after access exists, read the <Link href="/dear-passengers-gameplay">gameplay guide</Link> or
+                  compare other currently playable <Link href="/co-op-flight-games">co-op flight games</Link>.
+                </p>
+              </section>
+
               <section id="platforms">
                 <span className="kicker">DESTINATION BOARD</span>
                 <h2>Dear Passengers Download Platforms</h2>
@@ -405,7 +446,7 @@ export default function DearPassengersDownloadPage() {
                 <span className="kicker">PASSENGER QUESTIONS</span>
                 <h2>Dear Passengers Download FAQ</h2>
                 <p>
-                  These answers cover the FLEXUS game and reflect the official record checked August 16, 2026. The Dear
+                  These answers cover the FLEXUS game and reflect the official record checked September 8, 2026. The Dear
                   Passengers download status will be updated when Steam adds an access button or FLEXUS publishes a new
                   platform, demo, Playtest, price, preorder, or launch announcement.
                 </p>

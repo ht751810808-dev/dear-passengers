@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Steam: Official App ID & Store Status' },
   description:
     'Find the official Dear Passengers Steam page, App ID 4534960, wishlist status, 2026 release window, demo, price, languages, and store checks.',
+  keywords: [
+    'Dear Passengers Steam',
+    'Steam Dear Passengers',
+    'Dear Passenger Steam',
+    'Dear Passengers game PC',
+    'Dear Passengers App ID 4534960',
+  ],
   alternates: {
     canonical: '/dear-passengers-steam/',
     languages: {
@@ -106,7 +113,7 @@ const articleSchema = {
   description: 'A source-backed verification guide to the official Dear Passengers Steam record and current access state.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-08-20',
-  dateModified: '2026-08-20',
+  dateModified: '2026-09-08',
   inLanguage: 'en',
   author: {
     '@type': 'Organization',
@@ -217,7 +224,7 @@ export default function DearPassengersSteamPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="August 20, 2026"
+                checked="September 8, 2026"
                 note="This Dear Passengers Steam page owns the official store identity and access task. Release timing, platforms, downloads, demos, PC requirements, and gameplay remain on their specialist pages so the answers can be updated without duplication."
               />
 
@@ -411,7 +418,7 @@ export default function DearPassengersSteamPage() {
                 <div className="timeline" aria-label="Dear Passengers Steam status sequence">
                   <div><time>JUL 14<br />2026</time><p><strong>Dear Passengers Steam record opens.</strong> App 4534960 identifies FLEXUS, Windows PC, 2026, single-player, and online co-op.</p></div>
                   <div><time>JUL 31<br />2026</time><p><strong>FLEXUS reports two million wishlists.</strong> The announcement adds audience context, not sales or a launch date.</p></div>
-                  <div className="future"><time>AUG 20<br />2026</time><p><strong>Store rechecked.</strong> Wishlist access remains live; purchase, install, public demo, price, and exact date remain unavailable.</p></div>
+                  <div className="future"><time>SEP 08<br />2026</time><p><strong>Store rechecked.</strong> Wishlist access remains live; purchase, install, public demo, price, and exact date remain unavailable.</p></div>
                 </div>
               </section>
 
@@ -419,7 +426,7 @@ export default function DearPassengersSteamPage() {
                 <span className="kicker">PASSENGER QUESTIONS</span>
                 <h2>Dear Passengers Steam FAQ</h2>
                 <p>
-                  These answers reflect the live store and official news checked August 20, 2026. They describe the
+                  These answers reflect the live store and official news checked September 8, 2026. They describe the
                   FLEXUS Windows product, not a similarly named mobile app, VR listing, fan page, or unofficial file.
                 </p>
                 <FAQ items={faqs} />
@@ -469,6 +476,7 @@ export default function DearPassengersSteamPage() {
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-download">Download safety →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-platforms">Platform status →</Link>
+                  <Link className="button button-ghost" href="/co-op-flight-games">Co-op flight games →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-vr/">VR and Quest identity →</Link>
                 </div>
               </section>

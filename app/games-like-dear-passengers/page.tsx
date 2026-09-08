@@ -223,6 +223,11 @@ export default function GamesLikePage() {
                   cargo, or a job that falls apart under pressure. The recommendations below identify the shared reason
                   instead of pretending every cooperative game belongs in one genre.
                 </p>
+                <p>
+                  If flying, shared cockpits, and vehicle stations matter more than general physics comedy, continue to
+                  the dedicated <Link href="/co-op-flight-games">co-op flight games guide</Link>. It compares airline,
+                  aircraft, rescue, and spaceship crew experiences without replacing this broader alternatives list.
+                </p>
               </section>
 
               <section id="method">
@@ -475,6 +480,7 @@ export default function GamesLikePage() {
                 </p>
                 <div className="related-actions">
                   <Link className="button" href="/dear-passengers-gameplay">Gameplay guide →</Link>
+                  <Link className="button button-ghost" href="/co-op-flight-games">Co-op flight games →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-roles">Crew roles →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>

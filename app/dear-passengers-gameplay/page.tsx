@@ -453,6 +453,7 @@ export default function GameplayPage() {
                   <Link className="button button-ghost" href="/dear-passengers-roles">Crew roles →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Player count →</Link>
                   <Link className="button button-ghost" href="/games-like-dear-passengers">Similar games →</Link>
+                  <Link className="button button-ghost" href="/co-op-flight-games">Co-op flight games →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-demo">Demo status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-news">Latest verified news →</Link>
                 </div>

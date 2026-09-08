@@ -180,6 +180,7 @@ export const spanishGuides: SpanishGuide[] = [
   },
   {
     slug: 'dear-passengers-descargar', englishPath: '/dear-passengers-download/',
+    modifiedDate: '2026-09-08', verifiedDate: '8 de septiembre de 2026',
     keyword: 'Dear Passengers descargar', title: 'Dear Passengers Descargar: Steam, Demo y Alerta de APK Falso',
     description: 'Dear Passengers descargar de forma segura: estado en Steam, ausencia de versión pública, APK, torrent, crack, tamaño y páginas falsas.',
     eyebrow: 'DESCARGA SEGURA · SIN BOTONES FALSOS', h1: 'Dear Passengers: ¿dónde descargarlo de forma segura?',
@@ -201,6 +202,10 @@ export const spanishGuides: SpanishGuide[] = [
         'Cuando el juego se publique, la ficha oficial deberá mostrar precio o condición de acceso y el cliente de Steam instalará los archivos. Comprueba el App ID 4534960, FLEXUS como desarrollador y editor y el dominio steampowered.com.',
         'Si llega antes una demo, debe aparecer en la tienda o en un anuncio oficial verificable. La [[/es/dear-passengers-demo/|página de la demo]] sigue esa diferencia. Añadir a la lista de deseados es la única acción correcta hoy; no descarga ni cobra nada.'
       ]},
+      { id: 'online-sin-descargar', kicker: 'JUGAR EN EL NAVEGADOR', heading: '¿Se puede jugar a Dear Passengers online sin descargar?', paragraphs: [
+        'No existe una versión web oficial de Dear Passengers ni una opción para jugar online sin descargar. “Cooperativo en línea” significa que el juego instalado conectará a la tripulación por internet; no significa que la versión de FLEXUS funcione en el navegador.',
+        'Algunos resultados usan un nombre parecido en singular o muestran un botón “jugar ahora”. Comprueba el título plural Dear Passengers, FLEXUS como desarrollador y editor y el App ID 4534960. Otro estudio, dominio o identificador corresponde a un producto diferente. Si quieres jugar ya, la [[/es/juegos-parecidos-a-dear-passengers/|comparativa de juegos parecidos]] reúne alternativas disponibles y etiqueta Dear Passengers como no publicado.'
+      ]},
     ],
     localContext: [
       '“Descargar” es la forma general en España y América Latina. También aparecen “download PC”, “APK”, “torrent” y “gratis”; se reúnen en una página de seguridad para evitar canibalización.',
@@ -214,6 +219,7 @@ export const spanishGuides: SpanishGuide[] = [
       { question: '¿Será gratis?', answer: 'El precio y el modelo comercial no se han anunciado.' },
       { question: '¿Cuánto ocupa?', answer: 'El tamaño final es desconocido; 4 GB es el espacio mínimo listado.' },
       { question: '¿Se puede descargar la demo?', answer: 'No ahora. Hay una demo pública planeada, pero sin acceso ni fecha.' },
+      { question: '¿Se puede jugar online sin descargar?', answer: 'No. No existe versión web oficial; el cooperativo online requerirá una versión oficial instalada cuando esté disponible.' },
     ], related: ['dear-passengers-demo', 'dear-passengers-requisitos', 'dear-passengers-fecha-de-lanzamiento', 'dear-passengers-noticias'],
   },
   {

@@ -22,6 +22,11 @@ export const metadata: Metadata = {
 
 const faqs: FaqItem[] = [
   {
+    question: 'Is the game called Dear Passenger or Dear Passengers?',
+    answer:
+      'The FLEXUS game is officially titled Dear Passengers, with a plural “Passengers.” Its verified Steam record is app 4534960. Singular “Dear Passenger” results can refer to unrelated apps or browser games, so confirm the title, developer, publisher, and Steam App ID before downloading anything.',
+  },
+  {
     question: 'What is the Dear Passengers game?',
     answer:
       'Dear Passengers is a physics-based action-adventure game from FLEXUS about operating a catastrophically unreliable airline. One player can pilot while other crew members manage the cabin, passengers, cargo, food service, weather, and emergencies. Steam currently lists single-player and online co-op support.',
@@ -464,6 +469,7 @@ export default function HomePage() {
             </div>
             <div className="related-actions">
               <Link className="button" href="/games-like-dear-passengers">Compare all eight similar games →</Link>
+              <Link className="button button-ghost" href="/co-op-flight-games">Browse co-op flight games →</Link>
               <Link className="button button-ghost" href="/dear-passengers-gameplay">Review the gameplay →</Link>
             </div>
           </div>

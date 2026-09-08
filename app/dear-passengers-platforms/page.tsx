@@ -421,6 +421,7 @@ export default function PlatformsPage() {
                   <Link className="button button-ghost" href="/dear-passengers-confirmed-features">Confirmed features →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-download">Download status →</Link>
                   <Link className="button button-ghost" href="/dear-passengers-player-count">Multiplayer status →</Link>
+                  <Link className="button button-ghost" href="/co-op-flight-games">Co-op flight games →</Link>
                   <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Official Steam ↗</a>
                 </div>
               </section>

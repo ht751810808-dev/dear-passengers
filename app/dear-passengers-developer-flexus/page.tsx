@@ -11,6 +11,10 @@ const STEAM_URL = 'https://store.steampowered.com/app/4534960/Dear_Passengers/';
 const FLEXUS_URL = 'https://flexus.games/';
 const DOU_INTERVIEW_URL = 'https://gamedev.dou.ua/articles/dear-passengers-interview/?from=community_widget_post';
 const DEV_UA_URL = 'https://dev.ua/news/1-billion-dear-passengers-1784294360';
+const GAME_SITE_URL = 'https://dearpassengers.game/';
+const DISCORD_URL = 'https://discord.com/invite/D6EKQPdFRT';
+const STEAM_NEWS_URL = 'https://steamcommunity.com/app/4534960/allnews/';
+const STEAM_COMMUNITY_URL = 'https://steamcommunity.com/app/4534960/';
 const PAGE_URL = 'https://dearpassengers.net/dear-passengers-developer-flexus/';
 
 export const metadata: Metadata = {
@@ -23,6 +27,7 @@ export const metadata: Metadata = {
     'who made Dear Passengers',
     'Dear Passengers studio',
     'Dear Passengers publisher',
+    'FLEXUS official channels game developer',
   ],
   alternates: { canonical: '/dear-passengers-developer-flexus/', languages: { en: '/dear-passengers-developer-flexus/', ar: '/ar/dear-passengers-developer/', de: '/de/dear-passengers-entwickler-flexus/', tr: '/tr/dear-passengers-gelistiricisi/', 'pt-BR': '/pt-br/dear-passengers-desenvolvedora-flexus/', es: '/es/dear-passengers-desarrollador-flexus/', 'my-MM': '/my/dear-passengers-developer-flexus/', 'x-default': '/dear-passengers-developer-flexus/' } },
   openGraph: {
@@ -84,6 +89,11 @@ const faqs: FaqItem[] = [
     answer:
       'Yes. FLEXUS has discussed a Gamescom demo and a later public demo. Kozyura described the broader sequence as demo release, streamer play, and then the full release, but no public demo date or download method is currently announced.',
   },
+  {
+    question: 'What are the official Dear Passengers and FLEXUS channels?',
+    answer:
+      'Use the FLEXUS company site, the official Dear Passengers website, Steam app 4534960, FLEXUS-authored Steam news, and the Discord invite linked by the official game site. The Steam Community Hub is useful for discussion, but user posts are not developer announcements.',
+  },
 ];
 
 const articleSchema = {
@@ -94,7 +104,7 @@ const articleSchema = {
     'A sourced studio profile covering the Dear Passengers developer, previous FLEXUS games, development comments, demo plans, and release status.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-19',
-  dateModified: '2026-07-19',
+  dateModified: '2026-09-08',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -157,7 +167,7 @@ export default function DearPassengersDeveloperPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Developer</span>
               </nav>
-              <div className="eyebrow"><span>●</span> STUDIO MANIFEST · VERIFIED JULY 19, 2026</div>
+              <div className="eyebrow"><span>●</span> STUDIO MANIFEST · VERIFIED SEPTEMBER 8, 2026</div>
               <h1>Dear Passengers Developer:<br /><em>Who Is FLEXUS Games?</em></h1>
               <p>
                 The <strong>Dear Passengers developer</strong> is FLEXUS Games, a Kyiv-based studio that Steam lists as
@@ -185,12 +195,13 @@ export default function DearPassengersDeveloperPage() {
               <a href="#viral">Viral reveal</a>
               <a href="#demo-release">Demo & release</a>
               <a href="#confirmed">Confirmed vs open</a>
+              <a href="#official-channels">Official channels</a>
               <a href="#developer-faq">FAQ</a>
               <a className="toc-cta" href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">Official studio ↗</a>
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote note="Studio facts come from FLEXUS and Steam. Production, wishlist, trailer-view, demo, and release comments are attributed to named interviews rather than presented as independently audited statistics." />
+              <EditorialNote checked="September 8, 2026" note="Studio facts come from FLEXUS and Steam. Production, wishlist, trailer-view, demo, and release comments are attributed to named interviews rather than presented as independently audited statistics." />
 
               <section id="answer">
                 <span className="kicker">QUICK ANSWER</span>
@@ -377,11 +388,36 @@ export default function DearPassengersDeveloperPage() {
                 </p>
               </section>
 
+              <section id="official-channels">
+                <span className="kicker">FIRST-PARTY ROUTES</span>
+                <h2>Official Dear Passengers and FLEXUS Channels</h2>
+                <p>
+                  The safest official-channel check starts with ownership. FLEXUS controls its company website and is
+                  named as both developer and publisher on Steam app 4534960. The official Dear Passengers website links
+                  to that same Steam record and to the Discord invite below, creating a verifiable chain between the
+                  product, studio, store, and community entrance.
+                </p>
+                <div className="platform-table" role="table" aria-label="Official Dear Passengers and FLEXUS channels">
+                  <div className="platform-head" role="row"><span role="columnheader">Channel</span><span role="columnheader">Use it for</span><span role="columnheader">Verification</span></div>
+                  <div role="row"><strong role="cell"><a href={FLEXUS_URL} target="_blank" rel="noopener noreferrer">FLEXUS company site ↗</a></strong><span role="cell">Studio identity and portfolio</span><span role="cell">Names Dear Passengers and links to Steam</span></div>
+                  <div role="row"><strong role="cell"><a href={GAME_SITE_URL} target="_blank" rel="noopener noreferrer">Official game site ↗</a></strong><span role="cell">Product summary and official exits</span><span role="cell">© 2026 FLEXUS Games LTD</span></div>
+                  <div role="row"><strong role="cell"><a href={STEAM_URL} target="_blank" rel="noopener noreferrer">Steam app 4534960 ↗</a></strong><span role="cell">Live product fields and wishlist</span><span role="cell">FLEXUS is developer and publisher</span></div>
+                  <div role="row"><strong role="cell"><a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">FLEXUS Steam news ↗</a></strong><span role="cell">Dated developer updates</span><span role="cell">Published through the official app</span></div>
+                  <div role="row"><strong role="cell"><a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">Official Discord invite ↗</a></strong><span role="cell">Community conversation</span><span role="cell">Linked from the official game site</span></div>
+                  <div role="row"><strong role="cell"><a href={STEAM_COMMUNITY_URL} target="_blank" rel="noopener noreferrer">Steam Community Hub ↗</a></strong><span role="cell">Questions and discussion</span><span role="cell">User content unless FLEXUS-authored</span></div>
+                </div>
+                <p>
+                  A profile using the FLEXUS name is not automatically an official source. For release dates, demos,
+                  prices, platforms, and downloads, prefer the store or a developer-authored announcement. Community
+                  discussion is useful for discovering questions, but it should not be promoted into a product fact.
+                </p>
+              </section>
+
               <section id="developer-faq">
                 <span className="kicker">STUDIO QUESTIONS</span>
                 <h2>Dear Passengers Developer FAQ</h2>
                 <p>
-                  These answers summarize the most reliable Dear Passengers developer information available on July 19,
+                  These answers summarize the most reliable Dear Passengers developer information available on September 8,
                   2026. Studio totals remain labeled as FLEXUS figures, interview numbers remain attributed, and missing
                   product details are not filled with assumptions.
                 </p>

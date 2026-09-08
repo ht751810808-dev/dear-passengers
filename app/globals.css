@@ -1096,6 +1096,134 @@ h1, h2, h3, h4 {
 .role-suggested { color: #6e4d06; background: #fff0c9; }
 .role-unknown { color: #862d2d; background: #fde6e3; }
 
+/* Co-op flight games category: a flight-operations directory rather than a duplicate alternatives page. */
+.flight-category-page { background: #f4f0e8; }
+.flight-category-hero {
+  min-height: 880px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 44%, rgba(239, 142, 55, .18) 0 2px, transparent 3px),
+    linear-gradient(118deg, #07131f 0 59%, #102a3e 59% 100%);
+}
+.flight-category-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: '';
+  opacity: .17;
+  background-image:
+    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent 35%, #000 66%);
+}
+.flight-category-hero .article-hero-content { z-index: 2; }
+.flight-category-hero h1 { max-width: 900px; }
+.flight-category-hero h1 em { color: #ffb25e; }
+.flight-category-hero .article-hero-content > p { max-width: 760px; }
+.flight-radar {
+  position: absolute;
+  z-index: 1;
+  top: 165px;
+  right: max(-80px, calc((100vw - 1180px) / 2 - 55px));
+  width: 520px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+}
+.flight-radar::before,
+.flight-radar::after,
+.flight-radar i { position: absolute; content: ''; }
+.flight-radar::before { inset: 17%; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; }
+.flight-radar::after { inset: 34%; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; }
+.flight-radar i:first-child { top: 50%; left: -8%; width: 116%; height: 1px; background: rgba(255,255,255,.13); }
+.flight-radar i:nth-child(2) { top: -8%; left: 50%; width: 1px; height: 116%; background: rgba(255,255,255,.13); }
+.flight-radar i:nth-child(3) {
+  top: 49.7%; left: 49.7%; width: 47%; height: 2px; transform: rotate(-31deg); transform-origin: 0 50%;
+  background: linear-gradient(90deg, #ff9c3a, transparent);
+  box-shadow: 78px -64px 0 2px #ff9c3a;
+}
+.flight-index-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 960px;
+  margin-top: 58px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(4,15,25,.72);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+.flight-index-board > div { position: relative; min-height: 108px; padding: 20px 18px; border-right: 1px solid rgba(255,255,255,.14); }
+.flight-index-board > div:last-child { border-right: 0; }
+.flight-index-board span { position: absolute; top: 13px; right: 14px; color: #ff9c3a; font-family: var(--font-display); font-size: 1.2rem; }
+.flight-index-board small { display: block; margin: 18px 0 9px; color: #9fb4c4; font-size: .57rem; font-weight: 800; letter-spacing: .12em; }
+.flight-index-board strong { color: var(--white); font-family: var(--font-display); font-size: 1.15rem; letter-spacing: .02em; }
+.flight-lane-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 36px 0; }
+.flight-lane-grid article {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  padding: 26px;
+  border-top: 5px solid var(--orange);
+  background: var(--navy);
+  box-shadow: 0 15px 40px rgba(14,30,48,.1);
+}
+.flight-lane-grid article:nth-child(2) { transform: translateY(20px); border-color: var(--red); background: #102b3d; }
+.flight-lane-grid article:nth-child(3) { border-color: #57b7ab; background: #17313d; }
+.flight-lane-grid article > span { color: #ffb25e; font-size: .62rem; font-weight: 800; letter-spacing: .16em; }
+.flight-lane-grid h3 { margin: 38px 0 12px; color: var(--white); font-size: 1.55rem; text-transform: uppercase; }
+.flight-lane-grid p { color: #c0cfda; font-size: .84rem; }
+.flight-lane-grid strong { margin-top: auto; padding-top: 22px; color: #fff4e6; font-size: .7rem; letter-spacing: .05em; }
+.flight-pick-grid { display: grid; gap: 18px; margin: 34px 0; }
+.flight-pick-grid article {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 28px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0 14px 38px rgba(20,35,58,.07);
+}
+.flight-pick-code {
+  display: grid;
+  place-content: center;
+  min-height: 112px;
+  align-self: start;
+  color: var(--white);
+  background: var(--navy);
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  line-height: .75;
+  text-align: center;
+}
+.flight-pick-code span { color: #ffad54; font-family: var(--font-body); font-size: .56rem; letter-spacing: .18em; }
+.flight-pick-grid h3 { margin-top: 0; text-transform: uppercase; }
+.flight-related-guide { border-top: 6px solid var(--orange); }
+
+@media (max-width: 1050px) {
+  .flight-radar { right: -210px; opacity: .7; }
+  .flight-index-board { grid-template-columns: repeat(2, 1fr); }
+  .flight-index-board > div:nth-child(2) { border-right: 0; }
+  .flight-index-board > div:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
+}
+
+@media (max-width: 800px) {
+  .flight-category-hero { min-height: 900px; }
+  .flight-radar { top: 260px; right: -330px; }
+  .flight-lane-grid { grid-template-columns: 1fr; }
+  .flight-lane-grid article { min-height: 220px; }
+  .flight-lane-grid article:nth-child(2) { transform: none; }
+}
+
+@media (max-width: 540px) {
+  .flight-category-hero { min-height: 980px; }
+  .flight-index-board { grid-template-columns: 1fr 1fr; margin-top: 38px; }
+  .flight-index-board > div { min-height: 94px; padding: 14px; }
+  .flight-index-board strong { font-size: .88rem; }
+  .flight-index-board small { font-size: .49rem; }
+  .flight-pick-grid article { grid-template-columns: 1fr; padding: 22px; }
+  .flight-pick-code { width: 92px; min-height: 92px; }
+}
+
 @media (max-width: 1050px) {
   .desktop-nav { display: none; }
   .menu-button { display: block; }
