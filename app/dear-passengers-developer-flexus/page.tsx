@@ -77,7 +77,7 @@ const faqs: FaqItem[] = [
   {
     question: 'How many wishlists did Dear Passengers receive?',
     answer:
-      'FLEXUS announced one million Steam wishlists in two days and a Top 25 most-wishlisted position. Kozyura said the count was about 1.2 million at the time of a July 17 interview. These are attributed developer figures, not publicly auditable Steam statistics.',
+      'FLEXUS announced one million Steam wishlists in two days, followed by 1.5 million on July 19 and two million on July 31. Kozyura also reported about 1.2 million in a July 17 interview. These are dated developer figures, not publicly auditable Steam statistics, sales, downloads, or active-player counts.',
   },
   {
     question: 'What has the developer said about the Dear Passengers release?',
@@ -87,7 +87,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is a Dear Passengers demo planned?',
     answer:
-      'Yes. FLEXUS has discussed a Gamescom demo and a later public demo. Kozyura described the broader sequence as demo release, streamer play, and then the full release, but no public demo date or download method is currently announced.',
+      'Yes. FLEXUS discussed a Gamescom build and a later public demo. Gamescom ended on August 30, but no first-party source checked after the event confirms that a Dear Passengers build was shown or offered for public hands-on play. The public demo still has no date or download method.',
   },
   {
     question: 'What are the official Dear Passengers and FLEXUS channels?',
@@ -104,7 +104,7 @@ const articleSchema = {
     'A sourced studio profile covering the Dear Passengers developer, previous FLEXUS games, development comments, demo plans, and release status.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-19',
-  dateModified: '2026-09-08',
+  dateModified: '2026-09-12',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -167,7 +167,7 @@ export default function DearPassengersDeveloperPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Developer</span>
               </nav>
-              <div className="eyebrow"><span>●</span> STUDIO MANIFEST · VERIFIED SEPTEMBER 8, 2026</div>
+              <div className="eyebrow"><span>●</span> STUDIO MANIFEST · VERIFIED SEPTEMBER 12, 2026</div>
               <h1>Dear Passengers Developer:<br /><em>Who Is FLEXUS Games?</em></h1>
               <p>
                 The <strong>Dear Passengers developer</strong> is FLEXUS Games, a Kyiv-based studio that Steam lists as
@@ -201,7 +201,7 @@ export default function DearPassengersDeveloperPage() {
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote checked="September 8, 2026" note="Studio facts come from FLEXUS and Steam. Production, wishlist, trailer-view, demo, and release comments are attributed to named interviews rather than presented as independently audited statistics." />
+              <EditorialNote checked="September 12, 2026" note="Studio facts come from FLEXUS and Steam. Production, wishlist, trailer-view, demo, and release comments are attributed to dated developer posts or named interviews rather than presented as independently audited statistics." />
 
               <section id="answer">
                 <span className="kicker">QUICK ANSWER</span>
@@ -315,12 +315,13 @@ export default function DearPassengersDeveloperPage() {
 
               <section id="viral">
                 <span className="kicker">VIRAL REVEAL</span>
-                <h2>How the Dear Passengers Reveal Reached One Million Wishlists</h2>
+                <h2>How the Dear Passengers Reveal Reached Two Million Wishlists</h2>
                 <p>
                   FLEXUS announced that Dear Passengers reached one million Steam wishlists in two days and entered the
                   Top 25 most-wishlisted games. The studio said this happened without paid advertising, paid creator
                   promotion, or an established PC audience. GameDev DOU&apos;s July 17 interview records a later
-                  snapshot of about 1.2 million wishlists.
+                  snapshot of about 1.2 million wishlists. FLEXUS then reported 1.5 million on July 19 and{' '}
+                  <a href={STEAM_NEWS_URL} target="_blank" rel="noopener noreferrer">two million on July 31 ↗</a>.
                 </p>
                 <p>
                   Kozyura said he published the Dear Passengers Steam page and went to sleep, then woke to messages about
@@ -329,10 +330,10 @@ export default function DearPassengersDeveloperPage() {
                   with a live Dear Passengers wishlist counter, and an X view is not a sale, download, or active player.
                 </p>
                 <p>
-                  The safest summary is therefore precise: Dear Passengers has an official one-million-in-two-days
-                  announcement, a Top 25 developer-reported position, and an attributed 1.2-million interview figure.
-                  Our <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> preserves the 500,000 and
-                  700,000 earlier milestones instead of rewriting the story around only the largest number.
+                  The safest summary is therefore chronological: Dear Passengers has official milestone posts from
+                  700,000 through two million, plus the attributed 1.2-million interview snapshot between them. Our{' '}
+                  <Link href="/dear-passengers-news">Dear Passengers news timeline</Link> preserves each dated step
+                  instead of replacing the earlier record with only the largest number.
                 </p>
 
               </section>
@@ -341,16 +342,17 @@ export default function DearPassengersDeveloperPage() {
                 <span className="kicker">NEXT DEPARTURE</span>
                 <h2>What FLEXUS Says About the Dear Passengers Demo and Release</h2>
                 <p>
-                  The Dear Passengers developer has described a clear high-level sequence: release a demo, let streamers
-                  play, and then move toward the full release. A Gamescom build and a later public demo have been
-                  discussed, but FLEXUS has not published the public download date, store mechanism, duration, content,
-                  maximum crew size, or whether the event and home builds are identical.
+                  The Dear Passengers developer described a high-level sequence: release a demo, let streamers play, and
+                  then move toward the full release. A Gamescom build and a later public demo were discussed, but FLEXUS
+                  has not published the public download date, store mechanism, duration, content, maximum crew size, or
+                  whether the event and home builds are identical.
                 </p>
                 <p>
                   Our <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> tracks those access details.
-                  Gamescom 2026 runs August 26–30 in Cologne after Opening Night Live on August 25, but the Dear
-                  Passengers developer has not announced a hall, stand number, queue system, or playable timetable.
-                  Event dates should not be misreported as a public demo release date.
+                  Gamescom 2026 ran August 26–30. A post-event organizer recap names FLEXUS among the B2B participants,
+                  but no first-party source checked through September 12 confirms that a Dear Passengers build was
+                  shown or offered for public hands-on play. Event participation must not be misreported as a public
+                  demo release.
                 </p>
                 <p>
                   For the full game, Steam lists Dear Passengers for 2026. Kozyura said FLEXUS still planned to release
@@ -376,6 +378,7 @@ export default function DearPassengersDeveloperPage() {
                   <div role="row"><strong role="cell">70+ people and 300M+ downloads</strong><span className="status-confirmed" role="cell">Studio-reported</span><span role="cell">Official FLEXUS company figures</span></div>
                   <div role="row"><strong role="cell">One million wishlists in two days</strong><span className="status-confirmed" role="cell">Developer-reported</span><span role="cell">FLEXUS announcement</span></div>
                   <div role="row"><strong role="cell">About 1.2 million wishlists</strong><span className="status-confirmed" role="cell">Attributed snapshot</span><span role="cell">July 17 founder interview</span></div>
+                  <div role="row"><strong role="cell">Two million wishlists</strong><span className="status-confirmed" role="cell">Developer-reported</span><span role="cell">July 31 FLEXUS announcement</span></div>
                   <div role="row"><strong role="cell">Exact launch date</strong><span className="status-open" role="cell">Unannounced</span><span role="cell">Steam shows only 2026</span></div>
                   <div role="row"><strong role="cell">Public demo date</strong><span className="status-open" role="cell">Unannounced</span><span role="cell">Plan confirmed; timing open</span></div>
                 </div>
@@ -417,7 +420,7 @@ export default function DearPassengersDeveloperPage() {
                 <span className="kicker">STUDIO QUESTIONS</span>
                 <h2>Dear Passengers Developer FAQ</h2>
                 <p>
-                  These answers summarize the most reliable Dear Passengers developer information available on September 8,
+                  These answers summarize the most reliable Dear Passengers developer information available on September 12,
                   2026. Studio totals remain labeled as FLEXUS figures, interview numbers remain attributed, and missing
                   product details are not filled with assumptions.
                 </p>

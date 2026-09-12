@@ -185,7 +185,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-confirmed-features/`,
-      lastModified: new Date('2026-08-25'),
+      lastModified: new Date('2026-09-12'),
     },
     {
       url: `${baseUrl}/dear-passengers-release-date/`,
@@ -253,7 +253,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/dear-passengers-developer-flexus/`,
-      lastModified: new Date('2026-09-08'),
+      lastModified: new Date('2026-09-12'),
     },
     {
       url: `${baseUrl}/games-like-dear-passengers/`,

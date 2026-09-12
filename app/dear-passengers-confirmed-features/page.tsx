@@ -68,7 +68,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is the Dear Passengers demo confirmed?',
     answer:
-      'A demo plan is confirmed through a named founder interview: FLEXUS is preparing a Gamescom build and intends to publish a public demo later. The public demo does not yet have a date, download, distribution method, content list, or confirmed player limit.',
+      'A demo plan is confirmed through a named founder interview: FLEXUS said it was preparing a Gamescom build and intended to publish a public demo later. Gamescom has ended, but no first-party source checked after the event confirms that the build was shown or offered for public hands-on play. The public demo still has no date, download, distribution method, content list, or confirmed player limit.',
   },
   {
     question: 'How does this page decide whether a feature is confirmed?',
@@ -85,7 +85,7 @@ const articleSchema = {
     'A comprehensive status board for official Dear Passengers features, announced plans, trailer observations, and unconfirmed claims.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-18',
-  dateModified: '2026-08-25',
+  dateModified: '2026-09-12',
   author: {
     '@type': 'Organization',
     name: 'DearPassengers.net Editorial Team',
@@ -179,7 +179,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
 
             <div className="article-prose prose">
               <EditorialNote
-                checked="July 19, 2026"
+                checked="September 12, 2026"
                 note="Confirmed means a current first-party store field or direct FLEXUS statement. Planned means a named developer intention without public access. Observed means visible in official footage but not fully specified. Unannounced means no reliable first-party answer."
               />
 
@@ -255,7 +255,7 @@ export default function DearPassengersConfirmedFeaturesPage() {
                       </tr>
                       <tr>
                         <th scope="row">Dear Passengers public Demo</th>
-                        <td>Planned after a Gamescom build; no date or download.</td>
+                        <td>Planned; Gamescom ended, with no verified public showing, date, or download.</td>
                         <td><span className="role-status role-suggested">Developer plan</span></td>
                         <td>Named founder interview</td>
                       </tr>
@@ -396,9 +396,11 @@ export default function DearPassengersConfirmedFeaturesPage() {
                 </p>
                 <p>
                   The Demo requires a more precise label. FLEXUS founder Semen Kozyura said the studio was preparing a
-                  Dear Passengers build for Gamescom and intended to publish a public Demo later. That is a direct,
-                  attributed plan. It does not provide a public date, Steam distribution promise, duration, supported
-                  modes, mission list, player count, save behavior, or hardware performance.
+                  Dear Passengers build for Gamescom and intended to publish a public Demo later. Gamescom ended on
+                  August 30, but no first-party source checked through September 12 confirms that the build was shown or
+                  offered for public hands-on play. The attributed plan still does not provide a public date, Steam
+                  distribution promise, duration, supported modes, mission list, player count, save behavior, or
+                  hardware performance.
                 </p>
                 <p>
                   No public Dear Passengers Demo button or Steam Playtest request panel is currently available. Players
