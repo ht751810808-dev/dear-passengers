@@ -589,7 +589,7 @@ export default function Footer({ locale = 'en' }: { locale?: 'en' | 'zh-CN' | 'd
       </div>
       <div className="container footer-bottom">
         <span>© 2026 DearPassengers.net</span>
-        <span>Information checked July 29, 2026 · Verify time-sensitive details on Steam.</span>
+        <span>Guide-specific dates · Confirm time-sensitive details on Steam.</span>
       </div>
     </footer>
   );
