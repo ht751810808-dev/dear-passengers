@@ -79,7 +79,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is there a Dear Passengers demo, beta, or playtest?',
     answer:
-      'FLEXUS founder Semen Kozyura says the studio is preparing a Dear Passengers demo for Gamescom and will release a public demo later. The public build is not downloadable yet, and no date, beta registration, or Steam Playtest has been announced.',
+      'In July, FLEXUS founder Semen Kozyura described a Gamescom build and a later public demo. Gamescom ended on August 30, but the event ending does not confirm a public release. Our September 15 Steam check found no Download Demo button or Playtest request panel; the interview does not give a public demo date.',
   },
   {
     question: 'How much will Dear Passengers cost?',
@@ -106,7 +106,7 @@ const articleSchema = {
     'An independent, source-backed guide to the Dear Passengers release window, price status, free-to-play claim, platforms, and demo plan.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-15',
-  dateModified: '2026-08-25',
+  dateModified: '2026-09-15',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -346,17 +346,24 @@ export default function ReleaseDatePage() {
                 <span className="kicker">TEST FLIGHT STATUS</span>
                 <h2>Will Dear Passengers Have a Demo, Beta or Playtest?</h2>
                 <p>
-                  Yes, a Dear Passengers demo is now a confirmed plan. FLEXUS founder Semen Kozyura told dev.ua that the
-                  studio is preparing a demo for Gamescom and will release a public demo later. No public Dear Passengers
-                  test is available from Steam at this update, and there is still no demo date, Steam Playtest panel,
-                  beta registration, or official download.
+                  A public Dear Passengers demo was announced as a plan, with no date in the{' '}
+                  <a href="https://dev.ua/en/news/dear-passengers-1784100084" target="_blank" rel="noopener noreferrer">July founder interview</a>.
+                  {' '}Semen Kozyura described a Gamescom build followed by a public demo. The{' '}
+                  <a href="https://www.ggconference.com/en/conference/games-from-ukraine-2026/" target="_blank" rel="noopener noreferrer">organizer lists August 26–30 for the event</a>;
+                  {' '}its conclusion does not establish that a public build was released.
+                </p>
+                <p>
+                  Demo access checked September 15, 2026: the{' '}
+                  <a href={STEAM_URL} target="_blank" rel="noopener noreferrer">official Steam listing</a>
+                  {' '}still shows the game as unavailable and provides no Download Demo button or Playtest request panel.
+                  A planned demo, an exhibition build, and a public download are separate states.
                 </p>
                 <p>
                   The planned Dear Passengers demo may help answer questions that a short trailer cannot settle: solo
                   balance, network performance, lobby size, controller mapping, accessibility, graphics settings, and
                   mission length. Those details have not been published. Our dedicated{' '}
-                  <Link href="/dear-passengers-demo">Dear Passengers demo guide</Link> tracks the Gamescom build, later
-                  public release, and testing formats without inventing a date. The{' '}
+                  <Link href="/dear-passengers-demo/">Dear Passengers demo guide</Link> tracks the announced Gamescom plan,
+                  public access, and testing formats without inventing a date. The{' '}
                   <Link href="/dear-passengers-download">Dear Passengers download guide</Link> separately verifies the
                   official Steam app, full-game access status, APK confusion, and installer warning signs.
                 </p>

@@ -59,7 +59,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is there a Dear Passengers demo or beta?',
     answer:
-      'FLEXUS is preparing a Gamescom demo and says a public build will follow later. It is not downloadable yet, and no demo date, beta signup, or Steam Playtest has been announced. Our dedicated guide tracks the verified access status.',
+      'FLEXUS described a Gamescom build and a later public demo in its July interview. Gamescom ended on August 30; that plan does not confirm a public release. Our September 15 Steam check found no Download Demo button or Playtest request panel. The demo guide tracks access and remaining questions.',
   },
   {
     question: 'What are the Dear Passengers system requirements?',
@@ -99,7 +99,7 @@ const articleSchema = {
   description: 'A sourced guide to Dear Passengers gameplay, multiplayer, release timing, requirements, and open questions.',
   mainEntityOfPage: 'https://dearpassengers.net/',
   datePublished: '2026-07-15',
-  dateModified: '2026-08-08',
+  dateModified: '2026-09-15',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -379,9 +379,10 @@ export default function HomePage() {
                 around the way German gaming audiences ask when a game comes out.
               </p>
               <p>
-                FLEXUS has now confirmed that it is preparing a Gamescom demo and plans to release
-                a public demo later. There is no public download or date yet. Read the{' '}
-                <Link href="/dear-passengers-demo">demo guide</Link> for the complete source-backed status.
+                In its July interview, FLEXUS described a Gamescom build and a later public demo.
+                Gamescom ended on August 30; the event ending does not establish that a demo was released.
+                Our September 15 Steam check found no Download Demo button or Playtest request panel. Read the{' '}
+                <Link href="/dear-passengers-demo/">Dear Passengers demo and Playtest status</Link> for sources and access updates.
                 For the official PC route, same-name Android listings, and installer checks, use the{' '}
                 <Link href="/dear-passengers-download">Dear Passengers download safety guide</Link>.
               </p>
