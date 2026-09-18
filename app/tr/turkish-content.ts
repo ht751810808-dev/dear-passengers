@@ -307,16 +307,17 @@ export const turkishGuides: TurkishGuide[] = [
   },
   {
     slug: 'dear-passengers-haberleri', englishPath: '/dear-passengers-news/', germanPath: '/de/dear-passengers-news/', arabicPath: '/ar/dear-passengers-news/',
-    modifiedDate: '2026-09-02', verifiedDate: '2 Eylül 2026',
+    modifiedDate: '2026-09-18', verifiedDate: '2 Eylül 2026',
     keyword: 'Dear Passengers haberleri', title: 'Dear Passengers Haberleri: Resmî Güncellemeler ve Durum',
-    description: 'Dear Passengers haberleri için kaynak kontrollü Türkçe takip: FLEXUS videoları, Steam güncellemeleri, istek listesi açıklamaları, demo ve çıkış durumu.',
+    description: "FLEXUS: Steam istek listelerinde ilk 3. FLEXUS, 5 Eylül 2026 UTC tarihinde (Pekin saatiyle 6 Eylül), Dear Passengers için Steam istek listelerinde ilk 3 duyurusu yaptı.",
     eyebrow: 'HABER DOSYASI · 2 EYLÜL 2026', h1: 'Dear Passengers haberleri: en son ne açıklandı?',
-    intro: 'Dear Passengers haberleri için en yeni oyuna özel Steam gönderisi 31 Temmuz 2026 tarihli FLEXUS duyurusudur: stüdyo iki milyon Steam istek listesi bildirdi. 2 Eylül’de kişisel tercih filtrelerinden bağımsız kontrol edilen Steam “Top Wishlists” anlık görüntüsünde oyun 4. sıradaydı. Bunlar satış veya aktif oyuncu değildir.',
-    answer: 'En son Dear Passengers’a özel Steam haberi, FLEXUS’un 31 Temmuz 2026’da iki milyon istek listesi bildirdiği gönderidir. 2 Eylül 2026 tarihli kişiselleştirilmemiş Steam Top Wishlists anlık görüntüsünde oyun 4. sıradaydı. Gamescom 30 Ağustos’ta sona erdi; organizatörün 31 Ağustos tarihli resmî değerlendirmesinde FLEXUS B2B katılımcısı olarak yer aldı. Ancak Dear Passengers derlemesinin gösterildiği veya ziyaretçilere açık hands-on yapıldığı doğrulanmadı.',
+    intro: "FLEXUS, 5 Eylül 2026 UTC tarihinde (Pekin saatiyle 6 Eylül), Dear Passengers için Steam istek listelerinde ilk 3 duyurusu yaptı. Özgün paylaşımı 18 Eylül tarihinde doğruladık. Bu, geliştiricinin tarihli açıklamasıdır; bugünkü canlı sıralama değildir. Paylaşım yeni bir istek listesi toplamı, fiyat, demo tarihi veya kesin çıkış günü açıklamıyor.",
+    answer: "FLEXUS, 5 Eylül 2026 UTC tarihinde (Pekin saatiyle 6 Eylül), Dear Passengers için Steam istek listelerinde ilk 3 duyurusu yaptı. Özgün paylaşımı 18 Eylül tarihinde doğruladık. Bu, geliştiricinin tarihli açıklamasıdır; bugünkü canlı sıralama değildir. Paylaşım yeni bir istek listesi toplamı, fiyat, demo tarihi veya kesin çıkış günü açıklamıyor.",
     note: 'Haberler yayın tarihi ve kaynakla kaydedilir. İstek listesi sayıları FLEXUS’a atfedilir; bağımsız olarak denetlenebilen canlı Steam hesap verisi veya oyuncu sayısı gibi sunulmaz.',
     heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Dear Passengers haberlerinde tarihsel bağlam için kullanılan resmî 1,5 milyon istek listesi kilometre taşı görseli',
     confirmed: ['31 Temmuz’da FLEXUS’un bildirdiği iki milyon istek listesi', '2 Eylül tarihli Top Wishlists anlık görüntüsünde 4. sıra', 'FLEXUS’un 31 Ağustos tarihli resmî Gamescom değerlendirmesinde B2B katılımcısı olarak yer alması', '2026 Windows çıkış penceresi'], unknown: ['Steam tarafından denetlenebilir canlı istek listesi toplamı', 'Dear Passengers derlemesinin Gamescom’da gösterilip gösterilmediği', 'Fuar ziyaretçilerine açık hands-on yapılıp yapılmadığı', 'Halka açık demonun tarihi ve erişim yöntemi', 'Kesin çıkış tarihi ve fiyat'],
     sections: [
+      { id: 'flexus-top-three', kicker: 'FLEXUS · 2026-09-05 UTC', heading: "FLEXUS: Steam istek listelerinde ilk 3", paragraphs: ["FLEXUS, 5 Eylül 2026 UTC tarihinde (Pekin saatiyle 6 Eylül), Dear Passengers için Steam istek listelerinde ilk 3 duyurusu yaptı. Özgün paylaşımı 18 Eylül tarihinde doğruladık. Bu, geliştiricinin tarihli açıklamasıdır; bugünkü canlı sıralama değildir. Paylaşım yeni bir istek listesi toplamı, fiyat, demo tarihi veya kesin çıkış günü açıklamıyor.", "[[https://x.com/Flexus_Games/status/2096355416355533302|FLEXUS özgün paylaşımı]]"] },
       { id: 'son-guncelleme', kicker: '2 EYLÜL 2026 KONTROLÜ', heading: 'En yeni Dear Passengers haberi nedir?', paragraphs: [
         'FLEXUS, 31 Temmuz’da Dear Passengers’ın iki milyon Steam istek listesine ulaştığını bildirdi. Bu, stüdyonun tarihli açıklamasıdır; Valve tarafından herkese açık biçimde denetlenen canlı hesap toplamı değildir. İstek listesi ayrıca satış, gelir, indirme veya oyuncu sayısı anlamına gelmez.',
         '2 Eylül’de kişisel tercih filtreleri olmadan kontrol edilen Steam “Top Wishlists” anlık görüntüsü Dear Passengers’ı 4. sırada gösterdi. Sıra değişebilir ve satış listesi değildir. 31 Temmuz gönderisi, kontrol tarihinde Steam haber akışındaki en yeni Dear Passengers’a özel haberdir; duyurulan oynanış videosu henüz yeni bir Steam gönderisi olarak yayımlanmadı.'
@@ -340,7 +341,7 @@ export const turkishGuides: TurkishGuide[] = [
       'Yalnız başlık veya küçük görsel değişikliği haber sayılmaz. Dear Passengers haberleri yeni birincil bilgi olduğunda güncellenir ve görünürde sahte tazelik üretmez.'
     ],
     faqs: [
-      { question: 'En son Dear Passengers haberi ne?', answer: 'En yeni oyuna özel Steam gönderisi, FLEXUS’un 31 Temmuz 2026’da iki milyon istek listesi bildirdiği duyurudur.' },
+      { question: 'En son Dear Passengers haberi ne?', answer: "FLEXUS, 5 Eylül 2026 UTC tarihinde (Pekin saatiyle 6 Eylül), Dear Passengers için Steam istek listelerinde ilk 3 duyurusu yaptı. Özgün paylaşımı 18 Eylül tarihinde doğruladık. Bu, geliştiricinin tarihli açıklamasıdır; bugünkü canlı sıralama değildir. Paylaşım yeni bir istek listesi toplamı, fiyat, demo tarihi veya kesin çıkış günü açıklamıyor." },
       { question: 'Dear Passengers iki milyon istek listesine ulaştı mı?', answer: 'FLEXUS 31 Temmuz’da bunu bildirdi. Bu geliştirici açıklamasıdır; satış veya oyuncu sayısı değildir.' },
       { question: 'Dear Passengers çıkış tarihi açıklandı mı?', answer: 'Yalnızca 2026 penceresi açıklandı.' },
       { question: 'Dear Passengers fiyatı belli mi?', answer: 'Hayır. Steam’de satın alma fiyatı yok.' },

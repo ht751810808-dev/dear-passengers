@@ -475,20 +475,21 @@ export const germanGuides: GermanGuide[] = [
   {
     slug: 'dear-passengers-news',
     englishPath: '/dear-passengers-news/',
-    modifiedDate: '2026-09-02',
+    modifiedDate: '2026-09-18',
     verifiedDate: '02.09.2026',
     keyword: 'Dear Passengers News',
     title: 'Dear Passengers News: Release, Demo und Wunschlisten-Updates',
-    description: 'Aktuelle Dear Passengers News auf Deutsch: Platz 4 der Steam Top Wishlists, zwei Millionen Wunschlisten laut FLEXUS, Gamescom, Demo und Release.',
+    description: "FLEXUS meldet Steam-Wunschlisten Top 3. FLEXUS meldete am 5.",
     eyebrow: 'DEUTSCHER NEWS-TRACKER · AKTUALISIERT 02.09.2026',
     h1: 'Dear Passengers News:',
     h1Accent: 'Bestätigte Meldungen im Zeitverlauf',
-    intro: 'Die aktuellen Dear Passengers News betreffen die Wunschlisten und die abgeschlossene Gamescom 2026: FLEXUS meldete am 31.07.2026 zwei Millionen Steam-Wunschlisten. In einer am 02.09.2026 ohne persönliche Präferenzfilter geprüften „Top Wishlists“-Momentaufnahme stand das Spiel auf Platz 4. Wunschlisten und Rang sind keine Verkaufs- oder Spielerzahlen.',
-    answer: 'Der jüngste Dear-Passengers-spezifische Steam-Newsbeitrag bleibt die FLEXUS-Meldung vom 31.07.2026 über zwei Millionen Wunschlisten. Am 02.09.2026 stand das Spiel in einer nicht personalisierten Momentaufnahme der öffentlichen Steam Top Wishlists auf Platz 4. Die Gamescom endete am 30.08.2026; die offizielle Games-Gathering-Nachlese vom 31.08. führt FLEXUS unter den B2B-Teilnehmern. Eine Vorführung von Dear Passengers oder öffentlicher Hands-on-Zugang bleibt unbestätigt.',
+    intro: "FLEXUS meldete am 5. September 2026 UTC (6. September in Peking), dass Dear Passengers die Top 3 der Steam-Wunschlisten erreicht habe. Die Originalmeldung wurde hier am 18. September geprüft. Das ist eine datierte Entwicklerangabe, kein heutiger Live-Rang. Der Beitrag nennt weder eine neue Wunschlistenzahl noch einen Preis, Demo-Termin oder Veröffentlichungstag.",
+    answer: "FLEXUS meldete am 5. September 2026 UTC (6. September in Peking), dass Dear Passengers die Top 3 der Steam-Wunschlisten erreicht habe. Die Originalmeldung wurde hier am 18. September geprüft. Das ist eine datierte Entwicklerangabe, kein heutiger Live-Rang. Der Beitrag nennt weder eine neue Wunschlistenzahl noch einen Preis, Demo-Termin oder Veröffentlichungstag.",
     note: 'Ranglistenstände werden mit Datum gespeichert, weil sie sich ändern können. Wunschlistenzahlen sind als Entwicklerangabe gekennzeichnet und nicht als unabhängig auditierte Steam-Kontodaten dargestellt.',
     heroImage: '/images/release-date.webp',
     heroAlt: 'Redaktionelle Dear Passengers Terminalszene für den deutschen News-Tracker',
     sections: [
+      { id: 'flexus-top-three', kicker: 'FLEXUS · 2026-09-05 UTC', heading: "FLEXUS meldet Steam-Wunschlisten Top 3", paragraphs: ["FLEXUS meldete am 5. September 2026 UTC (6. September in Peking), dass Dear Passengers die Top 3 der Steam-Wunschlisten erreicht habe. Die Originalmeldung wurde hier am 18. September geprüft. Das ist eine datierte Entwicklerangabe, kein heutiger Live-Rang. Der Beitrag nennt weder eine neue Wunschlistenzahl noch einen Preis, Demo-Termin oder Veröffentlichungstag.", "[[https://x.com/Flexus_Games/status/2096355416355533302|Originalmeldung von FLEXUS]]"] },
       { id: 'aktuell', kicker: 'AKTUELL', heading: 'Die neuesten Dear Passengers News', paragraphs: [
         'Am 02.09.2026 stand Dear Passengers in einer ohne persönliche Präferenzfilter geprüften Momentaufnahme der öffentlich sichtbaren Steam-Liste „Top Wishlists“ auf Platz 4. Diese Position kann sich ändern und ist weder Verkaufsrang noch Qualitätswertung. Sie wird deshalb immer mit Prüfdatum und Listenart genannt.',
         'FLEXUS meldete am 31.07.2026 offiziell zwei Millionen Steam-Wunschlisten. Das ist eine datierte Entwicklerangabe, keine öffentlich auditierbare Valve-Livezahl. Daraus lassen sich weder aktive Spieler noch Verkäufe oder Umsatz berechnen. Der Beitrag vom 31.07. bleibt am 02.09.2026 die jüngste Dear-Passengers-spezifische Meldung im Steam-Newsfeed.',
@@ -526,7 +527,7 @@ export const germanGuides: GermanGuide[] = [
       ]}
     ],
     faqs: [
-      { question: 'Was sind die neuesten Dear Passengers News?', answer: 'Der jüngste Dear-Passengers-spezifische Steam-Newsbeitrag bleibt die FLEXUS-Meldung vom 31.07.2026 über zwei Millionen Wunschlisten. Am 02.09. stand das Spiel in einer nicht personalisierten Top-Wishlists-Momentaufnahme auf Platz 4; die Gamescom-Nachlese bestätigt nur die Teilnahme von FLEXUS, nicht eine Vorführung des Spiels.' },
+      { question: 'Was sind die neuesten Dear Passengers News?', answer: "FLEXUS meldete am 5. September 2026 UTC (6. September in Peking), dass Dear Passengers die Top 3 der Steam-Wunschlisten erreicht habe. Die Originalmeldung wurde hier am 18. September geprüft. Das ist eine datierte Entwicklerangabe, kein heutiger Live-Rang. Der Beitrag nennt weder eine neue Wunschlistenzahl noch einen Preis, Demo-Termin oder Veröffentlichungstag." },
       { question: 'Gibt es einen neuen Release-Termin?', answer: 'Nein. Steam nennt weiterhin nur 2026 und keinen genauen Tag oder Monat.' },
       { question: 'Ist die Dear Passengers Demo erschienen?', answer: 'Nein. Sie ist geplant, aber auf Steam noch nicht öffentlich verfügbar.' },
       { question: 'Wie viele Wunschlisten hat Dear Passengers?', answer: 'FLEXUS meldete am 31.07.2026 zwei Millionen. Das ist eine Entwicklerangabe und keine öffentlich auditierbare Live-, Verkaufs- oder Spielerzahl.' },

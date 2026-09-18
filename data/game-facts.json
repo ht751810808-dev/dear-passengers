@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "registryRevision": "2026-09-02",
-  "lastReviewedAt": "2026-09-02",
+  "registryRevision": "2026-09-18",
+  "lastReviewedAt": "2026-09-18",
   "game": {
     "name": "Dear Passengers",
     "steamAppId": "4534960",
@@ -9,6 +9,7 @@
     "publisher": "FLEXUS"
   },
   "sources": {
+    "flexus-top-three": {"label": "FLEXUS dated Steam wishlist Top 3 announcement", "kind": "official-developer-channel", "url": "https://x.com/Flexus_Games/status/2096355416355533302", "lastCheckedAt": "2026-09-18"},
     "steam-store": {
       "label": "Official Dear Passengers Steam store",
       "kind": "official-store",
@@ -77,6 +78,7 @@
     }
   },
   "facts": {
+    "interest.topThreeAnnouncement": {"label": "Developer-reported Steam wishlist Top 3 milestone", "status": "confirmed", "value": "Announced 2026-09-05 UTC / 2026-09-06 Asia/Shanghai", "shortValue": "TOP 3 · DATED FLEXUS REPORT", "summary": "FLEXUS reported that Dear Passengers had reached Steam’s wishlist Top 3 in a post dated September 5 UTC (September 6 in Beijing). Verified on September 18, this is a dated developer announcement, not today’s live rank. It does not announce a new wishlist total, release date, price, or public demo.", "sourceIds": ["flexus-top-three"], "verifiedAt": "2026-09-18", "ownerRoutes": ["/dear-passengers-news/"], "affectedRoutes": ["/dear-passengers-news/"]},
     "identity.developer": {
       "label": "Developer",
       "status": "confirmed",

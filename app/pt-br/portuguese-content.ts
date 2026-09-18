@@ -298,16 +298,17 @@ export const portugueseGuides: PortugueseGuide[] = [
   },
   {
     slug: 'dear-passengers-noticias', englishPath: '/dear-passengers-news/', germanPath: '/de/dear-passengers-news/', arabicPath: '/ar/dear-passengers-news/', turkishPath: '/tr/dear-passengers-haberleri/',
-    modifiedDate: '2026-09-02', verifiedDate: '2 de setembro de 2026',
+    modifiedDate: '2026-09-18', verifiedDate: '2 de setembro de 2026',
     keyword: 'Dear Passengers notícias', title: 'Dear Passengers Notícias: Wishlist, Trailer, Demo e Lançamento',
-    description: 'Notícias de Dear Passengers em ordem cronológica: Steam, FLEXUS, trailer, listas de desejos, demo e lançamento, com fonte e nível de confirmação.',
+    description: "FLEXUS anuncia Top 3 nas listas de desejos. Em 5 de setembro de 2026 UTC, já 6 de setembro em Pequim, a FLEXUS anunciou que Dear Passengers chegou ao Top 3 das listas de desejos do Steam.",
     eyebrow: 'NOTÍCIAS VERIFICADAS · 02/09/2026', h1: 'Dear Passengers: notícias confirmadas e o que não mudou',
-    intro: 'A notícia mais recente da Steam dedicada especificamente a Dear Passengers continua sendo o post da FLEXUS de 31 de julho de 2026, no qual a desenvolvedora informou dois milhões de wishlists. Um recorte sem personalização da Steam Top Wishlists mostrou o jogo em 4º lugar em 2 de setembro; nenhum dos dados é venda ou número de jogadores.',
-    answer: 'A FLEXUS informou dois milhões de wishlists em 31 de julho de 2026; é um dado da desenvolvedora, não venda auditada. Em um recorte sem filtros de preferência da Steam Top Wishlists, verificado em 2 de setembro, Dear Passengers aparecia em 4º lugar. A Gamescom terminou em 30 de agosto, e o balanço oficial da organização publicado em 31 de agosto incluiu a FLEXUS como participante B2B; nenhuma fonte específica do jogo confirma que uma build de Dear Passengers tenha sido exibida ou que tenha ocorrido hands-on público.',
+    intro: "Em 5 de setembro de 2026 UTC, já 6 de setembro em Pequim, a FLEXUS anunciou que Dear Passengers chegou ao Top 3 das listas de desejos do Steam. Conferimos a publicação original em 18 de setembro. É um anúncio datado da desenvolvedora, não a posição ao vivo de hoje. O post não informa novo total de desejos, preço, data da demo ou dia de lançamento.",
+    answer: "Em 5 de setembro de 2026 UTC, já 6 de setembro em Pequim, a FLEXUS anunciou que Dear Passengers chegou ao Top 3 das listas de desejos do Steam. Conferimos a publicação original em 18 de setembro. É um anúncio datado da desenvolvedora, não a posição ao vivo de hoje. O post não informa novo total de desejos, preço, data da demo ou dia de lançamento.",
     note: 'Rankings são fotografias datadas; números de wishlist são declarações da desenvolvedora. Ambos são registrados com fonte e não são convertidos em vendas, receita ou usuários ativos.',
     heroImage: '/images/dear-passengers-1-5-million-wishlists.webp', heroAlt: 'Arte oficial do marco de 1,5 milhão usada nas notícias brasileiras de Dear Passengers',
     confirmed: ['Dois milhões de wishlists informados pela FLEXUS em 31/07', '4º lugar em recorte da Top Wishlists de 02/09', 'FLEXUS incluída como participante B2B no balanço oficial da Gamescom de 31/08', 'Janela de lançamento 2026'], unknown: ['Total vivo auditável pela Steam', 'Se uma build de Dear Passengers foi exibida na Gamescom', 'Se houve hands-on público na feira', 'Data e acesso da demo pública', 'Data exata e preço'],
     sections: [
+      { id: 'flexus-top-three', kicker: 'FLEXUS · 2026-09-05 UTC', heading: "FLEXUS anuncia Top 3 nas listas de desejos", paragraphs: ["Em 5 de setembro de 2026 UTC, já 6 de setembro em Pequim, a FLEXUS anunciou que Dear Passengers chegou ao Top 3 das listas de desejos do Steam. Conferimos a publicação original em 18 de setembro. É um anúncio datado da desenvolvedora, não a posição ao vivo de hoje. O post não informa novo total de desejos, preço, data da demo ou dia de lançamento.", "[[https://x.com/Flexus_Games/status/2096355416355533302|Publicação original da FLEXUS]]"] },
       { id: 'linha-tempo', kicker: 'LINHA DO TEMPO', heading: 'Quais são as últimas notícias de Dear Passengers?', paragraphs: [
         'Em 2 de setembro, a listagem pública da Steam Top Wishlists, verificada sem filtros de preferências pessoais, colocou Dear Passengers na 4ª posição. É um recorte datado e variável, não ranking de vendas, quantidade absoluta de contas ou previsão de receita.',
         'A FLEXUS informou dois milhões de wishlists em 31 de julho. O número substitui como marco mais recente as mensagens anteriores de 1,5 milhão e “perto de dois milhões”, mas continua sendo declaração da desenvolvedora. O post de 31 de julho permanecia, em 2 de setembro, a notícia mais recente dedicada ao jogo no feed da Steam.'
@@ -327,7 +328,7 @@ export const portugueseGuides: PortugueseGuide[] = [
       'Datas seguem o padrão DD/MM/AAAA no contexto brasileiro. Títulos só recebem “hoje” quando a página é realmente revisada naquele dia, evitando frescor artificial.'
     ],
     faqs: [
-      { question: 'Qual é a última notícia de Dear Passengers?', answer: 'O post mais recente da Steam dedicado ao jogo continua sendo o de 31/07/2026, quando a FLEXUS informou dois milhões de wishlists.' },
+      { question: 'Qual é a última notícia de Dear Passengers?', answer: "Em 5 de setembro de 2026 UTC, já 6 de setembro em Pequim, a FLEXUS anunciou que Dear Passengers chegou ao Top 3 das listas de desejos do Steam. Conferimos a publicação original em 18 de setembro. É um anúncio datado da desenvolvedora, não a posição ao vivo de hoje. O post não informa novo total de desejos, preço, data da demo ou dia de lançamento." },
       { question: 'Dear Passengers chegou a dois milhões de wishlists?', answer: 'A FLEXUS informou essa marca em 31/07. É um dado da desenvolvedora, não venda ou número de jogadores.' },
       { question: 'A data de lançamento mudou?', answer: 'Não. A informação oficial continua apenas 2026.' },
       { question: 'A demo foi lançada?', answer: 'Não; existe plano, mas nenhum acesso público.' },
