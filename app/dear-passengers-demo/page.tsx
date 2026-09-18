@@ -17,7 +17,7 @@ const PAGE_URL = 'https://dearpassengers.net/dear-passengers-demo/';
 export const metadata: Metadata = {
   title: { absolute: 'Dear Passengers Demo: Public Demo & Playtest Status' },
   description:
-    'Check the announced Dear Passengers Gamescom build, unverified public hands-on status, future public demo, Steam Playtest, and safe download guidance.',
+    'Check the post-Gamescom Dear Passengers demo status, unverified public showing, future public demo, Steam Playtest, and safe download guidance.',
   alternates: { canonical: '/dear-passengers-demo', languages: { en: '/dear-passengers-demo/', ar: '/ar/dear-passengers-demo/', de: '/de/dear-passengers-demo/', tr: '/tr/dear-passengers-demo/', 'pt-BR': '/pt-br/dear-passengers-demo/', es: '/es/dear-passengers-demo/', 'my-MM': '/my/dear-passengers-demo/', ru: '/ru/dear-passengers-demo/', cs: '/cs/dear-passengers-demo/', 'x-default': '/dear-passengers-demo/' } },
   openGraph: {
     title: 'Dear Passengers Demo: What FLEXUS Has Confirmed',
@@ -38,7 +38,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Is there a Dear Passengers demo?',
     answer:
-      'FLEXUS founder Semen Kozyura said in July that the team was preparing a Dear Passengers demo for Gamescom and intended to release a public demo later. FLEXUS is listed as a Gamescom 2026 participant, but no first-party source checked on August 29 confirms public Dear Passengers hands-on access or that the event build was shown. The public demo is not downloadable from Steam.',
+      'FLEXUS founder Semen Kozyura said in July that the team was preparing a Dear Passengers demo for Gamescom and intended to release a public demo later. Gamescom 2026 has ended, and FLEXUS participation in the Games From Ukraine B2B program is confirmed, but no first-party source checked through September 6 confirms that a Dear Passengers build was shown or offered for public hands-on play. The public demo is not downloadable from Steam.',
   },
   {
     question: 'When will the Dear Passengers public demo be released?',
@@ -79,7 +79,7 @@ const articleSchema = {
   description: 'A sourced guide to the announced Dear Passengers Gamescom build, planned public demo, and access questions.',
   mainEntityOfPage: PAGE_URL,
   datePublished: '2026-07-17',
-  dateModified: '2026-08-29',
+  dateModified: '2026-09-18',
   author: { '@type': 'Organization', name: 'DearPassengers.net Editorial Team', url: 'https://dearpassengers.net/about/' },
   publisher: {
     '@type': 'Organization',
@@ -126,19 +126,20 @@ export default function DearPassengersDemoPage() {
               <nav className="breadcrumbs" aria-label="Breadcrumb">
                 <Link href="/">Dear Passengers Game</Link><span>/</span><span>Demo</span>
               </nav>
-              <div className="eyebrow"><span>●</span> TEST FLIGHT DESK · CHECKED AUGUST 29, 2026</div>
+              <div className="eyebrow"><span>●</span> TEST FLIGHT DESK · CHECKED SEPTEMBER 6, 2026</div>
               <h1>Dear Passengers Demo:<br /><em>Public Demo & Playtest Status</em></h1>
               <p>
                 FLEXUS announced a <strong>Dear Passengers demo</strong> build for Gamescom and is listed among the 2026
-                event&apos;s Ukrainian participants. No first-party source checked on August 29 confirms public Dear
-                Passengers hands-on access. The later public demo remains planned, undated, and unavailable to download.
+                event&apos;s Ukrainian participants. Gamescom has ended, but no first-party source checked through September 6
+                confirms that a Dear Passengers build was publicly shown or offered for hands-on play. The later public
+                demo remains planned, undated, and unavailable to download.
               </p>
               <div className="hero-actions">
                 <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Check official Steam page ↗</a>
                 <Link className="button button-ghost" href="/dear-passengers-news">Read verified news →</Link>
               </div>
               <div className="article-meta">
-                <span>Updated August 29, 2026</span><span>Public download: not live</span><span>Event hands-on: unverified</span>
+                <span>Updated September 6, 2026</span><span>Public download: not live</span><span>Event hands-on: unverified</span>
               </div>
             </div>
           </header>
@@ -157,16 +158,17 @@ export default function DearPassengersDemoPage() {
             </aside>
 
             <div className="article-prose prose">
-              <EditorialNote checked="August 29, 2026" note="We treat the founder's Gamescom-build and later public-demo statement as a confirmed plan. FLEXUS's event listing confirms studio participation, not public Dear Passengers access. Dates, content, player limits, and performance remain unconfirmed." />
+              <EditorialNote checked="September 6, 2026" note="We treat the founder's Gamescom-build and later public-demo statement as a confirmed plan. Gamescom has ended, and the event sources confirm FLEXUS in the Games From Ukraine B2B program, not a public Dear Passengers showing or hands-on session. Dates, content, player limits, and performance remain unconfirmed." />
 
               <section id="status">
                 <span className="kicker">CURRENT ANSWER</span>
                 <h2>Is There a Dear Passengers Demo?</h2>
                 <p className="snippet-answer">
                   FLEXUS announced a <strong>Dear Passengers demo</strong> build for Gamescom in founder Semen
-                  Kozyura&apos;s July 15 comment to dev.ua. The studio is now listed among Gamescom 2026 participants, but
-                  no first-party source checked on August 29 confirms a public Dear Passengers hands-on session. The
-                  public demo is not live on Steam, and no date, registration form, or access window has been announced.
+                  Kozyura&apos;s July 15 comment to dev.ua. Gamescom 2026 has ended, and FLEXUS participation in the Games
+                  From Ukraine B2B program is confirmed, but no first-party source checked through September 6 confirms
+                  that a Dear Passengers build was shown or offered for public hands-on play. The public demo is not live
+                  on Steam, and no date, registration form, or access window has been announced.
                 </p>
                 <p>
                   That distinction matters. A confirmed plan is meaningful news, but it is not the same as an available
@@ -186,15 +188,29 @@ export default function DearPassengersDemoPage() {
                 <div className="fact-callout">
                   <span>DEMO STATUS</span>
                   <strong>Announced, not publicly available</strong>
-                  <p>FLEXUS listed at Gamescom · Dear Passengers hands-on unverified · public demo still undated.</p>
+                  <p>Gamescom ended · FLEXUS B2B participation confirmed · Dear Passengers showing unverified · public demo still undated.</p>
                 </div>
+
+                <aside className="editorial-note" aria-label="Unofficial fan challenge">
+                  <div>
+                    <span>UNOFFICIAL FAN CHALLENGE</span>
+                    <strong>No official demo yet — play our unofficial fan challenge</strong>
+                  </div>
+                  <p>
+                    Cabin Crisis Drill is an original browser mini-game by DearPassengers.net. It is not the official
+                    Dear Passengers demo and is not developed, endorsed, or distributed by FLEXUS.
+                  </p>
+                  <div className="related-actions">
+                    <Link className="button button-ghost" href="/play/cabin-crisis/">Play Cabin Crisis Drill →</Link>
+                  </div>
+                </aside>
 
                 <h3>What Is Confirmed About the Dear Passengers Demo?</h3>
                 <p>
-                  Three statements can be sourced: FLEXUS announced work on a Gamescom Dear Passengers build; the studio
-                  is listed among Gamescom 2026&apos;s Ukrainian participants; and FLEXUS intends to release a public Dear
-                  Passengers demo later. None proves that the build was shown or available to general visitors. The
-                  interview also says Ukrainian localization will be included in the full game.
+                  Four statements can be sourced: FLEXUS announced work on a Gamescom Dear Passengers build; the studio
+                  participated in the Games From Ukraine B2B program; Gamescom 2026 ended on August 30; and FLEXUS intends
+                  to release a public Dear Passengers demo later. None proves that the build was shown or available to
+                  general visitors. The interview also says Ukrainian localization will be included in the full game.
                 </p>
 
                 <h3>What Is Still Unknown?</h3>
@@ -211,15 +227,16 @@ export default function DearPassengersDemoPage() {
                 <span className="kicker">EVENT BUILD</span>
                 <h2>Dear Passengers Gamescom Demo Explained</h2>
                 <p>
-                  The announced Gamescom Dear Passengers build is the first publicly discussed playable version. Gamescom
-                  is underway from August 26–30, and the Games From Ukraine organizer lineup includes FLEXUS in its shared
-                  B2B presence. That establishes studio attendance. It does not establish that Dear Passengers was shown,
-                  that the build was complete, or that ticket holders can queue for a public hands-on session.
+                  The announced Gamescom Dear Passengers build was the first publicly discussed playable version. Gamescom
+                  ran from August 26–30 and has now ended. The Games From Ukraine organizer materials include FLEXUS in
+                  the shared B2B presence, establishing studio participation. They do not establish that Dear Passengers
+                  was shown, that the build was complete, or that ticket holders could queue for a public hands-on session.
                 </p>
                 <p>
                   Gamescom&apos;s official listing describes a public Games From Ukraine Indie Pavilion, while the organizer&apos;s
                   separate Games From Ukraine 2026 page describes its location as B2B. The organizer participant page includes
-                  Dear Passengers with a link to FLEXUS, but it does not publish public hands-on hours. Review the{' '}
+                  Dear Passengers with a link to FLEXUS, but it does not publish public hands-on hours or a post-event showing
+                  confirmation. Review the{' '}
                   <a href={GAMESCOM_URL} target="_blank" rel="noopener noreferrer">official Gamescom exhibitor listing ↗</a>, the{' '}
                   <a href={GAMES_FROM_UKRAINE_URL} target="_blank" rel="noopener noreferrer">organizer participant page ↗</a>, and the{' '}
                   <a href={GAMES_GATHERING_URL} target="_blank" rel="noopener noreferrer">organizer event overview ↗</a> without
@@ -293,7 +310,7 @@ export default function DearPassengersDemoPage() {
 
                 <div className="platform-table" role="table" aria-label="Dear Passengers access format status">
                   <div className="platform-head" role="row"><span role="columnheader">Access format</span><span role="columnheader">Status</span><span role="columnheader">What it means today</span></div>
-                  <div role="row"><strong role="cell">Gamescom build</strong><span className="status-confirmed" role="cell">Announced in July</span><span role="cell">Studio at event; public showing not verified</span></div>
+                  <div role="row"><strong role="cell">Gamescom build</strong><span className="status-confirmed" role="cell">Announced in July</span><span role="cell">Event ended; showing not verified</span></div>
                   <div role="row"><strong role="cell">Public demo</strong><span className="status-confirmed" role="cell">Planned</span><span role="cell">No public date or download yet</span></div>
                   <div role="row"><strong role="cell">Steam Playtest</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No request-access panel</span></div>
                   <div role="row"><strong role="cell">Closed beta</strong><span className="status-open" role="cell">Not announced</span><span role="cell">No signup or invitation process</span></div>

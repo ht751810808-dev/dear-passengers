@@ -38,8 +38,9 @@ function RichText({ text }: { text: string }) {
 
 export default function SpanishGuidePage({ guide, canonicalPath }: { guide: SpanishGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isDemo = guide.slug === 'dear-passengers-demo';
   const isNewsOrDemo = guide.slug === 'dear-passengers-noticias' || guide.slug === 'dear-passengers-demo';
-  const modifiedDate = guide.modifiedDate ?? '2026-07-30';
+  const modifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? '2026-07-30';
   const verifiedDate = guide.verifiedDate ?? '30 de julio de 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -96,6 +97,13 @@ export default function SpanishGuidePage({ guide, canonicalPath }: { guide: Span
                 <div className="fact-callout"><span>CONFIRMADO</span><strong>Lo que dicen las fuentes primarias</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>NO PUBLICADO</span><strong>Lo que sigue siendo desconocido</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="Reto no oficial para fans">
+                  <div><span>RETO NO OFICIAL PARA FANS</span><strong>Aún no hay una demo oficial — juega nuestro reto no oficial para fans</strong></div>
+                  <p>Cabin Crisis Drill es un juego original de navegador creado por DearPassengers.net. No es la demo oficial de Dear Passengers ni ha sido desarrollado, aprobado o distribuido por FLEXUS.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Empezar el reto de cabina →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

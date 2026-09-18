@@ -47,8 +47,9 @@ export default function PortugueseGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isDemo = guide.slug === 'dear-passengers-demo';
   const isNewsOrDemo = guide.slug === 'dear-passengers-noticias' || guide.slug === 'dear-passengers-demo';
-  const resolvedModifiedDate = guide.modifiedDate ?? modifiedDate;
+  const resolvedModifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? modifiedDate;
   const resolvedVerifiedDate = guide.verifiedDate ?? verifiedDate;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -108,6 +109,13 @@ export default function PortugueseGuidePage({
                 <div className="fact-callout"><span>CONFIRMADO</span><strong>O que dizem as fontes primárias</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>NÃO INFORMADO</span><strong>O que continua desconhecido</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="Desafio não oficial de fãs">
+                  <div><span>DESAFIO NÃO OFICIAL DE FÃS</span><strong>Ainda não há demo oficial — jogue nosso desafio não oficial de fãs</strong></div>
+                  <p>Cabin Crisis Drill é um jogo original de navegador criado pelo DearPassengers.net. Não é a demo oficial de Dear Passengers e não foi desenvolvido, aprovado nem distribuído pela FLEXUS.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Começar o desafio da cabine →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

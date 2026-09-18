@@ -31,7 +31,8 @@ function RichText({ text }: { text: string }) {
 
 export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
-  const modifiedDate = guide.modifiedDate ?? '2026-08-08';
+  const isDemo = guide.slug === 'dear-passengers-demo';
+  const modifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? '2026-08-08';
   const verifiedDate = guide.verifiedDate ?? '8. 8. 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -92,6 +93,13 @@ export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechG
                 <div className="fact-callout"><span>POTVRZENO</span><strong>Co uvádějí primární zdroje</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>NEZVEŘEJNĚNO</span><strong>Co zatím nevíme</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="Neoficiální fanouškovská výzva">
+                  <div><span>NEOFICIÁLNÍ FANOUŠKOVSKÁ VÝZVA</span><strong>Oficiální demo zatím není — zahrajte si naši neoficiální fanouškovskou výzvu</strong></div>
+                  <p>Cabin Crisis Drill je původní prohlížečová hra od DearPassengers.net. Nejde o oficiální demo Dear Passengers; FLEXUS ji nevytvořil, neschválil ani nedistribuoval.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Spustit výzvu v kabině →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

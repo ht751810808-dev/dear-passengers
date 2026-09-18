@@ -190,8 +190,9 @@ export default function GermanGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isDemo = guide.slug === 'dear-passengers-demo';
   const isNewsOrDemo = guide.slug === 'dear-passengers-news' || guide.slug === 'dear-passengers-demo';
-  const resolvedModifiedDate = guide.modifiedDate ?? modifiedDate;
+  const resolvedModifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? modifiedDate;
   const resolvedVerifiedDate = guide.verifiedDate ?? verifiedDate;
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -274,6 +275,13 @@ export default function GermanGuidePage({
                   <strong>Bestätigt, beobachtet oder offen</strong>
                   <p>Jede Aussage wird nach Quellenstufe gekennzeichnet. Fehlende Angaben werden nicht aus Konkurrenzspielen abgeleitet.</p>
                 </div>
+                {isDemo && (
+                  <aside className="editorial-note" aria-label="Inoffizielle Fan-Herausforderung">
+                    <div><span>INOFFIZIELLE FAN-HERAUSFORDERUNG</span><strong>Noch keine offizielle Demo – spiele unsere inoffizielle Fan-Herausforderung</strong></div>
+                    <p>Cabin Crisis Drill ist ein eigenständiges Browserspiel von DearPassengers.net. Es ist keine offizielle Dear-Passengers-Demo und wurde weder von FLEXUS entwickelt noch bestätigt.</p>
+                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Cabin Crisis Drill spielen →</Link></div>
+                  </aside>
+                )}
               </section>
 
               {guide.sections.map((section) => (

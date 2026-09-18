@@ -51,7 +51,8 @@ export default function ArabicGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
-  const effectiveModifiedDate = modifiedDate ?? guide.modifiedDate ?? '2026-07-25';
+  const isDemo = guide.slug === 'dear-passengers-demo';
+  const effectiveModifiedDate = isDemo ? '2026-09-18' : modifiedDate ?? guide.modifiedDate ?? '2026-07-25';
   const effectiveVerifiedDate = verifiedDate ?? guide.verifiedDate ?? '25 يوليو 2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -110,6 +111,13 @@ export default function ArabicGuidePage({
                 <div className="fact-callout"><span>مؤكد</span><strong>ما تقوله المصادر الأولى</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>غير معروف</span><strong>ما لم يُعلن بعد</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="تحدي غير رسمي للمعجبين">
+                  <div><span>تحدي غير رسمي للمعجبين</span><strong>لا توجد نسخة تجريبية رسمية بعد — العب تحدي المعجبين غير الرسمي لدينا</strong></div>
+                  <p><bdi dir="ltr">Cabin Crisis Drill</bdi> لعبة متصفح أصلية من <bdi dir="ltr">DearPassengers.net</bdi>، وليست النسخة التجريبية الرسمية للعبة <bdi dir="ltr">Dear Passengers</bdi>، ولم تطورها <bdi dir="ltr">FLEXUS</bdi> ولم تعتمدها.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">ابدأ تحدي المقصورة →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

@@ -32,7 +32,8 @@ function RichText({ text }: { text: string }) {
 
 export default function RussianGuidePage({ guide, canonicalPath }: { guide: RussianGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
-  const modifiedDate = guide.modifiedDate ?? '2026-08-05';
+  const isDemo = guide.slug === 'dear-passengers-demo';
+  const modifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? '2026-08-05';
   const verifiedDate = guide.verifiedDate ?? '05.08.2026';
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -93,6 +94,13 @@ export default function RussianGuidePage({ guide, canonicalPath }: { guide: Russ
                 <div className="fact-callout"><span>ПОДТВЕРЖДЕНО</span><strong>Что сообщают первоисточники</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>НЕ ОПУБЛИКОВАНО</span><strong>Что пока неизвестно</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="Неофициальное фанатское испытание">
+                  <div><span>НЕОФИЦИАЛЬНОЕ ФАНАТСКОЕ ИСПЫТАНИЕ</span><strong>Официальной демоверсии пока нет — сыграйте в наше неофициальное фанатское испытание</strong></div>
+                  <p>Cabin Crisis Drill — оригинальная браузерная игра от DearPassengers.net. Это не официальная демоверсия Dear Passengers; FLEXUS не разрабатывала, не одобряла и не распространяла её.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Начать испытание в салоне →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

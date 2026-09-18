@@ -164,6 +164,8 @@ export default function SocialShare() {
     { name: 'Telegram', platform: 'telegram', className: 'share-telegram', href: `https://t.me/share/url?url=${url}&text=${title}` },
   ] satisfies Array<{ name: string; platform: 'x' | 'facebook' | 'whatsapp' | 'telegram'; className: string; href: string }>;
 
+  if (pathname.replace(/\/+$/, '') === '/play/cabin-crisis') return null;
+
   return (
     <div className={`social-share ${open ? 'is-open' : ''}`} ref={rootRef} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {open && (

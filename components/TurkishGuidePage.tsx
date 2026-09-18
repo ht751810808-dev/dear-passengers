@@ -49,8 +49,9 @@ export default function TurkishGuidePage({
   verifiedDate?: string;
 }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
+  const isDemo = guide.slug === 'dear-passengers-demo';
   const isNewsOrDemo = guide.slug === 'dear-passengers-haberleri' || guide.slug === 'dear-passengers-demo';
-  const resolvedModifiedDate = guide.modifiedDate ?? modifiedDate;
+  const resolvedModifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? modifiedDate;
   const resolvedVerifiedDate = guide.verifiedDate ?? verifiedDate;
   const articleSchema = {
     '@context': 'https://schema.org', '@type': guide.slug ? 'Article' : 'WebPage',
@@ -110,6 +111,13 @@ export default function TurkishGuidePage({
                 <div className="fact-callout"><span>ONAYLANDI</span><strong>Birincil kaynakların söylediği</strong><ul>{guide.confirmed.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 <div className="fact-callout unknown-callout"><span>BİLİNMİYOR</span><strong>Henüz açıklanmayanlar</strong><ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul></div>
               </div>
+              {isDemo && (
+                <aside className="editorial-note" aria-label="Resmî olmayan hayran mücadelesi">
+                  <div><span>RESMÎ OLMAYAN HAYRAN MÜCADELESİ</span><strong>Henüz resmî demo yok — resmî olmayan hayran mücadelemizi oyna</strong></div>
+                  <p>Cabin Crisis Drill, DearPassengers.net tarafından hazırlanan özgün bir tarayıcı oyunudur; resmî Dear Passengers demosu değildir ve FLEXUS tarafından geliştirilmemiş veya onaylanmamıştır.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Kabin mücadelesini başlat →</Link></div>
+                </aside>
+              )}
             </section>
             {guide.sections.map((section) => <section id={section.id} key={section.id}>
               <span className="kicker">{section.kicker}</span><h2><RichText text={section.heading} /></h2>

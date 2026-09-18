@@ -36,7 +36,8 @@ function RichText({ text }: { text: string }) {
 
 export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: MyanmarGuide; canonicalPath: string }) {
   const pageUrl = `https://dearpassengers.net${canonicalPath}`;
-  const modifiedDate = guide.modifiedDate ?? '2026-07-30';
+  const isDemo = guide.slug === 'dear-passengers-demo';
+  const modifiedDate = isDemo ? '2026-09-18' : guide.modifiedDate ?? '2026-07-30';
   const verifiedDate = guide.verifiedDate ?? '2026 ဇူလိုင် 30 ရက်';
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -136,6 +137,13 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
                     <ul>{guide.unknown.map((item) => <li key={item}>{item}</li>)}</ul>
                   </div>
                 </div>
+                {isDemo && (
+                  <aside className="editorial-note" aria-label="တရားဝင်မဟုတ်သော fan challenge">
+                    <div><span>တရားဝင်မဟုတ်သော FAN CHALLENGE</span><strong>တရားဝင် demo မရှိသေးပါ — ကျွန်ုပ်တို့၏ တရားဝင်မဟုတ်သော fan challenge ကို ကစားပါ</strong></div>
+                    <p>Cabin Crisis Drill သည် DearPassengers.net က ဖန်တီးထားသော မူရင်း browser game ဖြစ်ပြီး တရားဝင် Dear Passengers demo မဟုတ်ပါ။ FLEXUS က ဖန်တီး၊ ဖြန့်ချိ သို့မဟုတ် ထောက်ခံထားခြင်း မရှိပါ။</p>
+                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Cabin challenge ကို စကစားမည် →</Link></div>
+                  </aside>
+                )}
               </section>
               {guide.sections.map((section) => (
                 <section id={section.id} key={section.id}>
