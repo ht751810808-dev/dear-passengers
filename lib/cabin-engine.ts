@@ -1,9 +1,12 @@
 import * as THREE from 'three';
-import { buildCabin, makeHeldItem, makeIdleHands } from './cabin-scene';
+import { buildCabin, makeHeldItem } from './cabin-scene';
+import { makeFirstPersonHands, updateFirstPersonHands } from './cabin-hands';
 import { CabinAudio } from './cabin-audio';
 import { FlightSimulation, INITIAL_FLIGHT, initialFlight, SEATS, type FlightConfig, type FlightItem, type FlightLocale, type FlightSnapshot } from './cabin-simulation';
 import type { FlightRoomSession, FlightRoomEvent, FlightPose, FlightAction } from './flight-network';
 import { makeCrewAvatar } from './cabin-scene';
+import { updateCrewRig } from './cabin-character-rig';
+import { createCabinRenderer } from './cabin-renderer';
 export { INITIAL_FLIGHT };
 export type { FlightConfig, FlightItem, FlightLocale, FlightSnapshot, FlightPhase } from './cabin-simulation';
 
@@ -19,7 +22,7 @@ type CrewPlayer={id:string;pose:FlightPose;item:FlightItem;cups:number;piloting:
 type CrewPacket={version:1;round:string;config:FlightConfig;state:FlightSnapshot;belts:number[];served:number[];fed:number[];players:Array<{id:string;pose:FlightPose;item:FlightItem;cups:number;piloting:boolean;grabbed:string|null;action:{id:string;elapsed:number;duration:number}|null}>;bodies:Array<{id:string;p:number[];r:number[];dynamic:boolean;kind?:FlightItem}>};
 
 export class CabinEngine {
-  private renderer:THREE.WebGLRenderer;private scene=new THREE.Scene();private camera=new THREE.PerspectiveCamera(72,1,.06,350);
+  private renderer:THREE.WebGLRenderer;private renderPipeline:ReturnType<typeof createCabinRenderer>;private scene=new THREE.Scene();private camera=new THREE.PerspectiveCamera(72,1,.06,350);
   private world:ReturnType<typeof buildCabin>;private simulation=new FlightSimulation();private keys=new Set<string>();
   private yaw=0;private pitch=0;private raf=0;private last=0;private sinceUI=0;private renderTime=0;private frameSamples:number[]=[];
   private position=new THREE.Vector3(0,1.65,9.7);private velocity=new THREE.Vector3();private held:THREE.Group|null=null;
@@ -41,13 +44,13 @@ export class CabinEngine {
     this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.05;
     this.renderer.domElement.setAttribute('aria-label','Interactive 3D aircraft cabin');this.renderer.domElement.tabIndex=0;
     this.host.appendChild(this.renderer.domElement);this.scene.background=new THREE.Color('#90c9ef');this.scene.fog=new THREE.Fog('#bacbd5',55,240);
-    this.world=buildCabin(this.scene);this.scene.add(this.camera);this.camera.rotation.order='YXZ';
-    const particles=new Float32Array(220*3);for(let i=0;i<particles.length;i++)particles[i]=(Math.random()-.5);
+    this.world=buildCabin(this.scene);this.world.root.userData.viewerPosition=this.position;this.scene.add(this.camera);this.camera.rotation.order='YXZ';
+    const particles=new Float32Array(220*3);for(let i=0;i<220;i++){const travel=Math.random();particles[i*3]=(Math.random()-.5)*travel*.40;particles[i*3+1]=(Math.random()-.5)*travel*.34;particles[i*3+2]=-travel;}
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(particles,3));
     const mist=document.createElement('canvas');mist.width=mist.height=32;const ctx=mist.getContext('2d')!;const gradient=ctx.createRadialGradient(16,16,0,16,16,16);gradient.addColorStop(0,'rgba(255,255,255,.85)');gradient.addColorStop(.4,'rgba(255,255,255,.35)');gradient.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=gradient;ctx.fillRect(0,0,32,32);
-    this.spray=new THREE.Points(geometry,new THREE.PointsMaterial({color:0xe8ffff,map:new THREE.CanvasTexture(mist),size:.17,transparent:true,opacity:.6,depthWrite:false}));this.spray.visible=false;this.camera.add(this.spray);this.spray.position.set(.15,-.2,-1.5);this.spray.scale.set(1.2,1,2.6);
-    this.idleHands=makeIdleHands();this.idleHands.position.set(0,-.12,-.68);this.camera.add(this.idleHands);
-    this.setupBodies();this.setupTargets();void this.renderer.compileAsync(this.scene,this.camera).catch(()=>{});
+    this.spray=new THREE.Points(geometry,new THREE.PointsMaterial({color:0xe8ffff,map:new THREE.CanvasTexture(mist),size:.17,transparent:true,opacity:.6,depthWrite:false}));this.spray.visible=false;this.camera.add(this.spray);this.spray.position.set(-.14,-.28,-1.13);this.spray.scale.set(1.1,1,2.1);
+    this.idleHands=makeFirstPersonHands();this.camera.add(this.idleHands);
+    this.setupBodies();this.setupTargets();this.renderPipeline=createCabinRenderer(this.renderer,this.scene,this.camera);void this.renderer.compileAsync(this.scene,this.camera).catch(()=>{});
     this.observer=new ResizeObserver(()=>this.resize());this.observer.observe(this.host);this.resize();
     window.addEventListener('keydown',this.keyDown);window.addEventListener('keyup',this.keyUp);window.addEventListener('blur',this.blur);
     document.addEventListener('visibilitychange',this.visibility);document.addEventListener('pointerlockchange',this.lockChange);
@@ -81,7 +84,7 @@ export class CabinEngine {
   }
   previewRoute(route:number){if(this.state.phase==='ready')this.world.setRoute(route);}
   setLocale(locale:FlightLocale){this.locale=locale;this.emit();}
-  private resize(){const w=this.host.clientWidth,h=this.host.clientHeight;this.renderer.setSize(w,h);this.camera.aspect=w/Math.max(1,h);this.camera.updateProjectionMatrix();}
+  private resize(){const w=this.host.clientWidth,h=this.host.clientHeight;this.renderer.setSize(w,h);this.camera.aspect=w/Math.max(1,h);this.camera.updateProjectionMatrix();this.renderPipeline?.resize(w,h);}
   private keyDown=(e:KeyboardEvent)=>{
     if(e.target instanceof HTMLElement&&(e.target.closest('input,select,textarea,[contenteditable="true"]')||e.target.closest('button')&&['Space','Enter'].includes(e.code)))return;
     if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','ShiftLeft','ShiftRight','KeyE','KeyQ','KeyF','KeyR','Escape','KeyP'].includes(e.code)){
@@ -112,8 +115,8 @@ export class CabinEngine {
   pause(){if(this.state.phase!=='playing')return;if(this.crew?.role==='guest'){this.localPaused=true;this.crew.sendAction({kind:'pilotIdle'});}this.state.phase='paused';this.keys.clear();this.moveInput={x:0,y:0};this.lookPointer=null;this.audio.pause();if(document.pointerLockElement===this.renderer.domElement)document.exitPointerLock();this.emit();}
   resume(){if(this.state.phase!=='paused')return;this.localPaused=false;this.state.phase='playing';this.keys.clear();this.last=performance.now();this.audio.start();this.emit();}
   mute(){return this.audio.mute();}
-  quality(){this.lowQuality=!this.lowQuality;this.renderer.setPixelRatio(this.lowQuality?1:Math.min(window.devicePixelRatio,1.5));this.renderer.shadowMap.enabled=!this.lowQuality;this.world.setLowQuality?.(this.lowQuality);this.scene.traverse(o=>{if(o instanceof THREE.Mesh)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.needsUpdate=true);});return this.lowQuality;}
-  private setItem(item:FlightItem){if(this.held){this.held.removeFromParent();releaseObject(this.held);this.held=null;}this.state.item=item;if(item){this.held=makeHeldItem(item);this.held.userData.item=item;this.held.position.set(.43,-.44,-.76);this.held.rotation.y=-.14;this.camera.add(this.held);}}
+  quality(){this.lowQuality=!this.lowQuality;this.renderer.setPixelRatio(this.lowQuality?1:Math.min(window.devicePixelRatio,1.5));this.renderer.shadowMap.enabled=!this.lowQuality;this.world.setLowQuality?.(this.lowQuality);this.renderPipeline.setLowQuality(this.lowQuality);this.scene.traverse(o=>{if(o instanceof THREE.Mesh)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.needsUpdate=true);});return this.lowQuality;}
+  private setItem(item:FlightItem){if(this.held){this.held.removeFromParent();releaseObject(this.held);this.held=null;}this.state.item=item;if(item){this.held=makeHeldItem(item,false);this.held.userData.item=item;this.held.position.set(.43,-.44,-.76);this.held.rotation.y=-.14;this.camera.add(this.held);}}
   private announce(id:string){this.state.announcement=id;this.emit();}
   grab(){
     if(this.state.phase!=='playing'||this.state.piloting)return;
@@ -249,6 +252,7 @@ export class CabinEngine {
     Object.assign(this.state,packet.state,{item:local?.item??null,cups:local?.cups??0,piloting:local?.piloting??false,grabbed:local?.grabbed??null,prompt:localPrompt,target:localTarget});
     if(this.localPaused&&this.state.phase==='playing')this.state.phase='paused';
     if(this.state.phase!=='playing'&&oldPhase==='playing'){this.keys.clear();this.moveInput={x:0,y:0};this.audio.pause();if(document.pointerLockElement===this.renderer.domElement)document.exitPointerLock();}else if(this.state.phase==='playing'&&oldPhase!=='playing')this.audio.start();
+    this.action=local?.action?{...local.action}:null;
     this.state.interactionProgress=local?.action?local.action.elapsed/local.action.duration:0;this.state.interactionLabel=local?.action?this.targets.find(t=>t.id===local.action!.id)?.label()??'':'';
     this.simulation.beltedIds=new Set(packet.belts);this.simulation.servedIds=new Set(packet.served);this.simulation.fedIds=new Set(packet.fed);
     if(this.state.item!==this.held?.userData.item){const item=this.state.item;this.setItem(item);if(this.held)this.held.userData.item=item;}
@@ -292,7 +296,19 @@ export class CabinEngine {
   }
   private updateCrew(dt:number){
     if(!this.crew)return;this.crewClock+=dt;
-    for(const player of Array.from(this.crewPlayers.values())){const previousItem=player.avatar.userData.heldItem as THREE.Group|undefined;if(player.avatar.userData.item!==player.item){if(previousItem){previousItem.removeFromParent();releaseObject(previousItem);}player.avatar.userData.item=player.item;player.avatar.userData.heldItem=undefined;if(player.item){const held=makeHeldItem(player.item,false);held.scale.setScalar(.65);held.position.set(.18,1.05,.34);held.rotation.y=Math.PI;player.avatar.add(held);player.avatar.userData.heldItem=held;}}player.avatar.visible=this.state.phase!=='ready'&&player.avatar.userData.connected!==false&&Math.hypot(player.pose.x-this.position.x,player.pose.z-this.position.z)>.7;player.avatar.position.lerp(new THREE.Vector3(player.pose.x,player.pose.y-1.65,player.pose.z),Math.min(1,dt*12));player.avatar.rotation.y=player.pose.yaw+Math.PI;}
+    for(const player of Array.from(this.crewPlayers.values())){
+      const previousItem=player.avatar.userData.heldItem as THREE.Group|undefined;
+      if(player.avatar.userData.item!==player.item){
+        if(previousItem){previousItem.removeFromParent();releaseObject(previousItem);}
+        player.avatar.userData.item=player.item;player.avatar.userData.heldItem=undefined;
+        if(player.item){const held=makeHeldItem(player.item,false);held.scale.setScalar(.65);held.position.set(.18,1.05,.34);held.rotation.y=Math.PI;player.avatar.add(held);player.avatar.userData.heldItem=held;}
+      }
+      player.avatar.visible=this.state.phase!=='ready'&&player.avatar.userData.connected!==false&&Math.hypot(player.pose.x-this.position.x,player.pose.z-this.position.z)>.7;
+      const before=player.avatar.position.clone();
+      player.avatar.position.lerp(new THREE.Vector3(player.pose.x,player.pose.y-1.65,player.pose.z),Math.min(1,dt*12));player.avatar.rotation.y=player.pose.yaw+Math.PI;
+      const speed=before.distanceTo(player.avatar.position)/Math.max(.001,dt);
+      if(this.state.phase==='playing')updateCrewRig(player.avatar,this.renderTime,{speed,pitch:player.pose.pitch,piloting:player.piloting,held:player.item,working:Boolean(player.action)});
+    }
     if(this.crewClock<.1)return;this.crewClock=0;this.crew.sendPosition(this.localPose());if(this.crew.role==='guest'&&this.state.piloting&&!this.localPaused)this.crew.sendAction({kind:'pilotControl',...this.guestControls});
     if(this.crew.role==='host'){
       const players=[{id:this.crew.playerId,pose:this.localPose(),item:this.state.item,cups:this.state.cups,piloting:this.state.piloting,grabbed:this.state.grabbed,action:this.action},...Array.from(this.crewPlayers.values()).map(p=>({id:p.id,pose:p.pose,item:p.item,cups:p.cups,piloting:p.piloting,grabbed:p.grabbed,action:p.action}))];
@@ -322,12 +338,16 @@ export class CabinEngine {
       const walk=Math.min(1,this.velocity.length()/3),bob=s.piloting?0:Math.sin(s.elapsed*9)*.023*walk;
       this.camera.position.copy(this.position);this.camera.position.y+=bob+(s.turbulence?Math.sin(s.elapsed*23)*.018:0);
       this.camera.rotation.set(this.pitch+(s.piloting?s.pitch*Math.PI/180*.35:0),this.yaw,s.piloting?-s.bank*Math.PI/180*.45:Math.sin(s.elapsed*6)*turbulence*.024,'YXZ');
-      this.idleHands.visible=!s.item&&!s.piloting;this.idleHands.position.y=-.12+Math.sin(s.elapsed*8)*.015*walk+(this.action?Math.sin(s.elapsed*7)*.045:0);this.idleHands.position.z=this.action?-.95:-.68;
-      if(this.held){this.held.position.y=-.44+Math.sin(s.elapsed*8)*.017*walk;this.held.rotation.z=Math.sin(s.elapsed*5)*.025;}
-      this.spray.visible=false;if(this.crew?.role!=='guest'){this.updateAction(dt);this.updatePhysics(dt);}this.updateTarget();
+      this.spray.visible=false;if(this.crew?.role!=='guest'){this.updateAction(dt);this.updatePhysics(dt);}else if(this.action?.id==='fire'&&s.interactionProgress>0){this.spray.visible=true;this.spray.rotation.z+=dt*3;}this.updateTarget();
+      this.idleHands.visible=true;this.camera.updateMatrixWorld(true);
+      const actionId=this.action?.id??(s.interactionProgress>0?s.target:'');
+      const actionTarget=this.targets.find(target=>target.id===actionId)?.pos();
+      if(actionTarget&&actionId.startsWith('pax-')&&!s.item){const passenger=this.world.passengers.find(p=>`pax-${p.id}`===actionId);if(passenger)actionTarget.copy(passenger.group.localToWorld(new THREE.Vector3(0,.972,.44)));}
+      const reach=actionTarget?this.camera.worldToLocal(actionTarget):undefined;
+      updateFirstPersonHands(this.idleHands,{time:s.elapsed,walk,item:s.item,grabbed:Boolean(s.grabbed),piloting:s.piloting,action:actionId,progress:s.interactionProgress,bank:s.bank,aspect:this.camera.aspect,reach},this.held);
       for(const p of this.world.passengers){const required=SEATS.slice(0,s.requiredServed).includes(p.id),belted=this.simulation.beltedIds.has(p.id)||!required,body=this.bodies.find(b=>b.passenger===p.id)!;
         const needsFood=SEATS.slice(0,s.requiredFood).includes(p.id)&&!this.simulation.fedIds.has(p.id);
-        this.world.setPassengerState?.(p.id,{belted,served:this.simulation.servedIds.has(p.id)&&!needsFood,panic:clamp((100-s.satisfaction)/100+(s.turbulence&&!belted?.5:0)+(this.simulation.isActive('fire')?.2:0),0,1),grabbed:body.dynamic});
+        this.world.setPassengerState?.(p.id,{belted,served:this.simulation.servedIds.has(p.id)&&!needsFood,coffeeServed:this.simulation.servedIds.has(p.id),foodServed:this.simulation.fedIds.has(p.id),request:needsFood&&this.simulation.servedIds.has(p.id)?'food':'coffee',panic:clamp((100-s.satisfaction)/100+(s.turbulence&&!belted?.5:0)+(this.simulation.isActive('fire')?.2:0),0,1),grabbed:body.dynamic});
         if(p.group.userData.belt)p.group.userData.belt.visible=belted;
         if(!body.dynamic){p.group.position.copy(body.home);p.group.position.y+=s.turbulence&&!belted?Math.abs(Math.sin(s.elapsed*8+p.id))*.2:0;}
         p.bubble.visible=required&&(!this.simulation.servedIds.has(p.id)||!belted||needsFood);
@@ -339,9 +359,9 @@ export class CabinEngine {
       this.world.setFlightState?.({stage:'cruise',altitude:1200,speed:210,bank:0,pitch:0,pressure:1,fireIntensity:0});
       for(const p of this.world.passengers)p.bubble.visible=false;
     }
-    this.updateCrew(dt);this.renderer.render(this.scene,this.camera);if(elapsed>0){this.frameSamples.push(elapsed);if(this.frameSamples.length>45)this.frameSamples.shift();}
+    this.updateCrew(dt);this.renderPipeline.render(dt);if(elapsed>0){this.frameSamples.push(elapsed);if(this.frameSamples.length>45)this.frameSamples.shift();}
     if(this.sinceUI>.1){s.fps=Math.round(this.frameSamples.length/Math.max(.001,this.frameSamples.reduce((sum,v)=>sum+v,0)));this.sinceUI=0;this.emit();}
     this.raf=requestAnimationFrame(this.frame);
   };
-  dispose(){clearInterval(this.backgroundTimer);this.crewUnsubscribe?.();this.crewUnsubscribe=null;this.crewPlayers.forEach(p=>releaseObject(p.avatar));this.disposed=true;cancelAnimationFrame(this.raf);this.observer.disconnect();this.audio.dispose();if(document.pointerLockElement===this.renderer.domElement)document.exitPointerLock();window.removeEventListener('keydown',this.keyDown);window.removeEventListener('keyup',this.keyUp);window.removeEventListener('blur',this.blur);document.removeEventListener('visibilitychange',this.visibility);document.removeEventListener('pointerlockchange',this.lockChange);window.removeEventListener('pointermove',this.pointerMove);window.removeEventListener('pointerup',this.pointerUp);this.renderer.domElement.removeEventListener('pointerdown',this.pointerDown);this.renderer.domElement.removeEventListener('contextmenu',this.contextMenu);releaseObject(this.camera);this.bodies.filter(b=>b.disposable).forEach(b=>releaseObject(b.mesh));this.world.dispose();this.renderer.dispose();this.renderer.domElement.remove();}
+  dispose(){clearInterval(this.backgroundTimer);this.crewUnsubscribe?.();this.crewUnsubscribe=null;this.crewPlayers.forEach(p=>releaseObject(p.avatar));this.disposed=true;cancelAnimationFrame(this.raf);this.observer.disconnect();this.audio.dispose();if(document.pointerLockElement===this.renderer.domElement)document.exitPointerLock();window.removeEventListener('keydown',this.keyDown);window.removeEventListener('keyup',this.keyUp);window.removeEventListener('blur',this.blur);document.removeEventListener('visibilitychange',this.visibility);document.removeEventListener('pointerlockchange',this.lockChange);window.removeEventListener('pointermove',this.pointerMove);window.removeEventListener('pointerup',this.pointerUp);this.renderer.domElement.removeEventListener('pointerdown',this.pointerDown);this.renderer.domElement.removeEventListener('contextmenu',this.contextMenu);releaseObject(this.camera);this.bodies.filter(b=>b.disposable).forEach(b=>releaseObject(b.mesh));this.renderPipeline.dispose();this.world.dispose();this.renderer.dispose();this.renderer.domElement.remove();}
 }

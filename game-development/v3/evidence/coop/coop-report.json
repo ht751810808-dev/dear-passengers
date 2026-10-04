@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Two real WebSocket clients join the same flight room",
+    "passed": true
+  },
+  {
+    "name": "Host starting a contract starts the same mission for guest",
+    "passed": true
+  },
+  {
+    "name": "Guest seatbelt action updates authoritative host and both HUD states",
+    "passed": true
+  },
+  {
+    "name": "Crew members have separate inventories while sharing service progress",
+    "passed": true
+  },
+  {
+    "name": "Guest can pilot while host remains free to work in cabin",
+    "passed": true
+  },
+  {
+    "name": "Remote pilot controls change shared aircraft bank",
+    "passed": true
+  },
+  {
+    "name": "Pausing a remote pilot clears steering and engages autopilot",
+    "passed": true
+  },
+  {
+    "name": "Cockpit ownership blocks a second simultaneous pilot",
+    "passed": true
+  },
+  {
+    "name": "Shared physical objects carry type and reconcile deletions at the 12-object cap",
+    "passed": true
+  },
+  {
+    "name": "Guest departure removes avatar and keeps host flight alive",
+    "passed": true
+  },
+  {
+    "name": "No multiplayer runtime errors",
+    "passed": true
+  }
+]
