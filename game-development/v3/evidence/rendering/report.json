@@ -1,0 +1,38 @@
+{
+  "errors": [],
+  "samples": [
+    {
+      "label": "HQ playing",
+      "medianFrameMs": 16.5,
+      "p95FrameMs": 18.5,
+      "calls": 453,
+      "triangles": 1692554,
+      "phase": "playing"
+    },
+    {
+      "label": "LQ playing",
+      "medianFrameMs": 16.40000009536743,
+      "p95FrameMs": 19.199999809265137,
+      "calls": 285,
+      "triangles": 877042,
+      "phase": "playing"
+    },
+    {
+      "label": "HQ after resize",
+      "medianFrameMs": 16.59999990463257,
+      "p95FrameMs": 18.299999952316284,
+      "calls": 452,
+      "triangles": 1690348,
+      "phase": "playing"
+    },
+    {
+      "label": "HQ after dispose/recreate",
+      "medianFrameMs": 16.700000047683716,
+      "p95FrameMs": 18.59999990463257,
+      "calls": 446,
+      "triangles": 1702812,
+      "phase": "playing"
+    }
+  ],
+  "note": "Headless Chromium on the current Mac, Metal, DPR 1. These results do not measure physical phone hardware."
+}

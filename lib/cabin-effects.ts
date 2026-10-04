@@ -13,6 +13,9 @@ export interface CabinFlightVisualState {
 
 export interface CabinEffects {
   root: THREE.Group;
+  horizon: THREE.Color;
+  fogRange: THREE.Vector2;
+  applyAtmosphere(terrain: THREE.Object3D): void;
   update(time: number, state: CabinFlightVisualState, route: number, lowQuality: boolean): void;
 }
 
@@ -50,21 +53,129 @@ export function makeFabricTexture() {
   return texture;
 }
 
+const seeded=(value:number)=>{const v=Math.sin(value*127.1+311.7)*43758.5453123;return v-Math.floor(v);};
+const smooth=(v:number)=>v*v*(3-2*v);
+function noise2(x:number,y:number){const ix=Math.floor(x),iy=Math.floor(y),fx=smooth(x-ix),fy=smooth(y-iy);
+  const a=seeded(ix+iy*157),b=seeded(ix+1+iy*157),c=seeded(ix+(iy+1)*157),d=seeded(ix+1+(iy+1)*157);
+  return THREE.MathUtils.lerp(THREE.MathUtils.lerp(a,b,fx),THREE.MathUtils.lerp(c,d,fx),fy);}
+function fbm2(x:number,y:number){let value=0,amplitude=.55;for(let i=0;i<4;i++){value+=noise2(x,y)*amplitude;x=x*2.03+13.7;y=y*2.01+8.1;amplitude*=.48;}return value;}
+
+const NOISE_GLSL=`float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.)),f.x),f.y);}
+float fbm(vec2 p){return noise(p)*.55+noise(p*2.03+13.7)*.26+noise(p*4.11+5.4)*.12;}`;
+const BILLBOARD_VERTEX=`attribute vec2 puffSettings;varying vec2 vUv;varying float vTile,vOpacity,vDistance;
+void main(){vUv=uv;vTile=puffSettings.x;vOpacity=puffSettings.y;
+  vec4 center=modelViewMatrix*instanceMatrix*vec4(0.,0.,0.,1.);
+  vec2 scale=vec2(length(instanceMatrix[0].xyz),length(instanceMatrix[1].xyz));
+  center.xy+=position.xy*scale;vDistance=length(center.xyz);gl_Position=projectionMatrix*center;}`;
+
+// Terrain and sky must converge to the same linear radiance before tone mapping.
+// A separate fixed fog colour leaves a cyan seam where the ocean meets this sky.
+const SKY_RADIANCE_GLSL=`uniform vec3 zenith,horizon,sunDirection;uniform float storm,night;
+float flightSkyHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+vec3 flightSkyRadiance(vec3 d){
+  float elevation=max(d.y,0.);
+  float atmospheric=pow(smoothstep(-.14,.85,d.y),.47);
+  vec3 color=mix(horizon,zenith,atmospheric);
+  float sun=clamp(dot(d,sunDirection),0.,1.);
+  color+=vec3(.30,.26,.19)*pow(sun,12.)*(1.-night)*(1.-storm*.8);
+  color+=vec3(2.1,1.9,1.6)*smoothstep(.9994,.9998,sun)*(1.-night)*(1.-storm);
+  color=mix(color,horizon*.92,(1.-smoothstep(-.32,.02,d.y))*.52);
+  vec2 starUV=vec2(atan(d.x,d.z),asin(clamp(d.y,-1.,1.)))*vec2(160.,210.);
+  vec2 cell=floor(starUV);float star=step(.996,flightSkyHash(cell))*pow(max(0.,1.-length(fract(starUV)-.5)*2.),8.);
+  color+=vec3(.45,.60,.85)*star*night*smoothstep(.03,.3,elevation);
+  float moon=dot(d,normalize(vec3(-.4,.58,-.7)));
+  color+=vec3(.48,.58,.72)*(pow(max(moon,0.),150.)*.10+smoothstep(.9992,.9997,moon))*night;
+  return color;
+}`;
+
+/** Locally generated density, light and erosion atlas. No source imagery is used. */
+function makeCloudAtlas(smoke=false){
+  const tile=256,canvas=document.createElement('canvas');canvas.width=canvas.height=tile*2;const ctx=canvas.getContext('2d')!;
+  const image=ctx.createImageData(tile*2,tile*2);
+  for(let variant=0;variant<4;variant++){
+    const lobes=Array.from({length:12},(_,i)=>{const x=.12+seeded(i+variant*19)*.76;return {x,y:.57-Math.sin((x-.12)/.76*Math.PI)*.22+seeded(i+3+variant*23)*.11,rx:.09+seeded(i+5+variant*11)*.12,ry:.12+seeded(i+7+variant*13)*.21};});
+    for(let y=0;y<tile;y++)for(let x=0;x<tile;x++){
+      const u=x/(tile-1),v=y/(tile-1);let density=0,light=0;
+      for(const l of lobes){const nx=(u-l.x)/l.rx,ny=(v-l.y)/l.ry,q=nx*nx+ny*ny,w=Math.exp(-q*2.2)*.62;density+=w;const nz=Math.sqrt(Math.max(.04,1-q*.40));const normalLength=Math.sqrt(nx*nx+ny*ny+nz*nz);light+=w*THREE.MathUtils.clamp((-nx*.34-ny*.72+nz*.60)/normalLength,0,1);}
+      light/=Math.max(.001,density);
+      const erosion=fbm2(u*19+variant*29,v*19),detail=fbm2(u*44+variant*7,v*44);
+      density=Math.max(0,density-(.12+erosion*.22));
+      const edge=Math.min(u,v,1-u,1-v);const fade=THREE.MathUtils.smoothstep(edge,0,.11);
+      const alpha=(1-Math.exp(-density*(smoke?2.8:5.8)))*fade;
+      const lighting=THREE.MathUtils.clamp(.12+light*.82+erosion*.10+detail*.045-(smoke?.06:0),0,1);
+      const px=(y+Math.floor(variant/2)*tile)*(tile*2)+x+(variant%2)*tile;image.data[px*4]=image.data[px*4+1]=image.data[px*4+2]=Math.round(lighting*255);image.data[px*4+3]=Math.round(alpha*255);
+    }
+  }
+  ctx.putImageData(image,0,0);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.NoColorSpace;texture.generateMipmaps=true;texture.minFilter=THREE.LinearMipmapLinearFilter;return texture;
+}
+function makeGlowTexture(){const canvas=document.createElement('canvas');canvas.width=canvas.height=64;const ctx=canvas.getContext('2d')!;const g=ctx.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.2,'rgba(255,244,200,.8)');g.addColorStop(.5,'rgba(255,224,160,.12)');g.addColorStop(1,'rgba(255,224,160,0)');ctx.fillStyle=g;ctx.fillRect(0,0,64,64);const t=new THREE.CanvasTexture(canvas);t.colorSpace=THREE.SRGBColorSpace;return t;}
+
 export function buildCabinEffects(parent: THREE.Group): CabinEffects {
   const root = new THREE.Group(); root.name = 'Flight atmosphere and runway'; parent.add(root);
   const skyMaterial = new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false,
     uniforms: {
-      zenith: { value: new THREE.Color(0x4b9fdd) }, horizon: { value: new THREE.Color(0xd9f3ff) },
-      glow: { value: new THREE.Color(0xffe7bc) }, sunDirection: { value: v3(-.7,.42,-.56).normalize() }, storm: { value: 0 },
+      zenith: { value: new THREE.Color(0x438edf) }, horizon: { value: new THREE.Color(0xcce9fc) },
+      sunDirection: { value: v3(-.68,.38,-.62).normalize() }, storm: { value: 0 }, night: { value: 0 }, time: { value: 0 },
     },
-    vertexShader: `varying vec3 direction; void main(){direction=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-    fragmentShader: `varying vec3 direction;uniform vec3 zenith,horizon,glow,sunDirection;uniform float storm;
-      void main(){vec3 d=normalize(direction);float h=pow(clamp(d.y*.72+.16,0.,1.),.52);
-      vec3 c=mix(horizon,zenith,h);float sun=max(dot(d,sunDirection),0.);
-      c+=glow*(pow(sun,80.)*.2+pow(sun,850.)*.6)*(1.-storm);gl_FragColor=vec4(c,1.);}`,
+    vertexShader: `varying vec3 direction;void main(){direction=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+    fragmentShader: `varying vec3 direction;${SKY_RADIANCE_GLSL}
+      void main(){gl_FragColor=vec4(flightSkyRadiance(normalize(direction)),1.);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
   });
-  const sky = new THREE.Mesh(new THREE.SphereGeometry(150,32,20),skyMaterial); sky.renderOrder=-20;root.add(sky);
+  const sky = new THREE.Mesh(new THREE.SphereGeometry(175,32,18),skyMaterial);sky.name='Atmospheric sky dome';sky.renderOrder=-30;root.add(sky);
+  const fogRange=new THREE.Vector2(24,80);
+  const terrainMaterials=new Map<THREE.MeshStandardMaterial,THREE.MeshStandardMaterial>();
+  const applyAtmosphere=(terrain:THREE.Object3D)=>terrain.traverse(object=>{
+    if(!(object instanceof THREE.Mesh)||!(object.material instanceof THREE.MeshStandardMaterial))return;
+    const original=object.material;
+    let material=terrainMaterials.get(original);
+    if(!material){
+      // Called after static batching; clone materials shared with the cabin first.
+      material=original.clone();material.fog=false;material.name='Exterior atmosphere';
+      material.onBeforeCompile=shader=>{
+        for(const key of ['zenith','horizon','sunDirection','storm','night'])shader.uniforms[key]=skyMaterial.uniforms[key];
+        shader.uniforms.flightFogRange={value:fogRange};
+        shader.vertexShader=`varying vec3 flightAtmosphereRay;\n${shader.vertexShader}`.replace('#include <project_vertex>',`#include <project_vertex>\nflightAtmosphereRay=(modelMatrix*vec4(transformed,1.)).xyz-cameraPosition;`);
+        shader.fragmentShader=`varying vec3 flightAtmosphereRay;uniform vec2 flightFogRange;\n${SKY_RADIANCE_GLSL}\n${shader.fragmentShader}`.replace('#include <opaque_fragment>',`
+          vec3 flightRay=normalize(flightAtmosphereRay);
+          float flightProjection=dot(cameraPosition,flightRay);
+          float flightSkyDistance=-flightProjection+sqrt(max(0.,flightProjection*flightProjection+30625.-dot(cameraPosition,cameraPosition)));
+          vec3 flightSkyDirection=normalize(cameraPosition+flightRay*flightSkyDistance);
+          outgoingLight=mix(outgoingLight,flightSkyRadiance(flightSkyDirection),smoothstep(flightFogRange.x,flightFogRange.y,length(flightAtmosphereRay)));
+          #include <opaque_fragment>`);
+      };
+      material.customProgramCacheKey=()=> 'flight-exterior-atmosphere-v1';
+      terrainMaterials.set(original,material);
+    }
+    object.material=material;
+  });
+
+  const cloudAtlas=makeCloudAtlas();
+  const cloudMaterial=new THREE.ShaderMaterial({
+    transparent:true,depthWrite:false,side:THREE.DoubleSide,
+    uniforms:{atlas:{value:cloudAtlas},lightColor:{value:new THREE.Color(0xf7fbff)},shadeColor:{value:new THREE.Color(0x87a7c7)},opacity:{value:.9},haze:{value:new THREE.Color(0xb7dafa)}},
+    vertexShader:BILLBOARD_VERTEX,
+    fragmentShader:`varying vec2 vUv;varying float vTile,vOpacity,vDistance;uniform sampler2D atlas;uniform vec3 lightColor,shadeColor,haze;uniform float opacity;
+      void main(){vec2 tile=vec2(mod(vTile,2.),floor(vTile/2.));vec4 puff=texture2D(atlas,(tile+clamp(vUv,.004,.996))*.5);
+        float alpha=puff.a*opacity*vOpacity;if(alpha<.006)discard;
+        vec3 color=mix(shadeColor,lightColor,smoothstep(.20,.92,puff.r));color=mix(color,haze,smoothstep(45.,145.,vDistance)*.30);
+        gl_FragColor=vec4(color,alpha);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+  cloudMaterial.addEventListener('dispose',()=>cloudAtlas.dispose());
+  const cloudGeometry=new THREE.PlaneGeometry(1,1);
+  const cloudSettings=new Float32Array(48*2);for(let i=0;i<48;i++)cloudSettings.set([i%4,.82+(i%3)*.06],i*2);
+  cloudGeometry.setAttribute('puffSettings',new THREE.InstancedBufferAttribute(cloudSettings,2));
+  const clouds=new THREE.InstancedMesh(cloudGeometry,cloudMaterial,48);clouds.name='Layered soft cloud banks';clouds.frustumCulled=false;clouds.renderOrder=-10;root.add(clouds);
+  const cloudMatrix=new THREE.Matrix4(),cloudRotation=new THREE.Quaternion();
+  const cloudSeeds=Array.from({length:48},(_,i)=>{const far=i%2===0,radius=far?72:28;const angle=i*2.39996;
+    return {x:Math.cos(angle)*radius,z:Math.sin(angle)*(far?104:66),y:-8+seeded(i+32)*19,scale:(far?28:15)+seeded(i+57)*(far?19:13),drift:.45+seeded(i+82)*.45};});
 
   const rainMaterial = new THREE.ShaderMaterial({
     transparent:true,depthWrite:false,side:THREE.DoubleSide,
@@ -119,14 +230,22 @@ export function buildCabinEffects(parent: THREE.Group): CabinEffects {
   const numberTexture=new THREE.CanvasTexture(runwayNumber);const number=new THREE.Mesh(new THREE.PlaneGeometry(3.2,4),new THREE.MeshBasicMaterial({map:numberTexture,transparent:true,depthWrite:false}));number.rotation.x=-Math.PI/2;number.position.set(0,.03,-25);airport.add(number);
 
   let lastTime=0,roll=0;
-  return {root,update(time,state,route,lowQuality){
+  return {root,horizon:skyMaterial.uniforms.horizon.value,fogRange,applyAtmosphere,update(time,state,route,lowQuality){
     const storm=state.weather==='storm'||state.weather==='rain'||route===1;
     const night=state.weather==='night'||route===2;
-    // This unlit sky gradient is authored in display colour, outside exposure,
-    // so dark cabins and bright sunlit upholstery share the same readable sky.
-    skyMaterial.uniforms.zenith.value.setHex(night?0x06182f:storm?0x4b657d:0x238bd2).convertLinearToSRGB();
-    skyMaterial.uniforms.horizon.value.setHex(night?0x243d5a:storm?0x9cacb6:0xc4ecfa).convertLinearToSRGB();
-    skyMaterial.uniforms.storm.value=storm||night?1:0;
+    skyMaterial.uniforms.zenith.value.setHex(night?0x061327:storm?0x3e5977:0x277bdd);
+    skyMaterial.uniforms.horizon.value.setHex(night?0x324563:storm?0xa2b6c8:0x9bd9fa);
+    if(!night&&!storm){skyMaterial.uniforms.zenith.value.setRGB(.025,.16,.90);skyMaterial.uniforms.horizon.value.setRGB(.17,.34,1.28);}
+    skyMaterial.uniforms.storm.value=storm?1:0;skyMaterial.uniforms.night.value=night?1:0;skyMaterial.uniforms.time.value=time;
+    fogRange.set(storm?18:24,storm?54:80);
+    cloudMaterial.uniforms.lightColor.value.setHex(night?0x6882a2:storm?0xb5c5d2:0xffffff).multiplyScalar(night?.85:1.15);
+    cloudMaterial.uniforms.shadeColor.value.setHex(night?0x15253c:storm?0x53677e:0x6f95bf);
+    cloudMaterial.uniforms.haze.value.copy(skyMaterial.uniforms.horizon.value);
+    cloudMaterial.uniforms.opacity.value=night?.72:storm?.97:.9;clouds.count=lowQuality?24:48;
+    const groundLift=THREE.MathUtils.clamp(1-state.altitude/650,0,1)*14;
+    for(let i=0;i<clouds.count;i++){const p=cloudSeeds[i];const z=((p.z+time*p.drift+140)%280)-140;
+      cloudMatrix.compose(v3(p.x,p.y+groundLift,z),cloudRotation,v3(p.scale,p.scale*(.56+seeded(i+71)*.22),1));clouds.setMatrixAt(i,cloudMatrix);}
+    clouds.instanceMatrix.needsUpdate=true;
     rain.visible=storm;rainMaterial.uniforms.time.value=time;rainMaterial.uniforms.amount.value=lowQuality?.55:1;rainMaterial.uniforms.night.value=night?1:0;
     const lightningPhase=time%17.3;const flashing=storm&&time>3&&(lightningPhase<.095||(lightningPhase>.17&&lightningPhase<.24));
     flashMaterial.opacity=flashing?.95:0;flash.intensity=flashing&&!lowQuality?16:0;
@@ -145,43 +264,71 @@ export function buildCabinEffects(parent: THREE.Group): CabinEffects {
 
 export interface CabinFireEffect {root:THREE.Group;update(time:number,intensity:number,lowQuality:boolean):void;}
 
+/** Animated flame sheets and optical smoke, rather than opaque geometric cones. */
 export function buildVolumetricFire(parent:THREE.Group):CabinFireEffect{
-  const root=new THREE.Group();parent.add(root);
+  const root=new THREE.Group();root.name='Fire, embers and rising smoke';parent.add(root);
   const flameMaterial=new THREE.ShaderMaterial({
     transparent:true,depthWrite:false,side:THREE.DoubleSide,
-    uniforms:{time:{value:0},strength:{value:1}},
-    vertexShader:`uniform float time,strength;varying float h;varying vec3 local;
-      void main(){vec3 p=position;h=clamp(p.y,0.,1.);p.x+=sin(p.y*8.+time*8.+position.z*4.)*.045*h;
-      p.z+=cos(p.y*7.+time*6.+position.x*6.)*.035*h;p.y*=strength;local=p;
-      gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
-    fragmentShader:`uniform float time,strength;varying float h;varying vec3 local;
-      void main(){float wave=sin(local.x*19.+local.y*13.-time*9.)*.08;
-      vec3 c=mix(vec3(1.,.88,.32),vec3(1.,.23,.025),smoothstep(.04,.85,h+wave));
-      float a=(1.-smoothstep(.70,1.,h))*.85*min(strength,1.);gl_FragColor=vec4(c,a);}`,
+    uniforms:{time:{value:0},strength:{value:1}},vertexShader:BILLBOARD_VERTEX,
+    fragmentShader:`varying vec2 vUv;varying float vTile,vOpacity,vDistance;uniform float time,strength;
+      ${NOISE_GLSL}
+      void main(){vec2 p=vUv;float phase=time*(1.4+vTile*.13);float y=p.y;
+        float curl=(fbm(vec2(y*4.-phase*.5,vTile*4.+phase*.4))-.5)*.36*y;
+        float width=.45*pow(1.-y,.7);float x=abs(p.x-.5+curl);
+        float turbulent=fbm(vec2(p.x*5.+vTile*8.,p.y*6.-phase*2.));
+        float shape=1.-smoothstep(width*.25,width+.035,x);
+        float tip=smoothstep(.95,.46,y+turbulent*.21);float base=smoothstep(0.,.08,y);
+        float alpha=shape*tip*base*(.37+turbulent*.5)*vOpacity*strength;
+        if(alpha<.01)discard;
+        vec3 color=mix(vec3(2.3,.82,.04),vec3(1.5,.12,.005),smoothstep(.16,.83,y));
+        color=mix(color,vec3(2.8,1.5,.3),pow(1.-x/max(width,.001),3.)*(1.-y)*.22);
+        gl_FragColor=vec4(color,alpha);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
   });
-  const tongues=new THREE.Group();root.add(tongues);
-  for(let n=0;n<6;n++){
-    const profile:THREE.Vector2[]=[new THREE.Vector2(.025,0),new THREE.Vector2(.12,.07),new THREE.Vector2(.14,.18),new THREE.Vector2(.10,.4),new THREE.Vector2(.055,.65),new THREE.Vector2(.002,1)];
-    const mesh=new THREE.Mesh(new THREE.LatheGeometry(profile,12),flameMaterial);const a=n*2.4;
-    mesh.position.set(Math.cos(a)*.17,0,Math.sin(a)*.17);mesh.scale.set(.75+n%2*.3,.60+n%3*.13,.75);tongues.add(mesh);
-  }
-  const smokeMaterial=new THREE.MeshStandardMaterial({color:0x64717b,transparent:true,opacity:.32,roughness:1,depthWrite:false});
-  const smoke=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,2),smokeMaterial,12);root.add(smoke);
-  const sparksGeo=new THREE.BufferGeometry();const sparks=new Float32Array(24*3);sparksGeo.setAttribute('position',new THREE.BufferAttribute(sparks,3));
-  const sparkPoints=new THREE.Points(sparksGeo,new THREE.PointsMaterial({color:0xffce52,size:.037,transparent:true,opacity:.9,depthWrite:false}));root.add(sparkPoints);
-  // Keep the light in the always-visible cabin root. Hiding the fire must not
-  // change the light count and force every cabin material to recompile mid-flight.
-  const light=new THREE.PointLight(0xff9a35,0,4.5);light.position.copy(parent.position).add(v3(0,.65,0));(parent.parent||root).add(light);
+  const flameGeometry=new THREE.PlaneGeometry(1,1);
+  const flameSettings=new Float32Array(12*2);for(let i=0;i<12;i++)flameSettings.set([i/3,.50+seeded(i+31)*.23],i*2);
+  flameGeometry.setAttribute('puffSettings',new THREE.InstancedBufferAttribute(flameSettings,2));
+  const flames=new THREE.InstancedMesh(flameGeometry,flameMaterial,12);flames.frustumCulled=false;root.add(flames);
+  const smokeAtlas=makeCloudAtlas(true);
+  const smokeMaterial=new THREE.ShaderMaterial({transparent:true,depthWrite:false,side:THREE.DoubleSide,
+    uniforms:{atlas:{value:smokeAtlas},strength:{value:1}},vertexShader:BILLBOARD_VERTEX,
+    fragmentShader:`varying vec2 vUv;varying float vTile,vOpacity,vDistance;uniform sampler2D atlas;uniform float strength;
+      void main(){vec2 tile=vec2(mod(vTile,2.),floor(vTile/2.));vec4 puff=texture2D(atlas,(tile+clamp(vUv,.004,.996))*.5);
+        float alpha=puff.a*vOpacity*strength;if(alpha<.007)discard;
+        vec3 color=mix(vec3(.045,.053,.065),vec3(.25,.28,.32),puff.r);
+        gl_FragColor=vec4(color,alpha);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+  smokeMaterial.addEventListener('dispose',()=>smokeAtlas.dispose());
+  const smokeGeometry=new THREE.PlaneGeometry(1,1),smokeSettings=new Float32Array(20*2);
+  smokeGeometry.setAttribute('puffSettings',new THREE.InstancedBufferAttribute(smokeSettings,2));
+  const smoke=new THREE.InstancedMesh(smokeGeometry,smokeMaterial,20);smoke.frustumCulled=false;root.add(smoke);
+  const sparkTexture=makeGlowTexture();
+  const sparksGeo=new THREE.BufferGeometry(),sparks=new Float32Array(30*3);sparksGeo.setAttribute('position',new THREE.BufferAttribute(sparks,3));
+  const sparkMaterial=new THREE.PointsMaterial({color:0xffb954,map:sparkTexture,size:.055,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending});
+  const sparkPoints=new THREE.Points(sparksGeo,sparkMaterial);root.add(sparkPoints);
+  const glow=new THREE.Mesh(new THREE.PlaneGeometry(1.9,1.9),new THREE.MeshBasicMaterial({map:sparkTexture,color:0xff7826,transparent:true,opacity:.16,depthWrite:false,blending:THREE.AdditiveBlending}));glow.rotation.x=-Math.PI/2;glow.position.y=.025;root.add(glow);
+  // The light remains in the always-visible cabin root to avoid light-count shader recompilation.
+  const light=new THREE.PointLight(0xff8533,0,5,1.8);light.position.copy(parent.position).add(v3(0,.65,0));(parent.parent||root).add(light);
   const matrix=new THREE.Matrix4(),quaternion=new THREE.Quaternion();
   return{root,update(time,intensity,lowQuality){
-    const power=THREE.MathUtils.clamp(intensity,0,1.5);flameMaterial.uniforms.time.value=time;flameMaterial.uniforms.strength.value=.65+power*.5;
-    tongues.scale.setScalar(.7+power*.3);smoke.count=lowQuality?6:12;
-    for(let i=0;i<smoke.count;i++){
-      const age=(time*.43+i*.081)%1;const scale=.09+age*.31;
-      matrix.compose(v3(Math.sin(time+i*3)*age*.13,.4+age*1.65,Math.cos(time*.6+i)*age*.11),quaternion,v3(scale,scale*.7,scale));smoke.setMatrixAt(i,matrix);
-    }
-    smoke.instanceMatrix.needsUpdate=true;smokeMaterial.opacity=.13+power*.20;
-    for(let i=0;i<24;i++){const age=(time*.7+i/24)%1;sparks[i*3]=Math.sin(i*13.2+time)*age*.27;sparks[i*3+1]=age*1.45;sparks[i*3+2]=Math.cos(i*7.7)*age*.25;}
-    sparksGeo.attributes.position.needsUpdate=true;sparkPoints.visible=!lowQuality;light.position.copy(parent.position).add(v3(0,.65,0));light.intensity=parent.visible?(2.4+Math.sin(time*13)*.5)*power:0;
+    const power=THREE.MathUtils.clamp(intensity,0,1.5);flameMaterial.uniforms.time.value=time;flameMaterial.uniforms.strength.value=.7+power*.3;
+    flames.count=lowQuality?6:12;
+    for(let i=0;i<flames.count;i++){const phase=time*(2.6+seeded(i)*1.2)+i*2.7,height=(.58+seeded(i+1)*.55)*(.65+power*.5)*(1+Math.sin(phase)*.12);
+      matrix.compose(v3(Math.cos(i*2.4)*.18,height*.48,Math.sin(i*2.4)*.16),quaternion,v3(.30+seeded(i+3)*.28,height,1));flames.setMatrixAt(i,matrix);}
+    flames.instanceMatrix.needsUpdate=true;smoke.count=lowQuality?10:20;smokeMaterial.uniforms.strength.value=.34+power*.25;
+    for(let i=0;i<smoke.count;i++){const age=(time*(.12+seeded(i+8)*.035)+i/smoke.count)%1;
+      const scale=.26+age*1.50,height=.45+age*2.65;
+      smokeSettings.set([i%4,Math.sin(age*Math.PI)*(.48+power*.25)],i*2);
+      matrix.compose(v3(Math.sin(i*2.4+age*3)*age*.45+Math.max(0,height-2.6)*.9,height,Math.cos(i*1.9+age*2)*age*.36),quaternion,v3(scale,scale*.84,1));smoke.setMatrixAt(i,matrix);}
+    smoke.instanceMatrix.needsUpdate=true;smokeGeometry.attributes.puffSettings.needsUpdate=true;
+    for(let i=0;i<30;i++){const age=(time*(.40+seeded(i+29)*.35)+i/30)%1;sparks[i*3]=Math.sin(i*13.2+age*3)*age*.38;sparks[i*3+1]=.1+age*2.2;sparks[i*3+2]=Math.cos(i*7.7)*age*.32;}
+    sparksGeo.attributes.position.needsUpdate=true;sparkPoints.visible=!lowQuality;
+    light.position.copy(parent.position).add(v3(0,.65,0));light.intensity=parent.visible?(2.0+Math.sin(time*13)*.22+Math.sin(time*21)*.15)*power:0;
+    (glow.material as THREE.MeshBasicMaterial).opacity=(.10+Math.sin(time*9)*.025)*power;
   }};
 }

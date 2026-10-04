@@ -1,0 +1,117 @@
+{
+  "errors": [],
+  "shots": [
+    {
+      "name": "day-aisle",
+      "route": 0,
+      "camera": [
+        0,
+        1.68,
+        8.6
+      ],
+      "look": [
+        0,
+        1.65,
+        -4
+      ],
+      "item": null,
+      "drawCalls": 356,
+      "triangles": 1066168,
+      "fps": 60
+    },
+    {
+      "name": "passenger-coffee",
+      "route": 0,
+      "camera": [
+        0.05,
+        1.72,
+        3
+      ],
+      "look": [
+        1.83,
+        1.65,
+        1
+      ],
+      "item": "coffee",
+      "drawCalls": 278,
+      "triangles": 965618,
+      "fps": 60
+    },
+    {
+      "name": "meal-service",
+      "route": 0,
+      "camera": [
+        -0.15,
+        1.72,
+        2.6
+      ],
+      "look": [
+        1.83,
+        1.65,
+        1
+      ],
+      "item": "food",
+      "drawCalls": 259,
+      "triangles": 952674,
+      "fps": 60
+    },
+    {
+      "name": "cockpit",
+      "route": 0,
+      "camera": [
+        0,
+        1.98,
+        -11.15
+      ],
+      "look": [
+        0,
+        1.9,
+        -16
+      ],
+      "item": null,
+      "piloting": true,
+      "drawCalls": 183,
+      "triangles": 808358,
+      "fps": 60
+    },
+    {
+      "name": "storm-fire",
+      "route": 1,
+      "camera": [
+        0,
+        1.72,
+        -2.3
+      ],
+      "look": [
+        -1.7,
+        1.6,
+        -5.8
+      ],
+      "item": "extinguisher",
+      "fire": true,
+      "drawCalls": 281,
+      "triangles": 926776,
+      "fps": 60
+    },
+    {
+      "name": "night-cabin",
+      "route": 2,
+      "camera": [
+        0,
+        1.68,
+        7.7
+      ],
+      "look": [
+        0,
+        1.6,
+        -5
+      ],
+      "item": null,
+      "drawCalls": 354,
+      "triangles": 1032908,
+      "fps": 60
+    }
+  ],
+  "viewport": "1600x900 / DPR 1",
+  "note": "Scene samples use the separate local fixture to select camera and flight conditions. Gameplay validation runs separately."
+}

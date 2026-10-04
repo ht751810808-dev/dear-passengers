@@ -1,9 +1,11 @@
 import * as THREE from "three";
+import { createPassenger, createCrewAvatar, updatePassengerRig } from "./cabin-character-rig";
+import { buildDetailedFlightDeck, addCabinStillLife } from "./cabin-interior";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
-import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { mergeGeometries, mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { buildCabinEffects, buildVolumetricFire, makeContactShadowTexture, makeFabricTexture, type CabinFlightVisualState } from './cabin-effects';
 
-export interface PassengerVisualState { belted: boolean; served: boolean; panic: number; grabbed: boolean; request: string }
+export interface PassengerVisualState { belted: boolean; served: boolean; panic: number; grabbed: boolean; request: string; coffeeServed?: boolean; foodServed?: boolean }
 export interface CabinLooseObject { id: string; kind: 'parcel' | 'food' | 'animal'; group: THREE.Group; position: THREE.Vector3 }
 
 export interface CabinPassenger {
@@ -327,225 +329,97 @@ function makeLooseObjects(parent:THREE.Group,fabric:THREE.Texture):CabinLooseObj
 
 function seat(parent: Parent, x: number, z: number, fabric: THREE.Texture) {
   const g = new THREE.Group(); g.position.set(x, 0, z); parent.add(g);
-  const blue = mat(color.blue, .74), darkBlue = mat(color.seat, .84), frame = mat(0x6d7c91, .45, .25);
-  blue.bumpMap = fabric; blue.bumpScale = .007; darkBlue.bumpMap = fabric; darkBlue.bumpScale = .009;
-  box(g, 1.28, .25, 1.04, darkBlue, 0, .61, .06, .12);
-  box(g, 1.30, 1.19, .24, blue, 0, 1.22, -.44, .11).rotation.x = -.07;
-  box(g, .98, .33, .15, mat(0x368aeb), 0, 1.69, -.27, .07);
-  box(g, .50, .24, .025, mat(0xf4eadd), 0, 1.72, -.174, .028);
-  const seam = mat(0x1156a0, .86);
-  for (const s of [-1,1]) {
-    const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(s*.44,.77,-.293),new THREE.Vector3(s*.44,1.2,-.284),new THREE.Vector3(s*.43,1.66,-.242)]);
-    g.add(new THREE.Mesh(new THREE.TubeGeometry(curve,12,.009,4,false),seam));
-    box(g,.01,.02,.66,seam,s*.43,.742,.07,.004);
+  const blue = mat(0x125fc6, .47), bolster = mat(0x1a72d9, .46), seam = mat(0x14529b, .79);
+  const shell = mat(0xe9e9df, .69), frame = mat(0x73818c, .4, .32), brown = mat(0x6d4938, .53);
+  // The reference upholstery has smooth leather-like highlights, not a coarse woven bump.
+  // Bulged cushions give the broad upholstery faces actual volume and wrapped highlights.
+  const pillow = (w:number,h:number,d:number,m:THREE.Material,px:number,py:number,pz:number) => {
+    const geometry = new RoundedBoxGeometry(w,h,d,4,Math.min(.12,d*.43));
+    const positions=geometry.attributes.position,normals=geometry.attributes.normal,normal=new THREE.Vector3();
+    for(let i=0;i<positions.count;i++){
+      const vx=positions.getX(i),vy=positions.getY(i),vz=positions.getZ(i);
+      if(vz<=0)continue;
+      const ax=w*.52,ay=h*.52,bx=Math.max(0,1-(vx/ax)**2),by=Math.max(0,1-(vy/ay)**2);
+      const t=Math.min(1,vz/(d*.5)),weight=t*t*(3-2*t),derivative=6*t*(1-t)/(d*.5);
+      const height=.055*bx*by;
+      positions.setZ(i,vz+height*weight);
+      // RoundedBoxGeometry is non-indexed and supplies smooth analytic normals.
+      // Calling computeVertexNormals here would replace them with a flat normal per triangle.
+      const nz=normals.getZ(i)/(1+height*derivative);
+      normal.set(normals.getX(i)+.11*vx/(ax*ax)*by*weight*nz,normals.getY(i)+.11*vy/(ay*ay)*bx*weight*nz,nz).normalize();
+      normals.setXYZ(i,normal.x,normal.y,normal.z);
+    }
+    const mesh=new THREE.Mesh(geometry,m);mesh.position.set(px,py,pz);mesh.castShadow=mesh.receiveShadow=true;g.add(mesh);return mesh;
+  };
+  box(g,1.35,1.30,.19,shell,0,1.23,-.53,.065).rotation.x=-.07;
+  const back=pillow(1.23,1.18,.31,blue,0,1.22,-.38);back.rotation.x=-.08;
+  const cushion=pillow(1.24,1.04,.24,blue,0,.66,.055);cushion.rotation.x=-Math.PI/2;
+  for(const side of [-1,1]){
+    pillow(.235,1.02,.32,bolster,side*.50,1.20,-.285).rotation.z=-side*.035;
+    pillow(.25,.36,.29,bolster,side*.475,1.76,-.245).rotation.y=side*.08;
+    box(g,.15,.58,.86,shell,side*.647,.81,.09,.055);
+    box(g,.165,.105,.81,mat(0x526478,.68),side*.647,.566,.09,.026);
+    box(g,.23,.10,.94,brown,side*.647,1.13,.11,.041);
+    box(g,.085,.34,.12,frame,side*.43,.23,.04,.02);
+    box(g,.115,.06,.92,frame,side*.43,.058,.045,.025);
+    const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.39,.80,-.188),new THREE.Vector3(side*.39,1.14,-.159),new THREE.Vector3(side*.40,1.54,-.215)]);
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(curve,14,.006,4,false),seam));
+    const bottomSeam=box(g,.009,.008,.74,seam,side*.38,.790,.09,.003);bottomSeam.rotation.x=-.025;
   }
-  for (const s of [-1, 1]) {
-    box(g, .10, .51, .61, frame, s * .46, .27, 0, .035);
-    box(g, .13, .48, .13, frame, s * .64, .88, .06, .025);
-    box(g, .21, .12, .91, mat(0x674d3f,.66), s * .65, 1.09, .1, .065);
-    box(g, .22, .04, .24, mat(0x718294), s * .65, 1.16, .37, .022);
-  }
-  box(g, .86, .40, .055, mat(0x153963), 0, 1.03, -.588, .04);
-  box(g, .82, .045, .05, mat(0x4e7298), 0, 1.22, -.63, .02);
+  pillow(.72,.34,.27,blue,0,1.76,-.235);
+  const stitch=new THREE.CatmullRomCurve3([new THREE.Vector3(-.30,1.84,-.071),new THREE.Vector3(-.26,1.64,-.060),new THREE.Vector3(.26,1.64,-.060),new THREE.Vector3(.30,1.84,-.071)]);
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(stitch,16,.006,4,false),seam));
+  box(g,.84,.40,.058,mat(0x224874,.85),0,1.07,-.675,.035);
+  box(g,.83,.042,.067,mat(0x8293a7,.55),0,1.28,-.700,.016);
+  box(g,.33,.20,.013,mat(0xf2efdb,.86),-.17,1.20,-.711,.007);
+  box(g,.19,.21,.014,mat(0xcbd6df,.86),.21,1.215,-.713,.007).rotation.z=.08;
   return g;
 }
 
 function passenger(parent: Parent, id: number, x: number, z: number, texture: THREE.Texture, fabric: THREE.Texture): CabinPassenger {
-  const g = new THREE.Group(); g.position.set(x, 0, z); parent.add(g);
-  const skins = [0xeab189, 0xb97143, 0xf0b995, 0xcf956d, 0x8f5438, 0xefb090, 0xd39364, 0xeba673];
-  const shirts = [0xefece1, 0x236d91, 0xf3b633, 0x966cca, 0x38a183, 0xe47769, 0xedeee3, 0x376cbd];
-  const trousers = [0x435064, 0x30384c, 0x5c6768, 0x333743, 0x344150, 0x3e4c62, 0x656474, 0x334352];
-  const skin = mat(skins[id], .88), outfit = mat(shirts[id]), pants = mat(trousers[id]);
-  outfit.bumpMap=fabric;outfit.bumpScale=.012;outfit.roughness=.92;pants.bumpMap=fabric;pants.bumpScale=.014;pants.roughness=.94;
-  const boots = mat(id % 3 === 0 ? 0x775138 : 0x283440);
-  sphere(g, outfit, 0, 1.12, -.045, .39, .47, .265);
-  // Jacket seams, a folded collar and an inset pocket break up the smooth torso.
-  for(const s of [-1,1]) {
-    const collar=box(g,.17,.17,.038,outfit,s*.115,1.49,.218,.025);collar.rotation.z=s*.36;
-    limb(g,mat(new THREE.Color(shirts[id]).multiplyScalar(.74)),[s*.30,1.35,.185],[s*.29,.99,.224],.008);
-  }
-  box(g,.16,.115,.026,outfit,-.20,1.27,.239,.014);
-  box(g,.14,.011,.009,mat(new THREE.Color(shirts[id]).multiplyScalar(.70)),-.20,1.325,.261,.003);
-  box(g, .41, .64, .07, mat(id % 2 === 0 ? 0x8eb3d8 : shirts[id]), 0, 1.21, .202, .04);
-  if (id % 2 === 0) {
-    for (const s of [-1, 1]) box(g, .15, .69, .11, outfit, s * .22, 1.21, .245, .04).rotation.z = s * .04;
-    limb(g, mat(0xc9c6b8), [-.25, 1.5, .26], [-.17, 1.25, .29], .018);
-  } else {
-    for (let n = 0; n < 4; n++) sphere(g, mat(0xe4dcca), .04, 1.41 - n * .12, .275, .022);
-  }
-  cylinder(g, skin, .12, .13, .19, 0, 1.58, -.02);
-  for (const s of [-1, 1]) {
-    limb(g, pants, [s * .2, .82, .07], [s * .27, .7, .60], .18);
-    limb(g, pants, [s * .27, .7, .58], [s * .27, .24, .64], .14);
-    sphere(g, boots, s * .27, .17, .73, .17, .115, .27);
-    limb(g, outfit, [s * .36, 1.41, -.02], [s * .48, 1.01, .18], .145);
-    limb(g, outfit, [s * .48, 1.03, .19], [s * .44, .91, .45], .12);
-    sphere(g, skin, s * .44, .91, .48, .13, .09, .15);
-    for (let f = 0; f < 3; f++) limb(g, skin, [s * .44 + (f - 1) * .05, .91, .52], [s * .44 + (f - 1) * .05, .87, .61], .027);
-  }
-  // A broad webbing belt and a brass latch sell the seated cabin pose.
-  const belt = new THREE.Group(); g.add(belt); g.userData.belt = belt; belt.visible = false;
-  box(belt, .76, .10, .07, mat(0x30353a), 0, .83, .34, .015);
-  box(belt, .17, .15, .07, mat(0xc3c8cc, .35, .65), 0, .83, .4, .02);
-  box(belt, .09, .085, .012, mat(color.gold, .42, .35), .018, .83, .44, .012);
-  for (const s of [-1, 1]) {
-    const loose = box(g, .12, .29, .045, mat(0x30353a), s * .48, .77, .43, .012);
-    loose.rotation.z = s * .22;
-    box(g, .14, .075, .05, mat(0xaeb7c0, .35, .6), s * .5, .63, .44, .012);
-  }
-
-  const head = new THREE.Group(); head.position.set(0, 1.96, .015);
-  head.rotation.y = x > 0 ? -.18 : .18;
-  head.rotation.z = (id % 3 - 1) * .055; g.add(head); g.userData.head = head;
-  const skinGeometry = new THREE.SphereGeometry(1, 28, 22);
-  const skinVertices = skinGeometry.attributes.position;
-  const skinColors: number[] = [];
-  const baseSkin = new THREE.Color(skins[id]), cheekColor = new THREE.Color(skins[id]).lerp(new THREE.Color(0xb95245), .22);
-  for (let n = 0; n < skinVertices.count; n++) {
-    const px = skinVertices.getX(n), py = skinVertices.getY(n), pz = skinVertices.getZ(n);
-    const jaw = py < -.1 ? 1 + py * .20 : 1;
-    skinVertices.setXYZ(n,px * .398 * jaw,py * .475,pz * .328 * (py < -.2 ? .93 : 1));
-    const cheek = Math.max(0,1-Math.abs(Math.abs(px)-.58)*4) * Math.max(0,1-Math.abs(py+.18)*4) * Math.max(0,pz);
-    const c = baseSkin.clone().lerp(cheekColor,cheek); skinColors.push(c.r,c.g,c.b);
-  }
-  skinGeometry.setAttribute('color',new THREE.Float32BufferAttribute(skinColors,3));skinGeometry.computeVertexNormals();
-  const faceMaterial=skin.clone();faceMaterial.vertexColors=true;faceMaterial.color.setHex(0xffffff);
-  const face=new THREE.Mesh(skinGeometry,faceMaterial);face.castShadow=true;face.receiveShadow=true;head.add(face);
-  const eyes=new THREE.Group();eyes.position.y=.085;head.add(eyes);g.userData.eyes=eyes;
-  const eyeWhite=mat(0xfff8e9,.62),pupilMaterial=mat(0x263039,.36),lidMaterial=mat(new THREE.Color(skins[id]).multiplyScalar(.92));
-  const hairColors = [0x483729, 0x282226, 0x925124, 0x483d3a, 0x252126, 0xb58b57, 0xb7bbb8, 0x312b28];
-  const hair = mat(hairColors[id],.96);
-  for(const side of [-1,1]) {
-    sphere(head,skin,side*.377,-.025,.006,.072,.11,.066);
-    sphere(head,lidMaterial,side*.394,-.025,.047,.032,.060,.019);
-    sphere(eyes,eyeWhite,side*.172,0,.285,.181,.206,.078);
-    sphere(eyes,pupilMaterial,side*.166+(x>0?-.017:.017),-.024,.359,.055,.065,.018);
-    sphere(eyes,mat(0xffffff,.42),side*.166-.014,.001,.376,.011);
-    const upper=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.172-.17,.08,.300),new THREE.Vector3(side*.172,.205,.303),new THREE.Vector3(side*.172+.17,.08,.300)]);
-    eyes.add(new THREE.Mesh(new THREE.TubeGeometry(upper,14,.017,5,false),lidMaterial));
-    const eyebrow=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.172-.115,.336,.267),new THREE.Vector3(side*.172,.36+(id%3-1)*.015,.273),new THREE.Vector3(side*.172+.12,.324,.267)]);
-    head.add(new THREE.Mesh(new THREE.TubeGeometry(eyebrow,12,.021,6,false),hair));
-  }
-  sphere(head,skin,0,-.11,.311,.064,.074,.071);
-  const mouth=new THREE.Group();mouth.position.set(0,-.235,.292);head.add(mouth);g.userData.mouth=mouth;
-  const smile=new THREE.CatmullRomCurve3([new THREE.Vector3(-.153,.003,0),new THREE.Vector3(0,-.025,.027),new THREE.Vector3(.153,.007,0)]);
-  mouth.add(new THREE.Mesh(new THREE.TubeGeometry(smile,16,.013,6,false),mat(0x92584a)));
-  const lowerLip=new THREE.CatmullRomCurve3([new THREE.Vector3(-.105,-.03,.006),new THREE.Vector3(0,-.043,.023),new THREE.Vector3(.105,-.028,.007)]);
-  mouth.add(new THREE.Mesh(new THREE.TubeGeometry(lowerLip,12,.010,5,false),mat(new THREE.Color(skins[id]).lerp(new THREE.Color(0xa85750),.25))));
-  const gasp=new THREE.Group();gasp.position.copy(mouth.position);head.add(gasp);gasp.visible=false;g.userData.gasp=gasp;
-  sphere(gasp,mat(0x713f36),0,-.017,.014,.081,.095,.025);
-  sphere(gasp,mat(0xd58e81),0,-.065,.035,.052,.018,.009);
-  if(id===3||id===7) {
-    const hat=mat(id===3?0x398f70:0xca973d,.98);hat.bumpMap=fabric;hat.bumpScale=.012;
-    sphere(head,hat,0,.372,-.03,.405,.207,.338);
-    const rim=new THREE.Mesh(new THREE.TorusGeometry(.354,.045,8,32),hat);rim.rotation.x=Math.PI/2;rim.scale.z=.86;rim.position.set(0,.345,-.025);head.add(rim);
-    if(id===7)box(head,.48,.045,.28,hat,0,.337,.295,.072);
-    else {sphere(head,hat,-.19,.536,-.04,.087,.082,.087);sphere(head,hat,.19,.536,-.04,.087,.082,.087);}
-  } else {
-    const points:number[]=[],indices:number[]=[],colors:number[]=[];const around=40,down=16;
-    for(let row=0;row<=down;row++) for(let col=0;col<=around;col++) {
-      const phi=col/around*Math.PI*2,front=Math.max(0,Math.sin(phi));
-      const maxTheta=1.82-front*(id===6?1.08:.69)+Math.sin(phi*5+id)*.025;
-      const theta=row/down*maxTheta;
-      const curl=id===4?1+Math.sin(phi*12+theta*15)*.035:1;
-      const quiff=(id===0||id===2)?Math.pow(front,4)*Math.sin(theta*1.3)*.095:0;
-      points.push(Math.sin(theta)*Math.cos(phi)*.412*curl,.035+Math.cos(theta)*.485+quiff,-.035+Math.sin(theta)*Math.sin(phi)*.346*curl);
-      const h=new THREE.Color(hairColors[id]).multiplyScalar(.86+Math.sin(phi*17+theta*.7)*.055+Math.cos(theta)*.14);colors.push(h.r,h.g,h.b);
-      if(row<down&&col<around){const a=row*(around+1)+col,b=a+around+1;indices.push(a,b,a+1,b,b+1,a+1);}
-    }
-    const hairGeo=new THREE.BufferGeometry();hairGeo.setAttribute('position',new THREE.Float32BufferAttribute(points,3));hairGeo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));hairGeo.setIndex(indices);hairGeo.computeVertexNormals();
-    const capMaterial=hair.clone();capMaterial.color.setHex(0xffffff);capMaterial.vertexColors=true;
-    const cap=new THREE.Mesh(hairGeo,capMaterial);cap.castShadow=true;head.add(cap);
-    if(id===5){sphere(head,hair,.03,.30,-.34,.145,.17,.13);const tie=new THREE.Mesh(new THREE.TorusGeometry(.10,.02,6,18),mat(0x594633));tie.position.set(.03,.32,-.39);head.add(tie);}
-  }
-  if(id===6){
-    const glasses=mat(0x574a38,.38,.5);
-    for(const side of [-1,1]){const ring=new THREE.Mesh(new THREE.TorusGeometry(.184,.009,6,32),glasses);ring.position.set(side*.177,.087,.369);ring.scale.y=1.1;head.add(ring);}
-    box(head,.06,.015,.018,glasses,0,.12,.365,.004);
-    sphere(head,hair,-.062,-.18,.3,.076,.025,.028);sphere(head,hair,.062,-.18,.3,.076,.025,.028);
-  }
-  g.userData.visualState={belted:false,served:false,panic:0,grabbed:false,request:'coffee'} as PassengerVisualState;
-  const bubble = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: true, transparent: true }));
-  bubble.position.set(0, 2.83, .03); bubble.scale.set(.51, .51, 1); g.add(bubble);
-  return { id, group: g, position: new THREE.Vector3(x, 1.4, z), bubble };
+  return createPassenger(parent,id,x,z,texture,fabric);
 }
 
-function arch(parent: Parent, z: number, material: THREE.Material, thickness = .07) {
-  const points: THREE.Vector3[] = [];
-  for (let i = 0; i <= 32; i++) {
-    const a = i / 32 * Math.PI;
-    points.push(new THREE.Vector3(Math.cos(a) * 3.06, 2.76 + Math.sin(a) * 1.19, z));
+function arch(parent: Parent, z: number, material: THREE.Material, thickness = .055) {
+  // A shallow ceiling seam follows the upholstered roof instead of a round exposed pipe.
+  const vertices:number[]=[],indices:number[]=[];
+  for(let i=0;i<=48;i++){
+    const angle=i/48*Math.PI;
+    for(const side of [-1,1])vertices.push(Math.cos(angle)*3.105,2.78+Math.sin(angle)*1.232,z+side*thickness);
   }
-  const curve = new THREE.CatmullRomCurve3(points);
-  const mesh = new THREE.Mesh(new THREE.TubeGeometry(curve, 48, thickness, 6, false), material);
-  mesh.castShadow = true; parent.add(mesh);
+  for(let i=0;i<48;i++)indices.push(i*2,i*2+1,i*2+2,i*2+1,i*2+3,i*2+2);
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setIndex(indices);geometry.computeVertexNormals();
+  const mesh=new THREE.Mesh(geometry,material);mesh.receiveShadow=true;parent.add(mesh);
 }
 
 function buildCockpit(parent: Parent) {
-  const g = new THREE.Group(); g.position.z = -12.38; parent.add(g);
-  const dashboard = mat(0x263c51, .65), dark = mat(0x122939, .6);
-  // The slanted windshield is open to the surrounding blue sky.
-  box(g, 5.4, .70, 1.15, dashboard, 0, .83, -.28, .13);
-  const deck = box(g, 5.05, .10, 1.1, dark, 0, 1.17, -.23, .06); deck.rotation.x = .06;
-  const needles: THREE.Group[]=[];
-  for(let i=0;i<5;i++) {
-    const x=(i-2)*.88;
-    const frame=cylinder(g,mat(0x718591,.4,.45),.325,.325,.045,x,1.53,.11,40);frame.rotation.x=Math.PI/2;
-    const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const ctx=canvas.getContext('2d')!;
-    ctx.fillStyle='#0f2736';ctx.fillRect(0,0,256,256);
-    ctx.strokeStyle='#637c89';ctx.lineWidth=3;ctx.beginPath();ctx.arc(128,128,116,0,Math.PI*2);ctx.stroke();
-    for(let n=0;n<40;n++) {
-      const a=n/40*Math.PI*2,inner=n%5===0?91:101;
-      ctx.strokeStyle=n>30?'#d2a676':'#b8cac7';ctx.lineWidth=n%5===0?3:1.3;ctx.beginPath();ctx.moveTo(128+Math.sin(a)*inner,128-Math.cos(a)*inner);ctx.lineTo(128+Math.sin(a)*111,128-Math.cos(a)*111);ctx.stroke();
-      if(n%5===0){ctx.fillStyle='#d7e2d8';ctx.font='16px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(n*5),128+Math.sin(a)*76,128-Math.cos(a)*76);}
-    }
-    ctx.fillStyle='#d1e7dc';ctx.font='bold 21px sans-serif';ctx.textAlign='center';ctx.fillText(['SPEED','ALTITUDE','HEADING','FUEL','CABIN'][i],128,114);ctx.font='13px sans-serif';ctx.fillStyle='#77aaa8';ctx.fillText(['KNOTS','FEET','DEGREES','FUEL FLOW','PRESSURE'][i],128,146);
-    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
-    const face=new THREE.Mesh(new THREE.CircleGeometry(.292,40),new THREE.MeshBasicMaterial({map:texture}));face.position.set(x,1.53,.14);g.add(face);
-    const needle=new THREE.Group();needle.position.set(x,1.53,.156);g.add(needle);needles.push(needle);
-    box(needle,.017,.21,.012,mat(0xede6b8,.42),0,.078,0,.006);sphere(needle,mat(0xbcc9c5,.33,.5),0,0,.013,.030,.030,.013);
-    for(let n=0;n<3;n++) sphere(g,new THREE.MeshStandardMaterial({color:n===1?0xd5954a:0x76ae82,emissive:n===1?0xb57628:0x396b46,emissiveIntensity:.7}),x-.11+n*.11,1.25,.27,.027);
-  }
-  // Center-console switches and twin throttle levers remain real geometry.
-  box(g,.6,.52,.55,mat(0x81969e,.6,.2),0,.92,.79,.06);
-  for(const x of [-.13,.13]){
-    box(g,.05,.02,.27,mat(0x172c38),x,1.19,.79,.014);
-    limb(g,mat(0xb5c2c5,.34,.5),[x,1.18,.80],[x,1.35,.73],.022);
-    box(g,.105,.07,.13,mat(0x6c3b32),x,1.38,.72,.03);
-  }
-  for (const x of [-1.1, 1.1]) {
-    box(g, .85, .16, .74, mat(0x40566c), x, .59, 1.18, .10);
-    box(g, .87, .93, .20, mat(0x40566c), x, 1.04, 1.52, .09);
-    cylinder(g, mat(0x9babad, .35, .4), .08, .11, .57, x, .29, 1.18);
-    limb(g, dark, [x, 1.09, .69], [x, 1.4, .42], .04);
-    limb(g, dark, [x - .23, 1.43, .42], [x + .23, 1.43, .42], .055);
-  }
-  for (const x of [-2.6, -.9, .9, 2.6]) limb(g, mat(0xc7ccd0), [x, 1.62, -.8], [x * .77, 3.41, -.8], .065);
-  limb(g, mat(0xc7ccd0), [-2.1, 3.35, -.8], [2.1, 3.35, -.8], .09);
-  box(parent, 1.8, 3.32, .23, mat(color.wall), -2.2, 1.66, -10.15, .06);
-  box(parent, 1.8, 3.32, .23, mat(color.wall), 2.2, 1.66, -10.15, .06);
-  box(parent, 2.7, .73, .24, mat(color.wall), 0, 3.12, -10.15, .06);
-  label(parent, "FLIGHT DECK", 1.65, .26, 0, 2.98, -9.998);
-  for (const x of [-1.23, 1.23]) box(parent, .09, 2.7, .18, mat(color.dark), x, 1.37, -10.12, .03);
-  return { needles };
+  const instruments=buildDetailedFlightDeck(parent);
+  const wall=mat(0xe8e9e2,.80),trim=mat(0x7d8e9f,.52);
+  box(parent,1.8,3.32,.23,wall,-2.2,1.66,-10.15,.08);
+  box(parent,1.8,3.32,.23,wall,2.2,1.66,-10.15,.08);
+  box(parent,2.7,.73,.24,wall,0,3.12,-10.15,.075);
+  label(parent,"FLIGHT DECK",1.65,.26,0,2.98,-9.998,"#193857","#f1f3e6");
+  for(const x of [-1.23,1.23])box(parent,.09,2.7,.18,trim,x,1.37,-10.12,.03);
+  return instruments;
 }
 
 export function buildCabin(scene: THREE.Scene): CabinWorld {
   const root = new THREE.Group(); root.name = "Dear Passengers · Cabin"; scene.add(root);
   const fabric=makeFabricTexture();
-  const wall = mat(color.wall, .82), trim = mat(color.trim, .56, .1), dark = mat(color.dark, .7);
-  wall.bumpMap=fabric;wall.bumpScale=.004;
-  const warmWhite = new THREE.MeshStandardMaterial({ color: 0xfff4d7, emissive: 0xffe4a7, emissiveIntensity: 1.2 });
+  const wall = mat(0xe8eae4, .83), trim = mat(0xa5b3be, .58, .1), dark = mat(0x253853, .75);
+  // Smooth cream cabin panels: alternating one-pixel fabric lines produced wall moiré.
+  const warmWhite = new THREE.MeshStandardMaterial({ color: 0xfff5e2, emissive: 0xffd5a0, emissiveIntensity: .62 });
+  const readingWhite = new THREE.MeshStandardMaterial({ color: 0xf1faff, emissive: 0xcceaff, emissiveIntensity: 1.25 });
   scene.background = new THREE.Color(0x8ed4f4);
   scene.fog = new THREE.Fog(0xcce8ed, 24, 68);
-  const ambient = new THREE.HemisphereLight(0xb9dcf5, 0x7b7667, 1.55); root.add(ambient);
-  const sunlight = new THREE.DirectionalLight(0xffe4bb, 3.6);
-  sunlight.position.set(-12, 18, 8); sunlight.castShadow = true;
+  const ambient = new THREE.HemisphereLight(0xc5e3ff, 0x7186a4, 1.6); root.add(ambient);
+  const sunlight = new THREE.DirectionalLight(0xf5faff, 3.15);
+  sunlight.position.set(-16, 13, 6); sunlight.castShadow = true;
   sunlight.shadow.mapSize.set(2048, 2048); sunlight.shadow.camera.left = -17; sunlight.shadow.camera.right = 17;
   sunlight.shadow.camera.top = 17; sunlight.shadow.camera.bottom = -17; sunlight.shadow.camera.near = .1; sunlight.shadow.camera.far = 55;
   sunlight.shadow.bias = -.0007; sunlight.shadow.normalBias = .035; sunlight.target.position.set(0, 0, 0);
   root.add(sunlight, sunlight.target);
-  const fill = new THREE.DirectionalLight(0xa3d6fa, .8); fill.position.set(7, 6, -10); root.add(fill);
+  const fill = new THREE.DirectionalLight(0xc2ddfa, .92); fill.position.set(7, 5, -10); root.add(fill);
 
   const carpetCanvas = document.createElement("canvas"); carpetCanvas.width = carpetCanvas.height = 128;
   const cctx = carpetCanvas.getContext("2d")!; cctx.fillStyle = "#23416e"; cctx.fillRect(0, 0, 128, 128);
@@ -553,10 +427,13 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   const carpetTexture = new THREE.CanvasTexture(carpetCanvas); carpetTexture.wrapS = carpetTexture.wrapT = THREE.RepeatWrapping; carpetTexture.repeat.set(6, 26); carpetTexture.colorSpace = THREE.SRGBColorSpace;
   box(root, 6.1, .16, 27.1, new THREE.MeshStandardMaterial({ map: carpetTexture, roughness: 1 }), 0, -.10, -.1, 0);
   for (const x of [-.88, .88]) box(root, .026, .005, 24.1, mat(0x8491a6), x, -.012, -.4, 0);
-  for (let z = -9; z <= 10; z += 1) box(root, 1.70, .006, .013, mat(0x344f77), 0, -.009, z, 0);
+  // The aisle is continuous carpet; crossbars made the previous interior read like bus flooring.
 
   // Separate perforated panels leave actual openings, so the changing exterior reads as sky.
   const windowZs = [-8.6, -5.6, -2.6, .4, 3.4, 6.4, 9.4];
+  const intactHull = new THREE.Group(), damagedHull = new THREE.Group();
+  intactHull.name='Intact fire-side wall';damagedHull.name='Visible fire-side structural damage';
+  root.add(intactHull,damagedHull);damagedHull.visible=false;
   for (const side of [-1, 1]) {
     const lowerSections: Array<[number, number]> = side < 0 ? [[-13.5, 8.04], [9.31, 13.3]] : [[-13.5, 13.3]];
     for (const [a, b] of lowerSections) {
@@ -569,6 +446,7 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     for (const z of windowZs) {
       const hasDoor = side < 0 && z === 9.4;
       const windowOffset = hasDoor ? -.78 : 0;
+      const panelParent=side<0&&z===-5.6?intactHull:root;
       let panelShape = roundPath(3, 2.25, .045, 0, 1.86);
       if (hasDoor) {
         // This opening continues down through the lower wall; the adjacent window
@@ -579,49 +457,85 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
         panelShape.lineTo(1.36, .735); panelShape.lineTo(1.5, .735);
         panelShape.lineTo(1.5, 2.985); panelShape.lineTo(-1.5, 2.985); panelShape.closePath();
       }
-      const hole = roundPath(1.25, 1.65, .38, windowOffset, 1.98);
+      const windowWidth=hasDoor?1.20:1.72,windowHeight=hasDoor?1.61:1.77;
+      const hole = roundPath(windowWidth, windowHeight, .39, windowOffset, 1.98);
       panelShape.holes.push(new THREE.Path(hole.getPoints(28)));
       const panel = new THREE.Mesh(new THREE.ExtrudeGeometry(panelShape, { depth: .10, bevelEnabled: false }), wall);
-      panel.position.set(side * 3.055, 0, z); panel.rotation.y = Math.PI / 2; panel.castShadow = true; panel.receiveShadow = true; root.add(panel);
-      const rimShape = roundPath(1.49, 1.88, .43, windowOffset, 1.98);
-      rimShape.holes.push(new THREE.Path(roundPath(1.24, 1.63, .37, windowOffset, 1.98).getPoints(28)));
-      const frame = new THREE.Mesh(new THREE.ExtrudeGeometry(rimShape, { depth: .10, bevelEnabled: true, bevelSize: .045, bevelThickness: .035, bevelSegments: 2, steps: 1 }), mat(0xf4f1e6, .47));
-      frame.position.set(side * 3.00, 0, z); frame.rotation.y = Math.PI / 2; frame.castShadow = true; frame.receiveShadow = true; root.add(frame);
-      box(root, .06, 1.85, .016, trim, side * 2.986, 1.93, z + 1.49, .008);
+      panel.position.set(side * 3.055, 0, z); panel.rotation.y = Math.PI / 2; panel.castShadow = true; panel.receiveShadow = true; panelParent.add(panel);
+      const rimShape = roundPath(windowWidth+.26, windowHeight+.24, .49, windowOffset, 1.98);
+      rimShape.holes.push(new THREE.Path(roundPath(windowWidth-.025, windowHeight-.025, .38, windowOffset, 1.98).getPoints(28)));
+      const extrudedRim=new THREE.ExtrudeGeometry(rimShape, { depth: .12, bevelEnabled: true, bevelSize: .047, bevelThickness: .048, bevelSegments: 4, steps: 1 });
+      // Untextured bevels can share vertices across UV seams for continuous molded-plastic shading.
+      extrudedRim.deleteAttribute('normal');extrudedRim.deleteAttribute('uv');
+      const smoothRim=mergeVertices(extrudedRim,.00001);smoothRim.computeVertexNormals();extrudedRim.dispose();
+      const frame = new THREE.Mesh(smoothRim, mat(0xeef0e9, .63));
+      frame.position.set(side * 3.00, 0, z); frame.rotation.y = Math.PI / 2; frame.castShadow = true; frame.receiveShadow = true; panelParent.add(frame);
+      box(panelParent, .07, 2.13, .075, trim, side * 2.986, 1.88, z + 1.49, .026);
       // Tiny pull-down shade grip.
-      box(root, .05, .035, .26, trim, side * 2.91, 2.76, z - windowOffset, .015);
+      box(panelParent, .055, .042, .29, trim, side * 2.90, 2.79, z - windowOffset, .015);
     }
     // Long baggage shelves with open fronts and colourful cases.
-    box(root, 1.07, .12, 20.45, dark, side * 2.49, 2.97, -.15, .05);
-    box(root, .10, .14, 20.45, mat(0xa6b4bd, .4, .3), side * 1.96, 3.025, -.15, .035);
+    box(root, 1.16, .19, 20.45, dark, side * 2.48, 3.01, -.15, .07);
+    box(root, .20, .24, 20.45, mat(0x354762, .65), side * 1.93, 3.095, -.15, .065);
+    box(root, .048, .035, 20.40, mat(0xa7b6c6, .41, .25), side * 1.818, 3.067, -.15, .015);
     for (let z = -9; z < 9.5; z += 2.5) {
-      limb(root, dark, [side * 3.02, 2.64, z], [side * 2.33, 2.90, z], .048);
-      box(root, .36, .027, .72, warmWhite, side * 2.37, 2.893, z, .012);
+      box(root,.10,.19,.12,trim,side*2.95,2.85,z,.025);
+      box(root,.39,.04,.78,mat(0x92a5b5,.53),side*2.34,2.885,z,.018);
+      for(const offset of [-.235,0,.235])box(root,.29,.022,.185,readingWhite,side*2.34,2.853,z+offset,.018);
       for (const o of [-.18, .18]) cylinder(root, mat(0x697c8d), .047, .047, .018, side * 2.72, 2.89, z + o, 12);
     }
     const baggageColors = [0xf6bd32, 0xe85946, 0x2fa777, 0xab6cce, 0x4e99cb, 0xde9142, 0xeb88a5];
-    for (let n = 0; n < 16; n++) {
-      const bag = suitcase(root, baggageColors[(n + (side === 1 ? 3 : 0)) % baggageColors.length], side * 2.48, 3.04, -9.45 + n * 1.22, .9 + (n % 3) * .06);
+    for (let n = 0; n < 12; n++) {
+      const bag = suitcase(root, baggageColors[(n + (side === 1 ? 3 : 0)) % baggageColors.length], side * 2.51, 3.105, -9.05 + n * 1.58, .82 + (n % 3) * .055);
       bag.rotation.y = side === -1 ? Math.PI / 2 : -Math.PI / 2;
       bag.rotation.z = (n % 3 - 1) * .04;
     }
   }
-  // Elliptical ceiling skin with exposed ribs.
+  // Fire-side damage is a real opening with a ragged metal edge. It is visual damage only;
+  // the movement/collision envelope and all interaction targets remain unchanged.
+  const tornEdge=[[-1.42,1.17],[-1.13,.91],[-.75,1.04],[-.33,.88],[.03,.98],[.45,.86],[.88,1.03],[1.37,1.11],[1.22,1.52],[1.42,1.86],[1.26,2.23],[1.38,2.70],[.92,2.84],[.55,2.73],[.20,2.89],[-.15,2.73],[-.54,2.90],[-.91,2.78],[-1.31,2.83],[-1.19,2.40],[-1.40,2.02],[-1.25,1.62]];
+  const tearPath=new THREE.Path(tornEdge.map(([x,y])=>new THREE.Vector2(x,y)));tearPath.closePath();
+  const brokenShape=roundPath(3,2.25,.035,0,1.86);brokenShape.holes.push(tearPath);
+  const brokenPanel=new THREE.Mesh(new THREE.ExtrudeGeometry(brokenShape,{depth:.13,bevelEnabled:false}),mat(0x9ca3a1,.87));
+  brokenPanel.position.set(-3.06,0,-5.6);brokenPanel.rotation.y=Math.PI/2;brokenPanel.castShadow=brokenPanel.receiveShadow=true;damagedHull.add(brokenPanel);
+  const scorchedShape=new THREE.Shape(tornEdge.map(([x,y])=>new THREE.Vector2(Math.max(-1.48,Math.min(1.48,x*1.08)),Math.max(.77,Math.min(2.96,1.86+(y-1.86)*1.12)))));
+  scorchedShape.holes.push(new THREE.Path(tornEdge.map(([x,y])=>new THREE.Vector2(x,y))));
+  const scorchMaterial=mat(0x383d43,.98);scorchMaterial.side=THREE.DoubleSide;
+  const scorch=new THREE.Mesh(new THREE.ExtrudeGeometry(scorchedShape,{depth:.025,bevelEnabled:false}),scorchMaterial);
+  scorch.position.set(-2.899,0,-5.6);scorch.rotation.y=Math.PI/2;damagedHull.add(scorch);
+  const exposed=mat(0x758896,.44,.48);
+  for(const z of [-6.87,-4.31]){
+    box(damagedHull,.15,.37,.13,exposed,-2.966,2.78,z,.016).rotation.x=z<-5?.15:-.21;
+    box(damagedHull,.13,.29,.12,exposed,-2.97,.94,z,.014).rotation.z=.13;
+  }
+  for(let n=0;n<5;n++){
+    const shard=box(damagedHull,.24,.20,.17,n%2?exposed:scorchMaterial,-2.94,2.83-(n%2)*.1,-6.60+n*.42,.007);
+    shard.rotation.set(n*.2,-.28+n*.15,n%2?.5:-.2);
+  }
+  for(let n=0;n<3;n++){
+    const z=-5.98+n*.19;
+    const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(-2.96,2.85,z),new THREE.Vector3(-2.73,2.63,z+.035),new THREE.Vector3(-2.70,2.38-n*.10,z+.08),new THREE.Vector3(-2.77,2.29-n*.09,z+.05)]);
+    damagedHull.add(new THREE.Mesh(new THREE.TubeGeometry(curve,13,.012,5,false),mat([0xb64c3c,0x4c8469,0x29353a][n],.79)));
+  }
+
+  // Continuous cream ceiling skin, with shallow upholstered panel seams.
   const vertices: number[] = [], indices: number[] = [];
   for (let j = 0; j <= 1; j++) for (let i = 0; i <= 40; i++) {
     const a = i / 40 * Math.PI; vertices.push(Math.cos(a) * 3.13, 2.78 + Math.sin(a) * 1.25, j ? 13.5 : -13.5);
   }
   for (let i = 0; i < 40; i++) { indices.push(i, i + 1, i + 41, i + 1, i + 42, i + 41); }
   const ceilingGeo = new THREE.BufferGeometry(); ceilingGeo.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3)); ceilingGeo.setIndex(indices); ceilingGeo.computeVertexNormals();
-  const ceilingMat = mat(0xd6d6d2); ceilingMat.side = THREE.DoubleSide;
+  const ceilingMat = mat(0xdfe5e7,.87); ceilingMat.side = THREE.DoubleSide;
   const ceiling = new THREE.Mesh(ceilingGeo, ceilingMat); ceiling.receiveShadow = true; root.add(ceiling);
-  for (let z = -12; z <= 12; z += 3) arch(root, z, mat(0xa9afb6), .075);
-  for (const x of [-.37, .37]) box(root, .035, .045, 25.3, mat(0x99a3ae), x, 3.96, 0, .015);
+  const ceilingSeam=mat(0xc2cdd5,.82);ceilingSeam.side=THREE.DoubleSide;
+  for (let z = -12; z <= 12; z += 3) arch(root, z, ceilingSeam, .045);
+  for (const x of [-.37, .37]) box(root, .023, .018, 25.3, mat(0xc2ced8), x, 4.003, 0, .007);
   for (let z = -10; z <= 10; z += 3) {
     box(root, .43, .048, .66, mat(0x8d9daa), 0, 3.97, z, .06);
-    box(root, .30, .03, .48, warmWhite, 0, 3.936, z, .055);
-    if ((z + 10) % 9 === 0) { const light = new THREE.PointLight(0xffedca, 3.4, 11, 2); light.position.set(0, 3.45, z); root.add(light); }
+    box(root, .30, .03, .48, readingWhite, 0, 3.936, z, .055);
+    if ((z + 10) % 9 === 0) { const light = new THREE.PointLight(z===8?0xffe1bb:0xdcecff, z===8?1.65:1.40, 10, 2); light.position.set(0, 3.32, z); root.add(light); }
   }
+  addCabinStillLife(root);
 
   const bubbleMap = bubbleTexture(),foodBubbleMap=bubbleTexture('food');
   const passengers: CabinPassenger[] = [];
@@ -636,13 +550,9 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   }
 
   const instruments=buildCockpit(root);
-  const copilot = passenger(root, 1, 1.10, -10.73, bubbleMap,fabric);
+  const copilot = passenger(root, 4, 1.10, -10.73, bubbleMap,fabric);
   copilot.group.rotation.y = Math.PI; copilot.bubble.visible = false;
   const pilotHead = copilot.group.userData.head as THREE.Group;
-  const pilotHat = mat(0x233e61);
-  cylinder(pilotHead, pilotHat, .36, .31, .13, 0, .43, 0);
-  box(pilotHead, .55, .05, .27, pilotHat, 0, .365, .28, .075);
-  box(pilotHead, .25, .05, .02, mat(color.gold), 0, .43, .337, .014);
   // Rear galley: metal compartments, espresso station and a red curtain.
   box(root, 6.1, 3.8, .23, wall, 0, 1.9, 13.05, .06);
   const galleyCabinet = mat(0xb4c4cd, .43, .3);
@@ -763,7 +673,7 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     const mouth = cylinder(root, mat(0x314b62, .6, .3), .50, .50, .06, side * 5.12, -.39, 2.30, 24); mouth.rotation.x = Math.PI / 2;
     const hub = cylinder(root, mat(0x91a8b3), .14, .25, .21, side * 5.12, -.39, 2.35); hub.rotation.x = Math.PI / 2;
   }
-  const clouds = new THREE.Group(); root.add(clouds);
+  const clouds = new THREE.Group(); root.add(clouds); clouds.visible=false; // Layered procedural clouds are supplied by cabin-effects.
   const cloudMaterial = new THREE.MeshStandardMaterial({ color: 0xf0f8fc,roughness:1,transparent:true,opacity:.95 });
   for (let n = 0; n < 32; n++) {
     const side = n % 2 ? -1 : 1;
@@ -826,11 +736,12 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   bakeSolidColours(root,removedMaterials);
   const actors = [...passengers, copilot];
   const movingGroups = new Set<THREE.Object3D>([
-    ...actors.map(p => p.group), ...objects.map(o=>o.group), ...instruments.needles, effects.root, cart, cargo, door, fire, clouds, coast, mountains, night,
+    ...actors.map(p => p.group), ...objects.map(o=>o.group), ...instruments.needles, instruments.radarSweep, intactHull, damagedHull, effects.root, cart, cargo, door, fire, clouds, coast, mountains, night,
   ]);
   const before = { meshes: 0 }; root.traverse(object => { if (object instanceof THREE.Mesh) before.meshes++; });
   batchStaticGeometry(root, movingGroups, removedGeometries, removedMaterials);
   for (const p of actors) {
+    if(p.group.userData.characterRig)continue;
     const head = p.group.userData.head as THREE.Group, belt = p.group.userData.belt as THREE.Group;
     const eyes=p.group.userData.eyes as THREE.Group,mouth=p.group.userData.mouth as THREE.Group,gasp=p.group.userData.gasp as THREE.Group;
     batchStaticGeometry(p.group, new Set([head, belt]), removedGeometries, removedMaterials);
@@ -847,9 +758,12 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   }
   // The parent transforms remain live: cart sway, door hinge, clouds and route
   // visibility all continue to work on their original public object references.
-  for (const group of [cart, cargo, door, coast, mountains, night, ...clouds.children as THREE.Group[]]) {
+  for (const group of [cart, cargo, door, intactHull, damagedHull, coast, mountains, night, ...clouds.children as THREE.Group[]]) {
     batchStaticGeometry(group, new Set(), removedGeometries, removedMaterials);
   }
+  // Install terrain shaders after batching so their hooks survive colour baking,
+  // while cloned materials keep the indoor cabin on its existing lighting path.
+  for(const terrain of [coast,mountains,night])effects.applyAtmosphere(terrain);
   const liveGeometries = new Set<THREE.BufferGeometry>(), liveMaterials = new Set<THREE.Material>();
   let afterMeshes = 0;
   root.traverse(object => {
@@ -869,15 +783,16 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     galley: new THREE.Vector3(0, 1.1, 11.7), cockpit: new THREE.Vector3(0, 1.3, -11.5),
     setRoute(nextRoute) {
       route = ((nextRoute % 3) + 3) % 3;
+      flightState.weather = ['clear','storm','night'][route];
       coast.visible = route === 0; mountains.visible = route === 1; night.visible = route === 2;
       const background = [0x8ed4f4, 0x7d94ab, 0x11243f][route];
       (scene.background as THREE.Color).setHex(background);
-      (scene.fog as THREE.Fog).color.setHex(background); (scene.fog as THREE.Fog).far = route === 1 ? 54 : 90;
-      sunlight.color.setHex([0xffe4bb, 0xd1e2f0, 0x83b8ef][route]); sunlight.intensity = [3.6, 1.0, .38][route];
-      ambient.intensity = [1.55, 1.25, 1.02][route]; ambient.color.setHex([0xb9dcf5,0xa6bed2,0x7aa9dc][route]);
-      fill.intensity = [.8,.6,.35][route];
+      sunlight.color.setHex([0xf5faff, 0xd2e2f2, 0x83b8ef][route]); sunlight.intensity = [3.15, 1.0, .38][route];
+      ambient.intensity = [1.6, 1.28, 1.05][route]; ambient.color.setHex([0xc5e3ff,0xb4cada,0x7aa9dc][route]);
+      fill.intensity = [.92,.65,.35][route];
       cloudMaterial.color.setHex([0xf2fbff,0x9eafba,0x405672][route]); cloudMaterial.opacity = route === 2 ? .48 : .88;
-      warmWhite.emissiveIntensity = route === 2 ? 2 : 1.2;
+      warmWhite.emissiveIntensity = route === 2 ? 1.3 : .62;
+      readingWhite.emissiveIntensity = route === 2 ? 1.7 : 1.25;
     },
     setFlightState(state){Object.assign(flightState,state);},
     setPassengerState(id,state){
@@ -893,20 +808,15 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     },
     update(time, turbulence) {
       for (const p of passengers) {
-        const head = p.group.userData.head as THREE.Group;
-        const visual=p.group.userData.visualState as PassengerVisualState;
-        const panic=THREE.MathUtils.clamp(visual.panic,0,1);
-        head.rotation.z = Math.sin(time * 1.3 + p.id * 1.8) * .035 + Math.sin(time * 16 + p.id) * turbulence * .075;
-        head.rotation.x=Math.sin(time*(panic>.5?5:1.1)+p.id)*(.014+panic*.045);
-        head.rotation.y=(p.position.x>0?-.18:.18)+Math.sin(time*.63+p.id*2)*(.055+panic*.08);
-        const blink=(time+p.id*1.47)%(4.2+p.id*.31),blinkScale=blink<.15?Math.max(.055,Math.abs(blink-.075)/.075):1;
-        (p.group.userData.eyes as THREE.Group).scale.y=blinkScale;
-        (p.group.userData.mouth as THREE.Group).visible=panic<.57;
-        (p.group.userData.gasp as THREE.Group).visible=panic>=.57;
+        updatePassengerRig(p.group,time,{...p.group.userData.visualState,turbulence},root.userData.viewerPosition);
         p.bubble.position.y = 2.83 + Math.sin(time * 2.2 + p.id) * .055;
       }
       fireEffect.update(time,flightState.fireIntensity||1,lowQuality);
       effects.update(time,flightState,route,lowQuality);
+      const atmosphericFog=scene.fog as THREE.Fog;
+      atmosphericFog.color.copy(effects.horizon);atmosphericFog.near=effects.fogRange.x;atmosphericFog.far=effects.fogRange.y;
+      const hullDamaged=(fire.visible&&flightState.fireIntensity>.2)||flightState.pressure<.54;
+      intactHull.visible=!hullDamaged;damagedHull.visible=hullDamaged;
       const alarm=flightState.pressure<.77||fire.visible;
       const alarmPulse=alarm?(.3+Math.max(0,Math.sin(time*5))*.7):0;
       alarmLight.intensity=alarmPulse*3.7;alarmMaterial.emissiveIntensity=.05+alarmPulse*1.8;
@@ -915,6 +825,7 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
       instruments.needles[2].rotation.z=THREE.MathUtils.degToRad(flightState.bank);
       instruments.needles[3].rotation.z=-.8+Math.sin(time*.02)*.12;
       instruments.needles[4].rotation.z=(1-flightState.pressure)*3.8-1.9;
+      instruments.radarSweep.rotation.z=-time*.48;
       const pet=objects[2].group;
       (pet.userData.animal as THREE.Group).scale.y=1+Math.sin(time*2.4)*.025;
       (pet.userData.animalHead as THREE.Group).rotation.y=Math.sin(time*.71)*.17;
@@ -925,10 +836,12 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     dispose() {
       const geometries = new Set<THREE.BufferGeometry>(); const materials = new Set<THREE.Material>(); const textures = new Set<THREE.Texture>([bubbleMap,foodBubbleMap,fabric]);
       root.traverse(object => {
+        if (object instanceof THREE.InstancedMesh) object.dispose();
         const mesh = object as THREE.Mesh;
         if (mesh.geometry) geometries.add(mesh.geometry);
         if (mesh.material) for (const m of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
           materials.add(m);for(const value of Object.values(m)){if(value&&(value as THREE.Texture).isTexture)textures.add(value as THREE.Texture);}
+          if(m instanceof THREE.ShaderMaterial)for(const uniform of Object.values(m.uniforms)){if(uniform.value instanceof THREE.Texture)textures.add(uniform.value);}
         }
       });
       geometries.forEach(g => g.dispose()); materials.forEach(m => m.dispose()); textures.forEach(t => t.dispose());
@@ -937,62 +850,7 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   };
 }
 
-export function makeIdleHands():THREE.Group {
-  const group=new THREE.Group();const glove=mat(0x079fcd,.55),cuff=mat(0xe4e6de,.91);
-  for(const side of [-1,1]){
-    limb(group,glove,[side*.54,-.43,.13],[side*.28,-.20,-.06],.077);
-    const sleeve=cylinder(group,cuff,.093,.093,.11,side*.51,-.409,.106);sleeve.rotation.z=side*.84;sleeve.rotation.x=-.5;
-    sphere(group,glove,side*.27,-.18,-.075,.078,.088,.052);
-    for(let n=0;n<4;n++)limb(group,glove,[side*.27+(n-1.5)*.031,-.151,-.093],[side*.27+(n-1.5)*.031,-.112,-.151+(n%2)*.009],.019);
-    limb(group,glove,[side*.222,-.182,-.094],[side*.193,-.151,-.132],.026);
-  }
-  return optimiseStandalone(group);
-}
-
-export function makeCrewAvatar(index:number):THREE.Group{
-  const root=new THREE.Group(),tone=[0x079fcd,0xd35b43,0xe7b934,0x35a26f][((index%4)+4)%4];
-  const skin=mat(tone,.82),shirt=mat(0xe9ece5,.92),navy=mat(0x273d60,.88),hat=mat(0x343d73,.86),gold=mat(0xe3bd65,.6);
-  for(const side of [-1,1]){
-    limb(root,navy,[side*.12,.65,0],[side*.12,.16,.02],.085);
-    sphere(root,skin,side*.12,.091,.064,.103,.072,.176);
-  }
-  box(root,.435,.48,.275,shirt,0,.914,0,.10);
-  cylinder(root,skin,.078,.079,.12,0,1.204,0);
-  for(const side of [-1,1]){const collar=box(root,.112,.12,.025,shirt,side*.071,1.12,.138,.015);collar.rotation.z=side*.42;}
-  box(root,.045,.24,.024,navy,0,1.01,.153,.009);
-  const tieTip=new THREE.Mesh(new THREE.ConeGeometry(.035,.065,4),navy);tieTip.position.set(0,.862,.15);tieTip.rotation.z=Math.PI;root.add(tieTip);
-  box(root,.09,.083,.021,shirt,-.128,.986,.147,.012);
-  box(root,.037,.047,.013,gold,-.128,.997,.165,.006);
-  const head=new THREE.Group();head.position.set(0,1.398,0);root.add(head);root.userData.head=head;
-  sphere(head,skin,0,0,0,.211,.254,.181);
-  for(const side of [-1,1]){
-    sphere(head,skin,side*.203,-.016,0,.045,.065,.039);
-    sphere(head,mat(0xfff6df,.65),side*.095,.035,.162,.101,.121,.037);
-    sphere(head,mat(0x273238,.43),side*.096,.012,.197,.029,.039,.010);
-    sphere(head,mat(0xffffff,.4),side*.096-.009,.027,.207,.006);
-  }
-  sphere(head,skin,0,-.071,.186,.037,.042,.04);
-  const smile=new THREE.CatmullRomCurve3([new THREE.Vector3(-.086,-.14,.141),new THREE.Vector3(0,-.154,.165),new THREE.Vector3(.086,-.136,.14)]);
-  head.add(new THREE.Mesh(new THREE.TubeGeometry(smile,12,.008,5,false),mat(new THREE.Color(tone).multiplyScalar(.62))));
-  cylinder(head,hat,.249,.222,.10,0,.254,-.005,24);
-  sphere(head,hat,0,.309,-.025,.243,.074,.20);
-  box(head,.332,.034,.235,navy,0,.221,.145,.060);
-  const band=new THREE.Mesh(new THREE.TorusGeometry(.217,.010,5,28),gold);band.rotation.x=Math.PI/2;band.position.y=.236;head.add(band);
-  const wing=new THREE.Group();wing.position.set(0,.282,.202);head.add(wing);
-  sphere(wing,gold,0,0,0,.025,.026,.01);
-  for(const side of [-1,1]){const badge=box(wing,.091,.024,.012,gold,side*.063,0,0,.009);badge.rotation.z=side*.13;}
-  const arms:THREE.Group[]=[];
-  for(const side of [-1,1]){
-    const arm=new THREE.Group();arm.position.set(side*.244,1.053,0);root.add(arm);arms.push(arm);
-    limb(arm,shirt,[0,.015,0],[side*.043,-.167,.012],.088);
-    limb(arm,skin,[side*.041,-.157,.011],[side*.061,-.354,.021],.054);
-    sphere(arm,skin,side*.064,-.377,.03,.064,.073,.047);
-    for(let n=0;n<3;n++)limb(arm,skin,[side*.06+(n-1)*.027,-.398,.029],[side*.059+(n-1)*.027,-.448,.042],.015);
-    for(let n=0;n<2;n++)box(arm,.12,.016,.115,gold,side*.019,-.015-n*.039,.029,.005);
-  }
-  root.userData.arms=arms;root.userData.leftArm=arms[0];root.userData.rightArm=arms[1];
-  return optimiseStandalone(root,[head,...arms]);
-}
+export function makeCrewAvatar(index:number):THREE.Group { return createCrewAvatar(index); }
 
 export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench" | "food" | "suitcase", withHands=true): THREE.Group {
   const g = new THREE.Group();
@@ -1008,8 +866,15 @@ export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench" | "food"
   }
   limb(g, glove, [.12, .11, .022], [.049, .17, -.021], .038);
   }
-  if (kind === "coffee") makeCup(g, -.02, -.09, 0, 1.18);
-  if (kind === "food") makeFood(g,-.035,-.025,0,1.23);
+  if (kind === "coffee") makeCup(g, -.02, -.09, 0, .95);
+  if (kind === "food") {
+    const tray=new THREE.Group();g.add(tray);tray.position.set(0,-.04,0);
+    const metal=mat(0xb9c8cf,.35,.45),paper=mat(0xf1e5cf,.96);
+    box(tray,.66,.026,.43,metal,0,0,0,.028);
+    box(tray,.60,.007,.37,paper,0,.018,0,.013);
+    for(const side of [-1,1]){box(tray,.018,.042,.43,metal,side*.32,.025,0,.009);box(tray,.66,.042,.018,metal,0,.025,side*.205,.009);}
+    for(let row=0;row<2;row++)for(let col=0;col<3;col++)makeFood(tray,(col-1)*.205,.026,(row-.5)*.184,.60);
+  }
   if (kind === "suitcase") {const heldCase=suitcase(g,0xe6ae49,-.08,-.35,-.025,.72);heldCase.rotation.y=.12;}
   if (kind === "extinguisher") {
     cylinder(g, mat(0xda4239, .36, .1), .105, .108, .42, -.02, .11, -.016);
@@ -1017,9 +882,9 @@ export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench" | "food"
     cylinder(g, dark, .038, .045, .09, -.02, .39, -.016);
     box(g, .24, .035, .08, dark, .055, .437, -.016, .015);
     box(g, .12, .11, .017, mat(0xf9e9bf), -.02, .16, .095, .004);
-    const hose = new THREE.CatmullRomCurve3([new THREE.Vector3(-.08, .39, 0), new THREE.Vector3(-.2, .32, 0), new THREE.Vector3(-.17, .01, -.05), new THREE.Vector3(-.15, .12, -.25)]);
+    const hose = new THREE.CatmullRomCurve3([new THREE.Vector3(-.08, .39, 0), new THREE.Vector3(-.30, .30, .03), new THREE.Vector3(-.48, .025, -.08), new THREE.Vector3(-.56, .20, -.28)]);
     g.add(new THREE.Mesh(new THREE.TubeGeometry(hose, 16, .023, 7, false), dark));
-    const nozzle = cylinder(g, dark, .046, .026, .13, -.15, .12, -.30); nozzle.rotation.x = Math.PI / 2;
+    const nozzle = cylinder(g, dark, .046, .026, .17, -.56, .20, -.34); nozzle.rotation.x = Math.PI / 2;
   }
   if (kind === "wrench") {
     const steel = mat(0xb8c9d2, .29, .65);
