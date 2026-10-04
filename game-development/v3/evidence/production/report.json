@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Flight starts through public UI",
+    "V hides interface without pausing flight",
+    "V restores normal interface",
+    "Pause remains reachable from clean view",
+    "390px and 844px viewports have no horizontal overflow",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

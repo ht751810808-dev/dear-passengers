@@ -42,7 +42,19 @@
 - 六个固定机位及手机比例截图均无 JavaScript/shader 错误。V2 参照和 V3 实拍保存在 `evidence`。
 - 当前 Mac 的隔离 Chromium、Metal、DPR 1：四组持续采样的帧间隔中位数为 16.4–16.7 ms，P95 为 18.3–19.2 ms。覆盖高/低画质、横屏调整及销毁重建；不代表实体手机性能。
 
-TypeScript、针对改动的 ESLint、完整发布构建和线上验证结果随发布记录一并保存。
+TypeScript、针对改动的 ESLint、`git diff --check` 均通过。完整 `pnpm build` 成功导出 182 个页面，并通过项目现有事实、页面和游戏检查。
+
+## 已上线
+
+2026-10-04 已将 `codex/trailer-visuals-v3` 合并进实际源码发布分支 `codex/github-publish`，从合并提交 `f3cf28f` 构建并发布到 Cloudflare Pages 项目 `dear-passengers` 的 `main` 分支。
+
+- 正式地址：https://dearpassengers.net/play/cabin-crisis/?version=3
+- 本次部署：https://3df726e0.dear-passengers-9bn.pages.dev
+- 多人 Worker 未修改，继续使用已部署的服务。
+- 生产站实际浏览器的 6 项界面检查全部通过；已核对 HTTP 200 和所有页面脚本 URL 与本地发布构建一致。生产截图和报告位于 `evidence/production`。
+- 本地对比页的六对图片及滑块已通过浏览器验证。
+
+网络核验中，Python urllib 默认客户端收到 403；正常浏览器和带浏览器 User-Agent 的 curl 均正常访问。该现象记录在 HTTP 报告中，没有将被拒绝的请求报告成成功。
 
 ## 仍然存在的差距
 

@@ -1,0 +1,17 @@
+{
+  "url": "https://dearpassengers.net/play/cabin-crisis/?version=3",
+  "status": 200,
+  "scriptsMatchLocalBuild": true,
+  "scripts": [
+    "/_next/static/chunks/1ad17d82-34c8a504cfde2200.js",
+    "/_next/static/chunks/571-9cabae0a37556732.js",
+    "/_next/static/chunks/app/layout-d624cf7c10bd62d3.js",
+    "/_next/static/chunks/app/play/cabin-crisis/page-cf9f5ad56176e9af.js",
+    "/_next/static/chunks/main-app-e24821571858c833.js",
+    "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "/_next/static/chunks/webpack-e440f4ed65f6acb5.js"
+  ],
+  "sourceCommit": "f3cf28f",
+  "deployment": "https://3df726e0.dear-passengers-9bn.pages.dev",
+  "note": "Verified with browser/curl UA. Python urllib default UA returned 403."
+}
