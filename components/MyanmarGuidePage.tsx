@@ -140,8 +140,8 @@ export default function MyanmarGuidePage({ guide, canonicalPath }: { guide: Myan
                 {isDemo && (
                   <aside className="editorial-note" aria-label="တရားဝင်မဟုတ်သော fan challenge">
                     <div><span>တရားဝင်မဟုတ်သော FAN CHALLENGE</span><strong>တရားဝင် demo မရှိသေးပါ — ကျွန်ုပ်တို့၏ တရားဝင်မဟုတ်သော fan challenge ကို ကစားပါ</strong></div>
-                    <p>Cabin Crisis Drill သည် DearPassengers.net က ဖန်တီးထားသော မူရင်း browser game ဖြစ်ပြီး တရားဝင် Dear Passengers demo မဟုတ်ပါ။ FLEXUS က ဖန်တီး၊ ဖြန့်ချိ သို့မဟုတ် ထောက်ခံထားခြင်း မရှိပါ။</p>
-                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Cabin challenge ကို စကစားမည် →</Link></div>
+                    <p>Dear Passengers 3D သည် DearPassengers.net က ဖန်တီးထားသော မူရင်း browser game ဖြစ်ပြီး တရားဝင် Dear Passengers demo မဟုတ်ပါ။ FLEXUS က ဖန်တီး၊ ဖြန့်ချိ သို့မဟုတ် ထောက်ခံထားခြင်း မရှိပါ။</p>
+                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Cabin challenge ကို စကစားမည် →</Link></div>
                   </aside>
                 )}
               </section>

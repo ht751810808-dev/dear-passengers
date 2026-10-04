@@ -135,7 +135,8 @@ export default function DearPassengersDemoPage() {
                 demo remains planned, undated, and unavailable to download.
               </p>
               <div className="hero-actions">
-                <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Check official Steam page ↗</a>
+                <Link className="button" href="/play/cabin-crisis/">Play the 3D fan game →</Link>
+                <a className="button button-ghost" href={STEAM_URL} target="_blank" rel="noopener noreferrer">Check official Steam page ↗</a>
                 <Link className="button button-ghost" href="/dear-passengers-news">Read verified news →</Link>
               </div>
               <div className="article-meta">
@@ -194,14 +195,14 @@ export default function DearPassengersDemoPage() {
                 <aside className="editorial-note" aria-label="Unofficial fan challenge">
                   <div>
                     <span>UNOFFICIAL FAN CHALLENGE</span>
-                    <strong>No official demo yet — play our unofficial fan challenge</strong>
+                    <strong>Play our 3D fan game in your browser</strong>
                   </div>
                   <p>
-                    Cabin Crisis Drill is an original browser mini-game by DearPassengers.net. It is not the official
-                    Dear Passengers demo and is not developed, endorsed, or distributed by FLEXUS.
+                    Step into a first-person 3D cabin: serve passengers, secure luggage, put out fires and land the plane.
+                    Unlock three routes, upgrade your aircraft and save your career. This fan-made game is not the official Dear Passengers demo and is not affiliated with FLEXUS.
                   </p>
                   <div className="related-actions">
-                    <Link className="button button-ghost" href="/play/cabin-crisis/">Play Cabin Crisis Drill →</Link>
+                    <Link className="button button-ghost" href="/play/cabin-crisis/">Board the 3D flight →</Link>
                   </div>
                 </aside>
 

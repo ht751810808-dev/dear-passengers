@@ -114,8 +114,8 @@ export default function TurkishGuidePage({
               {isDemo && (
                 <aside className="editorial-note" aria-label="Resmî olmayan hayran mücadelesi">
                   <div><span>RESMÎ OLMAYAN HAYRAN MÜCADELESİ</span><strong>Henüz resmî demo yok — resmî olmayan hayran mücadelemizi oyna</strong></div>
-                  <p>Cabin Crisis Drill, DearPassengers.net tarafından hazırlanan özgün bir tarayıcı oyunudur; resmî Dear Passengers demosu değildir ve FLEXUS tarafından geliştirilmemiş veya onaylanmamıştır.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Kabin mücadelesini başlat →</Link></div>
+                  <p>Dear Passengers 3D, DearPassengers.net tarafından hazırlanan özgün bir tarayıcı oyunudur; resmî Dear Passengers demosu değildir ve FLEXUS tarafından geliştirilmemiş veya onaylanmamıştır.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Kabin mücadelesini başlat →</Link></div>
                 </aside>
               )}
             </section>

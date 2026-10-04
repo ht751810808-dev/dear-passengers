@@ -137,7 +137,11 @@ for (const [sourceRoute, page] of pages) {
 
 const sitemapXml = await readFile(join(out, 'sitemap.xml'), 'utf8');
 const sitemapRoutes = new Set([...sitemapXml.matchAll(/<loc>https:\/\/dearpassengers\.net([^<]*)<\/loc>/g)].map((match) => normalizeRoute(match[1] || '/')));
-const indexableRoutes = new Set([...pages.keys()].filter((route) => route !== '/404/'));
+// Interactive routes can deliberately opt out of indexing while remaining linkable.
+const indexableRoutes = new Set([...pages].filter(([route, page]) => route !== '/404/'
+  && ![...page.html.matchAll(/<meta\b([^>]*)>/gi)].some(([, attrs]) =>
+    (attribute(attrs, 'name') || '').toLowerCase() === 'robots' && /\bnoindex\b/i.test(attribute(attrs, 'content'))
+  )).map(([route]) => route));
 
 for (const route of indexableRoutes) {
   if (!sitemapRoutes.has(route)) errors.push(`Indexable route missing from sitemap: ${route}`);

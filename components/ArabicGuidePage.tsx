@@ -114,8 +114,8 @@ export default function ArabicGuidePage({
               {isDemo && (
                 <aside className="editorial-note" aria-label="تحدي غير رسمي للمعجبين">
                   <div><span>تحدي غير رسمي للمعجبين</span><strong>لا توجد نسخة تجريبية رسمية بعد — العب تحدي المعجبين غير الرسمي لدينا</strong></div>
-                  <p><bdi dir="ltr">Cabin Crisis Drill</bdi> لعبة متصفح أصلية من <bdi dir="ltr">DearPassengers.net</bdi>، وليست النسخة التجريبية الرسمية للعبة <bdi dir="ltr">Dear Passengers</bdi>، ولم تطورها <bdi dir="ltr">FLEXUS</bdi> ولم تعتمدها.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">ابدأ تحدي المقصورة →</Link></div>
+                  <p><bdi dir="ltr">Dear Passengers 3D</bdi> لعبة متصفح أصلية من <bdi dir="ltr">DearPassengers.net</bdi>، وليست النسخة التجريبية الرسمية للعبة <bdi dir="ltr">Dear Passengers</bdi>، ولم تطورها <bdi dir="ltr">FLEXUS</bdi> ولم تعتمدها.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">ابدأ تحدي المقصورة →</Link></div>
                 </aside>
               )}
             </section>

@@ -112,8 +112,8 @@ export default function PortugueseGuidePage({
               {isDemo && (
                 <aside className="editorial-note" aria-label="Desafio não oficial de fãs">
                   <div><span>DESAFIO NÃO OFICIAL DE FÃS</span><strong>Ainda não há demo oficial — jogue nosso desafio não oficial de fãs</strong></div>
-                  <p>Cabin Crisis Drill é um jogo original de navegador criado pelo DearPassengers.net. Não é a demo oficial de Dear Passengers e não foi desenvolvido, aprovado nem distribuído pela FLEXUS.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Começar o desafio da cabine →</Link></div>
+                  <p>Dear Passengers 3D é um jogo original de navegador criado pelo DearPassengers.net. Não é a demo oficial de Dear Passengers e não foi desenvolvido, aprovado nem distribuído pela FLEXUS.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Começar o desafio da cabine →</Link></div>
                 </aside>
               )}
             </section>

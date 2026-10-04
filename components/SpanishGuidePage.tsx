@@ -100,8 +100,8 @@ export default function SpanishGuidePage({ guide, canonicalPath }: { guide: Span
               {isDemo && (
                 <aside className="editorial-note" aria-label="Reto no oficial para fans">
                   <div><span>RETO NO OFICIAL PARA FANS</span><strong>Aún no hay una demo oficial — juega nuestro reto no oficial para fans</strong></div>
-                  <p>Cabin Crisis Drill es un juego original de navegador creado por DearPassengers.net. No es la demo oficial de Dear Passengers ni ha sido desarrollado, aprobado o distribuido por FLEXUS.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Empezar el reto de cabina →</Link></div>
+                  <p>Dear Passengers 3D es un juego original de navegador creado por DearPassengers.net. No es la demo oficial de Dear Passengers ni ha sido desarrollado, aprobado o distribuido por FLEXUS.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Empezar el reto de cabina →</Link></div>
                 </aside>
               )}
             </section>

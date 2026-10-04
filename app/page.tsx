@@ -162,6 +162,7 @@ export default function HomePage() {
               language support, and the questions FLEXUS has not answered yet.
             </p>
             <div className="hero-actions">
+              <Link className="button button-ghost" href="/play/cabin-crisis/">Play the 3D fan game →</Link>
               <a className="button" href={STEAM_URL} target="_blank" rel="noopener noreferrer">
                 Wishlist on Steam <span aria-hidden="true">↗</span>
               </a>
