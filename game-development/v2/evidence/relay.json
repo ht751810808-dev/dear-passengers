@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:8789",
+  "checks": [
+    "real four-member roster and eight-character room code",
+    "fifth player rejected with ROOM_FULL",
+    "host world reaches every guest with full gameplay data",
+    "guest pose routes only to host with server identity",
+    "guest action reaches host and cannot spoof sender",
+    "duplicate action rejected",
+    "guest reconnect preserves identity and inventory world",
+    "guest cannot publish authoritative world",
+    "host reconnect pauses guests and restores same authority",
+    "invalid pose and oversize message are rejected",
+    "explicit host departure ends shared room for guests",
+    "unrecoverable host disconnect ends room after grace period"
+  ],
+  "errors": []
+}

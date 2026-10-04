@@ -26,7 +26,8 @@
     "audit:adsense": "node scripts/audit-adsense-build.mjs",
     "create:observation": "node scripts/create-launch-observation.mjs",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:flight": "node scripts/test-flight-systems.mjs"
   },
   "dependencies": {
     "@types/node": "^20.10.5",

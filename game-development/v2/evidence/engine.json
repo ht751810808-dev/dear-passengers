@@ -1,0 +1,38 @@
+[
+  {
+    "name": "3D cabin loads without runtime errors",
+    "passed": true
+  },
+  {
+    "name": "Passenger interaction lasts one second and completes seatbelt",
+    "passed": true
+  },
+  {
+    "name": "Coffee pickup and delivery use real inventory",
+    "passed": true
+  },
+  {
+    "name": "Food pickup and delivery complete a separate order",
+    "passed": true
+  },
+  {
+    "name": "Cockpit is accessible before service completion",
+    "passed": true
+  },
+  {
+    "name": "Leaving a repair interrupts work; correct tool can finish",
+    "passed": true
+  },
+  {
+    "name": "Objects can be grabbed/thrown and remain physical on the floor",
+    "passed": true
+  },
+  {
+    "name": "Pause freezes both aircraft state and physical objects",
+    "passed": true
+  },
+  {
+    "name": "No uncaught engine/render errors",
+    "passed": true
+  }
+]
