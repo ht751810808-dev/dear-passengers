@@ -278,8 +278,8 @@ export default function GermanGuidePage({
                 {isDemo && (
                   <aside className="editorial-note" aria-label="Inoffizielle Fan-Herausforderung">
                     <div><span>INOFFIZIELLE FAN-HERAUSFORDERUNG</span><strong>Noch keine offizielle Demo – spiele unsere inoffizielle Fan-Herausforderung</strong></div>
-                    <p>Cabin Crisis Drill ist ein eigenständiges Browserspiel von DearPassengers.net. Es ist keine offizielle Dear-Passengers-Demo und wurde weder von FLEXUS entwickelt noch bestätigt.</p>
-                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Cabin Crisis Drill spielen →</Link></div>
+                    <p>Dear Passengers 3D ist ein eigenständiges Browserspiel von DearPassengers.net. Es ist keine offizielle Dear-Passengers-Demo und wurde weder von FLEXUS entwickelt noch bestätigt.</p>
+                    <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Dear Passengers 3D spielen →</Link></div>
                   </aside>
                 )}
               </section>

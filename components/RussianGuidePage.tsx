@@ -97,8 +97,8 @@ export default function RussianGuidePage({ guide, canonicalPath }: { guide: Russ
               {isDemo && (
                 <aside className="editorial-note" aria-label="Неофициальное фанатское испытание">
                   <div><span>НЕОФИЦИАЛЬНОЕ ФАНАТСКОЕ ИСПЫТАНИЕ</span><strong>Официальной демоверсии пока нет — сыграйте в наше неофициальное фанатское испытание</strong></div>
-                  <p>Cabin Crisis Drill — оригинальная браузерная игра от DearPassengers.net. Это не официальная демоверсия Dear Passengers; FLEXUS не разрабатывала, не одобряла и не распространяла её.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Начать испытание в салоне →</Link></div>
+                  <p>Dear Passengers 3D — оригинальная браузерная игра от DearPassengers.net. Это не официальная демоверсия Dear Passengers; FLEXUS не разрабатывала, не одобряла и не распространяла её.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Начать испытание в салоне →</Link></div>
                 </aside>
               )}
             </section>

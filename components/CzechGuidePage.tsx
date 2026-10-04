@@ -96,8 +96,8 @@ export default function CzechGuidePage({ guide, canonicalPath }: { guide: CzechG
               {isDemo && (
                 <aside className="editorial-note" aria-label="Neoficiální fanouškovská výzva">
                   <div><span>NEOFICIÁLNÍ FANOUŠKOVSKÁ VÝZVA</span><strong>Oficiální demo zatím není — zahrajte si naši neoficiální fanouškovskou výzvu</strong></div>
-                  <p>Cabin Crisis Drill je původní prohlížečová hra od DearPassengers.net. Nejde o oficiální demo Dear Passengers; FLEXUS ji nevytvořil, neschválil ani nedistribuoval.</p>
-                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/">Spustit výzvu v kabině →</Link></div>
+                  <p>Dear Passengers 3D je původní prohlížečová hra od DearPassengers.net. Nejde o oficiální demo Dear Passengers; FLEXUS ji nevytvořil, neschválil ani nedistribuoval.</p>
+                  <div className="related-actions"><Link className="button button-ghost" href="/play/cabin-crisis/" hrefLang="en">Spustit výzvu v kabině →</Link></div>
                 </aside>
               )}
             </section>
