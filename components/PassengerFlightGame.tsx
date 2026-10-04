@@ -6,7 +6,7 @@ import { CAREER_STORAGE_KEY, LEGACY_CAREER_STORAGE_KEY, UPGRADES, createCareer, 
 import { FLIGHT_MISSIONS, FLIGHT_DIFFICULTIES, WEATHER_NAMES, CARGO_NAMES, STAGE_NAMES, getFlightMission, getFlightDifficulty, missionDuration, type FlightDifficulty, type FlightStage, type FlightHazard } from '@/lib/flight-missions';
 import styles from './PassengerFlightGame.module.css';
 import FlightCrewRoom from './FlightCrewRoom';
-import type { FlightRoomSession } from '@/lib/flight-network';
+import { DEFAULT_FLIGHT_ROOM_URL, type FlightRoomSession } from '@/lib/flight-network';
 
 type IconName = 'plane' | 'arrow' | 'sound' | 'mute' | 'fullscreen' | 'pause' | 'play' | 'close' | 'check' | 'lock' | 'coffee' | 'shield' | 'map' | 'help' | 'wrench' | 'fire' | 'cargo' | 'door' | 'belt' | 'spark' | 'chevron' | 'settings' | 'fuel' | 'pressure' | 'smile' | 'food' | 'log' | 'chevronDown' | 'grip';
 function Icon({ name, className }: { name: IconName; className?: string }) {
@@ -328,7 +328,7 @@ export default function PassengerFlightGame() {
 
   return <main id="main-content" ref={root} className={`${styles.game} ${styles.operationsGame} ${snapshot?.piloting ? styles.inCockpit : ''}`} data-game-root="passenger-flight" lang={zh ? 'zh-CN' : 'en'}>
     <div ref={host} className={styles.world} data-game-canvas="true" />
-    <div className={styles.crewOverlay} hidden={!showCrew}><div className={styles.crewDialog} role="dialog" aria-modal={showCrew} aria-label={tr('Online crew room','在线机组房间')}><button type="button" className={styles.crewClose} onClick={closeCrew} aria-label={tr('Close crew panel','关闭机组面板')}><Icon name="close" /></button><FlightCrewRoom locale={locale} endpoint={process.env.NEXT_PUBLIC_FLIGHT_ROOM_URL || (process.env.NODE_ENV==='development'?'http://127.0.0.1:8789':'')} onHostReady={attachCrew} onJoinReady={attachCrew} onLeave={leaveCrew}/></div></div>
+    <div className={styles.crewOverlay} hidden={!showCrew}><div className={styles.crewDialog} role="dialog" aria-modal={showCrew} aria-label={tr('Online crew room','在线机组房间')}><button type="button" className={styles.crewClose} onClick={closeCrew} aria-label={tr('Close crew panel','关闭机组面板')}><Icon name="close" /></button><FlightCrewRoom locale={locale} endpoint={process.env.NEXT_PUBLIC_FLIGHT_ROOM_URL || (process.env.NODE_ENV==='development'?'http://127.0.0.1:8789':DEFAULT_FLIGHT_ROOM_URL)} onHostReady={attachCrew} onJoinReady={attachCrew} onLeave={leaveCrew}/></div></div>
     <div className={styles.vignette} aria-hidden="true" /><div className={styles.filmGrain} aria-hidden="true" />
 
     {phase === 'ready' && <>

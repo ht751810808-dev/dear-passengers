@@ -16,6 +16,7 @@ export type FlightRoomEvent =
   | { type: 'ended'; reason: string }
   | { type: 'error'; code: string; message: string };
 
+export const DEFAULT_FLIGHT_ROOM_URL = 'https://dear-passengers-flight-rooms.ht751810808.workers.dev';
 export const FLIGHT_ROOM_PROTOCOL = 1;
 export const FLIGHT_ROOM_MAX_BYTES = 65_536;
 export const FLIGHT_ROOM_RECONNECT_MS = 20_000;

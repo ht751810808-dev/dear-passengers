@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { createFlightRoom, joinFlightRoom, type CrewPlayer, type FlightRoomSession, type FlightRoomStatus } from '@/lib/flight-network';
+import { createFlightRoom, joinFlightRoom, DEFAULT_FLIGHT_ROOM_URL, type CrewPlayer, type FlightRoomSession, type FlightRoomStatus } from '@/lib/flight-network';
 import styles from './FlightCrewRoom.module.css';
 
 export type FlightCrewRoomProps = {
@@ -35,7 +35,7 @@ function messageFor(code: string, zh: boolean): string {
 }
 
 /** Keep mounted while a flight runs. A menu/tab change never leaves a shared room. */
-export default function FlightCrewRoom({ locale, endpoint = process.env.NEXT_PUBLIC_FLIGHT_ROOM_URL || '', onHostReady, onJoinReady, onLeave }: FlightCrewRoomProps) {
+export default function FlightCrewRoom({ locale, endpoint = process.env.NEXT_PUBLIC_FLIGHT_ROOM_URL || DEFAULT_FLIGHT_ROOM_URL, onHostReady, onJoinReady, onLeave }: FlightCrewRoomProps) {
   const zh = locale === 'zh';
   const [name, setName] = useState('');
   const [code, setCode] = useState('');

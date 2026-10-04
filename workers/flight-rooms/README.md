@@ -18,7 +18,7 @@ The root Next `tsconfig.json` excludes `workers`; the Worker has its own generat
 
 ## Deployment handoff
 
-This subtask has not deployed anything or created cloud resources. The main task owner must confirm the current work is included in the project's actual deployment branch and complete checks before deployment. Deploy this Worker separately from the static Pages site, then put its HTTPS URL in `NEXT_PUBLIC_FLIGHT_ROOM_URL` for the site build. A static export cannot host Durable Objects by itself.
+The V2 source was merged into `codex/github-publish` before deployment. The room service is live at https://dear-passengers-flight-rooms.ht751810808.workers.dev (version `4cafde4b-a84b-4c46-b3e5-527873e8f0f3`). Repeat the branch and verification checks before each future deployment. Deploy this Worker separately from the static Pages site, then put its HTTPS URL in `NEXT_PUBLIC_FLIGHT_ROOM_URL` for the site build. A static export cannot host Durable Objects by itself.
 
 ```sh
 pnpm exec wrangler deploy --dry-run --config workers/flight-rooms/wrangler.jsonc
