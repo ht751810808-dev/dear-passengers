@@ -563,3 +563,477 @@
 @media (prefers-reduced-motion: reduce) {
   .game *, .game *::before, .game *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+/* Flight Operations V2: dispatch cards and instruments share the aircraft palette. */
+.operationsGame .departureDesk { top: 100px; width: min(555px, 47%); bottom: 19px; }
+.operationsGame .wordmark { display: flex; align-items: baseline; gap: 10px; font-size: clamp(49px, 4.6vw, 72px); line-height: .92; letter-spacing: -.025em; padding-top: 16px; white-space: nowrap; }
+.operationsGame .wordmark > span:first-child { margin: 0; }
+.operationsGame .deskTabs { margin-top: 21px; gap: 24px; }
+.operationsGame .deskTabs button { font-size: 11px; }
+.operationsGame .menuHeader { top: 24px; }
+.crewProfile { position: relative; display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-bottom: 12px; }
+.rankStripes { display: flex; align-items: flex-end; gap: 3px; transform: skewX(-15deg); }
+.rankStripes i { display: block; width: 4px; height: 21px; background: rgba(244, 202, 101, .12); }
+.rankStripes .earnedStripe { background: var(--boarding); }
+.crewProfile > div { flex: 1; }
+.crewProfile strong { display: block; font-size: 12px; font-weight: 700; }
+.crewProfile > div > span { display: block; color: var(--faint); font-size: 8px; margin-top: 3px; }
+.crewProfile > b { color: var(--boarding); font: 600 24px/1 var(--font-display), sans-serif; }
+.crewProfile > b small { font-size: 10px; }
+.rankProgress { position: absolute; height: 2px; left: 0; right: 0; bottom: 0; background: var(--line); }
+.rankProgress > i { display: block; height: 100%; background: var(--boarding); }
+.modeSwitch { display: flex; gap: 6px; margin: 16px 0 12px; padding: 3px; background: rgba(4, 16, 18, .5); border: 1px solid var(--line); border-radius: 5px; }
+.modeSwitch > button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 31px; padding: 5px 9px; font-size: 10px; color: var(--faint); border-radius: 3px; transition: color 150ms, background 150ms; }
+.modeSwitch > button svg { width: 13px; height: 13px; }
+.modeSwitch > button > small { font-size: 8px; color: var(--faint); }
+.modeSwitch > button.modeActive { color: var(--paper); background: var(--desk-raised); }
+.modeSwitch > button.modeActive svg { color: var(--boarding); }
+.modeSwitch > button:hover { color: var(--paper); }
+.contractGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.contractCard { display: flex; flex-direction: column; min-height: 81px; padding: 10px 12px !important; border: 1px solid var(--line) !important; border-radius: 4px; background: rgba(15, 30, 32, .65) !important; text-align: left; transition: background 150ms, border-color 150ms; }
+.contractCard:not(:disabled):hover { background: rgba(48, 65, 62, .8) !important; }
+.contractCard.contractSelected { background: rgba(244, 202, 101, .09) !important; border-color: rgba(244, 202, 101, .75) !important; box-shadow: inset 2px 0 var(--boarding); }
+.contractCard:disabled { opacity: .36; }
+.contractTop { display: flex; justify-content: space-between; align-items: center; width: 100%; color: var(--faint); font-size: 7px; letter-spacing: .1em; }
+.contractTop b { font-weight: 500; }
+.contractTop > span { color: var(--boarding); font: 600 13px/1 var(--font-display), sans-serif; }
+.contractTop svg { height: 11px; width: 11px; }
+.contractCard > strong { display: block; font-size: 12px; font-weight: 700; margin-top: 3px; }
+.contractBottom { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: auto; padding-top: 5px; width: 100%; color: var(--muted); font-size: 7px; }
+.riskDots { display: inline-flex; align-items: center; gap: 2px; }
+.riskDots i { width: 3px; height: 7px; background: rgba(255, 255, 255, .1); border-radius: 1px; }
+.riskDots i.riskFilled { background: var(--boarding); opacity: .65; }
+.contractCleared .contractTop > span { color: var(--safe); }
+.contractBrief { border-left: 2px solid var(--boarding); margin-top: 13px; padding: 1px 0 1px 11px; }
+.briefHeader { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.briefHeader > strong { font-size: 11px; font-weight: 700; }
+.briefHeader > span { color: var(--boarding); font-size: 7px; letter-spacing: .07em; }
+.contractBrief > p { color: var(--muted); font-size: 10px; line-height: 1.55; margin-top: 6px; }
+.briefTags { display: flex; flex-wrap: wrap; gap: 5px 12px; margin-top: 9px; }
+.briefTags > span { display: flex; align-items: center; gap: 4px; color: var(--faint); font-size: 7px; white-space: nowrap; }
+.briefTags svg { width: 11px; height: 11px; color: var(--muted); }
+.difficultySelector { display: flex; gap: 5px; margin-top: 15px; }
+.difficultySelector > button { flex: 1; text-align: left; min-height: 39px; display: flex; flex-direction: column; justify-content: center; padding: 6px 10px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); font-size: 10px; }
+.difficultySelector > button > span { display: block; color: var(--faint); font-size: 6px; letter-spacing: .08em; margin-top: 1px; }
+.difficultySelector > button.difficultyActive { color: var(--boarding); border-color: rgba(244, 202, 101, .45); background: rgba(244, 202, 101, .06); }
+.difficultySelector > button:hover { color: var(--boarding); }
+.difficultyDescription { margin-top: 5px !important; color: var(--faint); font-size: 8px; }
+.practiceInfo { display: flex; align-items: flex-start; gap: 9px; margin-top: 15px; border: 1px solid var(--line); border-radius: 4px; padding: 12px; color: var(--muted); font-size: 9px; line-height: 1.6; }
+.practiceInfo svg { height: 15px; width: 15px; color: var(--safe); }
+.dispatchActions { margin-top: 16px; }
+.operationsGame .boardButton { min-height: 52px; }
+.operationsGame .boardButton > span { font-size: 16px; }
+.operationsGame .boardButton > span + span { font-size: 10px; }
+.operationsGame .boardFootnote { font-size: 8px; letter-spacing: 0; }
+.operationsGame .careerStrip { margin-top: 15px; font-size: 8px; padding-top: 12px; }
+.operationsGame .careerStrip > span:last-child { font-size: 7px; }
+.operationsGame .careerStrip b { font-size: 11px; margin-left: 4px; }
+.operationsGame .menuFooter { font-size: 8px; margin-top: 13px; }
+.operationsGame .hangarNote { display: flex; gap: 9px; padding: 13px; margin-top: 10px !important; background: rgba(156, 219, 192, .04); border: 1px solid var(--line); border-radius: 4px; font-size: 10px; line-height: 1.65; }
+.operationsGame .hangarNote svg { width: 16px; height: 16px; color: var(--safe); }
+.operationsGame .upgradeRow { padding: 22px 0; }
+.operationsGame .upgradeRow > button { min-width: 105px; font-size: 12px; }
+.operationsGame .upgradeRow > button small { font-size: 6px; }
+.operationsGame .upgradeCopy p { font-size: 10px; line-height: 1.6; }
+.logbookTotals { display: grid; grid-template-columns: repeat(3, 1fr); padding: 22px 0 18px; border-bottom: 1px solid var(--line); }
+.logbookTotals > span { color: var(--faint); font-size: 7px; letter-spacing: .1em; }
+.logbookTotals strong { display: block; margin-bottom: 5px; font: 600 35px/1 var(--font-display), sans-serif; color: var(--paper); }
+.logbookTotals small { font-size: 17px; color: var(--faint); }
+.flightLog { padding: 0; margin: 0; list-style: none; }
+.flightLog > li { display: flex; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.logGrade { display: grid; place-items: center; width: 33px; height: 35px; color: var(--faint); border: 1px solid var(--line); border-radius: 3px; font: 600 22px/1 var(--font-display), sans-serif; }
+.logGrade.logWon { color: var(--boarding); border-color: rgba(244, 202, 101, .3); background: rgba(244, 202, 101, .04); }
+.flightLog li > div { flex: 1; }
+.flightLog strong { display: block; font-size: 11px; }
+.flightLog small { display: block; color: var(--faint); font-size: 8px; margin-top: 4px; }
+.flightLog li > b { color: var(--muted); font-size: 9px; font-weight: 500; }
+.emptyLog { padding: 33px 12px 26px; text-align: center; }
+.emptyLog > svg { color: var(--boarding); margin-bottom: 14px; width: 26px; height: 26px; }
+.emptyLog strong { display: block; font-size: 15px; }
+.emptyLog p { color: var(--muted); font-size: 11px; line-height: 1.65; margin-top: 8px; }
+.emptyLog button { display: inline-flex; align-items: center; gap: 10px; min-height: 42px; color: var(--boarding); font-size: 11px; margin-top: 13px; }
+.emptyLog button svg { width: 16px; }
+.operationsGame .manualIntro { font-size: 11px; }
+.operationsGame .manualSteps strong { font-size: 12px; }
+.operationsGame .manualSteps p { font-size: 11px; }
+.operationsGame .touchNote { font-size: 10px; line-height: 1.6; }
+.operationsGame .flightHeader { gap: 14px; }
+.stageStrip { display: flex; gap: 2px; list-style: none; margin: 0 auto; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: rgba(12, 26, 29, .87); overflow: hidden; }
+.stageStrip > li { position: relative; display: flex; align-items: center; gap: 6px; min-width: 80px; padding: 14px 10px; color: var(--faint); }
+.stageStrip li > span { display: grid; place-items: center; font-size: 7px; width: 12px; flex-shrink: 0; }
+.stageStrip li > span svg { width: 11px; height: 11px; }
+.stageStrip strong { font-size: 9px; font-weight: 600; }
+.stageStrip .stageCurrent { color: var(--boarding); background: rgba(244, 202, 101, .08); }
+.stageStrip .stageComplete { color: var(--safe); }
+.stageStrip li > i { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--boarding); transform-origin: left; }
+.operationsGame .flightTools { margin-left: 0; }
+.operationsGame .objectives { top: 94px; width: 231px; padding: 12px; }
+.operationsGame .objectiveHeading { width: 100%; pointer-events: auto; border-bottom: 0; padding: 0 0 9px; margin-bottom: 0; font-size: 8px; }
+.operationsGame .objectiveHeading > b { margin-left: auto; }
+.operationsGame .objectiveHeading > svg { height: 13px; width: 13px; margin-left: 10px; color: var(--muted); transform: rotate(180deg); }
+.compactObjectives .objectiveHeading > svg { transform: none; }
+.checklistProgress { height: 2px; background: rgba(255, 255, 255, .09); margin-bottom: 8px; }
+.checklistProgress > i { display: block; height: 100%; background: var(--boarding); }
+.operationsGame .objective { position: relative; min-height: 29px; font-size: 10px; }
+.objectiveProgress { position: absolute; bottom: 0; left: 28px; right: 0; height: 1px; background: rgba(244, 202, 101, .5); transform-origin: left; }
+.checklistClear { font-size: 9px; color: var(--safe); padding: 7px 0; line-height: 1.6; }
+.aircraftSystems { position: absolute; top: 94px; right: 28px; width: 185px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: rgba(13, 28, 30, .84); backdrop-filter: blur(8px); }
+.systemsHeader { display: flex; align-items: center; justify-content: space-between; gap: 6px; color: var(--faint); font-size: 6px; letter-spacing: .04em; border-bottom: 1px solid var(--line); padding-bottom: 9px; }
+.systemsHeader > b { color: var(--boarding); font: 600 19px/1 var(--font-display), sans-serif; }
+.systemsHeader small { font: 500 5px/1 var(--font-body), sans-serif; }
+.systemGauge { padding-top: 12px; }
+.systemGauge > span { display: flex; align-items: center; gap: 6px; font-size: 9px; color: var(--muted); }
+.systemGauge svg { width: 12px; height: 12px; }
+.systemGauge b { font-size: 11px; margin-left: auto; color: var(--paper); }
+.systemGauge small { font-size: 7px; margin-left: 1px; color: var(--muted); }
+.systemGauge > div { height: 3px; margin-top: 5px; background: rgba(255, 255, 255, .11); }
+.systemGauge i { display: block; height: 100%; background: var(--safe); }
+.systemWarning > span, .systemWarning b { color: var(--warning); }
+.systemWarning i { background: var(--warning); }
+.flightGuidance { position: absolute; left: 50%; bottom: 201px; transform: translateX(-50%); width: min(515px, 44%); padding: 9px 12px; background: rgba(11, 28, 31, .88); border: 1px solid rgba(222, 237, 224, .12); border-radius: 5px; }
+.flightGuidance > span { display: flex; align-items: center; gap: 5px; color: var(--boarding); font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
+.flightGuidance > span svg { width: 11px; height: 11px; }
+.flightGuidance p { color: var(--paper); font-size: 10px; margin-top: 4px; line-height: 1.5; }
+.operationsGame .interactPrompt { display: block; bottom: 124px; padding: 10px; width: max-content; min-width: 230px; max-width: 450px; }
+.promptContent { display: flex; align-items: center; gap: 10px; }
+.promptContent > span { font-size: 12px; }
+.promptContent > small { margin-left: auto; padding-left: 10px; font-size: 10px; color: var(--boarding); white-space: nowrap; }
+.interactionBar { height: 4px; margin-top: 9px; background: rgba(255, 255, 255, .11); border-radius: 2px; overflow: hidden; }
+.interactionBar > i { display: block; height: 100%; background: var(--boarding); }
+.operationsGame .radio { bottom: 115px; max-width: 245px; }
+.operationsGame .radio p { font-size: 10px; }
+.cockpitHud { position: absolute; bottom: 80px; left: 50%; width: 448px; transform: translateX(-50%); padding: 13px 16px 11px; background: rgba(11, 26, 30, .94); border: 1px solid rgba(183, 222, 203, .24); border-radius: 7px; pointer-events: auto; }
+.cockpitHudTop { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.cockpitHudTop > span { display: flex; align-items: center; gap: 7px; font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+.cockpitHudTop > span svg { width: 13px; height: 13px; }
+.cockpitHudTop > button { display: flex; align-items: center; gap: 5px; padding: 5px 7px; min-height: 27px; color: var(--warning); border: 1px solid rgba(245, 139, 112, .3); border-radius: 3px; font-size: 7px; }
+.cockpitHudTop > button.autopilotOn { color: var(--safe); border-color: rgba(156, 219, 192, .35); background: rgba(156, 219, 192, .06); }
+.cockpitHudTop kbd { min-width: 22px; height: 15px; font-size: 6px; padding: 0 3px; margin-left: 4px; }
+.flightInstruments { display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: center; gap: 18px; margin-top: 11px; }
+.flightInstruments > div:first-child { text-align: left; }
+.flightInstruments > div:last-child { text-align: right; }
+.flightInstruments span { display: block; color: var(--faint); font-size: 7px; font-weight: 600; letter-spacing: .12em; }
+.flightInstruments strong { display: block; color: #c8ead8; font: 500 39px/1.2 var(--font-display), sans-serif; }
+.flightInstruments strong > small { font: 600 8px/1 var(--font-body), sans-serif; color: var(--faint); margin-left: 5px; }
+.attitudeIndicator { position: relative; height: 69px; border: 1px solid #57736d; background: #214754; overflow: hidden; border-radius: 8px 8px 4px 4px; }
+.artificialHorizon { position: absolute; width: 240%; height: 250%; top: -75%; left: -70%; background: linear-gradient(to bottom, #2a6476 0%, #2a6476 calc(50% - 1px), #c2dacb calc(50% - 1px), #c2dacb calc(50% + 1px), #695637 calc(50% + 1px), #695637 100%); }
+.attitudeIndicator .aircraftReference { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); color: var(--boarding); font-size: 23px; letter-spacing: .05em; }
+.attitudeIndicator > b { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); color: var(--paper); font-size: 7px; }
+.cockpitReadouts { display: flex; justify-content: space-between; margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line); color: var(--faint); font-size: 6px; }
+.cockpitReadouts b { margin-left: 4px; font-size: 8px; color: var(--muted); font-weight: 600; }
+.cockpitActions { display: flex; align-items: center; gap: 7px; padding-top: 9px; }
+.cockpitActions > span { color: var(--faint); font-size: 6px; }
+.cockpitActions > span > b { display: block; color: var(--paper); font-size: 10px; margin-top: 2px; }
+.cockpitActions > button { display: grid; place-items: center; width: 27px; height: 30px; color: var(--paper); background: rgba(255, 255, 255, .06); border: 1px solid var(--line); border-radius: 3px; font-size: 17px; }
+.throttleBar { width: 68px; height: 5px; background: rgba(255, 255, 255, .1); }
+.throttleBar > i { display: block; height: 100%; background: var(--boarding); }
+.cockpitActions .leaveCockpit { display: flex; align-items: center; justify-content: center; gap: 8px; margin-left: auto; width: auto; padding: 0 9px; font-size: 9px; }
+.leaveCockpit kbd { font-size: 8px; height: 18px; min-width: 18px; padding: 0 3px; }
+.inCockpit .flightGuidance { bottom: 333px; }
+.touchGrab { width: 35px; height: 35px; border: 1px solid rgba(255, 255, 255, .3) !important; background: rgba(15, 33, 37, .75) !important; font-size: 12px !important; }
+.pauseGuidance { font-size: 10px; padding: 10px 11px; border-left: 2px solid var(--boarding); background: rgba(244, 202, 101, .04); color: var(--muted); line-height: 1.6; margin: -7px 0 19px !important; }
+.debriefDialog { width: min(465px, 100%); padding-top: 26px; }
+.debriefDialog h2 { font-size: 38px; }
+.debriefDialog .resultGrade { margin-top: 19px; padding: 12px 16px; }
+.debriefBreakdown { display: grid; gap: 10px; margin-top: 18px; }
+.debriefBreakdown > div { display: flex; align-items: center; gap: 9px; text-align: left; }
+.debriefBreakdown span { width: 115px; font-size: 9px; color: var(--muted); }
+.debriefBreakdown > div > div { flex: 1; height: 4px; background: var(--line); }
+.debriefBreakdown i { display: block; height: 100%; background: var(--safe); }
+.debriefBreakdown b { min-width: 45px; text-align: right; font-size: 10px; color: var(--paper); }
+.debriefBreakdown b small { font-size: 6px; color: var(--faint); margin-left: 2px; }
+.payBreakdown { border-top: 1px solid var(--line); padding: 13px 0 7px; text-align: left; }
+.payBreakdown > span { display: flex; justify-content: space-between; gap: 10px; color: var(--faint); font-size: 9px; margin-bottom: 7px; }
+.payBreakdown b { font-weight: 500; color: var(--muted); }
+.debriefDialog .rewardLine { padding-top: 11px; }
+.debriefDialog .rewardLine > span { text-align: left; font-size: 8px; }
+.debriefDialog .rewardLine > span > small { display: block; margin-top: 4px; color: var(--safe); font-size: 8px; }
+.debriefDialog .dialogPrimary { text-align: left; justify-content: space-between; font-size: 13px !important; }
+.debriefDialog .dialogPrimary > span { margin: 0; }
+.debriefDialog .dialogPrimary small { display: block; opacity: .7; font-size: 9px; font-weight: 500; margin-top: 3px; }
+.debriefButtons { display: flex; align-items: center; gap: 13px; }
+.debriefButtons > button { flex: 1; }
+.debriefButtons .dialogPrimary { justify-content: center; }
+.rankUpNotice { padding: 9px 12px; margin-top: 12px; border: 1px solid rgba(244, 202, 101, .3); color: var(--boarding); font-size: 10px; text-align: center; }
+.practiceResult { display: flex; gap: 10px; align-items: center; padding: 12px; color: var(--muted); font-size: 10px; text-align: left; background: rgba(156, 219, 192, .05); border: 1px solid var(--line); border-radius: 4px; }
+.practiceResult svg { width: 17px; height: 17px; color: var(--safe); }
+@media (min-width: 1450px) and (min-height: 850px) {
+  .operationsGame .departureDesk { top: 111px; width: 570px; }
+  .operationsGame .wordmark { font-size: 77px; }
+  .contractCard { min-height: 84px; }
+}
+@media (max-width: 1100px) {
+  .operationsGame .departureDesk { width: 51%; }
+  .operationsGame .wordmark { font-size: 5.5vw; }
+  .stageStrip > li { min-width: 59px; padding: 13px 7px; gap: 3px; }
+  .stageStrip strong { font-size: 8px; }
+  .stageStrip li > span { font-size: 6px; width: 9px; }
+  .operationsGame .flightHeader { gap: 10px; }
+  .operationsGame .flightIdentity { padding-right: 10px; }
+  .operationsGame .objectives { width: 210px; }
+  .aircraftSystems { width: 159px; }
+  .systemsHeader > span { font-size: 5px; }
+  .flightGuidance { width: 40%; }
+  .operationsGame .radio { max-width: 220px; }
+}
+@media (max-height: 850px) and (min-width: 761px) {
+  .operationsGame .departureDesk { top: 86px; }
+  .operationsGame .wordmark { font-size: clamp(43px, 4.3vw, 60px); padding-top: 12px; }
+  .crewProfile { margin-top: 14px; padding-bottom: 9px; }
+  .operationsGame .deskTabs { margin-top: 14px; }
+  .operationsGame .deskTabs button { padding-bottom: 10px; }
+  .modeSwitch { margin-top: 12px; margin-bottom: 9px; }
+  .contractCard { min-height: 69px; padding-top: 8px !important; padding-bottom: 8px !important; }
+  .contractBrief { margin-top: 10px; }
+  .contractBrief > p { font-size: 9px; line-height: 1.5; }
+  .briefTags { margin-top: 6px; }
+  .difficultySelector { margin-top: 12px; }
+  .difficultySelector > button { min-height: 34px; }
+  .dispatchActions { margin-top: 12px; }
+  .operationsGame .boardButton { min-height: 46px; }
+  .operationsGame .careerStrip { margin-top: 12px; padding-top: 9px; }
+  .operationsGame .menuFooter { margin-top: 9px; }
+}
+@media (max-width: 760px) {
+  .operationsGame .menuHeader { top: max(15px, env(safe-area-inset-top)); }
+  .operationsGame .departureDesk { top: max(75px, calc(env(safe-area-inset-top) + 61px)); width: auto; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .operationsGame .wordmark { font-size: clamp(34px, 9.8vw, 61px); padding-top: 13px; gap: 7px; }
+  .crewProfile { gap: 10px; margin-top: 15px; padding-bottom: 10px; }
+  .rankStripes i { height: 17px; width: 3px; }
+  .crewProfile strong { font-size: 11px; }
+  .crewProfile > div > span { font-size: 7px; }
+  .crewProfile > b { font-size: 22px; }
+  .crewProfile > b small { font-size: 9px; }
+  .operationsGame .deskTabs { gap: 10px; justify-content: space-between; margin-top: 16px; }
+  .operationsGame .deskTabs button { gap: 4px; font-size: 10px; }
+  .operationsGame .deskTabs button > span { font-size: 6px; }
+  .modeSwitch { margin-top: 12px; margin-bottom: 10px; }
+  .modeSwitch > button { min-height: 31px; font-size: 9px; gap: 6px; }
+  .modeSwitch > button > small { font-size: 7px; }
+  .contractGrid { gap: 6px; }
+  .contractCard { min-height: 72px; padding: 9px !important; }
+  .contractTop { font-size: 6px; }
+  .contractTop > span { font-size: 12px; }
+  .contractCard > strong { font-size: 11px; margin-top: 4px; }
+  .contractBottom { font-size: 6px; gap: 4px; }
+  .contractCard:disabled .riskDots { display: none; }
+  .riskDots { gap: 1px; }
+  .riskDots i { width: 2px; height: 5px; }
+  .contractBrief { margin-top: 12px; padding-left: 10px; }
+  .briefHeader > strong { font-size: 10px; }
+  .briefHeader > span { font-size: 6px; }
+  .contractBrief > p { font-size: 9px; margin-top: 5px; }
+  .briefTags { gap: 5px 10px; margin-top: 7px; }
+  .briefTags > span { font-size: 6px; }
+  .briefTags svg { width: 10px; height: 10px; }
+  .difficultySelector { margin-top: 12px; }
+  .difficultySelector > button { min-height: 37px; font-size: 9px; padding: 5px 8px; }
+  .difficultyDescription { font-size: 7px; }
+  .dispatchActions { margin-top: 13px; }
+  .operationsGame .boardButton { min-height: 49px; }
+  .operationsGame .boardButton > span { font-size: 15px; }
+  .operationsGame .boardButton > span + span { font-size: 9px; }
+  .operationsGame .boardFootnote { font-size: 7px; }
+  .operationsGame .boardFootnote > span:last-child { font-size: 7px; }
+  .operationsGame .careerStrip { margin-top: 15px; font-size: 7px; gap: 12px; }
+  .operationsGame .careerStrip > span:last-child { font-size: 6px; }
+  .operationsGame .menuFooter { font-size: 7px; }
+  .operationsGame .upgradeRow > button { min-width: 88px; font-size: 10px; }
+  .operationsGame .upgradeCopy p { font-size: 9px; }
+  .operationsGame .upgradeRow { gap: 10px; }
+  .operationsGame .flightHeader { gap: 6px; flex-wrap: wrap; }
+  .stageStrip { order: 4; width: 100%; margin: 0; justify-content: space-between; }
+  .stageStrip > li { min-width: 0; flex: 1; padding: 7px 4px; justify-content: center; gap: 3px; }
+  .stageStrip strong { font-size: 6px; }
+  .stageStrip li > span { font-size: 5px; width: 7px; }
+  .stageStrip li > span svg { width: 8px; height: 8px; }
+  .operationsGame .flightTools { margin-left: auto; }
+  .operationsGame .flightTimer { margin-left: auto; }
+  .operationsGame .objectives { top: 103px; left: 13px; width: 164px; padding: 9px; }
+  .operationsGame .objectiveHeading { font-size: 6px; padding-bottom: 7px; }
+  .operationsGame .objectiveHeading > b { font-size: 7px; }
+  .operationsGame .objectiveHeading > svg { width: 11px; height: 11px; margin-left: 6px; }
+  .operationsGame .objective { font-size: 7px; min-height: 24px; gap: 5px; }
+  .operationsGame .objectiveIcon { width: 13px; }
+  .operationsGame .objectiveIcon svg { width: 10px; height: 10px; }
+  .operationsGame .objective b { font-size: 7px; }
+  .checklistProgress { margin-bottom: 5px; }
+  .aircraftSystems { top: 103px; right: 13px; width: 124px; padding: 9px; }
+  .systemsHeader { padding-bottom: 6px; font-size: 5px; }
+  .systemsHeader > span { max-width: 54px; font-size: 5px; }
+  .systemsHeader > b { font-size: 15px; }
+  .systemsHeader small { font-size: 4px; }
+  .systemGauge { padding-top: 8px; }
+  .systemGauge > span { font-size: 7px; gap: 4px; }
+  .systemGauge svg { width: 9px; height: 9px; }
+  .systemGauge b { font-size: 9px; }
+  .systemGauge small { font-size: 6px; }
+  .systemGauge > div { height: 2px; margin-top: 4px; }
+  .operationsGame .turbulenceWarning { top: 308px; left: auto; right: 13px; max-width: 124px; font-size: 6px; padding: 7px; }
+  .flightGuidance { bottom: 265px; width: calc(100% - 28px); max-width: 380px; padding: 8px 10px; }
+  .flightGuidance > span { font-size: 6px; }
+  .flightGuidance p { font-size: 9px; line-height: 1.5; }
+  .operationsGame .radio { bottom: 186px; max-width: 245px; padding: 7px 10px; }
+  .operationsGame .radio p { font-size: 8px; }
+  .operationsGame .interactPrompt { bottom: 145px; min-width: 190px; max-width: calc(100% - 28px); padding: 8px; }
+  .promptContent { gap: 8px; }
+  .promptContent > span { font-size: 10px; }
+  .promptContent > small { font-size: 8px; padding-left: 3px; }
+  .operationsGame .inventory { bottom: 105px; }
+  .operationsGame .touchActions { right: 17px; gap: 7px; bottom: max(24px, env(safe-area-inset-bottom)); }
+  .touchGrab { width: 31px; height: 31px; font-size: 11px !important; }
+  .operationsGame .touchDrop { width: 34px; height: 34px; font-size: 12px !important; }
+  .operationsGame .touchInteract { width: 64px; height: 64px; font-size: 23px !important; }
+  .operationsGame .joystick { width: 99px; height: 99px; left: 18px; bottom: max(19px, env(safe-area-inset-bottom)); }
+  .operationsGame .touchLookHint { left: 46%; font-size: 5px; }
+  .cockpitHud { bottom: 135px; width: calc(100% - 26px); max-width: 405px; padding: 10px 11px; }
+  .cockpitHudTop > span { font-size: 7px; }
+  .cockpitHudTop > button { font-size: 6px; padding: 5px; }
+  .cockpitHudTop kbd { display: none; }
+  .flightInstruments { gap: 12px; margin-top: 9px; }
+  .flightInstruments strong { font-size: 33px; }
+  .flightInstruments strong > small { font-size: 6px; margin-left: 3px; }
+  .flightInstruments span { font-size: 6px; }
+  .attitudeIndicator { height: 61px; }
+  .cockpitReadouts { font-size: 5px; margin-top: 9px; padding-bottom: 8px; }
+  .cockpitReadouts b { font-size: 7px; margin-left: 3px; }
+  .cockpitActions { gap: 6px; }
+  .cockpitActions > button { width: 26px; height: 29px; }
+  .cockpitActions .leaveCockpit { gap: 5px; font-size: 8px; padding: 0 7px; }
+  .throttleBar { width: 48px; }
+  .inCockpit .flightGuidance { bottom: 358px; }
+  .inCockpit .touchActions { display: none; }
+  .inCockpit .touchLookHint { left: auto; right: 23px; bottom: 53px; transform: none; font-size: 7px; }
+  .debriefDialog h2 { font-size: 34px; }
+  .debriefBreakdown span { width: 106px; font-size: 8px; }
+  .debriefBreakdown b { min-width: 40px; font-size: 9px; }
+}
+@media (pointer: coarse) and (min-width: 761px) {
+  .operationsGame .touchActions { gap: 8px; }
+  .operationsGame .interactPrompt { bottom: 144px; }
+  .operationsGame .radio { bottom: 174px; }
+  .flightGuidance { bottom: 231px; }
+  .cockpitHud { bottom: 114px; }
+  .inCockpit .flightGuidance { bottom: 353px; }
+  .inCockpit .touchActions { display: none; }
+}
+@media (max-height: 520px) and (min-width: 600px) {
+  .operationsGame .departureDesk { top: 62px; width: 54%; }
+  .operationsGame .wordmark { font-size: 40px; gap: 7px; padding-top: 10px; }
+  .operationsGame .menuHeader { top: 12px; }
+  .crewProfile { margin-top: 11px; padding-bottom: 8px; }
+  .crewProfile strong { font-size: 10px; }
+  .crewProfile > div > span { font-size: 6px; }
+  .crewProfile > b { font-size: 20px; }
+  .operationsGame .deskTabs { margin-top: 12px; gap: 16px; }
+  .operationsGame .deskTabs button { font-size: 9px; }
+  .contractCard { min-height: 69px; }
+  .operationsGame .flightHeader { flex-wrap: nowrap; gap: 7px; }
+  .operationsGame .flightTimer { margin-left: 0; padding: 3px 8px; }
+  .operationsGame .flightTimer strong { font-size: 23px; }
+  .operationsGame .flightTimer > span { font-size: 5px; }
+  .stageStrip { order: 0; width: auto; flex: 1; margin: 0 auto; }
+  .stageStrip > li { min-width: 0; flex: 1; padding: 11px 4px; gap: 3px; }
+  .stageStrip strong { font-size: 6px; }
+  .stageStrip li > span { font-size: 5px; width: 7px; }
+  .operationsGame .flightTools { margin-left: 0; }
+  .operationsGame .objectives { top: 62px; left: 17px; width: 166px; padding: 8px; }
+  .operationsGame .objectiveHeading { font-size: 6px; padding-bottom: 6px; }
+  .operationsGame .objective { font-size: 7px; min-height: 21px; }
+  .operationsGame .objectiveIcon { width: 13px; }
+  .aircraftSystems { top: 62px; right: 17px; width: 144px; padding: 9px; }
+  .systemsHeader > span { font-size: 5px; }
+  .systemsHeader > b { font-size: 17px; }
+  .systemGauge { padding-top: 7px; }
+  .systemGauge > span { font-size: 7px; }
+  .systemGauge b { font-size: 9px; }
+  .systemGauge > div { height: 2px; margin-top: 3px; }
+  .operationsGame .turbulenceWarning { top: 61px; right: auto; left: 50%; transform: translateX(-50%); max-width: none; font-size: 6px; padding: 6px 10px; }
+  .flightGuidance { bottom: 113px; width: 40%; max-width: 355px; padding: 7px 9px; }
+  .flightGuidance > span { font-size: 5px; }
+  .flightGuidance p { font-size: 8px; margin-top: 3px; }
+  .operationsGame .radio { bottom: 11px; max-width: 40%; padding: 6px 9px; }
+  .operationsGame .radio p { font-size: 7px; }
+  .operationsGame .interactPrompt { bottom: 61px; padding: 7px; min-width: 200px; max-width: 40%; }
+  .promptContent { gap: 7px; }
+  .promptContent > span { font-size: 9px; }
+  .promptContent > small { font-size: 7px; }
+  .operationsGame .inventory { bottom: 118px; min-width: 130px; }
+  .operationsGame .touchActions { bottom: 20px; right: 22px; }
+  .operationsGame .touchInteract { width: 58px; height: 58px; }
+  .operationsGame .touchDrop { width: 33px; height: 33px; }
+  .touchGrab { width: 29px; height: 29px; }
+  .operationsGame .joystick { width: 91px; height: 91px; bottom: 16px; left: 28px; }
+  .cockpitHud { bottom: 16px; width: 343px; padding: 9px 12px; }
+  .cockpitHudTop > span { font-size: 6px; }
+  .cockpitHudTop > button { font-size: 6px; min-height: 23px; }
+  .cockpitHudTop kbd { display: none; }
+  .flightInstruments { margin-top: 7px; gap: 15px; }
+  .flightInstruments strong { font-size: 30px; }
+  .flightInstruments span { font-size: 5px; }
+  .attitudeIndicator { height: 46px; }
+  .attitudeIndicator .aircraftReference { font-size: 19px; }
+  .cockpitReadouts { margin-top: 7px; padding-bottom: 7px; font-size: 5px; }
+  .cockpitReadouts b { font-size: 6px; }
+  .cockpitActions { padding-top: 7px; gap: 5px; }
+  .cockpitActions > button { height: 26px; width: 23px; font-size: 15px; }
+  .cockpitActions > span { font-size: 5px; }
+  .cockpitActions > span b { font-size: 9px; }
+  .cockpitActions .leaveCockpit { font-size: 7px; padding: 0 6px; }
+  .throttleBar { width: 44px; }
+  .inCockpit .flightGuidance { bottom: 208px; width: 40%; }
+  .inCockpit .touchLookHint { display: none; }
+  .inCockpit .aircraftSystems { width: 130px; }
+  .inCockpit .objectives { width: 155px; }
+}
+
+/* Keep operational copy legible while the cabin remains the primary surface. */
+.operationsGame .flightGuidance p { font-size: 11px; }
+.operationsGame .radio p { font-size: 11px; }
+.operationsGame .objective { font-size: 11px; }
+.systemGauge > span { font-size: 10px; }
+@media (max-width: 760px) {
+  .contractBottom { font-size: 8px; }
+  .contractTop { font-size: 7px; }
+  .contractBrief > p { font-size: 11px; }
+  .briefTags > span, .difficultyDescription { font-size: 8px; }
+  .difficultySelector > button, .modeSwitch > button { font-size: 10px; }
+  .stageStrip strong { font-size: 8px; }
+  .operationsGame .objective { font-size: 9px; min-height: 25px; }
+  .systemGauge > span { font-size: 9px; }
+  .operationsGame .flightGuidance p { font-size: 11px; }
+  .operationsGame .radio p { font-size: 10px; }
+  .operationsGame .touchGrab, .operationsGame .touchDrop { width: 44px; height: 44px; }
+  .operationsGame .touchLookHint { display: none; }
+  .cockpitHudTop > button { min-height: 36px; font-size: 8px; }
+  .cockpitActions > button { width: 36px; height: 38px; }
+  .cockpitActions .leaveCockpit { font-size: 9px; }
+  .inCockpit .flightGuidance { bottom: 382px; }
+}
+@media (max-height: 520px) and (min-width: 600px) {
+  .operationsGame .objective { font-size: 9px; }
+  .systemGauge > span { font-size: 9px; }
+  .operationsGame .flightGuidance p, .operationsGame .radio p { font-size: 10px; }
+  .operationsGame .touchGrab, .operationsGame .touchDrop { width: 40px; height: 40px; }
+  .inCockpit .flightGuidance { bottom: 208px; }
+}
+@media (max-height: 520px) and (min-width: 600px) {
+  .stageStrip strong { font-size: 8px; }
+  .cockpitHudTop > button { min-height: 34px; font-size: 8px; }
+  .cockpitActions > button { height: 38px; width: 36px; }
+  .cockpitActions .leaveCockpit { font-size: 9px; }
+  .flightInstruments span, .cockpitReadouts b { font-size: 7px; }
+}
+
+/* The room panel stays mounted so an active flight never loses its socket. */
+.menuCrewControls { display:flex; align-items:center; gap:14px; }
+.crewButton { display:flex; align-items:center; gap:9px; color:var(--paper,#f4ead2); border:1px solid #b6c8c83d; background:#10262ad9; padding:11px 15px; border-radius:5px; cursor:pointer; font:inherit; font-size:12px; }
+.crewButton small { color:#efc759; font-family:monospace; letter-spacing:1px; }
+.crewOverlay { position:absolute;inset:0;z-index:100;background:#06141bd9;backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:24px;pointer-events:auto; }
+.crewOverlay[hidden] { display:none; }
+.crewDialog { position:relative;width:min(680px,100%);max-height:calc(100dvh - 48px);overflow:auto;border-radius:12px;box-shadow:0 30px 100px #0008; }
+.crewClose { position:absolute;right:12px;top:11px;z-index:2;border:0;background:#1a343be6;color:white;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;cursor:pointer; }
+@media(max-width:600px){.menuCrewControls{gap:6px}.crewButton{padding:9px;font-size:10px}.crewButton small{display:none}.crewOverlay{padding:12px}.crewDialog{max-height:calc(100dvh - 24px)}.operationsGame .flightTools{gap:4px}.operationsGame .flightTools button{width:34px;height:36px}}
+.game .crewButton {display:flex;align-items:center;gap:9px;border:1px solid #b6c8c83d;background:#10262ad9;padding:11px 15px;border-radius:5px;color:#f4ead2;font-size:12px;white-space:nowrap}
+.game .crewClose {position:absolute;right:12px;top:11px;z-index:2;border:0;background:#1a343be6;color:white;border-radius:50%;width:36px;height:36px;display:grid;place-items:center}
+@media(max-width:600px){.game .crewButton{padding:9px 8px;font-size:10px}.game .airlineBrand{font-size:10px;white-space:nowrap}.game .menuCrewControls{gap:4px}.game .menuHeader{gap:5px}.game .settingsControls{gap:3px}}

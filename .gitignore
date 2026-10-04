@@ -14,7 +14,7 @@
 
 # production
 /build
-/.wrangler/
+.wrangler/
 /.seo-cache/
 
 # misc

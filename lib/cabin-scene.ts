@@ -1,6 +1,10 @@
 import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { buildCabinEffects, buildVolumetricFire, makeContactShadowTexture, makeFabricTexture, type CabinFlightVisualState } from './cabin-effects';
+
+export interface PassengerVisualState { belted: boolean; served: boolean; panic: number; grabbed: boolean; request: string }
+export interface CabinLooseObject { id: string; kind: 'parcel' | 'food' | 'animal'; group: THREE.Group; position: THREE.Vector3 }
 
 export interface CabinPassenger {
   id: number;
@@ -18,7 +22,11 @@ export interface CabinWorld {
   cargo: THREE.Group;
   galley: THREE.Vector3;
   cockpit: THREE.Vector3;
+  objects: CabinLooseObject[];
   setRoute(route: number): void;
+  setFlightState(state: Partial<CabinFlightVisualState>): void;
+  setPassengerState(id: number, state: Partial<PassengerVisualState>): void;
+  setLowQuality(enabled: boolean): void;
   update(time: number, turbulence: number): void;
   dispose(): void;
 }
@@ -33,6 +41,32 @@ function mat(hex: THREE.ColorRepresentation, roughness = .72, metalness = 0) {
   return new THREE.MeshStandardMaterial({ color: hex, roughness, metalness });
 }
 
+// Most small cartoon parts differ only in their solid colour. Baking that colour
+// into vertices lets a whole face/body share a draw call without losing its palette.
+function bakeSolidColours(root:THREE.Group,retired:Set<THREE.Material>){
+  const shared=new Map<string,THREE.MeshStandardMaterial>();
+  root.traverse(object=>{
+    if(!(object instanceof THREE.Mesh)||Array.isArray(object.material)||(object as THREE.InstancedMesh).isInstancedMesh)return;
+    const material=object.material;
+    if(!(material instanceof THREE.MeshStandardMaterial)||material.transparent||material.map||material.normalMap||material.alphaMap||material.emissive.getHex()!==0||material.metalness>.12)return;
+    const roughness=material.roughness<.5?.43:.86;
+    const bumpScale=material.bumpMap?(material.bumpScale<=.005?.004:.01):0;
+    const key=`${roughness}|${material.side}|${material.bumpMap?.uuid||''}|${bumpScale}`;
+    let replacement=shared.get(key);
+    if(!replacement){replacement=new THREE.MeshStandardMaterial({color:0xffffff,vertexColors:true,roughness,side:material.side,bumpMap:material.bumpMap,bumpScale});shared.set(key,replacement);}
+    const geometry=object.geometry,vertices=geometry.attributes.position,existing=geometry.attributes.color;
+    const colours=new Float32Array(vertices.count*3);
+    for(let i=0;i<vertices.count;i++){
+      colours[i*3]=material.color.r*(material.vertexColors&&existing?existing.getX(i):1);
+      colours[i*3+1]=material.color.g*(material.vertexColors&&existing?existing.getY(i):1);
+      colours[i*3+2]=material.color.b*(material.vertexColors&&existing?existing.getZ(i):1);
+    }
+    geometry.setAttribute('color',new THREE.BufferAttribute(colours,3));
+    if(!geometry.attributes.uv)geometry.setAttribute('uv',new THREE.BufferAttribute(new Float32Array(vertices.count*2),2));
+    object.material=replacement;retired.add(material);
+  });
+}
+
 /** Keep logical/animated groups, but submit their stationary pieces together. */
 function batchStaticGeometry(group: THREE.Group, skip: Set<THREE.Object3D>,
   removedGeometries: Set<THREE.BufferGeometry>, removedMaterials: Set<THREE.Material>) {
@@ -42,7 +76,7 @@ function batchStaticGeometry(group: THREE.Group, skip: Set<THREE.Object3D>,
   const buckets = new Map<string, THREE.Mesh[]>();
   const visit = (object: THREE.Object3D) => {
     if (skip.has(object)) return;
-    if (object instanceof THREE.Mesh && !Array.isArray(object.material) && !(object as THREE.SkinnedMesh).isSkinnedMesh && object.visible) {
+    if (object instanceof THREE.Mesh && !Array.isArray(object.material) && !(object as THREE.SkinnedMesh).isSkinnedMesh && !(object as THREE.InstancedMesh).isInstancedMesh && object.visible) {
       const material = object.material;
       let signature = signatures.get(material);
       if (!signature) {
@@ -99,6 +133,16 @@ function batchStaticGeometry(group: THREE.Group, skip: Set<THREE.Object3D>,
       mesh.removeFromParent();
     }
   }
+}
+
+function optimiseStandalone(group:THREE.Group,parts:THREE.Group[]=[]){
+  const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>();
+  bakeSolidColours(group,materials);batchStaticGeometry(group,new Set(parts),geometries,materials);
+  for(const part of parts)batchStaticGeometry(part,new Set(),geometries,materials);
+  const liveGeo=new Set<THREE.BufferGeometry>(),liveMat=new Set<THREE.Material>();
+  group.traverse(o=>{const mesh=o as THREE.Mesh;if(mesh.geometry)liveGeo.add(mesh.geometry);if(mesh.material)(Array.isArray(mesh.material)?mesh.material:[mesh.material]).forEach(m=>liveMat.add(m));});
+  geometries.forEach(g=>{if(!liveGeo.has(g))g.dispose();});materials.forEach(m=>{if(!liveMat.has(m))m.dispose();});
+  return group;
 }
 
 function box(parent: Parent, w: number, h: number, d: number, material: THREE.Material,
@@ -179,7 +223,7 @@ function label(parent: Parent, text: string, w: number, h: number, x: number, y:
   mesh.position.set(x, y, z); parent.add(mesh); return mesh;
 }
 
-function bubbleTexture() {
+function bubbleTexture(kind:'coffee'|'food'='coffee') {
   const canvas = document.createElement("canvas"); canvas.width = 128; canvas.height = 128;
   const ctx = canvas.getContext("2d")!;
   ctx.shadowColor = "rgba(18,38,61,.23)"; ctx.shadowBlur = 10; ctx.shadowOffsetY = 4;
@@ -191,6 +235,15 @@ function bubbleTexture() {
   ctx.fillStyle = "#f2d8a6"; ctx.fillRect(36, 39, 54, 10); ctx.fillRect(45, 65, 36, 10);
   ctx.strokeStyle = "#29445d"; ctx.lineWidth = 4; ctx.lineCap = "round";
   for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(48 + i * 14, 30); ctx.quadraticCurveTo(41 + i * 14, 22, 48 + i * 14, 16); ctx.stroke(); }
+  if(kind==='food'){
+    ctx.fillStyle='#fffaf0';ctx.fillRect(29,13,70,77);
+    ctx.fillStyle='#d8913f';ctx.beginPath();ctx.ellipse(64,48,28,21,0,Math.PI,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#79a449';ctx.beginPath();ctx.roundRect(32,50,64,9,4);ctx.fill();
+    ctx.fillStyle='#704332';ctx.beginPath();ctx.roundRect(35,62,59,11,4);ctx.fill();
+    ctx.fillStyle='#edbe54';ctx.fillRect(35,58,59,5);
+    ctx.fillStyle='#dca159';ctx.beginPath();ctx.roundRect(37,76,55,11,5);ctx.fill();
+    ctx.fillStyle='#f7db9f';for(let n=0;n<6;n++){ctx.beginPath();ctx.ellipse(46+n%3*17,36+Math.floor(n/3)*7,2.8,1.2,-.35,0,Math.PI*2);ctx.fill();}
+  }
   const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
@@ -217,17 +270,79 @@ function suitcase(parent: Parent, hue: number, x: number, y: number, z: number, 
   return g;
 }
 
-function seat(parent: Parent, x: number, z: number) {
+function makeFood(parent:Parent,x=0,y=0,z=0,scale=1){
+  const group=new THREE.Group();group.position.set(x,y,z);group.scale.setScalar(scale);parent.add(group);
+  const bread=mat(0xdfa75a,.92),filling=mat(0x694330,.93),lettuce=mat(0x70a342,.95);
+  cylinder(group,bread,.15,.135,.037,0,.025,0);
+  cylinder(group,filling,.148,.147,.032,0,.064,0);
+  const leaf=cylinder(group,lettuce,.162,.16,.022,0,.093,0,18);leaf.rotation.y=.24;
+  box(group,.253,.012,.242,mat(0xf0c34e,.85),0,.111,0,.009).rotation.y=.25;
+  const bun=new THREE.Mesh(new THREE.SphereGeometry(.155,20,12,0,Math.PI*2,0,Math.PI/2),bread);bun.position.y=.12;bun.scale.y=.42;bun.castShadow=true;group.add(bun);
+  const sesame=mat(0xf6d797,.92);
+  for(let n=0;n<9;n++){const a=n*2.4,r=.035+(n%3)*.027;const seed=sphere(group,sesame,Math.cos(a)*r,.174-(r/.155)*.015,Math.sin(a)*r,.010,.0035,.004);seed.rotation.y=a;}
+  return group;
+}
+
+function makeLooseObjects(parent:THREE.Group,fabric:THREE.Texture):CabinLooseObject[]{
+  const parcel=new THREE.Group();parcel.position.set(-.72,.035,2.7);parent.add(parcel);
+  const cardboard=mat(0xb68a5b,.98);cardboard.bumpMap=fabric;cardboard.bumpScale=.01;
+  box(parcel,.46,.34,.39,cardboard,0,.17,0,.025);
+  for(const x of [-.10,.10])box(parcel,.043,.352,.404,mat(0xdfc59b,.9),x,.171,0,.005);
+  label(parcel,'FRAGILE',.29,.075,0,.23,.203,'#dfcca5','#694a37');
+  box(parcel,.16,.10,.008,mat(0xefe6ca),.07,.105,.203,.004);
+  const tray=new THREE.Group();tray.position.set(.81,1.215,7.02);parent.add(tray);
+  box(tray,.48,.036,.34,mat(0x8ba5b1,.5),0,0,0,.04);
+  makeFood(tray,-.065,.019,-.015,.82);
+  box(tray,.14,.012,.18,mat(0xe5dfce,.95),.13,.027,.015,.007);
+  const carrier=new THREE.Group();carrier.position.set(-1.37,.025,9.76);parent.add(carrier);
+  const cage=mat(0x687f8c,.42,.35),plastic=mat(0xdd9b43,.76),lining=mat(0xd8c8a4,.94);
+  box(carrier,.88,.105,.73,plastic,0,.052,0,.058);box(carrier,.79,.025,.63,lining,0,.117,0,.03);
+  for(const x of [-.414,.414])for(const z of [-.335,.335])box(carrier,.052,.58,.052,cage,x,.37,z,.022);
+  for(const y of [.17,.40,.65])for(const z of [-.335,.335])box(carrier,.85,.025,.024,cage,0,y,z,.008);
+  for(let n=-3;n<=3;n++)for(const z of [-.335,.335])box(carrier,.018,.49,.022,cage,n*.114,.409,z,.007);
+  for(const side of [-1,1])for(let n=-2;n<=2;n++)box(carrier,.021,.49,.018,cage,side*.414,.409,n*.127,.006);
+  box(carrier,.88,.060,.73,plastic,0,.69,0,.04);
+  box(carrier,.26,.043,.09,cage,0,.80,0,.018);for(const x of [-.108,.108])box(carrier,.035,.10,.065,cage,x,.755,0,.01);
+  box(carrier,.08,.11,.04,plastic,.335,.34,.358,.018);
+  const animal=new THREE.Group();animal.position.set(0,.12,0);carrier.add(animal);carrier.userData.animal=animal;
+  const green=mat(0x779856,.94),belly=mat(0xced4a0,.94),white=mat(0xf7efd1,.8),black=mat(0x263329,.6);
+  sphere(animal,green,0,.13,-.035,.23,.12,.28);
+  const tailCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(0,.1,-.20),new THREE.Vector3(-.12,.10,-.30),new THREE.Vector3(-.27,.14,-.22)]);
+  animal.add(new THREE.Mesh(new THREE.TubeGeometry(tailCurve,14,.040,7,false),green));
+  for(const side of [-1,1])for(const z of [-.10,.12])limb(animal,green,[side*.15,.11,z],[side*.27,.048,z+.05],.048);
+  const animalHead=new THREE.Group();animalHead.position.set(0,.17,.16);animal.add(animalHead);carrier.userData.animalHead=animalHead;
+  box(animalHead,.28,.125,.30,green,0,.028,.005,.048);
+  box(animalHead,.23,.052,.21,belly,0,-.037,.047,.025);
+  for(const side of [-1,1]){
+    sphere(animalHead,green,side*.091,.103,-.066,.064,.060,.060);
+    sphere(animalHead,white,side*.096,.108,-.018,.041,.037,.014);
+    sphere(animalHead,black,side*.096,.106,-.003,.011,.023,.008);
+    sphere(animalHead,black,side*.065,.085,.107,.012,.006,.010);
+    for(let n=0;n<3;n++){const tooth=new THREE.Mesh(new THREE.ConeGeometry(.012,.027,5),white);tooth.position.set(side*.118,-.022,-.01+n*.057);tooth.rotation.z=Math.PI;animalHead.add(tooth);}
+  }
+  for(let n=0;n<5;n++){const spike=new THREE.Mesh(new THREE.ConeGeometry(.023,.042,4),green);spike.position.set(0,.25,-.2+n*.07);animal.add(spike);}
+  label(carrier,'LIVE CARGO',.54,.11,0,.704,.374,'#eab769','#4a4b34');
+  return [{id:'parcel-1',kind:'parcel',group:parcel,position:parcel.position.clone()},{id:'food-tray',kind:'food',group:tray,position:tray.position.clone()},{id:'pet-carrier',kind:'animal',group:carrier,position:carrier.position.clone()}];
+}
+
+function seat(parent: Parent, x: number, z: number, fabric: THREE.Texture) {
   const g = new THREE.Group(); g.position.set(x, 0, z); parent.add(g);
-  const blue = mat(color.blue, .9), darkBlue = mat(color.seat, .9), frame = mat(0x6d7c91, .45, .25);
+  const blue = mat(color.blue, .74), darkBlue = mat(color.seat, .84), frame = mat(0x6d7c91, .45, .25);
+  blue.bumpMap = fabric; blue.bumpScale = .007; darkBlue.bumpMap = fabric; darkBlue.bumpScale = .009;
   box(g, 1.28, .25, 1.04, darkBlue, 0, .61, .06, .12);
   box(g, 1.30, 1.19, .24, blue, 0, 1.22, -.44, .11).rotation.x = -.07;
   box(g, .98, .33, .15, mat(0x368aeb), 0, 1.69, -.27, .07);
   box(g, .50, .24, .025, mat(0xf4eadd), 0, 1.72, -.174, .028);
+  const seam = mat(0x1156a0, .86);
+  for (const s of [-1,1]) {
+    const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(s*.44,.77,-.293),new THREE.Vector3(s*.44,1.2,-.284),new THREE.Vector3(s*.43,1.66,-.242)]);
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(curve,12,.009,4,false),seam));
+    box(g,.01,.02,.66,seam,s*.43,.742,.07,.004);
+  }
   for (const s of [-1, 1]) {
     box(g, .10, .51, .61, frame, s * .46, .27, 0, .035);
     box(g, .13, .48, .13, frame, s * .64, .88, .06, .025);
-    box(g, .21, .12, .91, mat(0x2a4263), s * .65, 1.09, .1, .065);
+    box(g, .21, .12, .91, mat(0x674d3f,.66), s * .65, 1.09, .1, .065);
     box(g, .22, .04, .24, mat(0x718294), s * .65, 1.16, .37, .022);
   }
   box(g, .86, .40, .055, mat(0x153963), 0, 1.03, -.588, .04);
@@ -235,14 +350,22 @@ function seat(parent: Parent, x: number, z: number) {
   return g;
 }
 
-function passenger(parent: Parent, id: number, x: number, z: number, texture: THREE.Texture): CabinPassenger {
+function passenger(parent: Parent, id: number, x: number, z: number, texture: THREE.Texture, fabric: THREE.Texture): CabinPassenger {
   const g = new THREE.Group(); g.position.set(x, 0, z); parent.add(g);
   const skins = [0xeab189, 0xb97143, 0xf0b995, 0xcf956d, 0x8f5438, 0xefb090, 0xd39364, 0xeba673];
   const shirts = [0xefece1, 0x236d91, 0xf3b633, 0x966cca, 0x38a183, 0xe47769, 0xedeee3, 0x376cbd];
   const trousers = [0x435064, 0x30384c, 0x5c6768, 0x333743, 0x344150, 0x3e4c62, 0x656474, 0x334352];
   const skin = mat(skins[id], .88), outfit = mat(shirts[id]), pants = mat(trousers[id]);
+  outfit.bumpMap=fabric;outfit.bumpScale=.012;outfit.roughness=.92;pants.bumpMap=fabric;pants.bumpScale=.014;pants.roughness=.94;
   const boots = mat(id % 3 === 0 ? 0x775138 : 0x283440);
   sphere(g, outfit, 0, 1.12, -.045, .39, .47, .265);
+  // Jacket seams, a folded collar and an inset pocket break up the smooth torso.
+  for(const s of [-1,1]) {
+    const collar=box(g,.17,.17,.038,outfit,s*.115,1.49,.218,.025);collar.rotation.z=s*.36;
+    limb(g,mat(new THREE.Color(shirts[id]).multiplyScalar(.74)),[s*.30,1.35,.185],[s*.29,.99,.224],.008);
+  }
+  box(g,.16,.115,.026,outfit,-.20,1.27,.239,.014);
+  box(g,.14,.011,.009,mat(new THREE.Color(shirts[id]).multiplyScalar(.70)),-.20,1.325,.261,.003);
   box(g, .41, .64, .07, mat(id % 2 === 0 ? 0x8eb3d8 : shirts[id]), 0, 1.21, .202, .04);
   if (id % 2 === 0) {
     for (const s of [-1, 1]) box(g, .15, .69, .11, outfit, s * .22, 1.21, .245, .04).rotation.z = s * .04;
@@ -274,39 +397,74 @@ function passenger(parent: Parent, id: number, x: number, z: number, texture: TH
   const head = new THREE.Group(); head.position.set(0, 1.96, .015);
   head.rotation.y = x > 0 ? -.18 : .18;
   head.rotation.z = (id % 3 - 1) * .055; g.add(head); g.userData.head = head;
-  sphere(head, skin, 0, 0, 0, .40, .47, .34);
-  for (const s of [-1, 1]) {
-    sphere(head, skin, s * .398, -.02, .016, .093, .13, .09);
-    sphere(head, mat(0xfffbef, .4), s * .19, .09, .279, .218, .253, .147);
-    sphere(head, mat(0x222a30, .25), s * .18 + (x > 0 ? -.023 : .023), .025, .415, .073, .088, .030);
-    sphere(head, mat(0xffffff, .2), s * .18 - .024, .062, .441, .017);
+  const skinGeometry = new THREE.SphereGeometry(1, 28, 22);
+  const skinVertices = skinGeometry.attributes.position;
+  const skinColors: number[] = [];
+  const baseSkin = new THREE.Color(skins[id]), cheekColor = new THREE.Color(skins[id]).lerp(new THREE.Color(0xb95245), .22);
+  for (let n = 0; n < skinVertices.count; n++) {
+    const px = skinVertices.getX(n), py = skinVertices.getY(n), pz = skinVertices.getZ(n);
+    const jaw = py < -.1 ? 1 + py * .20 : 1;
+    skinVertices.setXYZ(n,px * .398 * jaw,py * .475,pz * .328 * (py < -.2 ? .93 : 1));
+    const cheek = Math.max(0,1-Math.abs(Math.abs(px)-.58)*4) * Math.max(0,1-Math.abs(py+.18)*4) * Math.max(0,pz);
+    const c = baseSkin.clone().lerp(cheekColor,cheek); skinColors.push(c.r,c.g,c.b);
   }
-  sphere(head, skin, 0, -.12, .347, .075, .08, .10);
-  const smile = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(-.205, -.245, .281), new THREE.Vector3(0, -.277, .328), new THREE.Vector3(.205, -.243, .28),
-  ]);
-  head.add(new THREE.Mesh(new THREE.TubeGeometry(smile, 14, .016, 5, false), mat(0x824333)));
-  const hairColors = [0x483729, 0x2d2626, 0xbc6b2b, 0x483d3a, 0x252126, 0xdfc4a0, 0xc9cbc6, 0x312b28];
-  const hair = mat(hairColors[id]);
-  if (id === 3 || id === 7) {
-    sphere(head, mat(id === 3 ? 0x36a372 : 0xeb9c30), 0, .355, -.01, .435, .2, .355);
-    box(head, .52, .058, .35, mat(id === 3 ? 0x1d8657 : 0xe5a32e), 0, .35, .30, .1);
-    if (id === 3) { sphere(head, mat(0x269462), -.22, .54, 0, .1); sphere(head, mat(0x269462), .22, .54, 0, .1); }
+  skinGeometry.setAttribute('color',new THREE.Float32BufferAttribute(skinColors,3));skinGeometry.computeVertexNormals();
+  const faceMaterial=skin.clone();faceMaterial.vertexColors=true;faceMaterial.color.setHex(0xffffff);
+  const face=new THREE.Mesh(skinGeometry,faceMaterial);face.castShadow=true;face.receiveShadow=true;head.add(face);
+  const eyes=new THREE.Group();eyes.position.y=.085;head.add(eyes);g.userData.eyes=eyes;
+  const eyeWhite=mat(0xfff8e9,.62),pupilMaterial=mat(0x263039,.36),lidMaterial=mat(new THREE.Color(skins[id]).multiplyScalar(.92));
+  const hairColors = [0x483729, 0x282226, 0x925124, 0x483d3a, 0x252126, 0xb58b57, 0xb7bbb8, 0x312b28];
+  const hair = mat(hairColors[id],.96);
+  for(const side of [-1,1]) {
+    sphere(head,skin,side*.377,-.025,.006,.072,.11,.066);
+    sphere(head,lidMaterial,side*.394,-.025,.047,.032,.060,.019);
+    sphere(eyes,eyeWhite,side*.172,0,.285,.181,.206,.078);
+    sphere(eyes,pupilMaterial,side*.166+(x>0?-.017:.017),-.024,.359,.055,.065,.018);
+    sphere(eyes,mat(0xffffff,.42),side*.166-.014,.001,.376,.011);
+    const upper=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.172-.17,.08,.300),new THREE.Vector3(side*.172,.205,.303),new THREE.Vector3(side*.172+.17,.08,.300)]);
+    eyes.add(new THREE.Mesh(new THREE.TubeGeometry(upper,14,.017,5,false),lidMaterial));
+    const eyebrow=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.172-.115,.336,.267),new THREE.Vector3(side*.172,.36+(id%3-1)*.015,.273),new THREE.Vector3(side*.172+.12,.324,.267)]);
+    head.add(new THREE.Mesh(new THREE.TubeGeometry(eyebrow,12,.021,6,false),hair));
+  }
+  sphere(head,skin,0,-.11,.311,.064,.074,.071);
+  const mouth=new THREE.Group();mouth.position.set(0,-.235,.292);head.add(mouth);g.userData.mouth=mouth;
+  const smile=new THREE.CatmullRomCurve3([new THREE.Vector3(-.153,.003,0),new THREE.Vector3(0,-.025,.027),new THREE.Vector3(.153,.007,0)]);
+  mouth.add(new THREE.Mesh(new THREE.TubeGeometry(smile,16,.013,6,false),mat(0x92584a)));
+  const lowerLip=new THREE.CatmullRomCurve3([new THREE.Vector3(-.105,-.03,.006),new THREE.Vector3(0,-.043,.023),new THREE.Vector3(.105,-.028,.007)]);
+  mouth.add(new THREE.Mesh(new THREE.TubeGeometry(lowerLip,12,.010,5,false),mat(new THREE.Color(skins[id]).lerp(new THREE.Color(0xa85750),.25))));
+  const gasp=new THREE.Group();gasp.position.copy(mouth.position);head.add(gasp);gasp.visible=false;g.userData.gasp=gasp;
+  sphere(gasp,mat(0x713f36),0,-.017,.014,.081,.095,.025);
+  sphere(gasp,mat(0xd58e81),0,-.065,.035,.052,.018,.009);
+  if(id===3||id===7) {
+    const hat=mat(id===3?0x398f70:0xca973d,.98);hat.bumpMap=fabric;hat.bumpScale=.012;
+    sphere(head,hat,0,.372,-.03,.405,.207,.338);
+    const rim=new THREE.Mesh(new THREE.TorusGeometry(.354,.045,8,32),hat);rim.rotation.x=Math.PI/2;rim.scale.z=.86;rim.position.set(0,.345,-.025);head.add(rim);
+    if(id===7)box(head,.48,.045,.28,hat,0,.337,.295,.072);
+    else {sphere(head,hat,-.19,.536,-.04,.087,.082,.087);sphere(head,hat,.19,.536,-.04,.087,.082,.087);}
   } else {
-    sphere(head, hair, 0, .32, -.065, .407, .22, .335);
-    for (let n = 0; n < 7; n++) sphere(head, hair, Math.cos(n * Math.PI / 6) * .32, .32 + Math.sin(n * 1.5) * .035, .17 + Math.sin(n * Math.PI / 6) * .1, .115, .15, .115);
-    if (id === 5) sphere(head, hair, .05, .45, -.22, .20);
-    if (id === 4) for (let n = 0; n < 8; n++) sphere(head, hair, Math.cos(n * .78) * .36, .3 + Math.sin(n * .78) * .23, -.1, .18);
-  }
-  if (id === 6) {
-    const glasses = mat(0x4c4c48, .4, .5);
-    for (const s of [-1, 1]) {
-      const ring = new THREE.Mesh(new THREE.TorusGeometry(.22, .014, 6, 32), glasses);
-      ring.position.set(s * .2, .09, .415); head.add(ring);
+    const points:number[]=[],indices:number[]=[],colors:number[]=[];const around=40,down=16;
+    for(let row=0;row<=down;row++) for(let col=0;col<=around;col++) {
+      const phi=col/around*Math.PI*2,front=Math.max(0,Math.sin(phi));
+      const maxTheta=1.82-front*(id===6?1.08:.69)+Math.sin(phi*5+id)*.025;
+      const theta=row/down*maxTheta;
+      const curl=id===4?1+Math.sin(phi*12+theta*15)*.035:1;
+      const quiff=(id===0||id===2)?Math.pow(front,4)*Math.sin(theta*1.3)*.095:0;
+      points.push(Math.sin(theta)*Math.cos(phi)*.412*curl,.035+Math.cos(theta)*.485+quiff,-.035+Math.sin(theta)*Math.sin(phi)*.346*curl);
+      const h=new THREE.Color(hairColors[id]).multiplyScalar(.86+Math.sin(phi*17+theta*.7)*.055+Math.cos(theta)*.14);colors.push(h.r,h.g,h.b);
+      if(row<down&&col<around){const a=row*(around+1)+col,b=a+around+1;indices.push(a,b,a+1,b,b+1,a+1);}
     }
-    box(head, .065, .022, .02, glasses, 0, .11, .42, .005);
-    sphere(head, hair, -.08, -.2, .30, .1, .04, .05); sphere(head, hair, .08, -.2, .30, .1, .04, .05);
+    const hairGeo=new THREE.BufferGeometry();hairGeo.setAttribute('position',new THREE.Float32BufferAttribute(points,3));hairGeo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));hairGeo.setIndex(indices);hairGeo.computeVertexNormals();
+    const capMaterial=hair.clone();capMaterial.color.setHex(0xffffff);capMaterial.vertexColors=true;
+    const cap=new THREE.Mesh(hairGeo,capMaterial);cap.castShadow=true;head.add(cap);
+    if(id===5){sphere(head,hair,.03,.30,-.34,.145,.17,.13);const tie=new THREE.Mesh(new THREE.TorusGeometry(.10,.02,6,18),mat(0x594633));tie.position.set(.03,.32,-.39);head.add(tie);}
   }
+  if(id===6){
+    const glasses=mat(0x574a38,.38,.5);
+    for(const side of [-1,1]){const ring=new THREE.Mesh(new THREE.TorusGeometry(.184,.009,6,32),glasses);ring.position.set(side*.177,.087,.369);ring.scale.y=1.1;head.add(ring);}
+    box(head,.06,.015,.018,glasses,0,.12,.365,.004);
+    sphere(head,hair,-.062,-.18,.3,.076,.025,.028);sphere(head,hair,.062,-.18,.3,.076,.025,.028);
+  }
+  g.userData.visualState={belted:false,served:false,panic:0,grabbed:false,request:'coffee'} as PassengerVisualState;
   const bubble = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: true, transparent: true }));
   bubble.position.set(0, 2.83, .03); bubble.scale.set(.51, .51, 1); g.add(bubble);
   return { id, group: g, position: new THREE.Vector3(x, 1.4, z), bubble };
@@ -324,16 +482,36 @@ function arch(parent: Parent, z: number, material: THREE.Material, thickness = .
 }
 
 function buildCockpit(parent: Parent) {
-  const g = new THREE.Group(); g.position.z = -11.9; parent.add(g);
+  const g = new THREE.Group(); g.position.z = -12.38; parent.add(g);
   const dashboard = mat(0x263c51, .65), dark = mat(0x122939, .6);
   // The slanted windshield is open to the surrounding blue sky.
-  box(g, 5.4, .70, 1.15, dashboard, 0, 1.05, -.28, .13);
-  const deck = box(g, 5.05, .18, 1.1, dark, 0, 1.48, -.23, .06); deck.rotation.x = .16;
-  for (let i = 0; i < 5; i++) {
-    const monitor = box(g, .62, .41, .055, mat(0x071d2b), (i - 2) * .88, 1.64, .095, .026);
-    monitor.rotation.x = -.17;
-    const display = label(g, i % 2 ? "ALT 35000" : "FL 248", .55, .24, (i - 2) * .88, 1.68, .129, "#0b3c45", "#6ef4c5"); display.rotation.x = -.17;
-    for (let b = 0; b < 4; b++) sphere(g, mat(b % 2 ? 0x8ddb9d : 0xfbc973), (i - 2) * .88 - .2 + b * .13, 1.43, .327, .027);
+  box(g, 5.4, .70, 1.15, dashboard, 0, .83, -.28, .13);
+  const deck = box(g, 5.05, .10, 1.1, dark, 0, 1.17, -.23, .06); deck.rotation.x = .06;
+  const needles: THREE.Group[]=[];
+  for(let i=0;i<5;i++) {
+    const x=(i-2)*.88;
+    const frame=cylinder(g,mat(0x718591,.4,.45),.325,.325,.045,x,1.53,.11,40);frame.rotation.x=Math.PI/2;
+    const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const ctx=canvas.getContext('2d')!;
+    ctx.fillStyle='#0f2736';ctx.fillRect(0,0,256,256);
+    ctx.strokeStyle='#637c89';ctx.lineWidth=3;ctx.beginPath();ctx.arc(128,128,116,0,Math.PI*2);ctx.stroke();
+    for(let n=0;n<40;n++) {
+      const a=n/40*Math.PI*2,inner=n%5===0?91:101;
+      ctx.strokeStyle=n>30?'#d2a676':'#b8cac7';ctx.lineWidth=n%5===0?3:1.3;ctx.beginPath();ctx.moveTo(128+Math.sin(a)*inner,128-Math.cos(a)*inner);ctx.lineTo(128+Math.sin(a)*111,128-Math.cos(a)*111);ctx.stroke();
+      if(n%5===0){ctx.fillStyle='#d7e2d8';ctx.font='16px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(n*5),128+Math.sin(a)*76,128-Math.cos(a)*76);}
+    }
+    ctx.fillStyle='#d1e7dc';ctx.font='bold 21px sans-serif';ctx.textAlign='center';ctx.fillText(['SPEED','ALTITUDE','HEADING','FUEL','CABIN'][i],128,114);ctx.font='13px sans-serif';ctx.fillStyle='#77aaa8';ctx.fillText(['KNOTS','FEET','DEGREES','FUEL FLOW','PRESSURE'][i],128,146);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const face=new THREE.Mesh(new THREE.CircleGeometry(.292,40),new THREE.MeshBasicMaterial({map:texture}));face.position.set(x,1.53,.14);g.add(face);
+    const needle=new THREE.Group();needle.position.set(x,1.53,.156);g.add(needle);needles.push(needle);
+    box(needle,.017,.21,.012,mat(0xede6b8,.42),0,.078,0,.006);sphere(needle,mat(0xbcc9c5,.33,.5),0,0,.013,.030,.030,.013);
+    for(let n=0;n<3;n++) sphere(g,new THREE.MeshStandardMaterial({color:n===1?0xd5954a:0x76ae82,emissive:n===1?0xb57628:0x396b46,emissiveIntensity:.7}),x-.11+n*.11,1.25,.27,.027);
+  }
+  // Center-console switches and twin throttle levers remain real geometry.
+  box(g,.6,.52,.55,mat(0x81969e,.6,.2),0,.92,.79,.06);
+  for(const x of [-.13,.13]){
+    box(g,.05,.02,.27,mat(0x172c38),x,1.19,.79,.014);
+    limb(g,mat(0xb5c2c5,.34,.5),[x,1.18,.80],[x,1.35,.73],.022);
+    box(g,.105,.07,.13,mat(0x6c3b32),x,1.38,.72,.03);
   }
   for (const x of [-1.1, 1.1]) {
     box(g, .85, .16, .74, mat(0x40566c), x, .59, 1.18, .10);
@@ -349,16 +527,19 @@ function buildCockpit(parent: Parent) {
   box(parent, 2.7, .73, .24, mat(color.wall), 0, 3.12, -10.15, .06);
   label(parent, "FLIGHT DECK", 1.65, .26, 0, 2.98, -9.998);
   for (const x of [-1.23, 1.23]) box(parent, .09, 2.7, .18, mat(color.dark), x, 1.37, -10.12, .03);
+  return { needles };
 }
 
 export function buildCabin(scene: THREE.Scene): CabinWorld {
   const root = new THREE.Group(); root.name = "Dear Passengers · Cabin"; scene.add(root);
+  const fabric=makeFabricTexture();
   const wall = mat(color.wall, .82), trim = mat(color.trim, .56, .1), dark = mat(color.dark, .7);
+  wall.bumpMap=fabric;wall.bumpScale=.004;
   const warmWhite = new THREE.MeshStandardMaterial({ color: 0xfff4d7, emissive: 0xffe4a7, emissiveIntensity: 1.2 });
   scene.background = new THREE.Color(0x8ed4f4);
   scene.fog = new THREE.Fog(0xcce8ed, 24, 68);
-  const ambient = new THREE.HemisphereLight(0xb9e7ff, 0x7b8278, 2.2); root.add(ambient);
-  const sunlight = new THREE.DirectionalLight(0xffedd0, 3.0);
+  const ambient = new THREE.HemisphereLight(0xb9dcf5, 0x7b7667, 1.55); root.add(ambient);
+  const sunlight = new THREE.DirectionalLight(0xffe4bb, 3.6);
   sunlight.position.set(-12, 18, 8); sunlight.castShadow = true;
   sunlight.shadow.mapSize.set(2048, 2048); sunlight.shadow.camera.left = -17; sunlight.shadow.camera.right = 17;
   sunlight.shadow.camera.top = 17; sunlight.shadow.camera.bottom = -17; sunlight.shadow.camera.near = .1; sunlight.shadow.camera.far = 55;
@@ -439,23 +620,23 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   for (let z = -10; z <= 10; z += 3) {
     box(root, .43, .048, .66, mat(0x8d9daa), 0, 3.97, z, .06);
     box(root, .30, .03, .48, warmWhite, 0, 3.936, z, .055);
-    if ((z + 10) % 9 === 0) { const light = new THREE.PointLight(0xffedca, 1.4, 11, 2); light.position.set(0, 3.45, z); root.add(light); }
+    if ((z + 10) % 9 === 0) { const light = new THREE.PointLight(0xffedca, 3.4, 11, 2); light.position.set(0, 3.45, z); root.add(light); }
   }
 
-  const bubbleMap = bubbleTexture();
+  const bubbleMap = bubbleTexture(),foodBubbleMap=bubbleTexture('food');
   const passengers: CabinPassenger[] = [];
   for (let row = 0; row < 4; row++) {
     const z = -7 + row * 4;
     for (const side of [-1, 1]) {
-      seat(root, side * 1.83, z);
-      const p = passenger(root, row * 2 + (side === 1 ? 1 : 0), side * 1.83, z, bubbleMap);
+      seat(root, side * 1.83, z,fabric);
+      const p = passenger(root, row * 2 + (side === 1 ? 1 : 0), side * 1.83, z, bubbleMap,fabric);
       passengers.push(p);
       const rowTag = label(root, `${row + 1}${side < 0 ? " A" : " B"}`, .42, .14, side * 1.98, 2.82, z + .45, "#2a3f58", "#fff2d0"); rowTag.rotation.y = side * .3;
     }
   }
 
-  buildCockpit(root);
-  const copilot = passenger(root, 1, 1.10, -10.73, bubbleMap);
+  const instruments=buildCockpit(root);
+  const copilot = passenger(root, 1, 1.10, -10.73, bubbleMap,fabric);
   copilot.group.rotation.y = Math.PI; copilot.bubble.visible = false;
   const pilotHead = copilot.group.userData.head as THREE.Group;
   const pilotHat = mat(0x233e61);
@@ -488,6 +669,22 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   makeCup(root, -.40, 1.085, 11.999, .72);
   for (let n = 0; n < 3; n++) makeCup(root, .12 + n * .19, 1.13, 12.09, .52);
   const rearLabel = label(root, "CREW · GALLEY", 1.80, .25, 0, 2.37, 12.00); rearLabel.rotation.y = Math.PI;
+
+  // A wall-mounted meal rack leaves room for the live-cargo carrier below and
+  // puts the visible trays at the service target used by the flight controls.
+  const mealSteel=mat(0xa1b5bc,.43,.22),mealBlue=mat(0x3b6172,.72);
+  box(root,.10,.72,.66,mealBlue,-2.76,1.03,10.16,.025);
+  box(root,1.62,.075,.69,mealSteel,-2.0,1.025,10.16,.028);
+  box(root,1.62,.075,.69,mealSteel,-2.0,1.55,10.16,.028);
+  box(root,1.58,.055,.035,dark,-2.0,1.085,9.815,.012);
+  box(root,1.58,.055,.035,dark,-2.0,1.61,9.815,.012);
+  for(const x of [-2.40,-1.68]){
+    box(root,.56,.036,.40,mealSteel,x,1.09,10.08,.025);
+    makeFood(root,x-.075,1.11,10.07,.9);
+    box(root,.145,.019,.205,mat(0xeee6d3,.95),x+.145,1.123,10.10,.01);
+    for(let n=0;n<3;n++)box(root,.55,.031,.39,mealSteel,x,1.615+n*.035,10.12,.02);
+  }
+  const mealSign=label(root,"MEALS",.88,.21,-1.88,1.90,9.87,"#d8a446","#253e4d");mealSign.rotation.y=Math.PI;
 
   // Clearly identifiable equipment stations sit within reach of the central aisle.
   box(root, .67, .09, .64, dark, 1.3, .73, 10.04, .035);
@@ -551,14 +748,13 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   const cargo = suitcase(root, 0xedac30, .79, .015, -8.53, 1.24);
   cargo.rotation.y = -.41; cargo.rotation.z = -.06;
   const fire = new THREE.Group(); fire.position.set(-.97, .03, -5.0); root.add(fire); fire.visible = false;
-  const flameParts: THREE.Mesh[] = [];
-  for (let n = 0; n < 8; n++) {
-    const angle = n * 2.39;
-    const flame = sphere(fire, new THREE.MeshBasicMaterial({ color: n % 2 ? 0xffa419 : 0xff6130, transparent: true, opacity: .85 }), Math.cos(angle) * .14, .29, Math.sin(angle) * .14, .15, .4 + (n % 3) * .08, .15);
-    flameParts.push(flame);
-  }
-  const core = sphere(fire, new THREE.MeshBasicMaterial({ color: 0xffe684 }), 0, .20, 0, .17, .32, .17); flameParts.push(core);
-  const fireLight = new THREE.PointLight(0xff9b26, 5, 5); fireLight.position.y = .65; fire.add(fireLight);
+  const fireEffect=buildVolumetricFire(fire);
+  const effects=buildCabinEffects(root);
+  const alarmMaterial=new THREE.MeshStandardMaterial({color:0xc95932,emissive:0xf56328,emissiveIntensity:.05,roughness:.4});
+  sphere(root,alarmMaterial,0,3.57,10.73,.14,.075,.14);
+  const alarmLight=new THREE.PointLight(0xff6535,0,12);alarmLight.position.set(0,3.16,10.2);root.add(alarmLight);
+  const flightState:CabinFlightVisualState={stage:'cruise',altitude:3500,speed:180,bank:0,pitch:0,pressure:1,fireIntensity:0,weather:'clear'};
+  let lowQuality=false;
 
   // Visible engine, wing and soft cloud banks outside the window openings.
   for (const side of [-1, 1]) {
@@ -568,11 +764,20 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     const hub = cylinder(root, mat(0x91a8b3), .14, .25, .21, side * 5.12, -.39, 2.35); hub.rotation.x = Math.PI / 2;
   }
   const clouds = new THREE.Group(); root.add(clouds);
-  const cloudMaterial = new THREE.MeshBasicMaterial({ color: 0xf2fbff, transparent: true, opacity: .88 });
+  const cloudMaterial = new THREE.MeshStandardMaterial({ color: 0xf0f8fc,roughness:1,transparent:true,opacity:.95 });
   for (let n = 0; n < 32; n++) {
     const side = n % 2 ? -1 : 1;
     const g = new THREE.Group(); g.position.set(side * (12 + n % 5 * 4), -1.7 + n % 4 * 2.2, -42 + n * 3.8); clouds.add(g);
-    for (let k = 0; k < 4; k++) sphere(g, cloudMaterial, (k - 1.5) * 1.2, Math.sin(k * 2) * .45, Math.cos(k * 1.9) * .35, 1.35, .66 + k % 2 * .26, .87);
+    for (let k = 0; k < 4; k++) {
+      const cloud=sphere(g,cloudMaterial,(k-1.5)*1.2,Math.sin(k*2)*.36,Math.cos(k*1.9)*.35,1.38,.76+k%2*.30,.98);
+      cloud.castShadow=false;cloud.receiveShadow=false;
+      const positions=cloud.geometry.attributes.position;
+      for(let v=0;v<positions.count;v++){
+        const x=positions.getX(v),y=positions.getY(v),z=positions.getZ(v),noise=1+Math.sin(x*11+k)*Math.sin(z*9+n)*.075;
+        positions.setXYZ(v,x*noise,y*noise,z*noise);
+      }
+      cloud.geometry.computeVertexNormals();
+    }
   }
   const coast = new THREE.Group(), mountains = new THREE.Group(), night = new THREE.Group();
   root.add(coast, mountains, night); mountains.visible = false; night.visible = false;
@@ -607,19 +812,38 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
     const trash = box(root, .12, .09, .18, mat(i % 2 ? 0xd89e52 : 0x80c2be), (i % 2 ? -1 : 1) * (.91 + i % 3 * .035), .065, -6.3 + i * 1.9, .022);
     trash.rotation.set(.2, i * 1.2, .4);
   }
+  const objects=makeLooseObjects(root,fabric);
+  const shadowTexture=makeContactShadowTexture();
+  const contactMaterial=new THREE.MeshBasicMaterial({map:shadowTexture,transparent:true,opacity:.62,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1});
+  for(const p of passengers){
+    const shadow=new THREE.Mesh(new THREE.PlaneGeometry(1.8,1.95),contactMaterial);shadow.rotation.x=-Math.PI/2;shadow.position.set(p.position.x,-.008,p.position.z+.17);root.add(shadow);
+  }
+  for(const at of [[.81,7.02,1,1.2],[-1.37,9.76,1.1,.94],[-.72,2.7,.7,.7]]){
+    const shadow=new THREE.Mesh(new THREE.PlaneGeometry(at[2],at[3]),contactMaterial);shadow.rotation.x=-Math.PI/2;shadow.position.set(at[0],-.008,at[1]);root.add(shadow);
+  }
 
   const removedGeometries = new Set<THREE.BufferGeometry>(), removedMaterials = new Set<THREE.Material>();
+  bakeSolidColours(root,removedMaterials);
   const actors = [...passengers, copilot];
   const movingGroups = new Set<THREE.Object3D>([
-    ...actors.map(p => p.group), cart, cargo, door, fire, clouds, coast, mountains, night,
+    ...actors.map(p => p.group), ...objects.map(o=>o.group), ...instruments.needles, effects.root, cart, cargo, door, fire, clouds, coast, mountains, night,
   ]);
   const before = { meshes: 0 }; root.traverse(object => { if (object instanceof THREE.Mesh) before.meshes++; });
   batchStaticGeometry(root, movingGroups, removedGeometries, removedMaterials);
   for (const p of actors) {
     const head = p.group.userData.head as THREE.Group, belt = p.group.userData.belt as THREE.Group;
+    const eyes=p.group.userData.eyes as THREE.Group,mouth=p.group.userData.mouth as THREE.Group,gasp=p.group.userData.gasp as THREE.Group;
     batchStaticGeometry(p.group, new Set([head, belt]), removedGeometries, removedMaterials);
-    batchStaticGeometry(head, new Set(), removedGeometries, removedMaterials);
+    batchStaticGeometry(head, new Set([eyes,mouth,gasp]), removedGeometries, removedMaterials);
+    for(const part of [eyes,mouth,gasp])batchStaticGeometry(part,new Set(),removedGeometries,removedMaterials);
     batchStaticGeometry(belt, new Set(), removedGeometries, removedMaterials);
+  }
+  for(const object of objects){
+    const animal=object.group.userData.animal as THREE.Group|undefined;
+    const animalHead=object.group.userData.animalHead as THREE.Group|undefined;
+    batchStaticGeometry(object.group,new Set(animal?[animal]:[]),removedGeometries,removedMaterials);
+    if(animal)batchStaticGeometry(animal,new Set(animalHead?[animalHead]:[]),removedGeometries,removedMaterials);
+    if(animalHead)batchStaticGeometry(animalHead,new Set(),removedGeometries,removedMaterials);
   }
   // The parent transforms remain live: cart sway, door hinge, clouds and route
   // visibility all continue to work on their original public object references.
@@ -641,7 +865,7 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   root.userData.batchStats = { beforeMeshes: before.meshes, afterMeshes };
 
   return {
-    root, passengers, cart, door, fire, cargo,
+    root, passengers, cart, door, fire, cargo, objects,
     galley: new THREE.Vector3(0, 1.1, 11.7), cockpit: new THREE.Vector3(0, 1.3, -11.5),
     setRoute(nextRoute) {
       route = ((nextRoute % 3) + 3) % 3;
@@ -649,35 +873,62 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
       const background = [0x8ed4f4, 0x7d94ab, 0x11243f][route];
       (scene.background as THREE.Color).setHex(background);
       (scene.fog as THREE.Fog).color.setHex(background); (scene.fog as THREE.Fog).far = route === 1 ? 54 : 90;
-      sunlight.color.setHex([0xffedd0, 0xd1e2f0, 0x83b8ef][route]); sunlight.intensity = [3, .9, .38][route];
-      ambient.intensity = [2.2, 1.65, 1.08][route]; ambient.color.setHex([0xb9e7ff,0xa6bed2,0x7aa9dc][route]);
+      sunlight.color.setHex([0xffe4bb, 0xd1e2f0, 0x83b8ef][route]); sunlight.intensity = [3.6, 1.0, .38][route];
+      ambient.intensity = [1.55, 1.25, 1.02][route]; ambient.color.setHex([0xb9dcf5,0xa6bed2,0x7aa9dc][route]);
       fill.intensity = [.8,.6,.35][route];
       cloudMaterial.color.setHex([0xf2fbff,0x9eafba,0x405672][route]); cloudMaterial.opacity = route === 2 ? .48 : .88;
       warmWhite.emissiveIntensity = route === 2 ? 2 : 1.2;
     },
+    setFlightState(state){Object.assign(flightState,state);},
+    setPassengerState(id,state){
+      const p=passengers.find(passenger=>passenger.id===id);if(!p)return;
+      Object.assign(p.group.userData.visualState,state);
+      if(state.belted!==undefined)(p.group.userData.belt as THREE.Group).visible=state.belted;
+      if(state.served)p.bubble.visible=false;
+      if(state.request){p.bubble.userData.request=state.request;(p.bubble.material as THREE.SpriteMaterial).map=state.request==='food'?foodBubbleMap:bubbleMap;}
+    },
+    setLowQuality(enabled){
+      lowQuality=enabled;sunlight.shadow.mapSize.set(enabled?1024:2048,enabled?1024:2048);sunlight.shadow.map?.dispose();sunlight.shadow.map=null;
+      root.traverse(object=>{const drawable=object as THREE.Mesh;if(drawable.material)(Array.isArray(drawable.material)?drawable.material:[drawable.material]).forEach(material=>{material.needsUpdate=true;});});
+    },
     update(time, turbulence) {
       for (const p of passengers) {
         const head = p.group.userData.head as THREE.Group;
-        head.rotation.z = Math.sin(time * 1.3 + p.id * 1.8) * .035 + Math.sin(time * 16 + p.id) * turbulence * .10;
+        const visual=p.group.userData.visualState as PassengerVisualState;
+        const panic=THREE.MathUtils.clamp(visual.panic,0,1);
+        head.rotation.z = Math.sin(time * 1.3 + p.id * 1.8) * .035 + Math.sin(time * 16 + p.id) * turbulence * .075;
+        head.rotation.x=Math.sin(time*(panic>.5?5:1.1)+p.id)*(.014+panic*.045);
+        head.rotation.y=(p.position.x>0?-.18:.18)+Math.sin(time*.63+p.id*2)*(.055+panic*.08);
+        const blink=(time+p.id*1.47)%(4.2+p.id*.31),blinkScale=blink<.15?Math.max(.055,Math.abs(blink-.075)/.075):1;
+        (p.group.userData.eyes as THREE.Group).scale.y=blinkScale;
+        (p.group.userData.mouth as THREE.Group).visible=panic<.57;
+        (p.group.userData.gasp as THREE.Group).visible=panic>=.57;
         p.bubble.position.y = 2.83 + Math.sin(time * 2.2 + p.id) * .055;
-        p.group.rotation.z = Math.sin(time * 9 + p.id) * turbulence * .026;
       }
-      for (let i = 0; i < flameParts.length; i++) {
-        flameParts[i].scale.y = .35 + Math.sin(time * 12 + i * 1.7) * .13 + (i % 3) * .12;
-        flameParts[i].rotation.z = Math.sin(time * 8 + i) * .15;
-      }
-      fireLight.intensity = 4 + Math.sin(time * 15) * 1.2;
+      fireEffect.update(time,flightState.fireIntensity||1,lowQuality);
+      effects.update(time,flightState,route,lowQuality);
+      const alarm=flightState.pressure<.77||fire.visible;
+      const alarmPulse=alarm?(.3+Math.max(0,Math.sin(time*5))*.7):0;
+      alarmLight.intensity=alarmPulse*3.7;alarmMaterial.emissiveIntensity=.05+alarmPulse*1.8;
+      instruments.needles[0].rotation.z=-THREE.MathUtils.degToRad(flightState.speed*1.3-120);
+      instruments.needles[1].rotation.z=-THREE.MathUtils.degToRad((flightState.altitude/20)%360);
+      instruments.needles[2].rotation.z=THREE.MathUtils.degToRad(flightState.bank);
+      instruments.needles[3].rotation.z=-.8+Math.sin(time*.02)*.12;
+      instruments.needles[4].rotation.z=(1-flightState.pressure)*3.8-1.9;
+      const pet=objects[2].group;
+      (pet.userData.animal as THREE.Group).scale.y=1+Math.sin(time*2.4)*.025;
+      (pet.userData.animalHead as THREE.Group).rotation.y=Math.sin(time*.71)*.17;
       for (let i = 0; i < clouds.children.length; i++) clouds.children[i].position.z = ((-42 + i * 3.8 + time * (route === 1 ? 1.6 : .6)) % 120 + 120) % 120 - 60;
       pilotHead.rotation.z = Math.sin(time * 1.1) * .022;
       if (route === 1) sunlight.intensity = time > 4 && time % 23 < .09 ? 5 : .9;
     },
     dispose() {
-      const geometries = new Set<THREE.BufferGeometry>(); const materials = new Set<THREE.Material>(); const textures = new Set<THREE.Texture>();
+      const geometries = new Set<THREE.BufferGeometry>(); const materials = new Set<THREE.Material>(); const textures = new Set<THREE.Texture>([bubbleMap,foodBubbleMap,fabric]);
       root.traverse(object => {
         const mesh = object as THREE.Mesh;
         if (mesh.geometry) geometries.add(mesh.geometry);
         if (mesh.material) for (const m of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
-          materials.add(m); const texture = (m as THREE.MeshStandardMaterial).map; if (texture) textures.add(texture);
+          materials.add(m);for(const value of Object.values(m)){if(value&&(value as THREE.Texture).isTexture)textures.add(value as THREE.Texture);}
         }
       });
       geometries.forEach(g => g.dispose()); materials.forEach(m => m.dispose()); textures.forEach(t => t.dispose());
@@ -686,10 +937,68 @@ export function buildCabin(scene: THREE.Scene): CabinWorld {
   };
 }
 
-export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench"): THREE.Group {
+export function makeIdleHands():THREE.Group {
+  const group=new THREE.Group();const glove=mat(0x079fcd,.55),cuff=mat(0xe4e6de,.91);
+  for(const side of [-1,1]){
+    limb(group,glove,[side*.54,-.43,.13],[side*.28,-.20,-.06],.077);
+    const sleeve=cylinder(group,cuff,.093,.093,.11,side*.51,-.409,.106);sleeve.rotation.z=side*.84;sleeve.rotation.x=-.5;
+    sphere(group,glove,side*.27,-.18,-.075,.078,.088,.052);
+    for(let n=0;n<4;n++)limb(group,glove,[side*.27+(n-1.5)*.031,-.151,-.093],[side*.27+(n-1.5)*.031,-.112,-.151+(n%2)*.009],.019);
+    limb(group,glove,[side*.222,-.182,-.094],[side*.193,-.151,-.132],.026);
+  }
+  return optimiseStandalone(group);
+}
+
+export function makeCrewAvatar(index:number):THREE.Group{
+  const root=new THREE.Group(),tone=[0x079fcd,0xd35b43,0xe7b934,0x35a26f][((index%4)+4)%4];
+  const skin=mat(tone,.82),shirt=mat(0xe9ece5,.92),navy=mat(0x273d60,.88),hat=mat(0x343d73,.86),gold=mat(0xe3bd65,.6);
+  for(const side of [-1,1]){
+    limb(root,navy,[side*.12,.65,0],[side*.12,.16,.02],.085);
+    sphere(root,skin,side*.12,.091,.064,.103,.072,.176);
+  }
+  box(root,.435,.48,.275,shirt,0,.914,0,.10);
+  cylinder(root,skin,.078,.079,.12,0,1.204,0);
+  for(const side of [-1,1]){const collar=box(root,.112,.12,.025,shirt,side*.071,1.12,.138,.015);collar.rotation.z=side*.42;}
+  box(root,.045,.24,.024,navy,0,1.01,.153,.009);
+  const tieTip=new THREE.Mesh(new THREE.ConeGeometry(.035,.065,4),navy);tieTip.position.set(0,.862,.15);tieTip.rotation.z=Math.PI;root.add(tieTip);
+  box(root,.09,.083,.021,shirt,-.128,.986,.147,.012);
+  box(root,.037,.047,.013,gold,-.128,.997,.165,.006);
+  const head=new THREE.Group();head.position.set(0,1.398,0);root.add(head);root.userData.head=head;
+  sphere(head,skin,0,0,0,.211,.254,.181);
+  for(const side of [-1,1]){
+    sphere(head,skin,side*.203,-.016,0,.045,.065,.039);
+    sphere(head,mat(0xfff6df,.65),side*.095,.035,.162,.101,.121,.037);
+    sphere(head,mat(0x273238,.43),side*.096,.012,.197,.029,.039,.010);
+    sphere(head,mat(0xffffff,.4),side*.096-.009,.027,.207,.006);
+  }
+  sphere(head,skin,0,-.071,.186,.037,.042,.04);
+  const smile=new THREE.CatmullRomCurve3([new THREE.Vector3(-.086,-.14,.141),new THREE.Vector3(0,-.154,.165),new THREE.Vector3(.086,-.136,.14)]);
+  head.add(new THREE.Mesh(new THREE.TubeGeometry(smile,12,.008,5,false),mat(new THREE.Color(tone).multiplyScalar(.62))));
+  cylinder(head,hat,.249,.222,.10,0,.254,-.005,24);
+  sphere(head,hat,0,.309,-.025,.243,.074,.20);
+  box(head,.332,.034,.235,navy,0,.221,.145,.060);
+  const band=new THREE.Mesh(new THREE.TorusGeometry(.217,.010,5,28),gold);band.rotation.x=Math.PI/2;band.position.y=.236;head.add(band);
+  const wing=new THREE.Group();wing.position.set(0,.282,.202);head.add(wing);
+  sphere(wing,gold,0,0,0,.025,.026,.01);
+  for(const side of [-1,1]){const badge=box(wing,.091,.024,.012,gold,side*.063,0,0,.009);badge.rotation.z=side*.13;}
+  const arms:THREE.Group[]=[];
+  for(const side of [-1,1]){
+    const arm=new THREE.Group();arm.position.set(side*.244,1.053,0);root.add(arm);arms.push(arm);
+    limb(arm,shirt,[0,.015,0],[side*.043,-.167,.012],.088);
+    limb(arm,skin,[side*.041,-.157,.011],[side*.061,-.354,.021],.054);
+    sphere(arm,skin,side*.064,-.377,.03,.064,.073,.047);
+    for(let n=0;n<3;n++)limb(arm,skin,[side*.06+(n-1)*.027,-.398,.029],[side*.059+(n-1)*.027,-.448,.042],.015);
+    for(let n=0;n<2;n++)box(arm,.12,.016,.115,gold,side*.019,-.015-n*.039,.029,.005);
+  }
+  root.userData.arms=arms;root.userData.leftArm=arms[0];root.userData.rightArm=arms[1];
+  return optimiseStandalone(root,[head,...arms]);
+}
+
+export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench" | "food" | "suitcase", withHands=true): THREE.Group {
   const g = new THREE.Group();
   const glove = mat(0x10b4d5, .45); const cuff = mat(0xe8ece7); const dark = mat(0x263b48);
-  // Hands are modelled, including separate curved fingers, so held props have weight.
+  // Carried items have blue hands; loose and remote props do not.
+  if(withHands){
   limb(g, glove, [.48, -.29, .36], [.16, -.05, .11], .092);
   sphere(g, glove, .115, .04, .055, .108, .105, .09);
   const cuffMesh = cylinder(g, cuff, .114, .114, .12, .47, -.27, .34); cuffMesh.rotation.z = -.76; cuffMesh.rotation.x = -.7;
@@ -698,7 +1007,10 @@ export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench"): THREE.
     sphere(g, glove, -.015, .11 - f * .05, .126, .03, .03, .036);
   }
   limb(g, glove, [.12, .11, .022], [.049, .17, -.021], .038);
+  }
   if (kind === "coffee") makeCup(g, -.02, -.09, 0, 1.18);
+  if (kind === "food") makeFood(g,-.035,-.025,0,1.23);
+  if (kind === "suitcase") {const heldCase=suitcase(g,0xe6ae49,-.08,-.35,-.025,.72);heldCase.rotation.y=.12;}
   if (kind === "extinguisher") {
     cylinder(g, mat(0xda4239, .36, .1), .105, .108, .42, -.02, .11, -.016);
     sphere(g, mat(0xda4239), -.02, .317, -.016, .105, .06, .105);
@@ -716,5 +1028,5 @@ export function makeHeldItem(kind: "coffee" | "extinguisher" | "wrench"): THREE.
     for (const x of [-.12, .08]) box(g, .057, .15, .055, steel, x, .45, 0, .013);
     box(g, .115, .23, .07, mat(0xe2a840), -.02, -.045, 0, .03);
   }
-  return g;
+  return optimiseStandalone(g);
 }
