@@ -42,4 +42,15 @@ The public official game build was not available for comparison. These browser m
 
 ## Release
 
-Source deployment branch: `codex/github-publish`. Pages artifact branch: `main` for project `dear-passengers`; these are different concepts. Worker project: `dear-passengers-flight-rooms`. The main release record will include the verified production URLs and commit after deployment.
+Released on 2026-10-04 from source commit `4cbb4a7` after merging the implementation branch and completing the checks above.
+
+- Live game: https://dearpassengers.net/play/cabin-crisis/
+- Pages deployment: https://ebb73746.dear-passengers-9bn.pages.dev
+- Multiplayer service: https://dear-passengers-flight-rooms.ht751810808.workers.dev
+- Worker version: `4cafde4b-a84b-4c46-b3e5-527873e8f0f3`
+
+Source deployment branch: `codex/github-publish`. Pages artifact branch: `main` for project `dear-passengers`; these are different concepts. Worker project: `dear-passengers-flight-rooms`.
+
+Production verification passed all 12 UI/network/visual checks using two independent browser clients. A guest moved through the cabin and fastened a seatbelt; both clients advanced from 0/3 to 1/3. Room creation, joining, pause access, host termination and guest exit worked. Both clients used the deployed WSS service; there were no game resource failures, CORS errors, WebSocket errors or JavaScript exceptions. Five aborted third-party Google Analytics requests are recorded separately and are not presented as game failures. The sole test room was ended and both test browsers were closed.
+
+Evidence: [production UI report](evidence/production-ui.json), [production HTTP report](evidence/production-http.json), [shared cabin](evidence/production-cabin.png), [mobile header](evidence/production-mobile.png). The production UI report omits analytics query parameters; the original transient run log remains outside the repository.

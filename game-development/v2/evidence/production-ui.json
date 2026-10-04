@@ -1,0 +1,246 @@
+{
+  "url": "https://dearpassengers.net/play/cabin-crisis/",
+  "startedAt": "2026-10-04T09:38:48.647Z",
+  "roomCount": 1,
+  "checks": [
+    {
+      "name": "Production shows six contracts",
+      "status": "passed",
+      "detail": [
+        "Coastal welcome",
+        "Island express",
+        "Alpine relief",
+        "Storm courier",
+        "Night shift",
+        "Atlantic emergency"
+      ]
+    },
+    {
+      "name": "390px online button is a single line and header controls do not overflow",
+      "status": "passed",
+      "detail": {
+        "button": {
+          "rect": {
+            "x": 144.0625,
+            "y": 15,
+            "width": 76.9375,
+            "height": 34.5,
+            "top": 15,
+            "right": 221,
+            "bottom": 49.5,
+            "left": 144.0625
+          },
+          "whiteSpace": "nowrap",
+          "lineRects": [
+            {
+              "x": 153.0625,
+              "y": 25,
+              "width": 58.9375,
+              "height": 14,
+              "top": 25,
+              "right": 212,
+              "bottom": 39,
+              "left": 153.0625
+            }
+          ]
+        },
+        "controls": [
+          {
+            "text": "DP AIRLINESFlight operations / Crew dispatch",
+            "rect": {
+              "x": 20,
+              "y": 17.25,
+              "width": 110.375,
+              "height": 30,
+              "top": 17.25,
+              "right": 130.375,
+              "bottom": 47.25,
+              "left": 20
+            }
+          },
+          {
+            "text": "Online co-op",
+            "rect": {
+              "x": 144.0625,
+              "y": 15,
+              "width": 76.9375,
+              "height": 34.5,
+              "top": 15,
+              "right": 221,
+              "bottom": 49.5,
+              "left": 144.0625
+            }
+          },
+          {
+            "text": "中文",
+            "rect": {
+              "x": 225,
+              "y": 15.25,
+              "width": 34,
+              "height": 34,
+              "top": 15.25,
+              "right": 259,
+              "bottom": 49.25,
+              "left": 225
+            }
+          },
+          {
+            "text": "",
+            "rect": {
+              "x": 262,
+              "y": 15.25,
+              "width": 34,
+              "height": 34,
+              "top": 15.25,
+              "right": 296,
+              "bottom": 49.25,
+              "left": 262
+            }
+          },
+          {
+            "text": "HQ",
+            "rect": {
+              "x": 299,
+              "y": 15.25,
+              "width": 34,
+              "height": 34,
+              "top": 15.25,
+              "right": 333,
+              "bottom": 49.25,
+              "left": 299
+            }
+          },
+          {
+            "text": "",
+            "rect": {
+              "x": 336,
+              "y": 15.25,
+              "width": 34,
+              "height": 34,
+              "top": 15.25,
+              "right": 370,
+              "bottom": 49.25,
+              "left": 336
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "One production room created",
+      "status": "passed"
+    },
+    {
+      "name": "Guest joins production room and waits for host",
+      "status": "passed"
+    },
+    {
+      "name": "Production roster contains both clients",
+      "status": "passed"
+    },
+    {
+      "name": "Host boarding synchronizes DP 101 and all initial checklist values",
+      "status": "passed",
+      "detail": {
+        "hostChecklist": "CREW CHECKLIST\n0/6\nPassenger seatbelts\n0/3\nStart takeoff at cockpit\n!\nCoffee service\n0/3",
+        "guestChecklist": "CREW CHECKLIST\n0/6\nPassenger seatbelts\n0/3\nStart takeoff at cockpit\n!\nCoffee service\n0/3"
+      }
+    },
+    {
+      "name": "Guest movement and E interaction perform a real synchronized seatbelt task",
+      "status": "passed",
+      "detail": {
+        "hostChecklist": "CREW CHECKLIST\n0/6\nPassenger seatbelts\n1/3\nStart takeoff at cockpit\n!\nCoffee service\n0/3",
+        "guestChecklist": "CREW CHECKLIST\n0/6\nPassenger seatbelts\n1/3\nStart takeoff at cockpit\n!\nCoffee service\n0/3"
+      }
+    },
+    {
+      "name": "Production pause panel opens persistent crew room",
+      "status": "passed"
+    },
+    {
+      "name": "Ending room returns host to departures",
+      "status": "passed"
+    },
+    {
+      "name": "Guest receives room end and leaves to departures",
+      "status": "passed"
+    },
+    {
+      "name": "Production worker uses WSS with no CORS, WebSocket or JavaScript errors",
+      "status": "passed",
+      "detail": {
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "gameOrRoomServiceFailedRequests": 0,
+        "webSockets": [
+          {
+            "client": "host",
+            "url": "wss://dear-passengers-flight-rooms.ht751810808.workers.dev/rooms/PSJJPKSE/socket"
+          },
+          {
+            "client": "guest",
+            "url": "wss://dear-passengers-flight-rooms.ht751810808.workers.dev/rooms/PSJJPKSE/socket"
+          }
+        ],
+        "thirdPartyAnalyticsAborted": 5
+      }
+    },
+    {
+      "name": "Spawn positions are separated with no near-camera teammate obstruction",
+      "status": "passed",
+      "method": "visual inspection",
+      "evidence": [
+        "host-spawn.png",
+        "guest-spawn.png"
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [
+    {
+      "client": "host",
+      "url": "https://analytics.google.com/g/collect",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "client": "host",
+      "url": "https://analytics.google.com/g/collect",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "client": "guest",
+      "url": "https://analytics.google.com/g/collect",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "client": "guest",
+      "url": "https://analytics.google.com/g/collect",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "client": "guest",
+      "url": "https://analytics.google.com/g/collect",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "webSockets": [
+    {
+      "client": "host",
+      "url": "wss://dear-passengers-flight-rooms.ht751810808.workers.dev/rooms/PSJJPKSE/socket"
+    },
+    {
+      "client": "guest",
+      "url": "wss://dear-passengers-flight-rooms.ht751810808.workers.dev/rooms/PSJJPKSE/socket"
+    }
+  ],
+  "notes": [
+    "The original final assertion included every failed HTTP request and flagged five third-party Google Analytics collect requests with net::ERR_ABORTED. These are retained in failedRequests and raw-summary.json. Inspection confirmed no failed game asset, room-service request, CORS error, or WebSocket error; the game-network check is passed on that scoped evidence. No extra room was created."
+  ],
+  "completedAt": "2026-10-04T09:39:12.720Z",
+  "passed": true,
+  "reviewedAt": "2026-10-04T09:39:52.172804+00:00",
+  "roomClosed": true,
+  "deployment": "ebb73746"
+}

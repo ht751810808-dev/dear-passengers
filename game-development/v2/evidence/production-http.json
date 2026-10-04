@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-04T09:37:53.685Z",
+  "url": "https://dearpassengers.net/play/cabin-crisis/",
+  "status": 200,
+  "containsOnlineCoop": true,
+  "sixContracts": true,
+  "noindex": true,
+  "excludedFromSitemap": true,
+  "worker": {
+    "status": 200,
+    "service": "flight-rooms",
+    "protocol": 1
+  },
+  "assets": [
+    {
+      "path": "/_next/static/chunks/1ad17d82-34c8a504cfde2200.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/571-9cabae0a37556732.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/main-app-e24821571858c833.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/app/play/cabin-crisis/page-593becc53f79a82a.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/app/layout-d624cf7c10bd62d3.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/webpack-cfcb4ea48eae9d43.js",
+      "status": 200
+    }
+  ]
+}
